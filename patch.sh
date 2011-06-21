@@ -10,6 +10,7 @@ git commit -a -m 'testing patchset'
 
 function bugs_trivial {
 echo "bugs and trivial stuff"
+patch -s -p1 < "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
 }
 
 function freescale {
@@ -19,7 +20,7 @@ patch -p1 -s < "${DIR}/patches/freescale/0001-arm-imx-freescale-2.6.35.3-imx_11.
 }
 
 bugs_trivial
-freescale
+#freescale
 
 echo "patch.sh ran successful"
 
