@@ -137,7 +137,7 @@ function patch_kernel {
 
 function copy_defconfig {
 	cd ${DIR}/KERNEL/
-#	make ARCH=arm CROSS_COMPILE=${CC} distclean
+	make ARCH=arm CROSS_COMPILE=${CC} distclean
 	cp ${DIR}/patches/defconfig .config
 	cd ${DIR}/
 }
