@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.35.3
-# Tue Jun 28 12:46:49 2011
+# Wed Jun 29 11:31:50 2011
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
@@ -2053,10 +2053,6 @@ CONFIG_STAGING=y
 # CONFIG_ST_BT is not set
 # CONFIG_ADIS16255 is not set
 # CONFIG_ATH6K_LEGACY is not set
-# CONFIG_AR600x_SD31_XXX is not set
-# CONFIG_AR600x_WB31_XXX is not set
-# CONFIG_AR600x_SD32_XXX is not set
-# CONFIG_AR600x_CUSTOM_XXX is not set
 
 #
 # MXC support drivers
