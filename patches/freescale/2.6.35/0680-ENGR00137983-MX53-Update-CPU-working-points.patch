@@ -1,7 +1,7 @@
 From ff6250978c8ec9158c41c71061fb38e47a0bc903 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sat, 15 Jan 2011 16:18:35 +0800
-Subject: [PATCH 680/850] ENGR00137983 MX53: Update CPU working points
+Subject: [PATCH 680/902] ENGR00137983 MX53: Update CPU working points
 
 - Set working points for different part numbers according
 to RevD datasheet.

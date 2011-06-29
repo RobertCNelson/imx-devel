@@ -1,7 +1,7 @@
 From 1b7aeb43170b12f46d7b13d37dee7e43d3fcdcad Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 10 Jan 2011 18:39:52 +0800
-Subject: [PATCH 656/850] ENGR00137783-1 MXC V4L2 capture:Add several ioctrl support
+Subject: [PATCH 656/902] ENGR00137783-1 MXC V4L2 capture:Add several ioctrl support
 
 This patch supports VIDIOC_ENUM_FMT, VIDIOC_ENUM_FRAMESIZES
 and VIDIOC_DBG_G_CHIP_IDENT ioctrls.

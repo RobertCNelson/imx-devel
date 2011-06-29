@@ -1,7 +1,7 @@
 From b39b1f3bcdc4ee99319f478aa71e9b701719f165 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 4 Jan 2011 15:35:57 +0800
-Subject: [PATCH 595/850] ENGR00137559 MXC V4L2 overlay:Don't clear FG position after preview
+Subject: [PATCH 595/902] ENGR00137559 MXC V4L2 overlay:Don't clear FG position after preview
 
 The FG window will go to the left-top corner of the display panel
 after preview. So, remove the code to clear FG position when we

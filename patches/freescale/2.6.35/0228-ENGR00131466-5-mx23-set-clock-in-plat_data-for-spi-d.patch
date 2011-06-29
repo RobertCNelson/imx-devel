@@ -1,7 +1,7 @@
 From 2967c56ac8188bcf98970aed6e3818e8c8c415e7 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 14 Sep 2010 13:54:02 +0800
-Subject: [PATCH 228/850] ENGR00131466-5 mx23: set clock in plat_data for spi device
+Subject: [PATCH 228/902] ENGR00131466-5 mx23: set clock in plat_data for spi device
 
 1. Set the correct clock to use in plat_data
 2. Change to use the platform_data of platform_device to pass the pin

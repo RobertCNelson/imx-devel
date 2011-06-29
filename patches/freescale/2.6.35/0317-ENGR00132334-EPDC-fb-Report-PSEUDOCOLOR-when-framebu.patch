@@ -1,7 +1,7 @@
 From 86f3eb13dcf921638301553ce400e7e66dddad25 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Mon, 11 Oct 2010 15:09:45 -0500
-Subject: [PATCH 317/850] ENGR00132334 - EPDC fb: Report PSEUDOCOLOR when framebuffer set to grayscale
+Subject: [PATCH 317/902] ENGR00132334 - EPDC fb: Report PSEUDOCOLOR when framebuffer set to grayscale
 
 EPDC FB driver currently always reports FB_VISUAL_TRUECOLOR as the visual
 element of fb_fix_screeninfo.  For grayscale formats, it should report

@@ -1,7 +1,7 @@
 From dc2b1d89dc7ab49575febbc01fd2debaf78c04d8 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 11 Nov 2010 16:24:11 +0800
-Subject: [PATCH 422/850] ENGR00133593 ePXP: make clk_disable() be called only in process context
+Subject: [PATCH 422/902] ENGR00133593 ePXP: make clk_disable() be called only in process context
 
 The main reason is to allow for voltage scaling which will
 happen as a result of calls to clk_[en|dis]able().

@@ -1,7 +1,7 @@
 From e8609b39afc0bc94907c2902575e728e5c4ea9a8 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 9 Dec 2010 15:34:38 -0600
-Subject: [PATCH 533/850] ENGR00136190: MX50 RD1: Incorrect IOMUX settings break WVGA display
+Subject: [PATCH 533/902] ENGR00136190: MX50 RD1: Incorrect IOMUX settings break WVGA display
 
 Setting DSE to high and ODE bits in I2C3_SDA IOMUX pad causes WVGA to fail.
 Fix is to use the default values for pad control.

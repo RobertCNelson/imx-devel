@@ -1,7 +1,7 @@
 From b11803c989a82c7b6e2989465ae7e18bfefa12f5 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 23 Feb 2011 18:13:23 +0800
-Subject: [PATCH 793/850] ENGR00139643-2 header file: can not read edid at probe for first power on
+Subject: [PATCH 793/902] ENGR00139643-2 header file: can not read edid at probe for first power on
 
 Need enable analog regulator.
 

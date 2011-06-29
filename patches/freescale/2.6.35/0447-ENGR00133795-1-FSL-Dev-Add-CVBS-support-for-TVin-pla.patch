@@ -1,7 +1,7 @@
 From 63c5c3d50b6f1f86deb9a1989d270c7975d4caf0 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 17 Nov 2010 13:48:12 +0800
-Subject: [PATCH 447/850] ENGR00133795-1 FSL Dev:Add CVBS support for TVin platform data
+Subject: [PATCH 447/902] ENGR00133795-1 FSL Dev:Add CVBS support for TVin platform data
 
 This patch adds CVBS support for TVin platform data.
 

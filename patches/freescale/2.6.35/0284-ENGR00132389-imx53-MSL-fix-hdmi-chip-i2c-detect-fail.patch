@@ -1,7 +1,7 @@
 From dd1751eeca794850a772ade91bf529735b4f4056 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 11 Oct 2010 12:52:11 +0800
-Subject: [PATCH 284/850] ENGR00132389 imx53 MSL:fix hdmi chip i2c detect fail issue
+Subject: [PATCH 284/902] ENGR00132389 imx53 MSL:fix hdmi chip i2c detect fail issue
 
 Add gpio_direction_output setting for MX53_DVI_RESET.
 

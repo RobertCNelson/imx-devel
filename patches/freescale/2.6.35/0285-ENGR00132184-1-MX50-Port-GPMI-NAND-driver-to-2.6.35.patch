@@ -1,7 +1,7 @@
 From ba7dd7d2fa03b35ebe703756816b45f621192fbc Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 28 Sep 2010 17:51:24 +0800
-Subject: [PATCH 285/850] ENGR00132184-1 MX50: Port GPMI NAND driver to 2.6.35
+Subject: [PATCH 285/902] ENGR00132184-1 MX50: Port GPMI NAND driver to 2.6.35
 
 Add MSL part for GPMI Nand driver for Reference Design Board
 Move __setup() to driver to remove the conflict between ARM2 and RD board

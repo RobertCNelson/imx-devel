@@ -1,7 +1,7 @@
 From b4711f2599cf5cc246af91a4b8d88f345ab8428c Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Wed, 5 Jan 2011 14:16:21 +0800
-Subject: [PATCH 619/850] ENGR00137502-2 SDHCI: Enable Sandisk eMMC DDR mode on SMD
+Subject: [PATCH 619/902] ENGR00137502-2 SDHCI: Enable Sandisk eMMC DDR mode on SMD
 
 A while delay is mandatory required by Sandisk eMMC44 card when
 enable the DDR mode, since this eMMC44 chip soldered on the SMD board

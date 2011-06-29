@@ -1,7 +1,7 @@
 From 5cbec130bdc8f80b956bd662d7b3c3face00a7c8 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 9 Dec 2010 20:37:12 +0800
-Subject: [PATCH 526/850] ENGR00136170 MX50: Add ZQ calibration revision for TO1.1
+Subject: [PATCH 526/902] ENGR00136170 MX50: Add ZQ calibration revision for TO1.1
 
 LPDDR2 ZQ calibration is different from mDDR/DDR2 in this version.
 The patch added a workaround to get appropriate pu/pd value for h/w.

@@ -1,7 +1,7 @@
 From f0e0494ea2242015265d8c407b3692ba75ec03d4 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 17 Feb 2011 16:04:02 +0800
-Subject: [PATCH 778/850] ENGR00139354-3 mxc edid: add common ddc driver support
+Subject: [PATCH 778/902] ENGR00139354-3 mxc edid: add common ddc driver support
 
 Add common ddc driver support.
 

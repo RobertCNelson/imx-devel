@@ -1,7 +1,7 @@
 From 0f44f606a96ea32016be9fb613227bb099afda94 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 30 Aug 2010 09:54:18 +0800
-Subject: [PATCH 152/850] ENGR00126721-2 MX23/28/50: add platform data for the ocotp device
+Subject: [PATCH 152/902] ENGR00126721-2 MX23/28/50: add platform data for the ocotp device
 
 Add the ocotp device and ocotp clock for the ocotp controller.
 

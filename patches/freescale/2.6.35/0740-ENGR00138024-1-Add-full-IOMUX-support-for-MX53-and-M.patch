@@ -1,7 +1,7 @@
 From a0b3ba306173783e7d53966751ca7a14d5d58351 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Mon, 17 Jan 2011 11:41:12 -0600
-Subject: [PATCH 740/850] ENGR00138024-1  Add full IOMUX support for MX53 and MX51
+Subject: [PATCH 740/902] ENGR00138024-1  Add full IOMUX support for MX53 and MX51
 
 Define all the available muxing for MX51 and MX53 SoCs. Also
 make use of the new iomux_v3_cfg_t bitmap that was enabled from

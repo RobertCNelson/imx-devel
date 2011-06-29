@@ -1,7 +1,7 @@
 From 1b081d8987ab5cd95b7ec88c73c85b96bc8c90d4 Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Thu, 21 Oct 2010 13:08:49 +0800
-Subject: [PATCH 350/850] ENGR00132844 MX5x: Fix bug of UART DMA enable macro usage
+Subject: [PATCH 350/902] ENGR00132844 MX5x: Fix bug of UART DMA enable macro usage
 
 In the MX5x clock code, it's incorrect to
 use the existence of the macro to determin the

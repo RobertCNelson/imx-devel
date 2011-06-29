@@ -1,7 +1,7 @@
 From c71cd69dfdfc054f91a84c080ad9dadfd978ef72 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 17 Nov 2010 13:50:09 +0800
-Subject: [PATCH 449/850] ENGR00133795-3 ADV7180:Support CVBS input on Ain1
+Subject: [PATCH 449/902] ENGR00133795-3 ADV7180:Support CVBS input on Ain1
 
 This patch supports CVBS input on Ain1.
 

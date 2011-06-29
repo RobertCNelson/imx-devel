@@ -1,7 +1,7 @@
 From be781971c545e8a6c8c3d8b675961ecd2bbfb043 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 5 Jan 2011 16:34:01 +0800
-Subject: [PATCH 613/850] ENGR00137602-3 imx5_defconfig: enable mpr121 by default.
+Subject: [PATCH 613/902] ENGR00137602-3 imx5_defconfig: enable mpr121 by default.
 
 enable capacitive button in imx5 default config.
 

@@ -1,7 +1,7 @@
 From cf5be8e3963298739607c6265fe3a97cd0c79f85 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 19 Nov 2010 18:19:53 +0800
-Subject: [PATCH 473/850] ENGR00134056-1 MSL: mx28 add low power mode and wakeup support for otg port
+Subject: [PATCH 473/902] ENGR00134056-1 MSL: mx28 add low power mode and wakeup support for otg port
 
 Add low power mode and wakeup support for mx28 otg port,
 and the host1 and otg port are fully verified for low power mode and wakeup

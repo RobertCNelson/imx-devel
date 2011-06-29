@@ -1,7 +1,7 @@
 From 3a04c8c3b254cf2b529298983ee5417842623ab4 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Sat, 25 Sep 2010 10:00:09 +0800
-Subject: [PATCH 234/850] ENGR00131893 gpmi: add 224 byte oob support
+Subject: [PATCH 234/902] ENGR00131893 gpmi: add 224 byte oob support
 
 Add nand flash H27UAG8T2ATR(4k+224) support.
 

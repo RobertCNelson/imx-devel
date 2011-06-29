@@ -1,7 +1,7 @@
 From 77d931aab97fdb48702b057f7cbfb4f34b921d3a Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 17 Nov 2010 17:29:12 +0800
-Subject: [PATCH 443/850] ENGR00122167-1 ipuv3: adding VGA support.
+Subject: [PATCH 443/902] ENGR00122167-1 ipuv3: adding VGA support.
 
 Add VGA support for ipu basic driver and fb driver.
 

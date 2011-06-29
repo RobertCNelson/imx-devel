@@ -1,7 +1,7 @@
 From b9a364b4e54d255cf5e4f9e6a98dcbf980aad2bf Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 16 Dec 2010 12:47:09 +0800
-Subject: [PATCH 629/850] ENGR00137628 MX5: add busfreq platform data
+Subject: [PATCH 629/902] ENGR00137628 MX5: add busfreq platform data
 
 Add platform data for MX5 bus frequency driver.
 Update regulator name for DA9053 PMIC. Otherwise,

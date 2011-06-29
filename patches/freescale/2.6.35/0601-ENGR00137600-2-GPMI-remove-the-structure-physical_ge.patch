@@ -1,7 +1,7 @@
 From 3c9544c44b66ca43768a781f49aa28f594d28078 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 5 Jan 2011 10:23:14 +0800
-Subject: [PATCH 601/850] ENGR00137600-2 GPMI : remove the structure physical_geometry{} for imx23
+Subject: [PATCH 601/902] ENGR00137600-2 GPMI : remove the structure physical_geometry{} for imx23
 
 Remove the physical_geometry{} in imx23.
 Also remove some empty lines.

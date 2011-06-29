@@ -1,7 +1,7 @@
 From ff8a2edcf050fed9c0f019644900d5fb9561ac31 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 8 Sep 2010 09:52:15 +0800
-Subject: [PATCH 045/850] ENGR00127264 mxc: exclude irq when using TZIC
+Subject: [PATCH 045/902] ENGR00127264 mxc: exclude irq when using TZIC
 
 Exclude irq module when CONFIG_MXC_TZIC is selected
 for plat-mxc

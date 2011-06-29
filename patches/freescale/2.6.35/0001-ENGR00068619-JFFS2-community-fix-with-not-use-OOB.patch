@@ -1,7 +1,7 @@
 From 51db0414056eb804d8a6fcd1b70c6b5c4707444a Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Fri, 14 Mar 2008 21:53:04 -0500
-Subject: [PATCH 001/850] ENGR00068619 JFFS2 community fix with not use OOB
+Subject: [PATCH 001/902] ENGR00068619 JFFS2 community fix with not use OOB
 
 JFFS2 community fix with not use OOB at MLC NAND, this patch
 is coming from the MTD community

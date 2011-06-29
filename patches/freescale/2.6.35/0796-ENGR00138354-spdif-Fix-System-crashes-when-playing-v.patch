@@ -1,7 +1,7 @@
 From 7cb98657ec8c5c2e722979ad4a4a191c38b83a5a Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Fri, 25 Feb 2011 04:49:33 +0800
-Subject: [PATCH 796/850] ENGR00138354 spdif: Fix System crashes when playing video with HDMI
+Subject: [PATCH 796/902] ENGR00138354 spdif: Fix System crashes when playing video with HDMI
 
 System hangs at low probability when play HD video
 with spdif enabled. This is because spdif dma trigger register

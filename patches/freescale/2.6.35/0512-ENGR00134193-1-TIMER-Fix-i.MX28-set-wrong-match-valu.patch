@@ -1,7 +1,7 @@
 From e49a90fa084b545f8056fde73eb3b0f9f507bfc7 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Wed, 1 Dec 2010 10:07:37 +0800
-Subject: [PATCH 512/850] ENGR00134193-1 TIMER: Fix i.MX28 set wrong match value of timer
+Subject: [PATCH 512/902] ENGR00134193-1 TIMER: Fix i.MX28 set wrong match value of timer
 
 It should be match = current - delta.
 Original code is match = last_match -delta.

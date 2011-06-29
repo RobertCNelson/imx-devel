@@ -1,7 +1,7 @@
 From 3804737b6a816cfaa711cae04dec8537e36e8e00 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Fri, 10 Dec 2010 13:14:44 -0600
-Subject: [PATCH 534/850] ENGR00136231: Read MAC ID from the IIM fuses for SMSC911x driver
+Subject: [PATCH 534/902] ENGR00136231: Read MAC ID from the IIM fuses for SMSC911x driver
 
 For boards that use the SMSC 911x ethernet driver, the MAC ID for
 the ethernet controller was randomly being generated. It should get

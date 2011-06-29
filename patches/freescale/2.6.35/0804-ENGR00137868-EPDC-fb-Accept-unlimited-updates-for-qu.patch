@@ -1,7 +1,7 @@
 From eb488f0a85b70417b3d942655874307bfeef9338 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 10 Feb 2011 17:24:25 -0600
-Subject: [PATCH 804/850] ENGR00137868 - EPDC fb: Accept unlimited updates for queued scheme
+Subject: [PATCH 804/902] ENGR00137868 - EPDC fb: Accept unlimited updates for queued scheme
 
 Created a list for pending update and a list for update markers.
 Memory for list object for both is allocated dynamically. Accordingly,

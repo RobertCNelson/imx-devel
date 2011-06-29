@@ -1,7 +1,7 @@
 From 3cb467a443f3b174db829702d0df3222080a5458 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Thu, 28 Oct 2010 16:39:31 -0500
-Subject: [PATCH 381/850] ENGR00133150: Fix early_param setting for 2.6.35 kernel
+Subject: [PATCH 381/902] ENGR00133150: Fix early_param setting for 2.6.35 kernel
 
 The 2.6.35  kernel early_param tag no longer needs an "="
 in the first parameter.

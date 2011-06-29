@@ -1,7 +1,7 @@
 From d85f98d8dc6944aaa72b85e0b5eb2fd4e2155c3f Mon Sep 17 00:00:00 2001
 From: Jie Zhou <b30303@freescale.com>
 Date: Wed, 24 Nov 2010 09:14:27 +0800
-Subject: [PATCH 469/850] ENGR00133970 MX5x: Z160 GPU revision check
+Subject: [PATCH 469/902] ENGR00133970 MX5x: Z160 GPU revision check
 
 MX53 TO2 and MX50 uses newer Z160 GPU core
 

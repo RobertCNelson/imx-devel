@@ -1,7 +1,7 @@
 From e61ffd25a15b8825dc0cd8aecec986173ef72801 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 11 Aug 2010 12:39:06 +0800
-Subject: [PATCH 116/850] ENGR00126158 GPMI: Fix error handling when no NAND found
+Subject: [PATCH 116/902] ENGR00126158 GPMI: Fix error handling when no NAND found
 
 There will be one oops when no NAND found for GPMI,
 This patch fix it

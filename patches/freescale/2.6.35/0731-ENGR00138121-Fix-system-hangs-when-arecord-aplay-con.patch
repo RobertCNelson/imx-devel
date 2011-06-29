@@ -1,7 +1,7 @@
 From 1ae03e565218b4b9e03197c4d66960efbe6c9fde Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Wed, 26 Jan 2011 10:35:15 +0800
-Subject: [PATCH 731/850] ENGR00138121 Fix system hangs when arecord/aplay continuously
+Subject: [PATCH 731/902] ENGR00138121 Fix system hangs when arecord/aplay continuously
 
 Sdma iapi start loading sdma script by write HSTART register as
 memory. When instruction reorder and IRQ delay may let the next

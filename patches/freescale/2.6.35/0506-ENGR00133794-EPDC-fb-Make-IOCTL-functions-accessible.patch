@@ -1,7 +1,7 @@
 From 663ca718e36478e01768e4b445b3b3793814bcfe Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 11 Nov 2010 19:01:59 -0600
-Subject: [PATCH 506/850] ENGR00133794 - EPDC fb: Make IOCTL functions accessible from kernel modules
+Subject: [PATCH 506/902] ENGR00133794 - EPDC fb: Make IOCTL functions accessible from kernel modules
 
 - Created global to hold EPDC fb data structure
 - Created new functions to ensure all ioctls map to functions

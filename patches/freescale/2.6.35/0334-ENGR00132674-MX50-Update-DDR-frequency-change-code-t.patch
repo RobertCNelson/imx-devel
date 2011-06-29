@@ -1,7 +1,7 @@
 From 6c345886f8e27097179ddd1455f6b74657d5a2e8 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 15 Oct 2010 10:08:14 -0500
-Subject: [PATCH 334/850] ENGR00132674: MX50: Update DDR frequency change code to use new scripts.
+Subject: [PATCH 334/902] ENGR00132674: MX50: Update DDR frequency change code to use new scripts.
 
 Update the DDR frequency change code to latest the DDR settings for both
 24Mhz and 266Mhz.

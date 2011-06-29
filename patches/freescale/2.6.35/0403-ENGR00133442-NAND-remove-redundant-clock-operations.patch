@@ -1,7 +1,7 @@
 From eba4ff36d230249472f9d63994fba5af4e1dc153 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 14:15:25 +0800
-Subject: [PATCH 403/850] ENGR00133442 NAND : remove redundant clock operations
+Subject: [PATCH 403/902] ENGR00133442 NAND : remove redundant clock operations
 
 The nfc->begin() or nfc->end() will do the relative clock
 opertions. Enable clock or disable clock here is redundant.

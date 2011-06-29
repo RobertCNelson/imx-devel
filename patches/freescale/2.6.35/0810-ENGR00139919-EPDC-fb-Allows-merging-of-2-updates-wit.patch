@@ -1,7 +1,7 @@
 From b74d7147b961d3de15c6f12421754bddf2896e6a Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 3 Mar 2011 15:37:57 -0600
-Subject: [PATCH 810/850] ENGR00139919 - EPDC fb: Allows merging of 2 updates with markers
+Subject: [PATCH 810/902] ENGR00139919 - EPDC fb: Allows merging of 2 updates with markers
 
 - Create new per-update list of markers instead of just one marker
 per update.

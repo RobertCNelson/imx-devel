@@ -1,7 +1,7 @@
 From 1b8b9b35de1176eb833a4688d1d7722e4fb89e5c Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 8 Dec 2010 20:24:04 +0800
-Subject: [PATCH 638/850] ENGR00137669-3 MX53_SMD: workaround for UART have problem when DMA enable.
+Subject: [PATCH 638/902] ENGR00137669-3 MX53_SMD: workaround for UART have problem when DMA enable.
 
 There is a clock issue when UART3 enable DMA, so disable this.
 

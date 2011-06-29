@@ -1,7 +1,7 @@
 From a8b061caba3febe15217e2197851a43cc45f8214 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Fri, 15 Oct 2010 17:10:32 -0500
-Subject: [PATCH 345/850] ENGR00132649 SAHARA test causes ext3 file system crash
+Subject: [PATCH 345/902] ENGR00132649 SAHARA test causes ext3 file system crash
 
 During kernel upgrade, replaced deprecated functions:
 dmac_clean_range() with clean_dcache_area() and,

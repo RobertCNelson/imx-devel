@@ -1,7 +1,7 @@
 From 9af4474b9e8d3ffe84a065446b900f4278f87e59 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 26 May 2010 14:40:20 -0500
-Subject: [PATCH 031/850] w1: imx: add byte transfer and interrupt support
+Subject: [PATCH 031/902] w1: imx: add byte transfer and interrupt support
 
 Signed-off-by: Rob Herring <r.herring@freescale.com>
 Signed-off-by: Lily Zhang <r58066@freescale.com>

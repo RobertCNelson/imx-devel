@@ -1,7 +1,7 @@
 From 30f6fc381026ad024d019bf5f41762863fdb9d64 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 31 Aug 2010 12:52:24 -0500
-Subject: [PATCH 168/850] ENGR00126863: MX50: Add LPAPM support
+Subject: [PATCH 168/902] ENGR00126863: MX50: Add LPAPM support
 
 Add support for Low Power Audio Playback Mode. System will enter this mode
 whenever no modules that need high bus frequencies are active. The LP domain

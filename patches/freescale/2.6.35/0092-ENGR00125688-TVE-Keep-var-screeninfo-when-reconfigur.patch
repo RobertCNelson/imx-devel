@@ -1,7 +1,7 @@
 From 3617b0d8f118aa339ed196e6a3df6e7661558db4 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 4 Aug 2010 10:55:18 +0800
-Subject: [PATCH 092/850] ENGR00125688 TVE:Keep var screeninfo when reconfigure TVE fb
+Subject: [PATCH 092/902] ENGR00125688 TVE:Keep var screeninfo when reconfigure TVE fb
 
 This patch keeps TVE variable screeninfo when the TVE driver
 reconfigures TVE framebuffer so that the pixel format of the

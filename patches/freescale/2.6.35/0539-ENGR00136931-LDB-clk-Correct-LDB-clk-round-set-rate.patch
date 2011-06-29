@@ -1,7 +1,7 @@
 From 98b4cb1bdc361781be033259c061b4c26cc2271d Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 14 Dec 2010 18:20:20 +0800
-Subject: [PATCH 539/850] ENGR00136931 LDB clk:Correct LDB clk round/set rate
+Subject: [PATCH 539/902] ENGR00136931 LDB clk:Correct LDB clk round/set rate
 
 As LDB clock's parent clock rate is inaccurate and
 LDB clock can only be divided by 7 or 3.5 from its

@@ -1,7 +1,7 @@
 From 474d5ad35967fc05e60463c13882eb5e34c323a0 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 14 Sep 2010 15:04:33 +0800
-Subject: [PATCH 230/850] ENGR00131466-7 mx28: add spi support in defconfig
+Subject: [PATCH 230/902] ENGR00131466-7 mx28: add spi support in defconfig
 
 Add spi support for mx28 in defconfig.
 

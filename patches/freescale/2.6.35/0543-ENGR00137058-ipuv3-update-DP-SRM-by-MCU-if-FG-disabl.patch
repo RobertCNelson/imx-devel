@@ -1,7 +1,7 @@
 From 66bd3a4c5fd7b0782d5b1ab4b0a8891fe5361764 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 16 Dec 2010 11:08:30 +0800
-Subject: [PATCH 543/850] ENGR00137058 ipuv3:update DP SRM by MCU if FG disable for FG position setting
+Subject: [PATCH 543/902] ENGR00137058 ipuv3:update DP SRM by MCU if FG disable for FG position setting
 
 During FG position set, we used to update SRM by FSU all the time,
 if FG is disabled, then after you set position then enable  FG,

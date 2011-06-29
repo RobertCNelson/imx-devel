@@ -1,7 +1,7 @@
 From 5ca1443dab1342901b507adfeeea0fd1f2605e79 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 17 Dec 2010 11:07:23 +0800
-Subject: [PATCH 548/850] ENGR00137101-2 NAND : change the field `is_onfi_nand` to `is_ddr_ok`
+Subject: [PATCH 548/902] ENGR00137101-2 NAND : change the field `is_onfi_nand` to `is_ddr_ok`
 
 The ONFI NAND and TOGGLE NAND both support the DDR.
 So merge the same attribution to a new field `is_ddr_ok`.

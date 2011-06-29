@@ -1,7 +1,7 @@
 From 0fd36f6aac0c53031eafb32298debf3adc8fb8fe Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 6 Dec 2010 17:14:16 +0800
-Subject: [PATCH 513/850] ENGR00134193-2 MX28: Fix FEC can't found phy after fix timer issue
+Subject: [PATCH 513/902] ENGR00134193-2 MX28: Fix FEC can't found phy after fix timer issue
 
 mdelay(10) actually delay 50ms before fix timer issue.
 After fix timer issue. It should set to 50ms

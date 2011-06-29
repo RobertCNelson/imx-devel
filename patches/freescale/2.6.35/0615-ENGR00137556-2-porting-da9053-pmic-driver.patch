@@ -1,7 +1,7 @@
 From 1ab2ef9bf975ec5ff768f65d02bfd58fe743fa2f Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 5 Jan 2011 10:03:43 +0800
-Subject: [PATCH 615/850] ENGR00137556-2 porting da9053 pmic driver
+Subject: [PATCH 615/902] ENGR00137556-2 porting da9053 pmic driver
 
 porting da9053 pmic driver
 

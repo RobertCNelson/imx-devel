@@ -1,7 +1,7 @@
 From ca584c8c9c4cf3a2f667d8f9984e735b3206ef62 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Mon, 22 Nov 2010 18:54:22 +0800
-Subject: [PATCH 468/850] ENGR00133918 mx50: ZQ calibration should be run only on mx50 platform
+Subject: [PATCH 468/902] ENGR00133918 mx50: ZQ calibration should be run only on mx50 platform
 
 ZQ calibration is now only applied in mx50 to1.1 board.
 Thus zq should be run only on mx50 to1.1 board.

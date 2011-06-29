@@ -1,7 +1,7 @@
 From e05148ea7ff491aa620e0ccc8ca762421d62ad16 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Mon, 9 Aug 2010 10:07:58 -0500
-Subject: [PATCH 101/850] ENGR00126057-1 Add RNGB support
+Subject: [PATCH 101/902] ENGR00126057-1 Add RNGB support
 
 Adopt the mainline RNGC driver for RNGB hw
 Add clock gating on suspend resume

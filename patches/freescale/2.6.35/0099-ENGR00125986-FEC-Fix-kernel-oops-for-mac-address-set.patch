@@ -1,7 +1,7 @@
 From a2ebe76cc916bad2b1fae12985fbc3c544bb0dd9 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Thu, 5 Aug 2010 16:07:00 +0800
-Subject: [PATCH 099/850] ENGR00125986 FEC:Fix kernel oops for mac address set up
+Subject: [PATCH 099/902] ENGR00125986 FEC:Fix kernel oops for mac address set up
 
 There is no fec platform data for MX51 EVK board, so
 memcpy(fec_mac_default, pdata->mac, sizeof(fec_mac_default));

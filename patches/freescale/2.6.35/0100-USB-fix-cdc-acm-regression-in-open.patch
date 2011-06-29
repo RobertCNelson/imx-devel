@@ -1,7 +1,7 @@
 From 072ec1840763f9e4d7ea37a08531dc4c1faec85a Mon Sep 17 00:00:00 2001
 From: Oliver Neukum <oliver@neukum.org>
 Date: Tue, 8 Sep 2009 23:51:28 +0200
-Subject: [PATCH 100/850] USB: fix cdc-acm regression in open
+Subject: [PATCH 100/902] USB: fix cdc-acm regression in open
 
 cdc-acm needs to set a flag during open to tell the
 tty layer that the device is initialized

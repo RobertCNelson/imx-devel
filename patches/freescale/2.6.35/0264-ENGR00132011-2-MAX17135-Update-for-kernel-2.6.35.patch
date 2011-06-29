@@ -1,7 +1,7 @@
 From e4a005c418614185b36ce247ba3f01356e55654d Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 28 Sep 2010 21:16:55 -0500
-Subject: [PATCH 264/850] ENGR00132011-2 - MAX17135: Update for kernel 2.6.35
+Subject: [PATCH 264/902] ENGR00132011-2 - MAX17135: Update for kernel 2.6.35
 
 - __setup() function moved into MAX17135 driver to resolve
 conflict between platforms using the same MAX17135 part.

@@ -1,7 +1,7 @@
 From 9d2dde749ce427da10d56fa1d5f5772b02694887 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 31 Dec 2010 10:15:34 +0800
-Subject: [PATCH 591/850] ENGR00137447-3 ipuv3: change video mode timming adjust method
+Subject: [PATCH 591/902] ENGR00137447-3 ipuv3: change video mode timming adjust method
 
 Just change v_sync_start, v_sync_width and v_sync_end to fit ipu restricitions.
 

@@ -1,7 +1,7 @@
 From 8e006e3e9285e962f1e2d5a960c92df61cadc142 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 17 Jan 2011 11:32:49 +0800
-Subject: [PATCH 687/850] ENGR00138037 mx53: use round_rate to set asrc serial clk
+Subject: [PATCH 687/902] ENGR00138037 mx53: use round_rate to set asrc serial clk
 
 The parent clk of asrc serial clk is PLL4. After PLL4 clk is
 changed as 455MHZ in U-Boot, asrc serial clk is not right.

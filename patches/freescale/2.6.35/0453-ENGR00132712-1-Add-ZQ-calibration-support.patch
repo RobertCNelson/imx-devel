@@ -1,7 +1,7 @@
 From 063795433d04b2f5bd4abf76d8f4a8d78f1f0fc7 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Mon, 8 Nov 2010 14:02:12 +0800
-Subject: [PATCH 453/850] ENGR00132712-1: Add ZQ calibration support
+Subject: [PATCH 453/902] ENGR00132712-1: Add ZQ calibration support
 
 Add ZQ calibration support
 

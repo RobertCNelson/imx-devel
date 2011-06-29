@@ -1,7 +1,7 @@
 From 7fb370c29b62290133a4ae455c5befea2da8366e Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 11 Nov 2010 15:34:35 +0800
-Subject: [PATCH 417/850] ENGR00133590 UART: let user control HW flow control
+Subject: [PATCH 417/902] ENGR00133590 UART: let user control HW flow control
 
 HW flow control should be enable/disable by userspace.
 It can be set by tty option: options.c_cflag of  CRTSCTS

@@ -1,7 +1,7 @@
 From 85202dce946013054ce2dc807ef4768cbb8691bd Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 2 Nov 2010 14:15:03 +0800
-Subject: [PATCH 383/850] ENGR00133261 MX53 EVK:Correct PWM backlight frequency
+Subject: [PATCH 383/902] ENGR00133261 MX53 EVK:Correct PWM backlight frequency
 
 This patch sets CLAA WVGA LCD panel's PWM backlight frequency
 to be 19.9KHz, which meets the LCD data sheet's requirement.

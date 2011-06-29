@@ -1,7 +1,7 @@
 From 1a0d1a8bc4b1e39ab25488ed0e28f0e39eb71982 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sat, 25 Sep 2010 09:37:00 +0800
-Subject: [PATCH 241/850] ENGR00131906-1 split w1_ds2438 driver as two drivers
+Subject: [PATCH 241/902] ENGR00131906-1 split w1_ds2438 driver as two drivers
 
 The kernel commit "5f487cd34" changes the function
 power_supply_register. When calling power_supply_register

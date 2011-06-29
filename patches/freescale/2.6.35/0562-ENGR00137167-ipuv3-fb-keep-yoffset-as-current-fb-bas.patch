@@ -1,7 +1,7 @@
 From ef45d723f3df88638968ed8033f7f224c3308805 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 23 Dec 2010 11:29:10 +0800
-Subject: [PATCH 562/850] ENGR00137167 ipuv3 fb: keep yoffset as current fb base addr
+Subject: [PATCH 562/902] ENGR00137167 ipuv3 fb: keep yoffset as current fb base addr
 
 After we set pan offset of fb, call blank/unblank or
 suspend/resume will lost the offset value.

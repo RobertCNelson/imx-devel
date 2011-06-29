@@ -1,7 +1,7 @@
 From b66d4db8f21afc5657e0a23a63b25aa13f62aa20 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Sat, 12 Feb 2011 10:57:52 +0800
-Subject: [PATCH 759/850] ENGR00138644-2 header file: change the video mode setting method
+Subject: [PATCH 759/902] ENGR00138644-2 header file: change the video mode setting method
 
 Header files change for changing the video mode setting method.
 

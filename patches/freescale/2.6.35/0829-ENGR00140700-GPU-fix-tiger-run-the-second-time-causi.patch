@@ -1,7 +1,7 @@
 From 23933c9d534fce58ac74bdc5744e7d57da19b9bd Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Wed, 16 Mar 2011 10:37:52 +0800
-Subject: [PATCH 829/850] ENGR00140700 GPU: fix tiger run the second time causing system hang
+Subject: [PATCH 829/902] ENGR00140700 GPU: fix tiger run the second time causing system hang
 
 The root cause is endless GSL_INTR_BLOCK_YDX_CP interrupt.
 Apply interrupt status read work around only when yamato started.

@@ -1,7 +1,7 @@
 From 24d4ae0ddcff3da40ab578ede12c84bc25ca23f2 Mon Sep 17 00:00:00 2001
 From: Shen Yong <b00984@freescale.com>
 Date: Mon, 13 Sep 2010 11:33:47 +0800
-Subject: [PATCH 176/850] ENGR00127275 mx53: add clock depentent
+Subject: [PATCH 176/902] ENGR00127275 mx53: add clock depentent
 
 First, retore the ocram bit, pl301 bits to previous value 3,
 so most functions like fec, audio and video would not be blocked.

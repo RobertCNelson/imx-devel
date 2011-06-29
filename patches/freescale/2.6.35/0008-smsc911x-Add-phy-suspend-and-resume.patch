@@ -1,7 +1,7 @@
 From b23468da828e3cbbe73c26af081c98c7595240b5 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Tue, 15 Sep 2009 22:21:26 -0500
-Subject: [PATCH 008/850] smsc911x: Add phy suspend and resume
+Subject: [PATCH 008/902] smsc911x: Add phy suspend and resume
 
 Most of the smsc9xxx power consumption is in the phy, so
 we need to suspend the phy.

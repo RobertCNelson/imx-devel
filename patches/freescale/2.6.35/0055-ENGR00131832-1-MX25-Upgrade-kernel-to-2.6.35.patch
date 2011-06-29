@@ -1,7 +1,7 @@
 From 0ddaf3bc72ff1b9540ca47aa030b885107dc52c6 Mon Sep 17 00:00:00 2001
 From: Alan Tull <r80115@freescale.com>
 Date: Thu, 23 Sep 2010 14:17:05 -0500
-Subject: [PATCH 055/850] ENGR00131832-1 MX25: Upgrade kernel to 2.6.35
+Subject: [PATCH 055/902] ENGR00131832-1 MX25: Upgrade kernel to 2.6.35
 
 This patch contains changes to mach-mx25 files.
 Contains all checkpatch and copyright fixes.

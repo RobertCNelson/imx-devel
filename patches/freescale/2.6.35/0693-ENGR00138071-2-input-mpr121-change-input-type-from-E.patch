@@ -1,7 +1,7 @@
 From a7f05c847856eb97e286ff2dfd6918250ef334d9 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Mon, 17 Jan 2011 20:16:40 +0800
-Subject: [PATCH 693/850] ENGR00138071-2 input: mpr121: change input type from EV_MSC to EV_KEY
+Subject: [PATCH 693/902] ENGR00138071-2 input: mpr121: change input type from EV_MSC to EV_KEY
 
 EV_MSC will ignore by some system, so change this device to a EV_KEY
 device.

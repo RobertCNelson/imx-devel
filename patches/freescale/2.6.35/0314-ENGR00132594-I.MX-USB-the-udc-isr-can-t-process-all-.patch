@@ -1,7 +1,7 @@
 From 5fcdbc8f6dbe113fdfde367710f1383185fc3ec1 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Thu, 14 Oct 2010 12:09:12 +0800
-Subject: [PATCH 314/850] ENGR00132594 I.MX USB: the udc isr can't process all normal event
+Subject: [PATCH 314/902] ENGR00132594 I.MX USB: the udc isr can't process all normal event
 
 the udc isr can not process all normal event, it is caused by the
 unconditional "goto irq_end" sentence.

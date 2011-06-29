@@ -1,7 +1,7 @@
 From 0065a53efcf9ebdace956d8e75346720101cf9b8 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sun, 26 Sep 2010 09:56:28 +0800
-Subject: [PATCH 245/850] ENGR00131930-1 MX53: close clocks when boot
+Subject: [PATCH 245/902] ENGR00131930-1 MX53: close clocks when boot
 
 Close NFC and esai clocks in MX53 clock
 initialization

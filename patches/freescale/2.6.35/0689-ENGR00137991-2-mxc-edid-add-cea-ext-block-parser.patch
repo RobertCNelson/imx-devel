@@ -1,7 +1,7 @@
 From aea3bc9a8f6c7b478f056bfae86ef3f03ccaf6dd Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 17 Jan 2011 13:51:24 +0800
-Subject: [PATCH 689/850] ENGR00137991-2 mxc edid: add cea ext block parser
+Subject: [PATCH 689/902] ENGR00137991-2 mxc edid: add cea ext block parser
 
 add cea ext block parser.
 it provide more video modes and the info of device HDMI compatible.

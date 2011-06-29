@@ -1,7 +1,7 @@
 From f4c496898389790247d437e811fe949e40d84004 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 14:02:22 +0800
-Subject: [PATCH 402/850] ENGR00133309 NAND : fix compile warnings for GPMI
+Subject: [PATCH 402/902] ENGR00133309 NAND : fix compile warnings for GPMI
 
 fix compile warnings for the GPMI.
 

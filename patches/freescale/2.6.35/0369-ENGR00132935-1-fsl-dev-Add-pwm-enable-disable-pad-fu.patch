@@ -1,7 +1,7 @@
 From b942fdaace1ee13c88a6465be2bd14ce0e6b133f Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 25 Oct 2010 17:30:29 +0800
-Subject: [PATCH 369/850] ENGR00132935-1 fsl dev:Add pwm enable/disable pad functions
+Subject: [PATCH 369/902] ENGR00132935-1 fsl dev:Add pwm enable/disable pad functions
 
 This patch adds pwm enable/disable pad functions declaration
 to pwm platform data in fsl_device.h.

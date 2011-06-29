@@ -1,7 +1,7 @@
 From 6e0635c7d23933481fb236a33d75fa39b14a809a Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 30 Nov 2010 12:47:57 +0800
-Subject: [PATCH 498/850] ENGR00134154-3 usb: add sync between usb resume and usb wakeup thread
+Subject: [PATCH 498/902] ENGR00134154-3 usb: add sync between usb resume and usb wakeup thread
 
 The usb wakeup thread should be prior to usb system resume
 during usb wakeup process. It adds wait_event_interruptible

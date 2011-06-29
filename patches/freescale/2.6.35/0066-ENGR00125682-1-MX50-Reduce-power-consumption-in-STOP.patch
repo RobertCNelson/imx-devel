@@ -1,7 +1,7 @@
 From 18ccbded3fbafe22637e8a84394f8f8efaaadc89 Mon Sep 17 00:00:00 2001
 From: Ranjani <ra5478@freescale.com>
 Date: Wed, 28 Jul 2010 17:35:50 -0500
-Subject: [PATCH 066/850] ENGR00125682-1: MX50: Reduce power consumption in STOP mode.
+Subject: [PATCH 066/902] ENGR00125682-1: MX50: Reduce power consumption in STOP mode.
 
 Add support for disabling MX13892 regulators when the system is in
 suspend. Lowered VDDA voltage to 0.95V in suspend state. Disabled NEON

@@ -1,7 +1,7 @@
 From a96b81fd54812203e7d6acc822997647b819220d Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 11 Aug 2010 10:58:01 +0800
-Subject: [PATCH 113/850] ENGR00125957-3 mx5 config: add Sii9022 hdmi driver support
+Subject: [PATCH 113/902] ENGR00125957-3 mx5 config: add Sii9022 hdmi driver support
 
 Build in Sii9022.
 

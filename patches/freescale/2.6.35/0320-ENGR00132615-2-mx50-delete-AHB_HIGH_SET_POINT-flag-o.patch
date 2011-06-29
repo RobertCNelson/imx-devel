@@ -1,7 +1,7 @@
 From d6c3005c574a277e2e24333b53d05e9deba87ff0 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 14 Oct 2010 18:56:28 +0800
-Subject: [PATCH 320/850] ENGR00132615-2 mx50: delete AHB_HIGH_SET_POINT flag of esdhc clock
+Subject: [PATCH 320/902] ENGR00132615-2 mx50: delete AHB_HIGH_SET_POINT flag of esdhc clock
 
 This is another work-around for esdhc crc error issue when AHB is
 down to 24Mhz in low power mode.

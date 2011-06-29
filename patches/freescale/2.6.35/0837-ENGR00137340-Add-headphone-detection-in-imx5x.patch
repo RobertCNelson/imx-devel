@@ -1,7 +1,7 @@
 From 172a6787b693542e554261e737ecab0f03ca34a1 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 23 Dec 2010 21:08:07 +0800
-Subject: [PATCH 837/850] ENGR00137340 Add headphone detection in imx5x.
+Subject: [PATCH 837/902] ENGR00137340 Add headphone detection in imx5x.
 
 Report uevent when headphone detect part is changed.
 

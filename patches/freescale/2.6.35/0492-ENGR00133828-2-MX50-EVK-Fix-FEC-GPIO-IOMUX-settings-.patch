@@ -1,7 +1,7 @@
 From 6ed5e466a3fffd5a0f5c84d11d58e786a9d3c19f Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 18 Nov 2010 13:42:21 -0600
-Subject: [PATCH 492/850] ENGR00133828-2: MX50 EVK: Fix FEC GPIO/IOMUX settings in suspend mode.
+Subject: [PATCH 492/902] ENGR00133828-2: MX50 EVK: Fix FEC GPIO/IOMUX settings in suspend mode.
 
 Fix FEC GPIO/IOMUX settings in suspend to reduce board level power.
 

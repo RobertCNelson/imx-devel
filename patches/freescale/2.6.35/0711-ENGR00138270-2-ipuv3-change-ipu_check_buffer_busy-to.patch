@@ -1,7 +1,7 @@
 From 807e5c91389650f3d33b2b8ad5e4c23bc1d2ccc1 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 20 Jan 2011 16:23:14 +0800
-Subject: [PATCH 711/850] ENGR00138270-2 ipuv3: change ipu_check_buffer_busy to ipu_check_buffer_ready
+Subject: [PATCH 711/902] ENGR00138270-2 ipuv3: change ipu_check_buffer_busy to ipu_check_buffer_ready
 
 Change ipu_check_buffer_busy to ipu_check_buffer_ready.
 

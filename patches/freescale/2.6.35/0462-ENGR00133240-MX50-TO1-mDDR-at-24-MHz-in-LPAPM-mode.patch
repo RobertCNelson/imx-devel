@@ -1,7 +1,7 @@
 From e19083dc0ae4d05263950c862a7b31bd376fe739 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Mon, 22 Nov 2010 14:23:33 -0600
-Subject: [PATCH 462/850] ENGR00133240 MX50 TO1 mDDR at 24 MHz in LPAPM mode
+Subject: [PATCH 462/902] ENGR00133240 MX50 TO1 mDDR at 24 MHz in LPAPM mode
 
 Implemented the following:
 

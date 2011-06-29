@@ -1,7 +1,7 @@
 From 05351bb3bbc517ebfd86ea917eb84d24661c28ee Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 30 Nov 2010 12:42:20 +0800
-Subject: [PATCH 497/850] ENGR00134154-2 MSL: add sync between usb resume and usb wakeup thread for MX5x
+Subject: [PATCH 497/902] ENGR00134154-2 MSL: add sync between usb resume and usb wakeup thread for MX5x
 
 The usb wakeup thread should be prior to usb system resume
 during usb wakeup process. It adds wait_event_interruptible

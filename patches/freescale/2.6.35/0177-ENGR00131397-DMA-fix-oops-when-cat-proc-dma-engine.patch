@@ -1,7 +1,7 @@
 From 4379168959557663177022f01109b03b47bfcb64 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 13 Sep 2010 16:27:51 +0800
-Subject: [PATCH 177/850] ENGR00131397 DMA:fix oops when cat /proc/dma-engine
+Subject: [PATCH 177/902] ENGR00131397 DMA:fix oops when cat /proc/dma-engine
 
 The origin code does not check the NULL pointer.
 The patch adds NULL pointer check.

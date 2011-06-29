@@ -1,7 +1,7 @@
 From dea51bf8f75b32aecc8090fe3242c45ab2fd387f Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 17 Dec 2010 11:19:20 +0800
-Subject: [PATCH 552/850] ENGR00137101-6  mark the erase failed block to the bbt table.
+Subject: [PATCH 552/902] ENGR00137101-6  mark the erase failed block to the bbt table.
 
 If it return failure in erasing a block, mark the block bad
 in the bbt table.

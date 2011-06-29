@@ -1,7 +1,7 @@
 From f68fa3794b577c52ef60342ed09444f364f355a4 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 17 Nov 2010 17:30:55 +0800
-Subject: [PATCH 446/850] ENGR00122167-4 V4L2 output: changes for TVE-VGA support.
+Subject: [PATCH 446/902] ENGR00122167-4 V4L2 output: changes for TVE-VGA support.
 
 Changes according to TVE-VGA patch.
 

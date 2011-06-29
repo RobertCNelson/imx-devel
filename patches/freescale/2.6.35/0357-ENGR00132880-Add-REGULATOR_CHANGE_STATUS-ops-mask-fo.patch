@@ -1,7 +1,7 @@
 From 3e15ea172a8cbc82338bc3e896145ef2bfbce13b Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Fri, 22 Oct 2010 16:34:01 +0800
-Subject: [PATCH 357/850] ENGR00132880 Add REGULATOR_CHANGE_STATUS ops mask for mc13892 regulators
+Subject: [PATCH 357/902] ENGR00132880 Add REGULATOR_CHANGE_STATUS ops mask for mc13892 regulators
 
 Add REGULATOR_CHANGE_STATUS ops mask for mc13892 regulators
 

@@ -1,7 +1,7 @@
 From 3c9ae8408b62e6eda1041031af411c2007ca7f43 Mon Sep 17 00:00:00 2001
 From: Alan Tull <alan.tull@freescale.com>
 Date: Fri, 22 Oct 2010 11:20:19 -0500
-Subject: [PATCH 362/850] ENGR00132877 add fixed regulator dcdc_3v15
+Subject: [PATCH 362/902] ENGR00132877 add fixed regulator dcdc_3v15
 
 The i.Mx50EVK (rdp) board has a fixed dc-dc converter.  Show it as
 a fixed regulator so the audio driver will be able to get its voltage.

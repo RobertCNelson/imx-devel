@@ -1,7 +1,7 @@
 From af4f50aef99a5d30ccc612e406515ff87ed5a2be Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Fri, 15 Oct 2010 16:40:03 +0800
-Subject: [PATCH 322/850] ENGR00132653 MLB: add regulator check
+Subject: [PATCH 322/902] ENGR00132653 MLB: add regulator check
 
 Add regulator check in MLB driver.
 

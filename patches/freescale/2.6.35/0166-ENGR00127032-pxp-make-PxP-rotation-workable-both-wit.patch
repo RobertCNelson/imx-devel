@@ -1,7 +1,7 @@
 From 07151aa0f4e25f2f5ca31fbf53c7161f823026f1 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 2 Sep 2010 17:43:30 +0800
-Subject: [PATCH 166/850] ENGR00127032 pxp: make PxP rotation workable both with epdc and v4l2
+Subject: [PATCH 166/902] ENGR00127032 pxp: make PxP rotation workable both with epdc and v4l2
 
 In rotation case, we need to swap width and height in HW_PXP_OUTSIZE.
 It can be done in PxP driver. However, since EPDC driver did this swap itself.

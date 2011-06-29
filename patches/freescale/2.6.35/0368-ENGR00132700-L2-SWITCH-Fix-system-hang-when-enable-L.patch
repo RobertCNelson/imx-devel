@@ -1,7 +1,7 @@
 From 15b5ab51d2cf458bfd071c578897160fda5d7c71 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 18 Oct 2010 09:42:15 +0800
-Subject: [PATCH 368/850] ENGR00132700 L2-SWITCH: Fix system hang when enable L2-Switch
+Subject: [PATCH 368/902] ENGR00132700 L2-SWITCH: Fix system hang when enable L2-Switch
 
 Fix build error at 2.6.25 kernel.
 

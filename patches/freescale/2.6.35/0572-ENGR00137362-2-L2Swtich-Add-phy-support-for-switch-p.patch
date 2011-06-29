@@ -1,7 +1,7 @@
 From 58fef01734d9c18bdfd349383f8676889ed86d68 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Fri, 24 Dec 2010 17:09:47 +0800
-Subject: [PATCH 572/850] ENGR00137362-2 L2Swtich: Add phy support for switch port1 and port2
+Subject: [PATCH 572/902] ENGR00137362-2 L2Swtich: Add phy support for switch port1 and port2
 
 Because the 1588 stack and STP stack need to know the phy status,
 added phy support for switch port1 and port2.

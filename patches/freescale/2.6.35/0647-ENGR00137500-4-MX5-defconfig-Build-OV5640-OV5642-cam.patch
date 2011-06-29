@@ -1,7 +1,7 @@
 From 68f5b3775e4bca54bb6cfef4d798c5e65798ab88 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 5 Jan 2011 18:56:52 +0800
-Subject: [PATCH 647/850] ENGR00137500-4 MX5 defconfig:Build OV5640/OV5642 camera as module
+Subject: [PATCH 647/902] ENGR00137500-4 MX5 defconfig:Build OV5640/OV5642 camera as module
 
 This patch adds OV5640 and OV5642 camera driver support in
 imx5_defconfig. They will be built as modules.

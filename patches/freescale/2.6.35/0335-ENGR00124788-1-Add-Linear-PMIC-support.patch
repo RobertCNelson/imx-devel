@@ -1,7 +1,7 @@
 From 0a135664fb54237749f037c1975a6c906fa7443b Mon Sep 17 00:00:00 2001
 From: Nancy Chen <Nancy.Chen@freescale.com>
 Date: Mon, 11 Oct 2010 16:03:44 -0500
-Subject: [PATCH 335/850] ENGR00124788-1 Add Linear PMIC support
+Subject: [PATCH 335/902] ENGR00124788-1 Add Linear PMIC support
 
 Add Linear PMIC support.
 

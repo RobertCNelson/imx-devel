@@ -1,7 +1,7 @@
 From e5a54ab51ecce504215a1b473b5a766868ff7d45 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 22 Dec 2010 14:39:21 +0800
-Subject: [PATCH 560/850] ENGR00137259-2 NAND : remove `onfi_ddr_mode`
+Subject: [PATCH 560/902] ENGR00137259-2 NAND : remove `onfi_ddr_mode`
 
 Remove the onfi_ddr_mode valuable.
 Do not change any logic of the DATA operation.

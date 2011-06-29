@@ -1,7 +1,7 @@
 From 2a233ce26268a7a36ddd16f219b887169a38f49d Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 17 Aug 2010 17:44:22 +0800
-Subject: [PATCH 126/850] ENGR00126349-2 Change gfp flag in dma_alloc_coherent in common codes
+Subject: [PATCH 126/902] ENGR00126349-2 Change gfp flag in dma_alloc_coherent in common codes
 
 Changed gfp flag directly in dma_alloc_coherent in
 drivers/media/video/videobuf-dma-contig.c

@@ -1,7 +1,7 @@
 From aa7e74152a058cc1c7a0b42f0433f8807e959252 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 5 Jan 2011 10:30:19 +0800
-Subject: [PATCH 616/850] ENGR00137556-3 add da9053 driver to MX53 smd &loco boards
+Subject: [PATCH 616/902] ENGR00137556-3 add da9053 driver to MX53 smd &loco boards
 
 Add da9053 pmic driver to smd &loco boards
 implement board specific settings

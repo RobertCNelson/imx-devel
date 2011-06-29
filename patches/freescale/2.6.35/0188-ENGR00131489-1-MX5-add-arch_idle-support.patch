@@ -1,7 +1,7 @@
 From 38fc0ad11f5f21fe61829fbd2a29a109d9cc40b4 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Tue, 14 Sep 2010 21:22:44 +0800
-Subject: [PATCH 188/850] ENGR00131489-1 MX5: add arch_idle support
+Subject: [PATCH 188/902] ENGR00131489-1 MX5: add arch_idle support
 
 add arch_idle support for MX5 platform
 

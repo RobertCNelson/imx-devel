@@ -1,7 +1,7 @@
 From 5e82f13a0ee796f00ac5ad075acb6d1abfc417ab Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 7 Oct 2010 16:04:23 -0500
-Subject: [PATCH 332/850] ENGR00126326-1 - MSL: Add support for MAX17135 temperature sensor driver
+Subject: [PATCH 332/902] ENGR00126326-1 - MSL: Add support for MAX17135 temperature sensor driver
 
 - Support added for MAX17135 temperature sensor driver for both
 MX50 ARM2 and RDP platforms.

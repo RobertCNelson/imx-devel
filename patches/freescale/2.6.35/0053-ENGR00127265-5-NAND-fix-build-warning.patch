@@ -1,7 +1,7 @@
 From 9d259a01d7998150a87cc03d1460428b36fbde31 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 8 Sep 2010 13:43:30 +0800
-Subject: [PATCH 053/850] ENGR00127265-5 NAND: fix build warning
+Subject: [PATCH 053/902] ENGR00127265-5 NAND: fix build warning
 
 Fix build warning after 2.6.35 kernel upgrade
 

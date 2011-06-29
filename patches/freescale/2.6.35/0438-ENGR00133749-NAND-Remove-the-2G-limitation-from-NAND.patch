@@ -1,7 +1,7 @@
 From 85e7455338ed85c86242fdfa9cdf641986fbf211 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Tue, 16 Nov 2010 16:50:55 +0800
-Subject: [PATCH 438/850] ENGR00133749: NAND: Remove the 2G limitation from NAND driver
+Subject: [PATCH 438/902] ENGR00133749: NAND: Remove the 2G limitation from NAND driver
 
 Remove the 2G limitation from NAND driver since currently kernel
 can support more than 2GB NAND flash now. This commit will make

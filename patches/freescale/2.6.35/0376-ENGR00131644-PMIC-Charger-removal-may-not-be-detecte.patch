@@ -1,7 +1,7 @@
 From 958a3b70a70ecd0824177875d76b09c2370257a3 Mon Sep 17 00:00:00 2001
 From: Nancy Chen <Nancy.Chen@freescale.com>
 Date: Tue, 26 Oct 2010 12:10:05 -0500
-Subject: [PATCH 376/850] ENGR00131644 PMIC: Charger removal may not be detected
+Subject: [PATCH 376/902] ENGR00131644 PMIC: Charger removal may not be detected
 
 PMIC: Charger removal may not always be detected by MC13892.
 

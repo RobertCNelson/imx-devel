@@ -1,7 +1,7 @@
 From e006fe87a954c1f6890679b3a62bc5174a5ba3f3 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 10 Nov 2010 18:11:11 +0800
-Subject: [PATCH 435/850] ENGR00133318-2 MXC V4L2 capture:Correct TVin PAL/NTSC video formats
+Subject: [PATCH 435/902] ENGR00133318-2 MXC V4L2 capture:Correct TVin PAL/NTSC video formats
 
 As IPUv3 CSI supports interlaced scan order for CSI->SMFCx->MEM
 channels, change TVin PAL/NTSC video formats to be standard.

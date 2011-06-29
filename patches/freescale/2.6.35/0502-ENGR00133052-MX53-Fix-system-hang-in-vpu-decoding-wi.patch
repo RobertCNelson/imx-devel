@@ -1,7 +1,7 @@
 From 21d6fcb4099ce2a88ed5ebdc35987a03c14828a2 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Thu, 2 Dec 2010 20:55:42 +0800
-Subject: [PATCH 502/850] ENGR00133052 MX53: Fix system hang in vpu decoding with iram.
+Subject: [PATCH 502/902] ENGR00133052 MX53: Fix system hang in vpu decoding with iram.
 
 Change vpu clock dependency for iram to emi_intr_clk[0]
 since vpu should use emi_intr_clk[0], not emi_intr_clk[1].

@@ -1,7 +1,7 @@
 From 6927272b84ef610d00a725e7e537ab21d2115ba2 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Sun, 26 Sep 2010 13:20:31 +0800
-Subject: [PATCH 243/850] ENGR00131942 mfg-firmware: add mfg firmware defconfig
+Subject: [PATCH 243/902] ENGR00131942 mfg-firmware: add mfg firmware defconfig
 
 Add manufacture tool linux firmware defconfig
 

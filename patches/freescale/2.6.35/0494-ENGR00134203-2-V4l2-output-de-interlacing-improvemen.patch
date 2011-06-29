@@ -1,7 +1,7 @@
 From 266a0cf52348529ac60fb4810e057c9c8f26a0e1 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 1 Dec 2010 15:14:47 +0800
-Subject: [PATCH 494/850] ENGR00134203-2 V4l2 output:de-interlacing improvement
+Subject: [PATCH 494/902] ENGR00134203-2 V4l2 output:de-interlacing improvement
 
 Correct the next field's start address.
 

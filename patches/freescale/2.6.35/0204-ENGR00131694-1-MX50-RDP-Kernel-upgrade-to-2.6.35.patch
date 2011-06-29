@@ -1,7 +1,7 @@
 From 8b8f3038e2e7b7f0a3d527108a647e85b1c1bb8c Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Fri, 10 Sep 2010 10:58:37 -0500
-Subject: [PATCH 204/850] ENGR00131694-1 MX50 RDP Kernel upgrade to 2.6.35
+Subject: [PATCH 204/902] ENGR00131694-1 MX50 RDP Kernel upgrade to 2.6.35
 
 Machine layer for MX50 ref design platform
 

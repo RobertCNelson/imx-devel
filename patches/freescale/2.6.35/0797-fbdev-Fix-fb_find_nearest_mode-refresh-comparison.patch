@@ -1,7 +1,7 @@
 From 8119c10880bcbe55449e33b34f0f8932fb0da480 Mon Sep 17 00:00:00 2001
 From: Andrew Kephart <andrew.kephart@alereon.com>
 Date: Mon, 13 Dec 2010 09:46:34 -0600
-Subject: [PATCH 797/850] fbdev: Fix fb_find_nearest_mode refresh comparison
+Subject: [PATCH 797/902] fbdev: Fix fb_find_nearest_mode refresh comparison
 
 Refresh rate nearness is not calculated or reset when nearest resolution
 changes.

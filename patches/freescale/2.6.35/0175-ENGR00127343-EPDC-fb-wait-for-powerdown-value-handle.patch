@@ -1,7 +1,7 @@
 From 22fcd7eef03f9fcd0037cdc7b14a58320403e9d6 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 9 Sep 2010 09:53:45 -0500
-Subject: [PATCH 175/850] ENGR00127343 - EPDC fb: wait for powerdown value handled incorrectly
+Subject: [PATCH 175/902] ENGR00127343 - EPDC fb: wait for powerdown value handled incorrectly
 
 jiffies_to_msecs used instead of msecs_to_jiffies.  This mistake has been fixed.
 

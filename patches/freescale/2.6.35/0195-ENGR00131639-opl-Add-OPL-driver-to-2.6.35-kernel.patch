@@ -1,7 +1,7 @@
 From 3aa5110dae99eb82b4ec1c2106efb4766d879f37 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Thu, 16 Sep 2010 09:19:20 -0500
-Subject: [PATCH 195/850] ENGR00131639 opl: Add OPL driver to 2.6.35 kernel
+Subject: [PATCH 195/902] ENGR00131639 opl: Add OPL driver to 2.6.35 kernel
 
 The OPL driver needs to be brought over to 2.6.35 from 2.6.31.
 

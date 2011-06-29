@@ -1,7 +1,7 @@
 From 08631fe7020d6d42fbe63ef0f9ef02a2548eed03 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Fri, 30 Jul 2010 10:46:37 +0800
-Subject: [PATCH 069/850] ENGR00125693-2 OV3640:Set gpo regulator's voltage to be 2.8V
+Subject: [PATCH 069/902] ENGR00125693-2 OV3640:Set gpo regulator's voltage to be 2.8V
 
 Set gpo regulator's voltage to be 2.8V.
 

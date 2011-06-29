@@ -1,7 +1,7 @@
 From 7445e9d009c2c348a4932277470bb1493554d961 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <r00091@freescale.com>
 Date: Wed, 16 Sep 2009 12:56:38 -0500
-Subject: [PATCH 015/850] usb: imx usb buffers in iram work-around
+Subject: [PATCH 015/902] usb: imx usb buffers in iram work-around
 
 Some i.MX parts (MX31, MX37) need to have usb host queue descriptors
 and/or buffers in on-chip IRAM in cases of heavily loaded memory

@@ -1,7 +1,7 @@
 From 3ef7a7f4227970a4fb048b08d3f1d7bbbd3836ed Mon Sep 17 00:00:00 2001
 From: Alan Tull <alan.tull@freescale.com>
 Date: Fri, 8 Oct 2010 11:59:38 -0500
-Subject: [PATCH 279/850] ENGR00132411 sgtl5000 vdda is on regulator sw4
+Subject: [PATCH 279/902] ENGR00132411 sgtl5000 vdda is on regulator sw4
 
 Change the regulator setup to show the correct regulator for vdda.
 

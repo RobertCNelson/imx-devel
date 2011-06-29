@@ -1,7 +1,7 @@
 From f653a2862d8ca56312d0848aef2fc926e1901702 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 30 Dec 2010 17:02:36 +0800
-Subject: [PATCH 587/850] ENGR00137495 MX53 LOCO: Add MSL support
+Subject: [PATCH 587/902] ENGR00137495 MX53 LOCO: Add MSL support
 
 Add MSL support for MX53 LOCO board.
 The following functions are tested on MX53 LOCO board:

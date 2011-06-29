@@ -1,7 +1,7 @@
 From 15f7bc70e4bc3753eba52c455f06ebac6499adf0 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Tue, 28 Sep 2010 16:43:00 +0800
-Subject: [PATCH 305/850] ENGR00132486 GPU: Upgrade to Rel 1.1
+Subject: [PATCH 305/902] ENGR00132486 GPU: Upgrade to Rel 1.1
 
 Upgrade to AMD "Production Release 1.1 for September 10,2010"
 

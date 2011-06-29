@@ -1,7 +1,7 @@
 From f1beff8f7ff279c72aa4d68db8084eb55a3702f3 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 26 May 2010 14:56:15 -0500
-Subject: [PATCH 007/850] cache-l2x0: add enable/disable functions
+Subject: [PATCH 007/902] cache-l2x0: add enable/disable functions
 
 Signed-off-by: Rob Herring <r.herring@freescale.com>
 ---

@@ -1,7 +1,7 @@
 From 9f3ec5e932c444736f988190814b50830625704b Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 1 Dec 2010 15:14:27 +0800
-Subject: [PATCH 493/850] ENGR00134203-1 IPUv3 VDI:de-interlacing improvement
+Subject: [PATCH 493/902] ENGR00134203-1 IPUv3 VDI:de-interlacing improvement
 
 Support VDI 422 mode(we support UYVY and YUYV 422
 pixel format only).

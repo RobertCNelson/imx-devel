@@ -1,7 +1,7 @@
 From d5b7ef0407a5393ae3f022e13dce0548e5a018b1 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Tue, 10 Aug 2010 10:44:00 +0800
-Subject: [PATCH 114/850] ENGR00125796 MX5x: Boot stop at "Starting kernel ..."
+Subject: [PATCH 114/902] ENGR00125796 MX5x: Boot stop at "Starting kernel ..."
 
 System sometime stop at "Starting kernel ...". After connect with
 ICE, we found that system enter abort mode. The abort sometimes is

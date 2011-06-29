@@ -1,7 +1,7 @@
 From b549163158cd479ed2f724e34953465412f6cbce Mon Sep 17 00:00:00 2001
 From: Alan Tull <r80115@freescale.com>
 Date: Wed, 4 Nov 2009 20:28:36 -0600
-Subject: [PATCH 025/850] ENGR00118016-3 wm8580: update to 2.6.31
+Subject: [PATCH 025/902] ENGR00118016-3 wm8580: update to 2.6.31
 
 wm8580 is using regulators that can't change state.  The
 regulator driver doesn't handle this case well so it crashes

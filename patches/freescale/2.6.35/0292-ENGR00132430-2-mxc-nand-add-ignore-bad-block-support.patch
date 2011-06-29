@@ -1,7 +1,7 @@
 From 49b013ea6b3f3b494b1a51cafd3f6e59090e349c Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 11 Oct 2010 18:19:58 +0800
-Subject: [PATCH 292/850] ENGR00132430-2 mxc nand: add "ignore bad block" support
+Subject: [PATCH 292/902] ENGR00132430-2 mxc nand: add "ignore bad block" support
 
 Add ignore_badblock support for mxc nand flash driver.
 The usage is like:

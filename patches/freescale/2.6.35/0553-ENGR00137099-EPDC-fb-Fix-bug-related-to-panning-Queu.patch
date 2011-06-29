@@ -1,7 +1,7 @@
 From eb0eeb62dc0a45a03a946c7e60da85442b974461 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 16 Dec 2010 18:01:24 -0600
-Subject: [PATCH 553/850] ENGR00137099 - EPDC fb: Fix bug related to panning + Queue update scheme
+Subject: [PATCH 553/902] ENGR00137099 - EPDC fb: Fix bug related to panning + Queue update scheme
 
 - Changed default update scheme to SNAPSHOT
 - Added panning offset info for each update

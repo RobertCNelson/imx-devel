@@ -1,7 +1,7 @@
 From 34dcb98d5dbc86bc1f14435fda1d76b2acc8ee47 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 23 Aug 2010 17:27:40 +0800
-Subject: [PATCH 139/850] ENGR00126584 usb gadget driver: Clarify some usb handling routines
+Subject: [PATCH 139/902] ENGR00126584 usb gadget driver: Clarify some usb handling routines
 
 1. When the usb is not in use, the usb can be put into low power mode
 (usb related clock are off, and phcd = 1)

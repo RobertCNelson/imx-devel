@@ -1,7 +1,7 @@
 From 9e581d60bc60b45de5493cd410fa682295970933 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Fri, 7 Jan 2011 13:56:53 +0800
-Subject: [PATCH 655/850] ENGR00137733 MXC V4L2 overlay:Fill black data to fb before preview
+Subject: [PATCH 655/902] ENGR00137733 MXC V4L2 overlay:Fill black data to fb before preview
 
 This patch fills black data to overlay fb before preview to get rid
 of dirty data splashing the screen.

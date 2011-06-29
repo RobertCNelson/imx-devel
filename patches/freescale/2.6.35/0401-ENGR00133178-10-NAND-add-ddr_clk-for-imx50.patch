@@ -1,7 +1,7 @@
 From f0fc38e3786393cddaaa0639ceaf5e3998b57312 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 3 Nov 2010 10:01:16 +0800
-Subject: [PATCH 401/850] ENGR00133178-10 NAND : add ddr_clk for imx50
+Subject: [PATCH 401/902] ENGR00133178-10 NAND : add ddr_clk for imx50
 
 In imx50, the low power feature is introduced into the system.
 We have to enable the ddr_clk explicitly before doing any DMA operations.

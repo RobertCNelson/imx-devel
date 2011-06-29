@@ -1,7 +1,7 @@
 From 77ab517e1b1a293e767cbced536ec1adb224053b Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Thu, 27 Jan 2011 01:52:22 +0800
-Subject: [PATCH 727/850] ENGR00138532: mxc_iim: let mxc_iim work with dd and echo
+Subject: [PATCH 727/902] ENGR00138532: mxc_iim: let mxc_iim work with dd and echo
 
 mxc_iim: let mxc_iim work with dd and echo.
 

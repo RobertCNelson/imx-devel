@@ -1,7 +1,7 @@
 From ab4ebac65eae22d8aac40547ae5b0f0cbc870825 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Fri, 30 Jul 2010 20:07:42 +0800
-Subject: [PATCH 080/850] ENGR00125772 mx50 esdhc: add DDR support
+Subject: [PATCH 080/902] ENGR00125772 mx50 esdhc: add DDR support
 
 Add DDR support for eMMC 4.4 cards.
 Currently the clock is set to 40Mhz to get good compatibility.

@@ -1,7 +1,7 @@
 From bd61bb1657b0c44595b4d06b020c8c1c5db9cfb6 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 27 Sep 2010 10:25:41 +0800
-Subject: [PATCH 255/850] ENGR00131616-3 usb: restructure lower power mode and wakeup function
+Subject: [PATCH 255/902] ENGR00131616-3 usb: restructure lower power mode and wakeup function
 
 1. The disconnect exception will call do_set_config, and therefore will
 visit controller registers. However it is a delayed event, and will be

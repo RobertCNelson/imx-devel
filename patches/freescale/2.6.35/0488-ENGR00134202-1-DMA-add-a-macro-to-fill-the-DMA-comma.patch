@@ -1,7 +1,7 @@
 From 472dc27b55246b476214525473968d56717ba2d5 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 1 Dec 2010 14:57:53 +0800
-Subject: [PATCH 488/850] ENGR00134202-1 DMA : add a macro to fill the DMA command word1
+Subject: [PATCH 488/902] ENGR00134202-1 DMA : add a macro to fill the DMA command word1
 
 add a macro to fill the DMA command word one for IMX23,IMX28 and
 IMX50.

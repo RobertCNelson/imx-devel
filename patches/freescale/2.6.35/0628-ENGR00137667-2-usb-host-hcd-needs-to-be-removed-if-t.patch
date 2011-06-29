@@ -1,7 +1,7 @@
 From b5d8c00948b95dede9efb8740b07e7d3f43e74ef Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 6 Jan 2011 16:51:19 +0800
-Subject: [PATCH 628/850] ENGR00137667-2 usb-host: hcd needs to be removed if the host's probe is error
+Subject: [PATCH 628/902] ENGR00137667-2 usb-host: hcd needs to be removed if the host's probe is error
 
 Hcd needs to be removed if the host's probe meets error, if not,
 the system hang will occur.

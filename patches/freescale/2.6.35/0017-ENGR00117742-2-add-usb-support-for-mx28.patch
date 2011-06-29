@@ -1,7 +1,7 @@
 From c44dc00d2aecfcbf30336180f5ecd6a3a633545d Mon Sep 17 00:00:00 2001
 From: Albert Chen <R65187@freescale.com>
 Date: Thu, 28 Jan 2010 09:58:40 +0800
-Subject: [PATCH 017/850] ENGR00117742-2  add usb support for mx28
+Subject: [PATCH 017/902] ENGR00117742-2  add usb support for mx28
 
 	kernel part
 

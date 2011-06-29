@@ -1,7 +1,7 @@
 From 6193f7234b9ad1ad3d22f8474d564401ce27d7c2 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Fri, 15 Oct 2010 16:28:54 +0800
-Subject: [PATCH 325/850] ENGR00132639-1 Power: mxc_pwerkey break mx25 kernel build
+Subject: [PATCH 325/902] ENGR00132639-1 Power: mxc_pwerkey break mx25 kernel build
 
 MSL Part
 define a new platform data struct, and Put the pmic callback register

@@ -1,7 +1,7 @@
 From c8d17a24a501c578d24fd3fcdf071f0fa4b6aee9 Mon Sep 17 00:00:00 2001
 From: Tony Lin <tony.lin@freescale.com>
 Date: Tue, 11 Jan 2011 18:01:03 +0800
-Subject: [PATCH 696/850] ENGR00137979-2 [MX50]add performance monitor driver
+Subject: [PATCH 696/902] ENGR00137979-2 [MX50]add performance monitor driver
 
 	enable performance monitor driver for system loading analysis
 

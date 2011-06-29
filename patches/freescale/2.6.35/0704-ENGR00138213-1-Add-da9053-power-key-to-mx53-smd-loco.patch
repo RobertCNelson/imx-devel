@@ -1,7 +1,7 @@
 From 2159cd60ec06ed1d32471f52f1c3f60a11cd676d Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 19 Jan 2011 20:42:35 +0800
-Subject: [PATCH 704/850] ENGR00138213-1 Add da9053 power key to mx53 smd &loco
+Subject: [PATCH 704/902] ENGR00138213-1 Add da9053 power key to mx53 smd &loco
 
 Add da9053 power key config, add key up event
 

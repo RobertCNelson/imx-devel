@@ -1,7 +1,7 @@
 From 4a21b0aadd0627fd1df953df2d938c7f4aef59c8 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 27 Sep 2010 10:21:58 +0800
-Subject: [PATCH 254/850] ENGR00131616-2 usb: restructure lower power mode and wakeup function
+Subject: [PATCH 254/902] ENGR00131616-2 usb: restructure lower power mode and wakeup function
 
 Device driver part((squashed with ENGR00131776)
 

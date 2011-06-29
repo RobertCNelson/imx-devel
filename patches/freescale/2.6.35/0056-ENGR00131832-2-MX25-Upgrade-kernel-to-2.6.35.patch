@@ -1,7 +1,7 @@
 From 024958c044435e69aa36b7a95e8a544a366b889c Mon Sep 17 00:00:00 2001
 From: Alan Tull <r80115@freescale.com>
 Date: Thu, 23 Sep 2010 14:17:22 -0500
-Subject: [PATCH 056/850] ENGR00131832-2 MX25: Upgrade kernel to 2.6.35
+Subject: [PATCH 056/902] ENGR00131832-2 MX25: Upgrade kernel to 2.6.35
 
 This patch contains driver fixes for mx25.
 Contains all checkpatch and copyright fixes.

@@ -1,7 +1,7 @@
 From 04f21ba0024330821322713eebe1fce996e12af5 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 20 Jan 2011 16:22:37 +0800
-Subject: [PATCH 710/850] ENGR00138270-1 header file: change ipu_check_buffer_busy func name.
+Subject: [PATCH 710/902] ENGR00138270-1 header file: change ipu_check_buffer_busy func name.
 
 Change ipu_check_buffer_busy to ipu_check_buffer_ready.
 

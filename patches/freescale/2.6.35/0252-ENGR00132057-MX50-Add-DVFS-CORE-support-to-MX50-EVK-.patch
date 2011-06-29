@@ -1,7 +1,7 @@
 From c18f63182e2e196221e025d38a0b57492cc44449 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 27 Sep 2010 11:42:22 -0500
-Subject: [PATCH 252/850] ENGR00132057  MX50: Add DVFS-CORE support to MX50 EVK board.
+Subject: [PATCH 252/902] ENGR00132057  MX50: Add DVFS-CORE support to MX50 EVK board.
 
 Enable DVFS-CORE and bus_freq drivers in MX50 EVK board file.
 

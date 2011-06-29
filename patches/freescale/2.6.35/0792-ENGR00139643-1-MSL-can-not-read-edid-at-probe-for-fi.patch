@@ -1,7 +1,7 @@
 From 9c8b7928faef69c6c7c0b84c48164fdf6dce5698 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 23 Feb 2011 18:12:54 +0800
-Subject: [PATCH 792/850] ENGR00139643-1 MSL: can not read edid at probe for first power on
+Subject: [PATCH 792/902] ENGR00139643-1 MSL: can not read edid at probe for first power on
 
 Need enable analog regulator.
 

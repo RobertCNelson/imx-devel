@@ -1,7 +1,7 @@
 From a6d0ffe7907902392523924a01bf021cbe7a7951 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Wed, 27 Oct 2010 14:20:13 +0800
-Subject: [PATCH 379/850] ENGR00122832 MX28: Support for IEEE 1588 interface functionality
+Subject: [PATCH 379/902] ENGR00122832 MX28: Support for IEEE 1588 interface functionality
 
 Supply the 1588 support for MX28 FEC.
 

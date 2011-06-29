@@ -1,7 +1,7 @@
 From fa07d5782279842b69dd0ef2d0055ec783337fb0 Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Wed, 17 Nov 2010 16:06:49 +0800
-Subject: [PATCH 442/850] ENGR00133737 MXC SDMA: fix system hangs when play audio with irq threaded
+Subject: [PATCH 442/902] ENGR00133737 MXC SDMA: fix system hangs when play audio with irq threaded
 
 When apply rt patch or turn on hardirq threaded in kernel,
 play audio by application with realtime schedule policy hangs the system.

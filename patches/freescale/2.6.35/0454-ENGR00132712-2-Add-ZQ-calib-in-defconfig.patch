@@ -1,7 +1,7 @@
 From 0afc6102ba79fc4423fd6c7ddaef200bf46270d3 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Wed, 10 Nov 2010 17:23:01 +0800
-Subject: [PATCH 454/850] ENGR00132712-2 Add ZQ calib in defconfig
+Subject: [PATCH 454/902] ENGR00132712-2 Add ZQ calib in defconfig
 
 and do the following for debugging purpose,
 1. changed the running interval from 5 minute to 10 seconds

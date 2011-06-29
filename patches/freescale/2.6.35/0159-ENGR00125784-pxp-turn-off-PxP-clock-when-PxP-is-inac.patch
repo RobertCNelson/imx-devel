@@ -1,7 +1,7 @@
 From 12685a000a896b8f7cffca727242aa0d39e1354c Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Mon, 2 Aug 2010 14:38:15 +0800
-Subject: [PATCH 159/850] ENGR00125784 pxp: turn off PxP clock when PxP is inactive
+Subject: [PATCH 159/902] ENGR00125784 pxp: turn off PxP clock when PxP is inactive
 
 turn off PxP clock when PxP is inactive for about 4s.
 turn on PxP clock when a new PxP task is submitted.

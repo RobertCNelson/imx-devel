@@ -1,7 +1,7 @@
 From 2ef468274d93cc9069a5020578a6d9cb349dbc99 Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Wed, 28 Jul 2010 13:34:02 +0800
-Subject: [PATCH 046/850] ENGR00125326 MX28 ALSA: Can't play streams with sample rate 8k to 22k
+Subject: [PATCH 046/902] ENGR00125326 MX28 ALSA: Can't play streams with sample rate 8k to 22k
 
 Resolve the problem of playing wav streams with sample rate 8k,11k,16k
 and 22k.

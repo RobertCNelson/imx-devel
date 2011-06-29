@@ -1,7 +1,7 @@
 From 4ed61d89ec30d31887eb7b31ad89f757c9ea337e Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 30 Jul 2010 13:00:25 -0500
-Subject: [PATCH 073/850] ENGR00125782 - EPDC AXI clk should be disabled before exiting clk init
+Subject: [PATCH 073/902] ENGR00125782 - EPDC AXI clk should be disabled before exiting clk init
 
 Leaving EPDC AXI enabled is bad for power management.  EPDC/Display
 clks must be enabled before clock rate can be set.  We must then disable

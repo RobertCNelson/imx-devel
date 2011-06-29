@@ -1,7 +1,7 @@
 From 939185c19bb27574229921e3fc6b3934eae2fe6d Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 8 Sep 2010 10:24:45 +0800
-Subject: [PATCH 049/850] ENGR00127265-1 MX3X: Upgrade kernel to 2.6.35
+Subject: [PATCH 049/902] ENGR00127265-1 MX3X: Upgrade kernel to 2.6.35
 
 This patch contains changes to plat-mxc files.
 Contains all checkpatch and copyright fixes.

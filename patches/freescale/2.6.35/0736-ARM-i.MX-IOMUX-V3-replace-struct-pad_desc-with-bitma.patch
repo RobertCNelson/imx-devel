@@ -1,7 +1,7 @@
 From 9021fba6e46ff6c22e8802cabffd9334b25d4f99 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
 Date: Tue, 26 Oct 2010 14:28:31 +0200
-Subject: [PATCH 736/850] ARM: i.MX IOMUX-V3 replace struct pad_desc with bitmapped cookie
+Subject: [PATCH 736/902] ARM: i.MX IOMUX-V3 replace struct pad_desc with bitmapped cookie
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

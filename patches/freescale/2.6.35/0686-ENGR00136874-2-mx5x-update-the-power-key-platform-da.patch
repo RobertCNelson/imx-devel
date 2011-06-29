@@ -1,7 +1,7 @@
 From 9f00d7554b483366218804bc800ccb6ceae0ebf2 Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Mon, 17 Jan 2011 10:02:57 +0800
-Subject: [PATCH 686/850] ENGR00136874-2 mx5x: update the power key platform data
+Subject: [PATCH 686/902] ENGR00136874-2 mx5x: update the power key platform data
 
 mx50rdp, mx51bbg, mx53evk:
 Add get keypad press status callback and desired send key value

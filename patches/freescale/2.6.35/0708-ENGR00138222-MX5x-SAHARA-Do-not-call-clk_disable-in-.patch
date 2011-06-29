@@ -1,7 +1,7 @@
 From 6ab950cae173fdb8ffd70d6414aa5d30aad9753b Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Wed, 19 Jan 2011 11:33:44 -0600
-Subject: [PATCH 708/850] ENGR00138222 MX5x SAHARA Do not call clk_disable in IRQ context
+Subject: [PATCH 708/902] ENGR00138222 MX5x SAHARA Do not call clk_disable in IRQ context
 
 Removed clk_disable call from ISR, and moved it to postprocess
 function that is queued up for exection later. Also fixed debug

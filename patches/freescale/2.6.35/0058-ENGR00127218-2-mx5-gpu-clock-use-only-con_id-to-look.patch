@@ -1,7 +1,7 @@
 From 5897ef121aa3c8aba0524705b385b0597e3290fb Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Tue, 7 Sep 2010 15:10:24 +0800
-Subject: [PATCH 058/850] ENGR00127218-2 mx5: gpu clock: use only con_id to lookup clock
+Subject: [PATCH 058/902] ENGR00127218-2 mx5: gpu clock: use only con_id to lookup clock
 
 It matches how gpu driver uses clk_get.
 

@@ -1,7 +1,7 @@
 From b6614e875f10a871c411c547e6cd42b221ff4215 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Wed, 10 Nov 2010 09:27:01 +0800
-Subject: [PATCH 415/850] ENGR00133380 FEC: Fix dhcp failure at i.MX28 EVK
+Subject: [PATCH 415/902] ENGR00133380 FEC: Fix dhcp failure at i.MX28 EVK
 
 Fix dhcp failure at i.MX28 EVK board caused by 1588 patch
 

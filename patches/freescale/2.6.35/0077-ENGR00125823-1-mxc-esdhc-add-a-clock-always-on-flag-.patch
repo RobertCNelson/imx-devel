@@ -1,7 +1,7 @@
 From 679ab6b0f79b5e3cbde6db7e78994503dd8e37de Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 2 Aug 2010 22:35:54 +0800
-Subject: [PATCH 077/850] ENGR00125823-1 mxc esdhc: add a clock always on flag in plat_data
+Subject: [PATCH 077/902] ENGR00125823-1 mxc esdhc: add a clock always on flag in plat_data
 
 Add a control flag for clock always on function in plat_data.
 By default ,esdhc clock will be automatically gate off by HW

@@ -1,7 +1,7 @@
 From 55274a72ff6fef35416bbd1ef1f3ad9dfb79385e Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 22 Nov 2010 10:17:12 +0800
-Subject: [PATCH 459/850] ENGR00133906-1 DMA : add dumping code for DMA
+Subject: [PATCH 459/902] ENGR00133906-1 DMA : add dumping code for DMA
 
 Dump the DMA registers for the function mxs_dma_get_info().
 

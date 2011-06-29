@@ -1,7 +1,7 @@
 From c3dbe9cf07ef87e9c03b322ea21d3ea964aed180 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Thu, 14 Oct 2010 14:02:01 +0800
-Subject: [PATCH 323/850] ENGR00131580-1 MX53: Add IEEE1588 hardware-assisted device definition
+Subject: [PATCH 323/902] ENGR00131580-1 MX53: Add IEEE1588 hardware-assisted device definition
 
 Add IEEE1588 device's resource definition, and set default clock input
 for ptp RTC.

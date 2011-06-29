@@ -1,7 +1,7 @@
 From dd081ee6bfaf9df93a3a0203bf51db717b40744f Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 4 Jan 2011 15:17:41 +0800
-Subject: [PATCH 597/850] ENGR00137558-2 GPMI : remove the imx23-specific code from the common file
+Subject: [PATCH 597/902] ENGR00137558-2 GPMI : remove the imx23-specific code from the common file
 
 The removed code is all about the imx23. It should not exist in
 the common file.

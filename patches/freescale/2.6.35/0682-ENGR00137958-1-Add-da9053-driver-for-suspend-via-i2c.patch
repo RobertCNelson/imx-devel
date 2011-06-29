@@ -1,7 +1,7 @@
 From 96b76e38338a4fd85e6472767c61251c899274c1 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Thu, 13 Jan 2011 21:31:28 +0800
-Subject: [PATCH 682/850] ENGR00137958-1 Add da9053 driver for suspend via i2c command
+Subject: [PATCH 682/902] ENGR00137958-1 Add da9053 driver for suspend via i2c command
 
 Add da9053 driver code support for suspend
 

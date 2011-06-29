@@ -1,7 +1,7 @@
 From b5f4ddb56e868041ed64b66e077f80c16b87d2f0 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 27 Sep 2010 16:09:43 -0500
-Subject: [PATCH 276/850] ENGR00132139 MX50: Set DDR to 24MHz in LPAPM mode
+Subject: [PATCH 276/902] ENGR00132139 MX50: Set DDR to 24MHz in LPAPM mode
 
 Added support for DDR at 24MHz in LPAPM mode to achieve low power in idle mode.
 In LPAPM mode, all peripheral domain clocks and DDR are sourced from 24MHz XTAL.

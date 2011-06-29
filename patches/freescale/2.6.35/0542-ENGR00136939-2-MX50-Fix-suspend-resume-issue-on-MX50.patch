@@ -1,7 +1,7 @@
 From 443bf7a861d9720b546b6df15458bcf3814b9d58 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 15 Dec 2010 13:52:22 -0600
-Subject: [PATCH 542/850] ENGR00136939-2: MX50: Fix suspend/resume issue on MX50 RDP
+Subject: [PATCH 542/902] ENGR00136939-2: MX50: Fix suspend/resume issue on MX50 RDP
 
 Register SPI device first so that it will be the last device
 to be suspended and first device to be resumed.

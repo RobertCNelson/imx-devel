@@ -1,7 +1,7 @@
 From 1f6985676373b30328b0fc0f43de8dc7949ccfdc Mon Sep 17 00:00:00 2001
 From: Catalin Marinas <catalin.marinas@arm.com>
 Date: Mon, 13 Sep 2010 15:57:36 +0100
-Subject: [PATCH 752/850] ARM: 6379/1: Assume new page cache pages have dirty D-cache
+Subject: [PATCH 752/902] ARM: 6379/1: Assume new page cache pages have dirty D-cache
 
 There are places in Linux where writes to newly allocated page cache
 pages happen without a subsequent call to flush_dcache_page() (several

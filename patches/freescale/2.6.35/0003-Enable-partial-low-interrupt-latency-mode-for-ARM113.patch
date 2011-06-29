@@ -1,7 +1,7 @@
 From 6bfd025e4a34d9a7f008d10af06a2d275df6434b Mon Sep 17 00:00:00 2001
 From: Catalin Marinas <catalin.marinas@arm.com>
 Date: Thu, 11 Sep 2008 15:06:34 +0100
-Subject: [PATCH 003/850] Enable partial low interrupt latency mode for ARM1136
+Subject: [PATCH 003/902] Enable partial low interrupt latency mode for ARM1136
 
 Enable partial low interrupt latency mode for ARM1136
 

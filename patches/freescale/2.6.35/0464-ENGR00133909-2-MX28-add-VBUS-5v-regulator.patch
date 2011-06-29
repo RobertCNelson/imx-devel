@@ -1,7 +1,7 @@
 From 86e3d94ca3bc6f21174f10b0be52cc1d706cb59c Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Tue, 23 Nov 2010 14:00:04 +0800
-Subject: [PATCH 464/850] ENGR00133909-2 MX28: add VBUS 5v regulator
+Subject: [PATCH 464/902] ENGR00133909-2 MX28: add VBUS 5v regulator
 
 Do not enable charger and switch to 4p2 from on board VBUS 5v
 

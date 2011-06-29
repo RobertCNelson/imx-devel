@@ -1,7 +1,7 @@
 From ad433c6968a60634fb9cf233202991df6f153318 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 17 Feb 2011 16:03:44 +0800
-Subject: [PATCH 777/850] ENGR00139354-2 header file: add common ddc driver support
+Subject: [PATCH 777/902] ENGR00139354-2 header file: add common ddc driver support
 
 Add common DDC driver support.
 

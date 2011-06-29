@@ -1,7 +1,7 @@
 From 60055f62a9e5bc1cd9415bc4e517b5a12e8f8fac Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 5 Nov 2010 16:54:07 +0800
-Subject: [PATCH 404/850] ENGR00133310 NAND : update the mtd->ecc_stats when reading page failed
+Subject: [PATCH 404/902] ENGR00133310 NAND : update the mtd->ecc_stats when reading page failed
 
 If tell the real correcting infomation to the upper layer of
 MTD, the torture thread of UBIFS will do the torture test in

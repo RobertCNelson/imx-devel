@@ -1,7 +1,7 @@
 From a7dd97d2e9fef11dea60defec51845d40179feb8 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Fri, 31 Dec 2010 13:43:36 +0800
-Subject: [PATCH 646/850] ENGR00137500-3 MX53 SMD:Support OV5640 camera
+Subject: [PATCH 646/902] ENGR00137500-3 MX53 SMD:Support OV5640 camera
 
 1) Add platform data for OV5640 camera.
 2) Add camera reset and power down support.

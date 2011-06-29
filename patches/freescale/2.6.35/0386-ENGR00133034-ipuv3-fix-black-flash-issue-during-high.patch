@@ -1,7 +1,7 @@
 From 52a5eeedff7c7a1a441bb1a7379cb72c0448ac1d Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 1 Nov 2010 10:42:04 +0800
-Subject: [PATCH 386/850] ENGR00133034 ipuv3: fix black flash issue during high resolution video playback
+Subject: [PATCH 386/902] ENGR00133034 ipuv3: fix black flash issue during high resolution video playback
 
 When v4l2 using ic bypass mode, and format is non-interleaving, if
 the resolution is large, like 720P on mx51, it has chance to make

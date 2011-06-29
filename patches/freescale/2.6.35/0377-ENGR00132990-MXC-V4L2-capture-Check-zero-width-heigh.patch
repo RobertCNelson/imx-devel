@@ -1,7 +1,7 @@
 From 40a72bed068e55b641a41cab3b17cd04999f7d8c Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 27 Oct 2010 09:48:21 +0800
-Subject: [PATCH 377/850] ENGR00132990 MXC V4L2 capture:Check zero width/height in VIDIOC_S_FMT
+Subject: [PATCH 377/902] ENGR00132990 MXC V4L2 capture:Check zero width/height in VIDIOC_S_FMT
 
 This patch checks zero width/height parameters provided by user
 in ioctrl VIDIOC_S_FMT. It can fix the issue of division by zero

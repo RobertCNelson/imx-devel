@@ -1,7 +1,7 @@
 From 6a74001d6eda0fbe07c97269d0d59d6358699540 Mon Sep 17 00:00:00 2001
 From: David Dajun Chen <Dajun.Chen@diasemi.com>
 Date: Tue, 4 Jan 2011 13:43:34 +0800
-Subject: [PATCH 614/850] ENGR00137556-1 add da9053 pmic driver
+Subject: [PATCH 614/902] ENGR00137556-1 add da9053 pmic driver
 
 Add DA9053 source code from Dialog
 The code revision is 3r0 and it is base

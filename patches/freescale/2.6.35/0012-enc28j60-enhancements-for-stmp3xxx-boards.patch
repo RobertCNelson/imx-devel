@@ -1,7 +1,7 @@
 From 5d0f46df1f23a855311fe7fcf4cf91fae44558a3 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 16 Sep 2009 11:48:45 -0500
-Subject: [PATCH 012/850] enc28j60: enhancements for stmp3xxx boards
+Subject: [PATCH 012/902] enc28j60: enhancements for stmp3xxx boards
 
 Get mac addr from otp bits
 Add suspend/resume

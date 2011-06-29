@@ -1,7 +1,7 @@
 From 2b108447c655e17d473bc43305b5912de1e74dad Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Wed, 13 Oct 2010 19:12:50 +0800
-Subject: [PATCH 318/850] ENGR00132582 MX50: Add keypad for RD board
+Subject: [PATCH 318/902] ENGR00132582 MX50: Add keypad for RD board
 
 Need E-Book ADD On Board.
 Boot Config (SW5) uses EIM_DA0~7, which are multiplexed with Keypad module.

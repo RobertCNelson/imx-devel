@@ -1,7 +1,7 @@
 From a30aecd7bc64d4813b842ccda2d665cc477f48cc Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 27 Sep 2010 15:52:45 -0500
-Subject: [PATCH 269/850] ENGR00132142: Add code to print system clocks information for 35 kernel.
+Subject: [PATCH 269/902] ENGR00132142: Add code to print system clocks information for 35 kernel.
 
 Added support such that /proc/cpu/clocks prints the clock usage and frequency
 on 35 kernel.

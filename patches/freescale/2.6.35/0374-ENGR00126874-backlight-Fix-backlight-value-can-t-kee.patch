@@ -1,7 +1,7 @@
 From ee3511f59f0e83328f5de637f74584859ca71f08 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Tue, 26 Oct 2010 13:52:59 +0800
-Subject: [PATCH 374/850] ENGR00126874 backlight:Fix backlight value can't keep after suspend and resume.
+Subject: [PATCH 374/902] ENGR00126874 backlight:Fix backlight value can't keep after suspend and resume.
 
 Backlight value is reset at event MXS_LCDIF_PANEL_INIT after resume.
 Check suspend status to avoid reset value.

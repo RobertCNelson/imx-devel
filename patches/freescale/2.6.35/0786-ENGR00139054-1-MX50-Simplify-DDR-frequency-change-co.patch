@@ -1,7 +1,7 @@
 From 8014ded3b0b31eefb0665252d36c18fc228c4b15 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 16 Feb 2011 14:23:30 -0600
-Subject: [PATCH 786/850] ENGR00139054-1: MX50- Simplify DDR frequency change code.
+Subject: [PATCH 786/902] ENGR00139054-1: MX50- Simplify DDR frequency change code.
 
 The DDR init code is changeing frequently and is modified based on the
 memory vendor. Change the DDR frequency code in the BSP so that is

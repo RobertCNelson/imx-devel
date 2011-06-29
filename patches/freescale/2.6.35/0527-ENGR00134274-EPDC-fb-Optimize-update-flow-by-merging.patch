@@ -1,7 +1,7 @@
 From 04c6c1aae5ecd0221d47f44df6ee937c0d517ac6 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 8 Dec 2010 17:53:47 -0600
-Subject: [PATCH 527/850] ENGR00134274 - EPDC fb: Optimize update flow by merging compatible updates
+Subject: [PATCH 527/902] ENGR00134274 - EPDC fb: Optimize update flow by merging compatible updates
 
 - Created a worker thread to centralize all update requests (new and collisions)
 - Added routine to merge compatible updates

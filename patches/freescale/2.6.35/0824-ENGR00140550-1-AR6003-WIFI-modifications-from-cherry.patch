@@ -1,7 +1,7 @@
 From b1417407fe6a32e7c1e3e28ea1997c3a018716a7 Mon Sep 17 00:00:00 2001
 From: Tony Lin <tony.lin@freescale.com>
 Date: Tue, 15 Mar 2011 10:44:44 +0800
-Subject: [PATCH 824/850] ENGR00140550-1 [AR6003 WIFI]modifications from cherry-pick
+Subject: [PATCH 824/902] ENGR00140550-1 [AR6003 WIFI]modifications from cherry-pick
 
 add header files to make cherry-pick compile on 2.6.35 kernel
 change wireless name from eth to wlan

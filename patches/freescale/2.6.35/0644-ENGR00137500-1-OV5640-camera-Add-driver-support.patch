@@ -1,7 +1,7 @@
 From bed5f8c670bea6035732fdaef732f76998e28a95 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 22 Dec 2010 15:00:38 +0800
-Subject: [PATCH 644/850] ENGR00137500-1 OV5640 camera: Add driver support
+Subject: [PATCH 644/902] ENGR00137500-1 OV5640 camera: Add driver support
 
 320x240@30fps, 640x480@30fps, 720x480@30fps, 720x576@30fps,
 720P@30fps and 1080P@30fps are supported.

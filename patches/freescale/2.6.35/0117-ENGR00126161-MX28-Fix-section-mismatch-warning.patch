@@ -1,7 +1,7 @@
 From f78b696899fb085498402ecd6c659177667e3472 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 11 Aug 2010 13:03:11 +0800
-Subject: [PATCH 117/850] ENGR00126161 MX28:Fix section mismatch warning
+Subject: [PATCH 117/902] ENGR00126161 MX28:Fix section mismatch warning
 
 Fix the following miss match warning:
 WARNING: vmlinux.o(.text+0xe220): Section mismatch

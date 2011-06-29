@@ -1,7 +1,7 @@
 From eb680c19fc73119ea6fcbae7a52a1c74758991cf Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 2 Nov 2010 12:43:15 +0800
-Subject: [PATCH 399/850] ENGR00133178-8 NAND : add ONFI NAND commands
+Subject: [PATCH 399/902] ENGR00133178-8 NAND : add ONFI NAND commands
 
 add the new ONFI NAND commands to the common header file.
 

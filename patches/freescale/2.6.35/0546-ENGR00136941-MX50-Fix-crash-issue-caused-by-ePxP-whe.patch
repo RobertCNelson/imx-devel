@@ -1,7 +1,7 @@
 From a357deb0e63f1cec372dd209af3b0ef4c4ddd440 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 16 Dec 2010 16:55:23 +0800
-Subject: [PATCH 546/850] ENGR00136941 MX50: Fix crash issue caused by ePxP when playback video
+Subject: [PATCH 546/902] ENGR00136941 MX50: Fix crash issue caused by ePxP when playback video
 
 The root cause is list_del() are called twice on same entry in pxp irq handler.
 Remove latter one fixes this issue.

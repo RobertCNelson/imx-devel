@@ -1,7 +1,7 @@
 From b2c430fa1a85636e9737f97313eb7ff391215514 Mon Sep 17 00:00:00 2001
 From: Nancy Chen <Nancy.Chen@freescale.com>
 Date: Mon, 11 Oct 2010 16:05:18 -0500
-Subject: [PATCH 336/850] ENGR00124788-2 MX53 ARD: Add Linear PMIC support
+Subject: [PATCH 336/902] ENGR00124788-2 MX53 ARD: Add Linear PMIC support
 
 MX53 ARD: Add Linear PMIC support.
 

@@ -1,7 +1,7 @@
 From b580484bb1e3cd9cd7e17858d3851e5eaec5fa89 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 3 Aug 2010 15:58:43 -0500
-Subject: [PATCH 097/850] ENGR00125728-1: DVFS-CORE: Replace IOADDRESS with ioremap.
+Subject: [PATCH 097/902] ENGR00125728-1: DVFS-CORE: Replace IOADDRESS with ioremap.
 
 Replace all references to virutal address with ioremap and use offsets to
 access registers.

@@ -1,7 +1,7 @@
 From d88984b563a75f78110b1ba230f4cf1981bfe4c1 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Wed, 2 Mar 2011 20:45:53 +0800
-Subject: [PATCH 808/850] ENGR00140036 Set init max poll delay time in mma sensor driver
+Subject: [PATCH 808/902] ENGR00140036 Set init max poll delay time in mma sensor driver
 
 1. Set initial max poll delay time in mma8450 and mma8451
    accelerometer sensor driver. And remove one build warning.

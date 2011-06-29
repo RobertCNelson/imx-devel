@@ -1,7 +1,7 @@
 From 43203ef2b1ccb6feb68cba6c8714fc23978c022a Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Wed, 24 Mar 2010 10:18:23 +0800
-Subject: [PATCH 030/850] ENGR00121913 Add sched_clock support to i.mx platform
+Subject: [PATCH 030/902] ENGR00121913 Add sched_clock support to i.mx platform
 
 Add sched_clock() implement for i.mx platform to support nanosecond
 resolution time for sched clock used by scheduler.

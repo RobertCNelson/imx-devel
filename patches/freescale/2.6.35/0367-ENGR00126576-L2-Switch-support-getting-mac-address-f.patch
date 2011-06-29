@@ -1,7 +1,7 @@
 From 499398d1ae16b65d55cb112d0b878f6f0a8c2ec2 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Mon, 23 Aug 2010 15:50:31 +0800
-Subject: [PATCH 367/850] ENGR00126576 L2-Switch: support getting mac address from platform data
+Subject: [PATCH 367/902] ENGR00126576 L2-Switch: support getting mac address from platform data
 
 The L2 Switch can get mac address from platform data.
 

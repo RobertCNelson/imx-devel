@@ -1,7 +1,7 @@
 From 3da74e8e86327bb9a7cce9bdf67af7773a05eca6 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Wed, 1 Dec 2010 16:44:53 -0600
-Subject: [PATCH 805/850] ENGR00139672-1 mx5: Get the silicon revision from the IIM
+Subject: [PATCH 805/902] ENGR00139672-1 mx5: Get the silicon revision from the IIM
 
 For MX51 and MX53,the SI_REV fuse will have the correct silicon
 revision that can be read from the IIM module.

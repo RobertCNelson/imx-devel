@@ -1,7 +1,7 @@
 From 5a87ea3bd3ff1a2c0e77fc2549901fb55291ba91 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 15 Nov 2010 09:25:19 -0600
-Subject: [PATCH 455/850] ENGR00133862: Mx50: Drop Vcc voltage to 1.05V in LPAPM mode
+Subject: [PATCH 455/902] ENGR00133862: Mx50: Drop Vcc voltage to 1.05V in LPAPM mode
 
 Change Vcc to 1.05V when the system is in LPAPM mode (LP domain and
 DDR are at 24MHz)

@@ -1,7 +1,7 @@
 From a8e20787740ffc0adf1277965fbe1e6891c25ff7 Mon Sep 17 00:00:00 2001
 From: Frank Li <frank.li@freescale.com>
 Date: Tue, 2 Nov 2010 19:51:26 +0800
-Subject: [PATCH 387/850] ENGR00133268 MX28: DVFS support mDDR
+Subject: [PATCH 387/902] ENGR00133268 MX28: DVFS support mDDR
 
 Support mDDR in DVFS driver,using config menu
 system type->Freescale i.MXS implementtations->

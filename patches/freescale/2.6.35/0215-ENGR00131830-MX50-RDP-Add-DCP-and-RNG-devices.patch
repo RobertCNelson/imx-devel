@@ -1,7 +1,7 @@
 From e5dace1cdba4d92aa38bc8b9c140b110073b583d Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Tue, 21 Sep 2010 18:01:11 -0500
-Subject: [PATCH 215/850] ENGR00131830 MX50 RDP Add DCP and RNG devices
+Subject: [PATCH 215/902] ENGR00131830 MX50 RDP Add DCP and RNG devices
 
 Enable these drivers by adding the devices to the board file
 

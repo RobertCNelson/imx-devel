@@ -1,7 +1,7 @@
 From 2b4ea702e7964f2556150c8f56508c4f5425381f Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Wed, 5 Jan 2011 14:14:55 +0800
-Subject: [PATCH 618/850] ENGR00137502-1 MX53 SMD Enable Sandisk eMMC DDR mode
+Subject: [PATCH 618/902] ENGR00137502-1 MX53 SMD Enable Sandisk eMMC DDR mode
 
 A while delay is mandatory required by Sandisk eMMC44 card when
 enable the DDR mode, since this eMMC44 chip is not abide to the

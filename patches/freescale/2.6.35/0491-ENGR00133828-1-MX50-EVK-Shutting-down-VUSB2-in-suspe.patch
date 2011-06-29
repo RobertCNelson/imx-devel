@@ -1,7 +1,7 @@
 From 87a3c35859cc3ed41204bc1854ca2430e5259300 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 18 Nov 2010 13:41:11 -0600
-Subject: [PATCH 491/850] ENGR00133828-1: MX50 EVK: Shutting down VUSB2 in suspend causes USB failures
+Subject: [PATCH 491/902] ENGR00133828-1: MX50 EVK: Shutting down VUSB2 in suspend causes USB failures
 
 VUSB2 cannot be shutdown in suspend, else USB remote wakeup fails.
 

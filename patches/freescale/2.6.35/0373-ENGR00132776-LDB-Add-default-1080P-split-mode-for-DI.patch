@@ -1,7 +1,7 @@
 From 2c6f21732a3e1940d9014406547e2f880b465ef9 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 19 Oct 2010 16:39:00 +0800
-Subject: [PATCH 373/850] ENGR00132776 LDB:Add default 1080P split mode for DI1
+Subject: [PATCH 373/902] ENGR00132776 LDB:Add default 1080P split mode for DI1
 
 Though users can specify 'ldb=xxx' to enable 1080P LVDS
 panel when using DI1, it is not easy for them to set it

@@ -1,7 +1,7 @@
 From 07bc627e6d5c0e77bc95f416e8f618ac771aab4f Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 14 Jan 2011 14:33:04 +0800
-Subject: [PATCH 679/850] ENGR00137980 spdif: enable spdif_clk src support
+Subject: [PATCH 679/902] ENGR00137980 spdif: enable spdif_clk src support
 
 Add spdif_clk src support, and add clk src check.
 

@@ -1,7 +1,7 @@
 From 2592aaaff12b5fb2b00ea26589e6e6c6d29c050d Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 11 Oct 2010 13:13:58 +0800
-Subject: [PATCH 289/850] ENGR00132113 v4l2 output: fix DQBUF fail after fb blank operation
+Subject: [PATCH 289/902] ENGR00132113 v4l2 output: fix DQBUF fail after fb blank operation
 
 During video playback, doing blank/unblank fb operation, it has chance to got
 v4l2 run into busy loop.

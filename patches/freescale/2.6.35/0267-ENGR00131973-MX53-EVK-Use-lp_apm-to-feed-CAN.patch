@@ -1,7 +1,7 @@
 From b765a6f47bc36ef50ecc3fc00e6d6fdff77e9583 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Tue, 28 Sep 2010 10:58:25 +0800
-Subject: [PATCH 267/850] ENGR00131973 MX53 EVK: Use lp_apm to feed CAN
+Subject: [PATCH 267/902] ENGR00131973 MX53 EVK: Use lp_apm to feed CAN
 
 Use lp_apm clock, which is 24MHz, to feed the CAN.
 

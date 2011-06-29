@@ -1,7 +1,7 @@
 From b1f33520371767798e5c2394dc31d598c2d2ea9d Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 24 Nov 2010 10:59:37 +0800
-Subject: [PATCH 471/850] ENGR00133954-2 ipuv3: remove FB_SYNC_EXT flag
+Subject: [PATCH 471/902] ENGR00133954-2 ipuv3: remove FB_SYNC_EXT flag
 
 FB_SYNC_EXT was used to represent ext clk, but actually, it represent ext sync.
 Some applications do not recognize it, during fb_set_var ioctl may miss it,

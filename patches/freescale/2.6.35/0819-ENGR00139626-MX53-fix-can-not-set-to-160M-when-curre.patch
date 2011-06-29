@@ -1,7 +1,7 @@
 From e7101b7c3777d716fe91c20cad38f56133ab338d Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 9 Mar 2011 17:52:13 +0800
-Subject: [PATCH 819/850] ENGR00139626 MX53: fix can not set to 160M when current CPU works at 1000M
+Subject: [PATCH 819/902] ENGR00139626 MX53: fix can not set to 160M when current CPU works at 1000M
 
 Add correct pll parameters for 160M working point
 

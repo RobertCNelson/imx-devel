@@ -1,7 +1,7 @@
 From 47ee6bf850e0bb77aa85ed975b6d1971fe7a91fa Mon Sep 17 00:00:00 2001
 From: Tony Lin <tony.lin@freescale.com>
 Date: Tue, 15 Feb 2011 10:52:16 +0800
-Subject: [PATCH 767/850] ENGR00139191 [MMC]vendor spec register will be overwrittern
+Subject: [PATCH 767/902] ENGR00139191 [MMC]vendor spec register will be overwrittern
 
 	during multi-block transfer and MX50 TO1.1/MX53 TO2
 	SDHCI_VERDOR_SPEC register will be overwritten

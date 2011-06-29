@@ -1,7 +1,7 @@
 From bf495a18e51c4fd8fd20c5cf8fc2439dd9044c5e Mon Sep 17 00:00:00 2001
 From: Jie Zhou <b30303@freescale.com>
 Date: Wed, 4 Aug 2010 11:26:39 +0800
-Subject: [PATCH 085/850] ENGR00125800 UIO: clean uioinfo when uninstall uio driver
+Subject: [PATCH 085/902] ENGR00125800 UIO: clean uioinfo when uninstall uio driver
 
 The uioinfo should be cleaned up when uninstall, otherwise re-install
 failure of uio_pdrv_genirq.ko will happen.

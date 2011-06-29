@@ -1,7 +1,7 @@
 From 3fd216d3f40bd91ee99d74674e045fd2a1cd6cc0 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 19 Jan 2011 20:43:54 +0800
-Subject: [PATCH 705/850] ENGR00138213-2 Add da9053 power key to mx53 smd &loco
+Subject: [PATCH 705/902] ENGR00138213-2 Add da9053 power key to mx53 smd &loco
 
 add defconfig, remove gpio power key
 fix some defconfig item miss

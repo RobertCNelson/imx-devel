@@ -1,7 +1,7 @@
 From 732353a76753c5f200cf97a73cd48b608e708995 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 16 Aug 2010 16:25:41 +0800
-Subject: [PATCH 122/850] ENGR00126156 ipuv3: check own clk count only when around clk rate
+Subject: [PATCH 122/902] ENGR00126156 ipuv3: check own clk count only when around clk rate
 
 If dual display enabled, the second one may not be able to set
 correct clock rate if it's from ext clk.

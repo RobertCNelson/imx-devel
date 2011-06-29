@@ -1,7 +1,7 @@
 From b546d96a624e6f638069aedc95ac9832fce6c72b Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Fri, 3 Sep 2010 17:55:28 +0800
-Subject: [PATCH 171/850] ENGR00127114 MXS DMA: Add xfer_count to struct mxs_dma_info
+Subject: [PATCH 171/902] ENGR00127114 MXS DMA: Add xfer_count to struct mxs_dma_info
 
 Add a new member xfer_count to struct mxs_dma_info, which will
 be used later.

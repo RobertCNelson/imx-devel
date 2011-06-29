@@ -1,7 +1,7 @@
 From c5722e8fbf1b12a781f3241ba56875a04fa7009a Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 20 Jan 2011 15:34:43 -0600
-Subject: [PATCH 735/850] ENGR00138513 - EPDC fb: Auto-waveform selecting wrong waveform mode
+Subject: [PATCH 735/902] ENGR00138513 - EPDC fb: Auto-waveform selecting wrong waveform mode
 
 - Software workaround for PxP alignment/histogram limitation implemented
 

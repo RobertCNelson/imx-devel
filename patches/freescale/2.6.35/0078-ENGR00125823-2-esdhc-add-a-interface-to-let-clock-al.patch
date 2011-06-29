@@ -1,7 +1,7 @@
 From 9ed1c4e9efd34e06a084218de494be1f38cf3781 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 3 Aug 2010 09:58:47 +0800
-Subject: [PATCH 078/850] ENGR00125823-2 esdhc: add a interface to let clock always on
+Subject: [PATCH 078/902] ENGR00125823-2 esdhc: add a interface to let clock always on
 
 Implement platform independent clock always on function.
 User would use clk_always_on flag in plat_data to decide whether

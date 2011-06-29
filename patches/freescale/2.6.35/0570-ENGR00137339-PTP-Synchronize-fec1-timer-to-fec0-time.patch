@@ -1,7 +1,7 @@
 From 2f5df2a484ffc678edf6507caa73152c266af0c6 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Fri, 24 Dec 2010 11:59:56 +0800
-Subject: [PATCH 570/850] ENGR00137339 PTP: Synchronize fec1 timer to fec0 timer in i.MX28
+Subject: [PATCH 570/902] ENGR00137339 PTP: Synchronize fec1 timer to fec0 timer in i.MX28
 
 When enable fec0 and fec1 1588 timer in the same time,
 enalbe fec1 1588 timer to FRC_SLAVE mode in i.MX28.

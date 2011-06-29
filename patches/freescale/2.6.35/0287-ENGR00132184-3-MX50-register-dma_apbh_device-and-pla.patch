@@ -1,7 +1,7 @@
 From cf9d8f703e690c3f9ceb84e11d08e5b41c8c9907 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 30 Sep 2010 18:57:08 +0800
-Subject: [PATCH 287/850] ENGR00132184-3 MX50: register dma_apbh_device and platform data
+Subject: [PATCH 287/902] ENGR00132184-3 MX50: register dma_apbh_device and platform data
 
 Add dma_apbh_device and platform data for it, which is needed
 by GPMI NAND.

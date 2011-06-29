@@ -1,7 +1,7 @@
 From 49a21d7f47204d19848b72db93483177160f5522 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 10:12:52 +0800
-Subject: [PATCH 392/850] ENGR00133178-1 NAND : add set_parent()/set_rate() for GPMI
+Subject: [PATCH 392/902] ENGR00133178-1 NAND : add set_parent()/set_rate() for GPMI
 
 The ONFI nand need the PLL1 clock, so add the two function
 to change the bypass clock.

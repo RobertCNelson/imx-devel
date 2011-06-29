@@ -1,7 +1,7 @@
 From 5a22ffcd654513937af529d635f1c128b5a82551 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Wed, 29 Sep 2010 10:34:06 -0500
-Subject: [PATCH 259/850] ENGR00132134 MX25 Upgrade security drivers to 2.6.35 kernel
+Subject: [PATCH 259/902] ENGR00132134 MX25 Upgrade security drivers to 2.6.35 kernel
 
 Machine layer changes to support security drivers:
 1) clock register changes for SCC and DryIce modules

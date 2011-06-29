@@ -1,7 +1,7 @@
 From aafc68dcd1d81aa9b1721dbc5e38370f74aeb849 Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Thu, 6 Jan 2011 13:35:49 +0800
-Subject: [PATCH 621/850] ENGR00137651 USB: Change usb wakeup task wait for completion interruptible
+Subject: [PATCH 621/902] ENGR00137651 USB: Change usb wakeup task wait for completion interruptible
 
   1. Change wait for competion interruptible avoid hung task information.
   2. Achieve sched_clock by clocksource_cyc2ns.

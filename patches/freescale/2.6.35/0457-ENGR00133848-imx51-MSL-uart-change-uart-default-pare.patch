@@ -1,7 +1,7 @@
 From 87f1c81680c762bce9000cc2e8b479c91afd6837 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 18 Nov 2010 16:17:32 +0800
-Subject: [PATCH 457/850] ENGR00133848 imx51 MSL uart: change uart default parent to pll2
+Subject: [PATCH 457/902] ENGR00133848 imx51 MSL uart: change uart default parent to pll2
 
 change uart default parent to pll2 and clk rate to 66.5MHz
 

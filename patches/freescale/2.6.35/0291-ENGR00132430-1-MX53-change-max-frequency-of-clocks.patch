@@ -1,7 +1,7 @@
 From 2772e19b353b385487e62c33688b14e5ff55000f Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 11 Oct 2010 18:16:25 +0800
-Subject: [PATCH 291/850] ENGR00132430-1 MX53: change max frequency of clocks
+Subject: [PATCH 291/902] ENGR00132430-1 MX53: change max frequency of clocks
 
 1. Change max frequency of ahb and emi_slow clocks
 2. update nfc clocks as about 33MHZ for RevB and ARD board

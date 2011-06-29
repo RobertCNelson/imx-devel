@@ -1,7 +1,7 @@
 From 6b9325df0716ef20a7767bc2a33be84187832aa5 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Tue, 22 Mar 2011 18:41:45 +0800
-Subject: [PATCH 844/850] ENGR00140893-2 vpu: Add iram info to vpu platform data for each platform
+Subject: [PATCH 844/902] ENGR00140893-2 vpu: Add iram info to vpu platform data for each platform
 
 Add iram info to vpu platform data for each platform in linux/arch folder.
 Disable iram on MX51 and Enable iram on MX53 platforms.

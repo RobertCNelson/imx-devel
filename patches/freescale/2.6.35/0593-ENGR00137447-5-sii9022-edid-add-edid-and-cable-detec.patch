@@ -1,7 +1,7 @@
 From 74630f1f063abcda82c0a749fbbce0696b5b4a1c Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 31 Dec 2010 10:23:00 +0800
-Subject: [PATCH 593/850] ENGR00137447-5 sii9022 edid: add edid and cable detect support in sii9022
+Subject: [PATCH 593/902] ENGR00137447-5 sii9022 edid: add edid and cable detect support in sii9022
 
 Add edid and cable detect support in sii9022.
 An uevent with EVENT=plugin or EVENT=plugout will send out after hdmi

@@ -1,7 +1,7 @@
 From 6b0334a50d5bee4a8713d5d1f50507e22d39f0d8 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 6 Sep 2010 13:19:49 +0800
-Subject: [PATCH 043/850] ENGR00127171-5 Kernel Upgrade: Fix all drivers build error for mx23/mx28
+Subject: [PATCH 043/902] ENGR00127171-5 Kernel Upgrade: Fix all drivers build error for mx23/mx28
 
 Fix build error because kernel upgrade
 

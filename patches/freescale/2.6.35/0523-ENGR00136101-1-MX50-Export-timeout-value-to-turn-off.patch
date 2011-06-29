@@ -1,7 +1,7 @@
 From 2e362de8aa3b3f820c7a1705f0377537c6271b6f Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 7 Dec 2010 16:36:32 +0800
-Subject: [PATCH 523/850] ENGR00136101-1 MX50: Export timeout value to turn off ePxP clock when inactive
+Subject: [PATCH 523/902] ENGR00136101-1 MX50: Export timeout value to turn off ePxP clock when inactive
 
 Usage (timeout in millisecond, default is 600):
 echo 2000 > /sys/devices/platform/mxc-pxp/clk_off_timeout

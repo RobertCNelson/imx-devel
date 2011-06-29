@@ -1,7 +1,7 @@
 From d525eb0d81e6fced4acd169b83cb5533c216fc31 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 22 Feb 2011 17:13:28 +0800
-Subject: [PATCH 800/850] ENGR00139383-2 MX53 SMD:Support ISL29023 light sensor
+Subject: [PATCH 800/902] ENGR00139383-2 MX53 SMD:Support ISL29023 light sensor
 
 This patch adds ISL29023 light sensor support.
 

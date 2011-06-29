@@ -1,7 +1,7 @@
 From 278e247454d3a247971a83d7428daf82715771ac Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 26 May 2010 13:26:51 -0500
-Subject: [PATCH 029/850] imx: change timer clock to perclk
+Subject: [PATCH 029/902] imx: change timer clock to perclk
 
 Signed-off-by: Rob Herring <r.herring@freescale.com>
 ---

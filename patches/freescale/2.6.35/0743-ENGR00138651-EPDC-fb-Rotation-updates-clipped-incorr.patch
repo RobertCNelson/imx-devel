@@ -1,7 +1,7 @@
 From 7ffde2354e7bd65140ccb70b4350194f38821de8 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Sun, 30 Jan 2011 15:55:21 -0600
-Subject: [PATCH 743/850] ENGR00138651 - EPDC fb: Rotation updates clipped incorrectly
+Subject: [PATCH 743/902] ENGR00138651 - EPDC fb: Rotation updates clipped incorrectly
 
 - Corrected the computation of PxP input/output buffer address offsets
 - Corrected the computation of EPDC input buffer address offset

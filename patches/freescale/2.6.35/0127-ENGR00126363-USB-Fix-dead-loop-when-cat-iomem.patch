@@ -1,7 +1,7 @@
 From 6d0ee0484af3905a044c10028e32e1923d80157c Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 18 Aug 2010 13:45:03 +0800
-Subject: [PATCH 127/850] ENGR00126363 USB:Fix dead loop when cat iomem
+Subject: [PATCH 127/902] ENGR00126363 USB:Fix dead loop when cat iomem
 
   The origin code reuse the otg_resource as the resource for udc
 device. This will cause a small bug, the following command will

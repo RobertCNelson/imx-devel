@@ -1,7 +1,7 @@
 From abfb54a7ad06a0b2a1f96ea022312e9d3dd55101 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Tue, 25 Mar 2008 21:57:06 -0500
-Subject: [PATCH 002/850] ENGR00069937 Community patch for Fix mount error in case of MLC flash
+Subject: [PATCH 002/902] ENGR00069937 Community patch for Fix mount error in case of MLC flash
 
 Even though we don't use the OOB for MLC nand flash,
 we should use the bad block information to skip the bad block.

@@ -1,7 +1,7 @@
 From 30b33b4ce59b8d0e35272385b195b42929179f98 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Tue, 28 Sep 2010 10:56:31 +0800
-Subject: [PATCH 265/850] ENGR00131965-1 CAN: Extend the flexcan_platform_data structure
+Subject: [PATCH 265/902] ENGR00131965-1 CAN: Extend the flexcan_platform_data structure
 
 Extend the flexcan_platform_data structure, adding root_clk_id
 to choose the root clock for the CAN module in CCM.

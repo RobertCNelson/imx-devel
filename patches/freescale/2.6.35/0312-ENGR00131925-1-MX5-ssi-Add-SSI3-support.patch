@@ -1,7 +1,7 @@
 From 70aff68ec795fe66b8bf6cf0d351e5e4a2522fc3 Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Wed, 13 Oct 2010 07:10:08 +0800
-Subject: [PATCH 312/850] ENGR00131925-1 MX5 ssi: Add SSI3 support
+Subject: [PATCH 312/902] ENGR00131925-1 MX5 ssi: Add SSI3 support
 
 Add ssi3 support for MX5.
 

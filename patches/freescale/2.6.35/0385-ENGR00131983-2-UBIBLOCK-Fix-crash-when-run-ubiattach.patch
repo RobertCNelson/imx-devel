@@ -1,7 +1,7 @@
 From f131c6d8731125fd685e01ff842a8a1702cb2921 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 25 Oct 2010 10:59:55 +0800
-Subject: [PATCH 385/850] ENGR00131983-2 UBIBLOCK: Fix crash when run ubiattach
+Subject: [PATCH 385/902] ENGR00131983-2 UBIBLOCK: Fix crash when run ubiattach
 
 Some variable change at 2.6.35. So ubiblock need update to use
 new member variable.

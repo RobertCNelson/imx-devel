@@ -1,7 +1,7 @@
 From e045b6c78c38145f8754997cecbdc160b769148c Mon Sep 17 00:00:00 2001
 From: Ran Ferderber <Ran.Ferderber@freescale.com>
 Date: Thu, 25 Nov 2010 16:54:39 +0200
-Subject: [PATCH 484/850] ENGR00134077-2 Add TVE 1080P30/25/24, 1080I60/50 support for iMX53
+Subject: [PATCH 484/902] ENGR00134077-2 Add TVE 1080P30/25/24, 1080I60/50 support for iMX53
 
 Set the new video modes values
 

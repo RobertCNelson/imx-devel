@@ -1,7 +1,7 @@
 From 244456b53ac60ad4ced182c1e2e81150ce1c6d0c Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Mon, 6 Dec 2010 20:03:35 +0800
-Subject: [PATCH 637/850] ENGR00137669-2 rfkill: mx53: ath3k rfkill interface.
+Subject: [PATCH 637/902] ENGR00137669-2 rfkill: mx53: ath3k rfkill interface.
 
 MX53 SMD board use ath3k Bluetooth Chip.
 Add rfkill interface to control AR3K BT's power and reset.

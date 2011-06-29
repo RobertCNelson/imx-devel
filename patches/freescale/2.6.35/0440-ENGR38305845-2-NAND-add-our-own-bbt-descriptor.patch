@@ -1,7 +1,7 @@
 From c0367e024155938a9ba086ebf650db528f896573 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 16 Nov 2010 17:20:40 +0800
-Subject: [PATCH 440/850] ENGR38305845-2 NAND : add our own bbt descriptor
+Subject: [PATCH 440/902] ENGR38305845-2 NAND : add our own bbt descriptor
 
 The default bbt descriptor will compare two bytes from the
 Block mark.

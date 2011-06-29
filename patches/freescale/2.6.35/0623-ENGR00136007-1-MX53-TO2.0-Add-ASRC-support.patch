@@ -1,7 +1,7 @@
 From 9e81bc3e98f47e0e1e4a434ea3527f559af530d5 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 5 Jan 2011 13:19:04 +0800
-Subject: [PATCH 623/850] ENGR00136007-1 MX53 TO2.0: Add ASRC support
+Subject: [PATCH 623/902] ENGR00136007-1 MX53 TO2.0: Add ASRC support
 
 Add ASRC support for MX53 TO2.0:
 - Add ASRC clock support

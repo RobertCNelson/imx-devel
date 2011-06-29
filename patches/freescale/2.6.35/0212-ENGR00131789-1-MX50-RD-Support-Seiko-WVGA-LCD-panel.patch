@@ -1,7 +1,7 @@
 From a85c37ba1f34b6470560082183d208e7b98dee68 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 21 Sep 2010 14:14:40 +0800
-Subject: [PATCH 212/850] ENGR00131789-1 MX50 RD:Support Seiko WVGA LCD panel
+Subject: [PATCH 212/902] ENGR00131789-1 MX50 RD:Support Seiko WVGA LCD panel
 
 MSL change to support Seiko WVGA LCD panel.
 

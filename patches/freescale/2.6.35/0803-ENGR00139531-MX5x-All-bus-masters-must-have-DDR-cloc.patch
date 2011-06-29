@@ -1,7 +1,7 @@
 From aede786934d3e69cec340725e13baa931b03df6f Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 21 Feb 2011 15:44:14 -0600
-Subject: [PATCH 803/850] ENGR00139531: MX5x-All bus-masters must have DDR clock as a dependent clock.
+Subject: [PATCH 803/902] ENGR00139531: MX5x-All bus-masters must have DDR clock as a dependent clock.
 
 All the bus masters need to have clock to DDR (emi_fast_clk for MX51 & MX53) as
 secondary clocks to ensure the clocks to DDR remain ON as long as the bus master

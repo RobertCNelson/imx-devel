@@ -1,7 +1,7 @@
 From 6bd4c012e3f8bdd167942c7081a8b3e50b220b31 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 31 Aug 2010 19:35:29 +0800
-Subject: [PATCH 165/850] ENGR00126313-2 epxp: Add ePxP V4L2 output driver
+Subject: [PATCH 165/902] ENGR00126313-2 epxp: Add ePxP V4L2 output driver
 
 Add ePxP V4L2 output driver, which calls ePxP DMAEngine internally.
 Support rotation, overlay, alpha-blending, colorkey, etc.

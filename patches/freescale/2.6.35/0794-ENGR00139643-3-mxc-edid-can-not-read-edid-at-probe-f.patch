@@ -1,7 +1,7 @@
 From ff2c76f8204555ae789dfc12e8e06f6ba188e7fe Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 23 Feb 2011 18:13:43 +0800
-Subject: [PATCH 794/850] ENGR00139643-3 mxc edid: can not read edid at probe for first power on
+Subject: [PATCH 794/902] ENGR00139643-3 mxc edid: can not read edid at probe for first power on
 
 Need enable analog regulator.
 

@@ -1,7 +1,7 @@
 From ec2b11c9a26229edd62aa83b72881884b9ca5db1 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 14 Jan 2011 18:30:48 +0800
-Subject: [PATCH 684/850] ENGR00137873 ipuv3 fb: can not set correct bpp for tve through cmdline
+Subject: [PATCH 684/902] ENGR00137873 ipuv3 fb: can not set correct bpp for tve through cmdline
 
 fb cmdline option bpp= should pass the default bpp to fb driver, for tve etc
 case, it will set_var by itself, which var->bits_per_pixel = 0,

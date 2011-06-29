@@ -1,7 +1,7 @@
 From f9ce730a4cd396db1c8768a2e7fa99fdb33e23e4 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Wed, 1 Sep 2010 10:41:09 -0500
-Subject: [PATCH 035/850] ENGR00126692-4: Upgrade kernel to 2.6.35
+Subject: [PATCH 035/902] ENGR00126692-4: Upgrade kernel to 2.6.35
 
 This patch contains changes to /arch/arm files
 Contains all checkpatch and copyright fixes.

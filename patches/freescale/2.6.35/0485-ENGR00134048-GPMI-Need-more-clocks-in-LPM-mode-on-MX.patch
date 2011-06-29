@@ -1,7 +1,7 @@
 From e225ce4a1caf2932b5c82e56be5cd7f753ca5c62 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 25 Nov 2010 13:56:41 +0800
-Subject: [PATCH 485/850] ENGR00134048 GPMI: Need more clocks in LPM mode on MX508
+Subject: [PATCH 485/902] ENGR00134048 GPMI: Need more clocks in LPM mode on MX508
 
 In the low power mode, we need to enable the apbh_dma_clk and
 ahb_max_clk which are needed by DMA module

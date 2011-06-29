@@ -1,7 +1,7 @@
 From 1b051ac3b85378c2a268215a3d2ae4de0f1d7c5d Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 13 Sep 2010 16:16:44 +0800
-Subject: [PATCH 232/850] ENGR00131469-1 mx28: add spi Norflash support
+Subject: [PATCH 232/902] ENGR00131469-1 mx28: add spi Norflash support
 
 Add w25x80 spi device which is compatible with the m25p80 driver.
 

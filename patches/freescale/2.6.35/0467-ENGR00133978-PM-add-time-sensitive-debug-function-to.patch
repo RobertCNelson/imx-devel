@@ -1,7 +1,7 @@
 From e42913231fa424bcdb485727180c595e48341e53 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Mon, 22 Nov 2010 17:14:32 +0800
-Subject: [PATCH 467/850] ENGR00133978 PM: add time sensitive debug function to suspend & resume
+Subject: [PATCH 467/902] ENGR00133978 PM: add time sensitive debug function to suspend & resume
 
 There was some driver is slow on suspend/resume,
 but some embeded system like eReader,Cellphone

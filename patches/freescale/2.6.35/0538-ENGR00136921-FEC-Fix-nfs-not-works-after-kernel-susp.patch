@@ -1,7 +1,7 @@
 From 294d70d6704b63e66dbc78e6ffb9c2ab2ae49c05 Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Tue, 14 Dec 2010 07:39:30 +0800
-Subject: [PATCH 538/850] ENGR00136921 FEC: Fix nfs not works after kernel suspend and resume on i.MX28
+Subject: [PATCH 538/902] ENGR00136921 FEC: Fix nfs not works after kernel suspend and resume on i.MX28
 
 Fec phy state changing occurs in delay works, which in normal task context.
 And package sending mostly happens in softirq context, only happens in ksoftirq

@@ -1,7 +1,7 @@
 From bd7d416af0a3e0e4873579f5e338c50bb49baab0 Mon Sep 17 00:00:00 2001
 From: Nancy Chen <Nancy.Chen@freescale.com>
 Date: Thu, 13 Jan 2011 14:29:03 -0600
-Subject: [PATCH 675/850] ENGR00137973 MX53_TO2: DVFS core caused system hang
+Subject: [PATCH 675/902] ENGR00137973 MX53_TO2: DVFS core caused system hang
 
 MX53_TO2: DVFS core caused system hang.
 

@@ -1,7 +1,7 @@
 From 804a4cf530c96fe10f52f2daff30a6822cffb224 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Tue, 16 Nov 2010 22:12:14 +0800
-Subject: [PATCH 433/850] ENGR00133726 vpu: make clk_disable() be called only in process context
+Subject: [PATCH 433/902] ENGR00133726 vpu: make clk_disable() be called only in process context
 
 Voltage scaling is done using the Regulator API, which talks to PMIC
 using SPI. SPI code can sleep and hence clk_[en|dis]able() cannot

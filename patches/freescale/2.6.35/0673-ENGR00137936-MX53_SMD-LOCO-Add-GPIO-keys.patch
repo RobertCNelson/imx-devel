@@ -1,7 +1,7 @@
 From 98d847051dac765a59146d4ca84fa5c6adffd886 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 13 Jan 2011 16:37:19 +0800
-Subject: [PATCH 673/850] ENGR00137936 MX53_SMD/LOCO Add GPIO keys.
+Subject: [PATCH 673/902] ENGR00137936 MX53_SMD/LOCO Add GPIO keys.
 
 - Add LOCO GPIO keys, add power key to SMD board.
 - Enable GPIO key in default config.

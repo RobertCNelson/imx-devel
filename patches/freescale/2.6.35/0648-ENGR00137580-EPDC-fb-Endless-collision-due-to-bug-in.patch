@@ -1,7 +1,7 @@
 From 1f6cec0f4bfacf913ea2e0a9a44a37011b31143a Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 4 Jan 2011 09:30:37 -0600
-Subject: [PATCH 648/850] ENGR00137580 - EPDC fb: Endless collision due to bug in collision handling
+Subject: [PATCH 648/902] ENGR00137580 - EPDC fb: Endless collision due to bug in collision handling
 
 - When comparing an update with those it has collided with, do not
 resubmit the update if the counter is greater than OR equal to that

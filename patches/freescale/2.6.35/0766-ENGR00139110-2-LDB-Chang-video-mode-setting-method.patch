@@ -1,7 +1,7 @@
 From 755c9c452ede9e68cd61b67a701173b9550c7c96 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Sat, 12 Feb 2011 16:01:23 +0800
-Subject: [PATCH 766/850] ENGR00139110-2 LDB:Chang video mode setting method
+Subject: [PATCH 766/902] ENGR00139110-2 LDB:Chang video mode setting method
 
 This patch changes video mode setting method for LDB
 related video modes.

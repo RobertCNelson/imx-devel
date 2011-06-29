@@ -1,7 +1,7 @@
 From 29c46b43b8997939643caef10403650b242b85f0 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Mon, 24 Jan 2011 15:09:22 +0800
-Subject: [PATCH 718/850] ENGR00138425 MX53 LOCO/SMD: Only preset voltage for suspend to mem mode
+Subject: [PATCH 718/902] ENGR00138425 MX53 LOCO/SMD: Only preset voltage for suspend to mem mode
 
 Only preset voltage for suspend to mem mode
 

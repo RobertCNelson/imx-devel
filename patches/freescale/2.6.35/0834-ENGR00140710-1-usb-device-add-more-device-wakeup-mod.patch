@@ -1,7 +1,7 @@
 From 3cca1fb9be3e2f5d804d2970bfcc4e276b6a51cd Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 16 Mar 2011 11:00:50 +0800
-Subject: [PATCH 834/850] ENGR00140710-1 usb-device: add more device wakeup modes
+Subject: [PATCH 834/902] ENGR00140710-1 usb-device: add more device wakeup modes
 
 Following usb device wakeup modes is supported are added:
 -vbus failing wakeup: it happens when our SoC suspend and host's vbus failing

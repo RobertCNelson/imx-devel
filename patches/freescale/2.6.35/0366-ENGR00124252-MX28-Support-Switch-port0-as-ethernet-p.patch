@@ -1,7 +1,7 @@
 From 0336a0dba61157377bb9da686d8056ee5018db6c Mon Sep 17 00:00:00 2001
 From: Niu Xule <b23300@freescale.com>
 Date: Wed, 9 Jun 2010 14:40:23 +0800
-Subject: [PATCH 366/850] ENGR00124252 MX28: Support Switch port0 as ethernet port
+Subject: [PATCH 366/902] ENGR00124252 MX28: Support Switch port0 as ethernet port
 
 The L2 Switch have 4 ports,
 and the port0 can be used as ethernet port

@@ -1,7 +1,7 @@
 From f430e9fac017ec0872d81ec9fc7e9e82609a42c9 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Sun, 30 Jan 2011 13:49:53 +0800
-Subject: [PATCH 756/850] ENGR00138642-1 msl-gpio:fix spin lock recursion problem
+Subject: [PATCH 756/902] ENGR00138642-1 msl-gpio:fix spin lock recursion problem
 
 The kernel IRQ API set_irq_type will cause spin lock recursion
 problem when the irq is GPIO's.

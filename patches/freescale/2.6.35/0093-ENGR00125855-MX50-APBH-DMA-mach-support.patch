@@ -1,7 +1,7 @@
 From ba96caa1e7b13ee6005273c1d7d4f777752eb716 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Tue, 3 Aug 2010 16:11:35 +0800
-Subject: [PATCH 093/850] ENGR00125855 MX50: APBH DMA mach support
+Subject: [PATCH 093/902] ENGR00125855 MX50: APBH DMA mach support
 
 MX50 has AHB-to-APBH Bridge with DMA module
 This patch add this APBH DMA mach support

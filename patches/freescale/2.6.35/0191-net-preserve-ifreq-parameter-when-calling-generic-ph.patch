@@ -1,7 +1,7 @@
 From 948cdd13565a8c6687c056ca6147a4b2d6422a13 Mon Sep 17 00:00:00 2001
 From: Richard Cochran <richardcochran@gmail.com>
 Date: Sat, 17 Jul 2010 08:48:55 +0000
-Subject: [PATCH 191/850] net: preserve ifreq parameter when calling generic phy_mii_ioctl().
+Subject: [PATCH 191/902] net: preserve ifreq parameter when calling generic phy_mii_ioctl().
 
 The phy_mii_ioctl() function unnecessarily throws away the original ifreq.
 We need access to the ifreq in order to support PHYs that can perform

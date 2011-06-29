@@ -1,7 +1,7 @@
 From bb0e9ecb6138b79c8355ca1d78106685a9146d46 Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Fri, 15 Oct 2010 09:09:00 +0800
-Subject: [PATCH 342/850] ENGR00131932-1 MX51, MX53, sdma: Upgrade SDMA scripts to v1.1.0 version
+Subject: [PATCH 342/902] ENGR00131932-1 MX51, MX53, sdma: Upgrade SDMA scripts to v1.1.0 version
 
 Upgrade sdma mx51 script to v1.1
 http://compass.freescale.net/go/220269616

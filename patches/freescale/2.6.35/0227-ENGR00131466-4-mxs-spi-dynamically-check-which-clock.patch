@@ -1,7 +1,7 @@
 From 4ae1776e35e9ed3d2aff604dac4be94e9b407fdd Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 13 Sep 2010 22:29:40 +0800
-Subject: [PATCH 227/850] ENGR00131466-4 mxs spi: dynamically check which clock to use
+Subject: [PATCH 227/902] ENGR00131466-4 mxs spi: dynamically check which clock to use
 
 The original spi host driver uses the fixed clock, spi.0,
 which will cause the spi driver only support spi0.

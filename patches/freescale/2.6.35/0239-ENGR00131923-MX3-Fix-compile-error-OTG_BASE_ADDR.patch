@@ -1,7 +1,7 @@
 From 463b2ceb56c105dbd50ac9ff625bf9b7bc74efd6 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sat, 25 Sep 2010 15:39:54 +0800
-Subject: [PATCH 239/850] ENGR00131923 MX3: Fix compile error OTG_BASE_ADDR
+Subject: [PATCH 239/902] ENGR00131923 MX3: Fix compile error OTG_BASE_ADDR
 
 Fix compiling error caused by OTG_BASE_ADDR for MX31
 and MX35 platform

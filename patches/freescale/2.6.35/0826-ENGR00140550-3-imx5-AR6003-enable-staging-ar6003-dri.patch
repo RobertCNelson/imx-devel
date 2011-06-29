@@ -1,7 +1,7 @@
 From 10f02fb1a4da36fb93682d427ec594b4a4278f88 Mon Sep 17 00:00:00 2001
 From: Tony Lin <tony.lin@freescale.com>
 Date: Tue, 15 Mar 2011 11:04:03 +0800
-Subject: [PATCH 826/850] ENGR00140550-3 [imx5/AR6003]enable staging/ar6003 driver in default config
+Subject: [PATCH 826/902] ENGR00140550-3 [imx5/AR6003]enable staging/ar6003 driver in default config
 
 select ar6003 driver under staging
 

@@ -1,7 +1,7 @@
 From 22b4f6339b794ec8b0985dbf4da6d3615118f891 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Mon, 24 Jan 2011 10:00:50 +0800
-Subject: [PATCH 719/850] ENGR00119661 MXC IPUv3 FB:Fix arbitary bpp issue
+Subject: [PATCH 719/902] ENGR00119661 MXC IPUv3 FB:Fix arbitary bpp issue
 
 We used to force the framebuffer bpp to be default bpp
 set by the user in the kernel boot up command line.

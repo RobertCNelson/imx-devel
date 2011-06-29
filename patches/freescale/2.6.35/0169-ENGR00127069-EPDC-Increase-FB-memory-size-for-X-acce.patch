@@ -1,7 +1,7 @@
 From 057450a8090e78f6bb0750581087602ca150f0dd Mon Sep 17 00:00:00 2001
 From: r80085 <thomas.peng@freescale.com>
 Date: Fri, 3 Sep 2010 15:37:18 -0500
-Subject: [PATCH 169/850] ENGR00127069 EPDC: Increase FB memory size for X-accel
+Subject: [PATCH 169/902] ENGR00127069 EPDC: Increase FB memory size for X-accel
 
 Added "x_mem=" option (e.g. video=mxcepdcfb:E60,bpp=16,x_mem=10000)
 to configure extra FB memory for X-accel.

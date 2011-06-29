@@ -1,7 +1,7 @@
 From 07a7ed9e73a8a814afab1db55f642cf1ca715654 Mon Sep 17 00:00:00 2001
 From: Nancy Chen <Nancy.Chen@freescale.com>
 Date: Wed, 10 Nov 2010 18:29:54 -0600
-Subject: [PATCH 416/850] ENGR00133580 PMIC: Configure battery driver as a module
+Subject: [PATCH 416/902] ENGR00133580 PMIC: Configure battery driver as a module
 
 PMIC: Configure battery driver as a loadable module.
 

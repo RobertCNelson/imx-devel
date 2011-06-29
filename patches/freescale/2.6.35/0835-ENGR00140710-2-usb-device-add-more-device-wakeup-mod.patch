@@ -1,7 +1,7 @@
 From be2206443987c646122cd302dadecee4e4ae8327 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 16 Mar 2011 15:10:45 +0800
-Subject: [PATCH 835/850] ENGR00140710-2 usb-device: add more device wakeup modes
+Subject: [PATCH 835/902] ENGR00140710-2 usb-device: add more device wakeup modes
 
 device driver parts
 

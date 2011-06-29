@@ -1,7 +1,7 @@
 From 39eec5265cb217092fa0dce48e9f95f53c341660 Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Fri, 24 Dec 2010 10:42:11 +0800
-Subject: [PATCH 568/850] ENGR00137317-1 USB MSL: handle non-intent wakeup irq triggered by PHCD change
+Subject: [PATCH 568/902] ENGR00137317-1 USB MSL: handle non-intent wakeup irq triggered by PHCD change
 
 PORTSC PHCD will be changed while system shuts down usb host. This triggers
 wake-up interrupt. But it's not host wake-up or device wake-up. OWIR bit in

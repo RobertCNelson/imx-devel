@@ -1,7 +1,7 @@
 From 9fc4f31acbcce01d33f0b21df0485609047bcaea Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 30 Sep 2010 17:57:42 +0800
-Subject: [PATCH 286/850] ENGR00132184-2 MX50: Port GPMI NAND driver to 2.6.35
+Subject: [PATCH 286/902] ENGR00132184-2 MX50: Port GPMI NAND driver to 2.6.35
 
 Move __setup into driver, to remove the conflict between ARM2 and RDP.
 

@@ -1,7 +1,7 @@
 From 0b3f782cfaad8eaac459a2d2a91834700e845761 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 4 Feb 2011 14:03:54 -0600
-Subject: [PATCH 750/850] ENGR00138821 - EPDC fb: Panning may cause missed collision
+Subject: [PATCH 750/902] ENGR00138821 - EPDC fb: Panning may cause missed collision
 
 - When update is processed, we check against latest
 panning offset and drop the update if they don't match. This

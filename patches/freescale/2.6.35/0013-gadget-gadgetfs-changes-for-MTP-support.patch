@@ -1,7 +1,7 @@
 From c94edb90fd1434b71ad047f01c6cc655ec0e2809 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Fri, 16 Oct 2009 15:34:41 -0500
-Subject: [PATCH 013/850] gadget: gadgetfs changes for MTP support
+Subject: [PATCH 013/902] gadget: gadgetfs changes for MTP support
 
 MTP protocol support using gadgetfs requires the ability to cancel
 I/O transactions.

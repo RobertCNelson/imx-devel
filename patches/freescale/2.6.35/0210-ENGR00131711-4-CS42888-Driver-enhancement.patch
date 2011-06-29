@@ -1,7 +1,7 @@
 From 21edc6a2599ab928ccfa380c880a5e52f8711792 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Sun, 19 Sep 2010 16:05:38 +0800
-Subject: [PATCH 210/850] ENGR00131711-4 CS42888: Driver enhancement
+Subject: [PATCH 210/902] ENGR00131711-4 CS42888: Driver enhancement
 
 Retrieve the mclk feed to CS42888, the regulator supplied to
 CS42888, and pwdn function via platform data, eliminating

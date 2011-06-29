@@ -1,7 +1,7 @@
 From de51265112ce748d35d38d85acd9be6078a8fb83 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 14 Oct 2010 13:50:25 -0500
-Subject: [PATCH 328/850] ENGR00132634: MX50: Reduce STOP mode power consumption
+Subject: [PATCH 328/902] ENGR00132634: MX50: Reduce STOP mode power consumption
 
 Improve STOP mode power consumption in MX50 by doing the following:
 1. Disable regulators that are not being used.

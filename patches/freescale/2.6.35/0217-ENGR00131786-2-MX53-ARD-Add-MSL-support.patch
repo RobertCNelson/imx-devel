@@ -1,7 +1,7 @@
 From a56252b754df57c99a7802438e355418442ca117 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Tue, 21 Sep 2010 13:35:46 +0800
-Subject: [PATCH 217/850] ENGR00131786-2 MX53 ARD: Add MSL support
+Subject: [PATCH 217/902] ENGR00131786-2 MX53 ARD: Add MSL support
 
 Add MSL support for MX53 Automotive Reference Design
 board (ARD).

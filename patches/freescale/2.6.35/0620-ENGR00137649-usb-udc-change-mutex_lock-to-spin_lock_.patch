@@ -1,7 +1,7 @@
 From cf002db288538bde1536f4ce83f69d4c81517170 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 6 Jan 2011 11:37:06 +0800
-Subject: [PATCH 620/850] ENGR00137649 usb-udc: change mutex_lock to spin_lock_irqsave at pm routines
+Subject: [PATCH 620/902] ENGR00137649 usb-udc: change mutex_lock to spin_lock_irqsave at pm routines
 
 There is unexpected usb interrupt during the udc resume routine at
 customer boards, that interrupt should be handled after udc resume.

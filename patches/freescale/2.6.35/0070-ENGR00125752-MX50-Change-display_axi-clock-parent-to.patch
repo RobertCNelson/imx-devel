@@ -1,7 +1,7 @@
 From a233313c3dac230bffa1f372e5be6a340c887946 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 30 Jul 2010 15:27:25 +0800
-Subject: [PATCH 070/850] ENGR00125752 MX50: Change display_axi clock parent to PFD
+Subject: [PATCH 070/902] ENGR00125752 MX50: Change display_axi clock parent to PFD
 
 Changed display_axi clock parent to PFD
 Changed apbh_dma_clk parent to ahb_clk according to h/w design.

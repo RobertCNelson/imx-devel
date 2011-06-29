@@ -1,7 +1,7 @@
 From 414fae9358a40bac378572b5763132f3931b1dc8 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 4 Aug 2010 10:26:55 +0800
-Subject: [PATCH 094/850] ENGR00125860-1 MX50:Add GPMI-RAW-NAND mach support
+Subject: [PATCH 094/902] ENGR00125860-1 MX50:Add GPMI-RAW-NAND mach support
 
 Add GPMI-RAW-NAND mach support
 

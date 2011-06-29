@@ -1,7 +1,7 @@
 From 233905f45a52082df2d022b27bde948af95d3a95 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Wed, 15 Dec 2010 18:38:30 +0800
-Subject: [PATCH 545/850] ENGR00136990-2 MX50: Add sys interface to control ZQ calib run interval
+Subject: [PATCH 545/902] ENGR00136990-2 MX50: Add sys interface to control ZQ calib run interval
 
 By default, dynamic ZQ calibration runs by interval of 10 seconds.
 This interval can be changed via Sys, for example 5 seconds,

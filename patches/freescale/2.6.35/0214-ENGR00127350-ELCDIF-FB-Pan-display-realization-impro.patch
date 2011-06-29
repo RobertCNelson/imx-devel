@@ -1,7 +1,7 @@
 From 47a652440fc7190b0e0f41a610637c0ebb76c8a4 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 8 Sep 2010 12:57:17 +0800
-Subject: [PATCH 214/850] ENGR00127350 ELCDIF FB: Pan display realization improvement
+Subject: [PATCH 214/902] ENGR00127350 ELCDIF FB: Pan display realization improvement
 
 As ELCDIF copies next buffer address to current buffer address
 automatically every time the current frame done interrupt comes,

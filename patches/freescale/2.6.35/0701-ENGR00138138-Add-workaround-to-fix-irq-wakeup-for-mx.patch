@@ -1,7 +1,7 @@
 From 05bc6380a6c407471791d7bc70b29f8c57deebc6 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Tue, 18 Jan 2011 18:38:14 +0800
-Subject: [PATCH 701/850] ENGR00138138 Add workaround to fix irq wakeup for mx53 smd &loco
+Subject: [PATCH 701/902] ENGR00138138 Add workaround to fix irq wakeup for mx53 smd &loco
 
 Make sure only DA9053 irq configured as wakeup source for mx53 smd &loco
 

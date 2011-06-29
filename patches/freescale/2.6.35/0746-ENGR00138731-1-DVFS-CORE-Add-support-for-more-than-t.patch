@@ -1,7 +1,7 @@
 From c07504d303825e9fa0d3ffb8536327fe05a5c4b0 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 1 Feb 2011 13:45:46 -0600
-Subject: [PATCH 746/850] ENGR00138731-1 DVFS-CORE: Add support for more than two CPU working points.
+Subject: [PATCH 746/902] ENGR00138731-1 DVFS-CORE: Add support for more than two CPU working points.
 
 Update the DVFS-CORE driver to support multiple CPU frequency working points.
 

@@ -1,7 +1,7 @@
 From 7232f98fc0dc3d911d9d451b0521bc88d2c59ba2 Mon Sep 17 00:00:00 2001
 From: Ranjani <ra5478@freescale.com>
 Date: Wed, 28 Jul 2010 17:38:08 -0500
-Subject: [PATCH 067/850] ENGR00125682-2: MX50: Fix copyright and formatting in suspend code.
+Subject: [PATCH 067/902] ENGR00125682-2: MX50: Fix copyright and formatting in suspend code.
 
 Updated the  copyright and cleaned up formatting in mx50_suspend.S.
 

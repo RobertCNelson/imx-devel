@@ -1,7 +1,7 @@
 From eaea1b2e48bbb9693d80d8c3affcd6e0fb8aae71 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 25 Oct 2010 17:31:56 +0800
-Subject: [PATCH 371/850] ENGR00132935-3 MXC PWM:Use gpio when inverted pwm keeps low
+Subject: [PATCH 371/902] ENGR00132935-3 MXC PWM:Use gpio when inverted pwm keeps low
 
 This patch uses gpio to set pwm signal to keep low when
 the control signal is inverted, i.e., the pwm control

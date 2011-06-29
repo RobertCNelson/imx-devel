@@ -1,7 +1,7 @@
 From cbafbe46aac8d08355546e7eaf53cdf1066f4a65 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Fri, 10 Dec 2010 18:59:07 +0800
-Subject: [PATCH 530/850] ENGR00136218 FEC: Fix dhcp fail when enable preempt at mx28
+Subject: [PATCH 530/902] ENGR00136218 FEC: Fix dhcp fail when enable preempt at mx28
 
 DHCP fail when enable NO_HZ and preempt at mx28evk
 

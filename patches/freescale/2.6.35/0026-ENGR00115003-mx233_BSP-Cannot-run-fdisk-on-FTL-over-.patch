@@ -1,7 +1,7 @@
 From 79f69f01f9a11f3714a831c8366afccd5ad7dc59 Mon Sep 17 00:00:00 2001
 From: Patrick Turley <patrick.turley@freescale.com>
 Date: Thu, 19 Nov 2009 14:31:50 -0600
-Subject: [PATCH 026/850] ENGR00115003 [mx233_BSP] Cannot run fdisk on FTL over an UBI volume.
+Subject: [PATCH 026/902] ENGR00115003 [mx233_BSP] Cannot run fdisk on FTL over an UBI volume.
 
 Added FTL support for UBI.
 

@@ -1,7 +1,7 @@
 From 694fe6b3a4b73fb44d5de700998fd0d3f732e17d Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 14 Sep 2010 15:12:24 +0800
-Subject: [PATCH 233/850] ENGR00131469-2 mx28: add m25p80 spi nor driver support in defconfig
+Subject: [PATCH 233/902] ENGR00131469-2 mx28: add m25p80 spi nor driver support in defconfig
 
 Compiled as module by default.
 

@@ -1,7 +1,7 @@
 From 13e34c2a16ab9c311035b104880944f282f947db Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 23 Aug 2010 14:32:28 +0800
-Subject: [PATCH 041/850] ENGR00127171-3 DMA: Fix DMA build error.
+Subject: [PATCH 041/902] ENGR00127171-3 DMA: Fix DMA build error.
 
 Revert "ENGR00114911 make video buffer cacheable to improve video performance"
 

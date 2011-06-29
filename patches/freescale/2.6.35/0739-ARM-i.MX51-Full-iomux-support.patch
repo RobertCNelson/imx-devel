@@ -1,7 +1,7 @@
 From b9bca45d8192df5fd76459b373069cf244305932 Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
 Date: Wed, 15 Dec 2010 09:56:35 +0100
-Subject: [PATCH 739/850] ARM i.MX51: Full iomux support
+Subject: [PATCH 739/902] ARM i.MX51: Full iomux support
 
 This iomux file has been constructed from the Freescale pinmux tool.
 It contains all pins from the tool, but the datasheet lists some

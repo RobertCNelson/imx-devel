@@ -1,7 +1,7 @@
 From 072ccd783c149b68f32e1035ece4822a01f8f6ba Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 27 Sep 2010 21:11:50 +0800
-Subject: [PATCH 297/850] ENGR00132491-2 ath6kl upgrade: add missed semaphore.h headfile
+Subject: [PATCH 297/902] ENGR00132491-2 ath6kl upgrade: add missed semaphore.h headfile
 
 Add missed headfile or the compiling will fail.
 

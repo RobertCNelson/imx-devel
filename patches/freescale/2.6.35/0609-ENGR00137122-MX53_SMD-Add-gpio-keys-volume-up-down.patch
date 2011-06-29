@@ -1,7 +1,7 @@
 From 8865db88c494bfbd8f12ef39a63eb11b290c3353 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 5 Jan 2011 15:01:39 +0800
-Subject: [PATCH 609/850] ENGR00137122 MX53_SMD: Add gpio keys, volume up/down.
+Subject: [PATCH 609/902] ENGR00137122 MX53_SMD: Add gpio keys, volume up/down.
 
 SMD board have 3 gpio key defined:
 volume up/down; power key;

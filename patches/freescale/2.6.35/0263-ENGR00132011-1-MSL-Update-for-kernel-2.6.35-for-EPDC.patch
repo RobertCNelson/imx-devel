@@ -1,7 +1,7 @@
 From a2b68b3ce165ccb597b6f5fc3254beff955b3291 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 28 Sep 2010 14:34:14 -0500
-Subject: [PATCH 263/850] ENGR00132011-1 - MSL: Update for kernel 2.6.35 for EPDC
+Subject: [PATCH 263/902] ENGR00132011-1 - MSL: Update for kernel 2.6.35 for EPDC
 
 - In order to support the MX508 RDP board, some additional
 structures and defines are needed in the MSL.

@@ -1,7 +1,7 @@
 From 22c49feb9d0c793a3f0c8d0c74758933a37264d7 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 11 Feb 2011 09:30:49 -0600
-Subject: [PATCH 753/850] ENGR00139076 - EPDC fb: Pan display may drop key updates
+Subject: [PATCH 753/902] ENGR00139076 - EPDC fb: Pan display may drop key updates
 
 Instead of dropping updates with a different panning offset than the
 current framebuffer panning offset, we just process those updates

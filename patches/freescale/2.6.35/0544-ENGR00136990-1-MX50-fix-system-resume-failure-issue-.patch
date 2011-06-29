@@ -1,7 +1,7 @@
 From 076bfa4aea25270b5af919ef344620aad91ec807 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Wed, 15 Dec 2010 14:55:28 +0800
-Subject: [PATCH 544/850] ENGR00136990-1 MX50: fix system resume failure issue due to ZQ calibration
+Subject: [PATCH 544/902] ENGR00136990-1 MX50: fix system resume failure issue due to ZQ calibration
 
 need to make sure last ZQ calib run completed and no more ZQ calib to be run
 during suspend, and resume ZQ calib until the system resumes.

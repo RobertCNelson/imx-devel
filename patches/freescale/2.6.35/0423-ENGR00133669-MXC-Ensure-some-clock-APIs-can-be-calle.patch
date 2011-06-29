@@ -1,7 +1,7 @@
 From 3a765c56b5b2ea47ebeb050d7653ef35aa44f7c3 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 11 Nov 2010 10:17:59 -0600
-Subject: [PATCH 423/850] ENGR00133669: MXC: Ensure some clock APIs can be called in process context only.
+Subject: [PATCH 423/902] ENGR00133669: MXC: Ensure some clock APIs can be called in process context only.
 
 The added checks will ensure that clk_enable() and clk_disable() are called
 only in a process context(). The main reason behind doing this is to allow

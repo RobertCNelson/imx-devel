@@ -1,7 +1,7 @@
 From a5209418ca08d5c1f3f7681285f3167420574cb3 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Fri, 10 Sep 2010 15:44:55 -0500
-Subject: [PATCH 178/850] ENGR00127383 usb: enable usb remote wake up for all ports
+Subject: [PATCH 178/902] ENGR00127383 usb: enable usb remote wake up for all ports
 
 Enable remote wakeup for all ports that support remote
 wakeup.

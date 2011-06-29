@@ -1,7 +1,7 @@
 From c92cb7b3bc7b417d0ee5d5a069ac3819ced322c0 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 19 Jan 2011 18:36:07 +0800
-Subject: [PATCH 713/850] ENGR00138201 MX53_SMD: BT: add delay after BT chip reset
+Subject: [PATCH 713/902] ENGR00138201 MX53_SMD: BT: add delay after BT chip reset
 
 add 100ms delay after BT chip reset, make it work stable.
 

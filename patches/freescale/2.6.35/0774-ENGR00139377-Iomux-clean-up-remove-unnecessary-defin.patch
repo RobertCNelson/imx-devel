@@ -1,7 +1,7 @@
 From 97fc45810719f30baeac94786d129fbb7dc44f44 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 15 Feb 2011 15:41:14 -0600
-Subject: [PATCH 774/850] ENGR00139377 Iomux clean-up, remove unnecessary defines.
+Subject: [PATCH 774/902] ENGR00139377 Iomux clean-up, remove unnecessary defines.
 
 Remove IOMUX_TO_IRQ_V3, because the call gpio_to_irq in
 mach/gpio.h does the same thing. Also the iomux_config

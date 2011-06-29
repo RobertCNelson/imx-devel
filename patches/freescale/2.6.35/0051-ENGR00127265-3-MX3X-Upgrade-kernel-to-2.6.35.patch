@@ -1,7 +1,7 @@
 From 783158d55f2a013d3900c198a5bde8ec03c895b5 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 8 Sep 2010 13:19:58 +0800
-Subject: [PATCH 051/850] ENGR00127265-3 MX3X: Upgrade kernel to 2.6.35
+Subject: [PATCH 051/902] ENGR00127265-3 MX3X: Upgrade kernel to 2.6.35
 
 Add mx3_defconfig support
 

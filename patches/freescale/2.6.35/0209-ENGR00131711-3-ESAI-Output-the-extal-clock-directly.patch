@@ -1,7 +1,7 @@
 From 4eeabc7836c578c00b3c8e66ae16c7e100e1339d Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Sun, 19 Sep 2010 16:12:13 +0800
-Subject: [PATCH 209/850] ENGR00131711-3 ESAI: Output the extal clock directly
+Subject: [PATCH 209/902] ENGR00131711-3 ESAI: Output the extal clock directly
 
 Output the extal clock directly for the HCKT, without
 any divider. This clock's sample rate is same as ckih

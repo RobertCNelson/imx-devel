@@ -1,7 +1,7 @@
 From 4ffef8d6752c19750d427f6bc3e08458b1d5ed8e Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 30 Aug 2010 09:57:17 +0800
-Subject: [PATCH 154/850] ENGR00126721-4 OCOTP: add the Kconfig and Makefile
+Subject: [PATCH 154/902] ENGR00126721-4 OCOTP: add the Kconfig and Makefile
 
   add the ocotp module for Kconfig and Makefile.
 

@@ -1,7 +1,7 @@
 From fd837589b18aeecccc0ed0524d0717124227a036 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 13 Oct 2010 14:44:23 +0800
-Subject: [PATCH 304/850] ENGR00132551 NAND: Adjust the boot partition size for MX53
+Subject: [PATCH 304/902] ENGR00132551 NAND: Adjust the boot partition size for MX53
 
 MX53 ROM require the boot FCB/DBBT support which need
 more space to store such info on NAND boot partition.

@@ -1,7 +1,7 @@
 From 244185dfd52e02a151d90b83316556c19bc11d25 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Mon, 20 Dec 2010 18:23:39 +0800
-Subject: [PATCH 555/850] ENGR00136986 vpu: Disable IRAM in default imx5_defconfig
+Subject: [PATCH 555/902] ENGR00136986 vpu: Disable IRAM in default imx5_defconfig
 
 Disable IRAM in default imx5_defconfig to workaround system hang
 issue when vpu/gun running simultaneously.

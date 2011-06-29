@@ -1,7 +1,7 @@
 From afda44ab90f4f8d0e917a1d4ee48a475401da4ed Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 16 Nov 2010 17:18:46 +0800
-Subject: [PATCH 439/850] ENGR38305845-1 NAND : make the mil_ecc_read_oob() reads the whole OOB by default
+Subject: [PATCH 439/902] ENGR38305845-1 NAND : make the mil_ecc_read_oob() reads the whole OOB by default
 
 The origin code reads the whole OOB only when the MTD_OOB_RAW is set.
 In the MTD_OOB_PLACE situation, the code will do nothing which will

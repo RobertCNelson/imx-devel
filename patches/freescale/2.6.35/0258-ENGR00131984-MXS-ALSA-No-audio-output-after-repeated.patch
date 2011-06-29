@@ -1,7 +1,7 @@
 From 9e8c94c3ad2e12c5eb48bf4763189750c0506862 Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Sat, 25 Sep 2010 17:13:59 +0800
-Subject: [PATCH 258/850] ENGR00131984 MXS ALSA: No audio output after repeatedly pause/playing with gplay
+Subject: [PATCH 258/902] ENGR00131984 MXS ALSA: No audio output after repeatedly pause/playing with gplay
 
 Sometimes there is no sound heard after repeatedly pause/playing a mp3 file with
 gplay, appropriate delay time should be added after each playing to avoid the

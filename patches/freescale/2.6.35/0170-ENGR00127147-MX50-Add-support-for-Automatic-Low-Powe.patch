@@ -1,7 +1,7 @@
 From 784cad4a077b8af802466e102d276e1b9170818d Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 3 Sep 2010 16:47:58 -0500
-Subject: [PATCH 170/850] ENGR00127147: MX50: Add support for Automatic Low Power Mode on DDR
+Subject: [PATCH 170/902] ENGR00127147: MX50: Add support for Automatic Low Power Mode on DDR
 
 Configure the Databahn so that the DDR automatically enters Low Power Mode 4.
 This will allow DDR to enter into self-refresh after an idle timeout.

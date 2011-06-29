@@ -1,7 +1,7 @@
 From 1e2023e81e4a7fe60a51b320cf2cf42f0d90b02a Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sun, 16 Jan 2011 13:40:33 +0800
-Subject: [PATCH 681/850] ENGR00138032 MX53 TO2: Add DVFS support for 1GHZ
+Subject: [PATCH 681/902] ENGR00138032 MX53 TO2: Add DVFS support for 1GHZ
 
 - Since Hardware DVFS core is used, CCM.CDCR.[software_dvfs_en]
 needs to be set as 0. This patch is the supplementary patch of

@@ -1,7 +1,7 @@
 From 917477c24fce29c71f4a9da5e8a04538f3232fb6 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 13:57:06 +0800
-Subject: [PATCH 397/850] ENGR00133178-6 NAND : add extra_init() hook for ONFI nand
+Subject: [PATCH 397/902] ENGR00133178-6 NAND : add extra_init() hook for ONFI nand
 
 ONFI nand works in asynchronous mode in normal case,
 You have to do extra initialization to let it work in

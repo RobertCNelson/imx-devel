@@ -1,7 +1,7 @@
 From edb0b7539832a674109163fd53c642593ab9251b Mon Sep 17 00:00:00 2001
 From: Alan Tull <alan.tull@freescale.com>
 Date: Wed, 27 Oct 2010 10:44:34 -0500
-Subject: [PATCH 380/850] ENGR00133149 MX50: external speaker amp shutdown
+Subject: [PATCH 380/902] ENGR00133149 MX50: external speaker amp shutdown
 
 Use gpio_6_15 to shutdown external speaker amp when not in use.
 

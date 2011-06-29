@@ -1,7 +1,7 @@
 From 007e0ca73163b8ee2c85ef726fb6708ebd3008cc Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Tue, 11 Jan 2011 16:30:18 +0800
-Subject: [PATCH 662/850] ENGR00137721 SATA AHCI fix the return value in the driver
+Subject: [PATCH 662/902] ENGR00137721 SATA AHCI fix the return value in the driver
 
 Some error return values are meanless, change them to
 meanful values.

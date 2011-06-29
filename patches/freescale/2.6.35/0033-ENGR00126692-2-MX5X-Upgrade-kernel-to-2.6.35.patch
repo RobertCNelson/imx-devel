@@ -1,7 +1,7 @@
 From 4dcb1e4f577f7331930301798da548447208f35a Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Mon, 14 Jun 2010 16:59:21 -0500
-Subject: [PATCH 033/850] ENGR00126692-2: MX5X: Upgrade kernel to 2.6.35
+Subject: [PATCH 033/902] ENGR00126692-2: MX5X: Upgrade kernel to 2.6.35
 
 This patch contains changes to mach-mx5 files.
 Contains all checkpatch and copyright fixes.

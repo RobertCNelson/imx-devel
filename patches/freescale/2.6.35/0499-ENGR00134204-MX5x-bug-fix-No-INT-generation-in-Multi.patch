@@ -1,7 +1,7 @@
 From 523b275b59962be8571b267ee90029ee718a4199 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Wed, 1 Dec 2010 15:10:04 +0800
-Subject: [PATCH 499/850] ENGR00134204 MX5x bug fix No INT generation in Multi-blk operations
+Subject: [PATCH 499/902] ENGR00134204 MX5x bug fix No INT generation in Multi-blk operations
 
 No INT generation in Multi-blk operations bug of MX50 TO1.0
 and MX53 TO1.0 had been fixed in MX50 TO1.1 and MX53 TO2.

@@ -1,7 +1,7 @@
 From dd0a77884eae8e304703d1b537bb8dd35a659709 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 27 Sep 2010 21:11:19 +0800
-Subject: [PATCH 296/850] ENGR00132491-1 ath6kl upgrade: change Kconfig
+Subject: [PATCH 296/902] ENGR00132491-1 ath6kl upgrade: change Kconfig
 
 This series of patches are for upgrading Atheros AR6003(ath6kl)
 in 31 kernel to 35 kernel.

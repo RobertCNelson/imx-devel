@@ -1,7 +1,7 @@
 From 92a0e3ac63dd5e0a9a403e249f9dddbc9ebe1ad8 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 21 Jan 2011 17:22:44 +0800
-Subject: [PATCH 716/850] ENGR00138371 usb-otg: some variables should be updated at otg irq
+Subject: [PATCH 716/902] ENGR00138371 usb-otg: some variables should be updated at otg irq
 
 otg->host->is_b_host and otg->gadget->is_a_peripheral should be
 updated at otg irq, as the host and device driver may use these two variables.

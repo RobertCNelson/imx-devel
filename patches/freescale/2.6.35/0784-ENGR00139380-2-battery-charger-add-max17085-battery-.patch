@@ -1,7 +1,7 @@
 From 1431a283524c2e87970b3a13ff28ff0b38cb5f53 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 21 Feb 2011 11:29:19 +0800
-Subject: [PATCH 784/850] ENGR00139380-2 battery charger: add max17085 battery charger support
+Subject: [PATCH 784/902] ENGR00139380-2 battery charger: add max17085 battery charger support
 
 Add max17085 battery charger support
 

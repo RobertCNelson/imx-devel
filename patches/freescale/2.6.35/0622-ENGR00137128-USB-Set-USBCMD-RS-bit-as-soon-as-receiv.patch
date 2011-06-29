@@ -1,7 +1,7 @@
 From 50ea5d196ff092190bc2a9df91a3340768c47ecf Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Thu, 6 Jan 2011 13:37:04 +0800
-Subject: [PATCH 622/850] ENGR00137128 USB: Set USBCMD RS bit as soon as receive resume signaling
+Subject: [PATCH 622/902] ENGR00137128 USB: Set USBCMD RS bit as soon as receive resume signaling
 
 When root hub detects resume signaling, it initiates 20ms of resume signaling
 downstream to all ports. Host terminates resume signaling by two low-speed EOPs.

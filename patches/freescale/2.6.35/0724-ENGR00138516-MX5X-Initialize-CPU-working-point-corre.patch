@@ -1,7 +1,7 @@
 From 79d53549c793df63bdc4fbba1983936441ce78aa Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 25 Jan 2011 14:16:57 -0600
-Subject: [PATCH 724/850] ENGR00138516: MX5X: Initialize CPU working point correctly for DVFS-CORE
+Subject: [PATCH 724/902] ENGR00138516: MX5X: Initialize CPU working point correctly for DVFS-CORE
 
 CPU working point needs to be initialized based on the current CPU
 frequency in start_dvfs() and should correspond with the correct entry

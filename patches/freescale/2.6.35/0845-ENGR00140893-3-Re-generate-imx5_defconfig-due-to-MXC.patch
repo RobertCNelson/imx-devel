@@ -1,7 +1,7 @@
 From 204c15242e0802e8d17dfdf7acc1681cbd445157 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Tue, 22 Mar 2011 18:48:10 +0800
-Subject: [PATCH 845/850] ENGR00140893-3 Re-generate imx5_defconfig due to MXC_VPU_IRAM config removed
+Subject: [PATCH 845/902] ENGR00140893-3 Re-generate imx5_defconfig due to MXC_VPU_IRAM config removed
 
 This patch will remove CONFIG_MXC_VPU_IRAM in default defconfig.
 

@@ -1,7 +1,7 @@
 From 931d96e28caca42487274d1bc7e442f9fde33eff Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 4 Nov 2010 15:35:27 -0500
-Subject: [PATCH 411/850] ENGR00132954 - EPDC fb: SET_TEMPERATURE causes hang
+Subject: [PATCH 411/902] ENGR00132954 - EPDC fb: SET_TEMPERATURE causes hang
 
 - Hang was caused by accessing EPDC registers without enabling clocks to the
 EPDC module.  Fix is to defer actual write to EPDC registers until subsequent

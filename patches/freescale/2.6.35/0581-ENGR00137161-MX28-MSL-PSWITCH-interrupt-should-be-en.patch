@@ -1,7 +1,7 @@
 From a3fcb6b5fcbdfdb0b3cbdbe818a6eb9500b465b5 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 30 Dec 2010 12:49:10 +0800
-Subject: [PATCH 581/850] ENGR00137161 MX28-MSL: PSWITCH interrupt should be enabled after suspend fails
+Subject: [PATCH 581/902] ENGR00137161 MX28-MSL: PSWITCH interrupt should be enabled after suspend fails
 
 PSWITCH interrupt should be enabled after device suspend fails,
 Otherwise, the POWER key will not be active again

@@ -1,7 +1,7 @@
 From e5141be40d5023187a12d29549e019e5197ec2f9 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Mon, 28 Feb 2011 18:17:13 +0800
-Subject: [PATCH 802/850] ENGR00139866 Config: add USB ACM Modem config for MX53_SMD
+Subject: [PATCH 802/902] ENGR00139866 Config: add USB ACM Modem config for MX53_SMD
 
 MX53_SMD Have a Amazon modem, which need USB ACM modem
 support in kernel, enable this in default config.

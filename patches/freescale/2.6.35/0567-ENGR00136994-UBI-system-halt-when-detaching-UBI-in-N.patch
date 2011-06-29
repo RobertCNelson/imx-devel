@@ -1,7 +1,7 @@
 From ee622fd26ba69e61717eb75f9703eac5442fb3a2 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 23 Dec 2010 17:05:03 +0800
-Subject: [PATCH 567/850] ENGR00136994 UBI : system halt when detaching UBI in NFS environment
+Subject: [PATCH 567/902] ENGR00136994 UBI : system halt when detaching UBI in NFS environment
 
 The problem is caused by:
 ubi double free ubiblk_dev structrue, cause the list and memory mess up.

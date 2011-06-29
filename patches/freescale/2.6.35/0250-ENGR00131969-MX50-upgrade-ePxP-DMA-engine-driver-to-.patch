@@ -1,7 +1,7 @@
 From b7fa25f3c4159032b7d1ae6e232d32375930de06 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Mon, 27 Sep 2010 13:38:46 +0800
-Subject: [PATCH 250/850] ENGR00131969 MX50 upgrade ePxP DMA engine driver to 2.6.35
+Subject: [PATCH 250/902] ENGR00131969 MX50 upgrade ePxP DMA engine driver to 2.6.35
 
 1. removed unnecessary work queue
 2. removed unnecessary spin_lock in irq handler

@@ -1,7 +1,7 @@
 From 64f5ea95eeab52728885fb4f30164f1a1edaae15 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Fri, 30 Jul 2010 17:10:42 +0800
-Subject: [PATCH 086/850] ENGR00125760-1 FEC: add mac field at platform data
+Subject: [PATCH 086/902] ENGR00125760-1 FEC: add mac field at platform data
 
 Add mac field at platform data
 

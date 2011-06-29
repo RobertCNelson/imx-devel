@@ -1,7 +1,7 @@
 From 26e0c68c804fee1984caa62aa904adb702ff8cfb Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 30 Aug 2010 14:55:15 +0800
-Subject: [PATCH 156/850] ENGR00126801 esdhc: remove dump registers during probe time
+Subject: [PATCH 156/902] ENGR00126801 esdhc: remove dump registers during probe time
 
 The driver can not dump registers during probe time because
 some clocks needed for register read/write are still not enabled

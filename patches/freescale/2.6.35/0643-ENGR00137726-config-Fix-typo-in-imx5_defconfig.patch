@@ -1,7 +1,7 @@
 From ed98f05377ab98ade52fe3c9b93c5e0b6f62dfe5 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Fri, 7 Jan 2011 14:49:03 +0800
-Subject: [PATCH 643/850] ENGR00137726 config: Fix typo in imx5_defconfig
+Subject: [PATCH 643/902] ENGR00137726 config: Fix typo in imx5_defconfig
 
 Fix a typo which miss by patch apply.
 It will cause make defconfig give a warrning.

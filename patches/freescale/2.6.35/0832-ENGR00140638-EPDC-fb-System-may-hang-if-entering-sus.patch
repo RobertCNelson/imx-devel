@@ -1,7 +1,7 @@
 From a6793365e041b39d17a1c86a4e80338a595542ba Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Mon, 14 Mar 2011 20:30:25 -0500
-Subject: [PATCH 832/850] ENGR00140638 - EPDC fb: System may hang if entering suspend while updates active
+Subject: [PATCH 832/902] ENGR00140638 - EPDC fb: System may hang if entering suspend while updates active
 
 - Added signalling to ensure suspend call does not return until
 EPDC has powered down.

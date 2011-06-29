@@ -1,7 +1,7 @@
 From 36913edd6354fc84ebd70287ea8da0104fd03644 Mon Sep 17 00:00:00 2001
 From: Tony Lin <tony.lin@freescale.com>
 Date: Wed, 16 Mar 2011 10:43:26 +0800
-Subject: [PATCH 831/850] ENGR00140699-2 [mx28 spi] add a parameter to select spi master/slave mode
+Subject: [PATCH 831/902] ENGR00140699-2 [mx28 spi] add a parameter to select spi master/slave mode
 
 add a parameter to select spi master/slave mode
 by default, spi master mode is selected.

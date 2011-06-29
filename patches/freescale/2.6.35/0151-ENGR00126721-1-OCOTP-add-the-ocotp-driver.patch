@@ -1,7 +1,7 @@
 From 098043236cf0e215b89aef5291a8ed11fb87104e Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 30 Aug 2010 09:51:18 +0800
-Subject: [PATCH 151/850] ENGR00126721-1 OCOTP: add the ocotp driver
+Subject: [PATCH 151/902] ENGR00126721-1 OCOTP: add the ocotp driver
 
 Add a new driver for On-Chip OTP controller. The driver
 will register all the register names of all the banks to /sys/.

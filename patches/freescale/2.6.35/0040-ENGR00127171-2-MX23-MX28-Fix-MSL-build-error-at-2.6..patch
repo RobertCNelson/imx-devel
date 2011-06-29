@@ -1,7 +1,7 @@
 From 23b1dd8f4e7b94ea99dcd5debc9532c150cb8067 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 6 Sep 2010 15:10:26 +0800
-Subject: [PATCH 040/850] ENGR00127171-2 MX23/MX28: Fix MSL build error at 2.6.35
+Subject: [PATCH 040/902] ENGR00127171-2 MX23/MX28: Fix MSL build error at 2.6.35
 
 Fix kernel upgrade cause mx23/mx28 build failure
 

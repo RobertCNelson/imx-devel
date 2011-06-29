@@ -1,7 +1,7 @@
 From f6aec74e8b64117b12e8dba19dd2641d0ba915f9 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 21 Oct 2010 19:17:28 +0800
-Subject: [PATCH 359/850] ENGR00132849-2 esdhc: do not use spin_lock when set power on/off
+Subject: [PATCH 359/902] ENGR00132849-2 esdhc: do not use spin_lock when set power on/off
 
 Do not use spin_lock when sets power on/off since pmic driver may sleep
 on this operation.

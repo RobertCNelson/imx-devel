@@ -1,7 +1,7 @@
 From 346c0dd67b68790f5d5641825dee7d0d2ddf7fc1 Mon Sep 17 00:00:00 2001
 From: Nancy Chen <Nancy.Chen@freescale.com>
 Date: Wed, 8 Dec 2010 17:00:41 -0600
-Subject: [PATCH 521/850] ENGR00136146-2 MX53 TO2 ARD: Changed R2 value for reulator SW2 and LDO2
+Subject: [PATCH 521/902] ENGR00136146-2 MX53 TO2 ARD: Changed R2 value for reulator SW2 and LDO2
 
 LTC3589: Changed R2 value for reulator SW2 and LDO2.
 

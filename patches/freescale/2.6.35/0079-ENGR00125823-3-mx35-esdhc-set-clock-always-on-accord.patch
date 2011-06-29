@@ -1,7 +1,7 @@
 From af961db748465916f98d17ca3ec1bcdc149f8a9b Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 3 Aug 2010 10:11:50 +0800
-Subject: [PATCH 079/850] ENGR00125823-3 mx35 esdhc: set clock always on according to requirements
+Subject: [PATCH 079/902] ENGR00125823-3 mx35 esdhc: set clock always on according to requirements
 
 Due the ROM code bug, we need to let clock of mx35 esdhc always on
 or the HW reset may not work.

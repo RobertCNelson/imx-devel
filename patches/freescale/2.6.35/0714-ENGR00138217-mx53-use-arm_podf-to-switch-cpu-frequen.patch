@@ -1,7 +1,7 @@
 From 2c96e518979a9bdf16f521e3335b7587226a8e68 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 19 Jan 2011 22:04:23 +0800
-Subject: [PATCH 714/850] ENGR00138217 mx53: use arm_podf to switch cpu frequency
+Subject: [PATCH 714/902] ENGR00138217 mx53: use arm_podf to switch cpu frequency
 
 Use arm_podf to switch cpu frequency when the pll_rate is
 same. Remove pll settings for 400MHZ, 160MHZ since they

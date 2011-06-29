@@ -1,7 +1,7 @@
 From 22de5f5ed42148d1c173699c8030890773843b16 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 25 Nov 2010 12:57:59 +0800
-Subject: [PATCH 482/850] ENGR00134043-2 PM:enable device suspend time mx3/5
+Subject: [PATCH 482/902] ENGR00134043-2 PM:enable device suspend time mx3/5
 
 Since the device suspend timing driver is
 default set to off, so add it to default config of mx5, mx3.

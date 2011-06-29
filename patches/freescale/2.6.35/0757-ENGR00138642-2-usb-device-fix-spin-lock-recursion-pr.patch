@@ -1,7 +1,7 @@
 From 49a63fcc2ae3f1aaf2132dcc0ec42a6269e0f578 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Sun, 30 Jan 2011 13:54:43 +0800
-Subject: [PATCH 757/850] ENGR00138642-2 usb-device: fix spin lock recursion problem
+Subject: [PATCH 757/902] ENGR00138642-2 usb-device: fix spin lock recursion problem
 
 Some functions at setup_received_irq will cause spin lock recursion problem,
 unlock spin locks before calling these functions, and re-lock spin locks

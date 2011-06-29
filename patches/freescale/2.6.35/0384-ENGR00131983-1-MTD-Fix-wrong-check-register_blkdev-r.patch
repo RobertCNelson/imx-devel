@@ -1,7 +1,7 @@
 From 64dcd3ea7681bfa32f714b29dd0cce18eaad7c00 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 25 Oct 2010 10:53:48 +0800
-Subject: [PATCH 384/850] ENGR00131983-1 MTD: Fix wrong check register_blkdev return value
+Subject: [PATCH 384/902] ENGR00131983-1 MTD: Fix wrong check register_blkdev return value
 
 register_blkdev return 1..255 when major = 0.
 

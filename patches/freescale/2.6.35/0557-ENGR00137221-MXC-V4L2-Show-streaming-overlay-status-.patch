@@ -1,7 +1,7 @@
 From 40dfcef2efa17bebbd70a511530e19f3625860d1 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 21 Dec 2010 16:22:47 +0800
-Subject: [PATCH 557/850] ENGR00137221 MXC V4L2:Show streaming/overlay status via sys fs
+Subject: [PATCH 557/902] ENGR00137221 MXC V4L2:Show streaming/overlay status via sys fs
 
 1)Capture: show streaming and overlay status via sys fs.
 2)Output: show streaming status via sys fs.

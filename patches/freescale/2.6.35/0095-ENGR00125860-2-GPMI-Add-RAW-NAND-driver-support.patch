@@ -1,7 +1,7 @@
 From 884808ede60b7f9c40777170c1a6e26d10bf1604 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 4 Aug 2010 10:23:34 +0800
-Subject: [PATCH 095/850] ENGR00125860-2 GPMI:Add RAW NAND driver support
+Subject: [PATCH 095/902] ENGR00125860-2 GPMI:Add RAW NAND driver support
 
 Add GPMI RAW NAND driver support
 

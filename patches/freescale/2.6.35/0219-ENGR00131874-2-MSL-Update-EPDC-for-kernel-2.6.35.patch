@@ -1,7 +1,7 @@
 From e15f88932774b2488a9e63c5ce1b8bd0bac44cab Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 22 Sep 2010 19:02:42 -0500
-Subject: [PATCH 219/850] ENGR00131874-2 - MSL: Update EPDC for kernel 2.6.35
+Subject: [PATCH 219/902] ENGR00131874-2 - MSL: Update EPDC for kernel 2.6.35
 
 - Added proper registration of all EPDC-dependent clocks.
 - Added flags to allow Maxim PMIC regulators to be enabled/disabled

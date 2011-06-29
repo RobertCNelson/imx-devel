@@ -1,7 +1,7 @@
 From ed13e56b3d5d5868ff3aba7e7e8daef3384d5ec1 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 Date: Tue, 10 Aug 2010 22:57:24 +0200
-Subject: [PATCH 650/850] ARM: imx: change the way imx-uarts are registered
+Subject: [PATCH 650/902] ARM: imx: change the way imx-uarts are registered
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

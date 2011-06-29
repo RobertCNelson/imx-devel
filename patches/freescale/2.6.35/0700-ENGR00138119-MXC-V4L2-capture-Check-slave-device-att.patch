@@ -1,7 +1,7 @@
 From 79d0fee2575661360ab329a43ac552be45d4581e Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 18 Jan 2011 11:53:42 +0800
-Subject: [PATCH 700/850] ENGR00138119 MXC V4L2 capture:Check slave device attached
+Subject: [PATCH 700/902] ENGR00138119 MXC V4L2 capture:Check slave device attached
 
 This patch checks slave device is attached before calling
 any internal ioctrl to avoid NULL pointer de-referencing.

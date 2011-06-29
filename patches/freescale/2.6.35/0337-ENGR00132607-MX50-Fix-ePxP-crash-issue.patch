@@ -1,7 +1,7 @@
 From 14e196c2a20b5e81c08eb774c8f4ac75ad7d68ab Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 15 Oct 2010 13:08:30 +0800
-Subject: [PATCH 337/850] ENGR00132607 MX50: Fix ePxP crash issue
+Subject: [PATCH 337/902] ENGR00132607 MX50: Fix ePxP crash issue
 
 It can be reproduced by loop-running epdc rotation test.
 The crash reason is the timing to disable ePxP clocks is critical, which

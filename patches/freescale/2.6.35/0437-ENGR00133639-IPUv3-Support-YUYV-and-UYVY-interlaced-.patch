@@ -1,7 +1,7 @@
 From 751961a309347ea7e6d922b5a8e4bfd0c0a3a4ee Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Fri, 12 Nov 2010 15:21:41 +0800
-Subject: [PATCH 437/850] ENGR00133639 IPUv3:Support YUYV and UYVY interlaced input frame
+Subject: [PATCH 437/902] ENGR00133639 IPUv3:Support YUYV and UYVY interlaced input frame
 
 Set YUYV and UYVY pixel formats' burst size to be the same with
 VDI burst size when VDI channel(s) are used.

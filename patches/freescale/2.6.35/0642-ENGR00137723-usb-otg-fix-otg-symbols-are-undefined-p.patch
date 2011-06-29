@@ -1,7 +1,7 @@
 From a8f2635bbd8f5154df344746cb9cdba98a5713c9 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 7 Jan 2011 13:35:22 +0800
-Subject: [PATCH 642/850] ENGR00137723 usb-otg: fix otg symbols are undefined problem at non-otg config
+Subject: [PATCH 642/902] ENGR00137723 usb-otg: fix otg symbols are undefined problem at non-otg config
 
 Some otg symbols are used at non-otg def-config due to judge otg port
 dynamically, so it needs to always define CONFIG_USB_OTG_UTILS for

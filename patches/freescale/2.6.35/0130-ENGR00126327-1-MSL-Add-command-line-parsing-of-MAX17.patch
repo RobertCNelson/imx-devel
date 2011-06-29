@@ -1,7 +1,7 @@
 From e9e6bcd83abd43f73d7922d44ac0f5dd7dec533d Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 17 Aug 2010 14:50:44 -0500
-Subject: [PATCH 130/850] ENGR00126327-1 - MSL: Add command line parsing of MAX17135 params
+Subject: [PATCH 130/902] ENGR00126327-1 - MSL: Add command line parsing of MAX17135 params
 
 Add support for Maxim17135 EPD PMIC command line parameters:
 - One for PMIC pass version (currently just 1 or 2)

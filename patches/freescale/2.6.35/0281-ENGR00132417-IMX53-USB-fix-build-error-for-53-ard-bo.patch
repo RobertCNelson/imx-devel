@@ -1,7 +1,7 @@
 From f76c05997bf6b85ecfe529137b4e54794460779a Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Sat, 9 Oct 2010 11:28:34 +0800
-Subject: [PATCH 281/850] ENGR00132417 IMX53 USB  fix build error for 53 ard board
+Subject: [PATCH 281/902] ENGR00132417 IMX53 USB  fix build error for 53 ard board
 
 fix build error for mx53 ARD board with USB HOST2
 

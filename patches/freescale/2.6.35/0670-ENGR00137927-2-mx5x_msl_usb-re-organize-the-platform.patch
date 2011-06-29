@@ -1,7 +1,7 @@
 From e4b6d2662c2e07e59b25cebc564d06f009ccde4d Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 13 Jan 2011 13:22:22 +0800
-Subject: [PATCH 670/850] ENGR00137927-2 mx5x_msl_usb: re-organize the platform data for device and host
+Subject: [PATCH 670/902] ENGR00137927-2 mx5x_msl_usb: re-organize the platform data for device and host
 
 To fix the compile error for device only function for OTG port.
 Add macro to differetiate the host and device function.

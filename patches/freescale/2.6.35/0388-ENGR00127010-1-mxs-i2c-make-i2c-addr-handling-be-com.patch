@@ -1,7 +1,7 @@
 From 5b81cadc66c960f85707eb1d8d4e738bb765cc11 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 4 Nov 2010 15:34:29 +0800
-Subject: [PATCH 388/850] ENGR00127010-1 mxs i2c: make i2c addr handling be compatible with i2c framework
+Subject: [PATCH 388/902] ENGR00127010-1 mxs i2c: make i2c addr handling be compatible with i2c framework
 
 The Linux I2C framework expects the slave address as the 7LSB bits,
 therefore the address must be shifted 1 to left to become the real

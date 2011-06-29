@@ -1,7 +1,7 @@
 From ceb7249f7d520975c29019876b9bf63c0016f175 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 25 Aug 2010 16:52:43 -0500
-Subject: [PATCH 157/850] ENGR00126698 - EPDC fb: Pan API should not trigger full screen update
+Subject: [PATCH 157/902] ENGR00126698 - EPDC fb: Pan API should not trigger full screen update
 
 In order to provide more flexibility to the user, the pan API should not
 automatically trigger a full-screen panel update.  No update will

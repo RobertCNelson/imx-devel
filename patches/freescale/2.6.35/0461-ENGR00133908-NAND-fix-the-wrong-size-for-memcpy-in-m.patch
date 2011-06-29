@@ -1,7 +1,7 @@
 From 09d42460af9406f289cc997c6c3ada2a89151b7d Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 22 Nov 2010 11:31:47 +0800
-Subject: [PATCH 461/850] ENGR00133908 NAND : fix the wrong size for memcpy in mil_ecc_write_page()
+Subject: [PATCH 461/902] ENGR00133908 NAND : fix the wrong size for memcpy in mil_ecc_write_page()
 
 The buffer mil->auxiliary_virt only have nfc_goe->auxiliary_size_in_bytes bytes
 in size which is mostly very small(e.g 10 + 8).

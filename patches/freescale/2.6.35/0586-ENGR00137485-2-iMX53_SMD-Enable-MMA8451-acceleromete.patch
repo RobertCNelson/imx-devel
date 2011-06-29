@@ -1,7 +1,7 @@
 From a21adf2ae2f26f44f95fd7ecfd5a0ced6d386861 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Fri, 31 Dec 2010 01:05:25 +0800
-Subject: [PATCH 586/850] ENGR00137485-2 iMX53_SMD: Enable MMA8451 accelerometer sensor
+Subject: [PATCH 586/902] ENGR00137485-2 iMX53_SMD: Enable MMA8451 accelerometer sensor
 
 Enable MMA8451 accelerometer sensor on imx53_smd board.
 

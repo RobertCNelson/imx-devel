@@ -1,7 +1,7 @@
 From 6ba91fdb42a31a8d4b74ca2594b93ace2abd45ba Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 30 Jul 2010 15:47:45 +0800
-Subject: [PATCH 071/850] ENGR00125769 MX50: Fix a bug in WAIT macro
+Subject: [PATCH 071/902] ENGR00125769 MX50: Fix a bug in WAIT macro
 
 Add missing "break;" for exiting while timeout happens.
 

@@ -1,7 +1,7 @@
 From 29e135bea4156e9a677ba44148537f7375841020 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Mon, 13 Dec 2010 15:47:28 +0800
-Subject: [PATCH 535/850] ENGR00136875-1 Add function pgprot_writethru()
+Subject: [PATCH 535/902] ENGR00136875-1 Add function pgprot_writethru()
 
 Added pgprot_writethru(), to set the buffer's cache property as
 writethrough.

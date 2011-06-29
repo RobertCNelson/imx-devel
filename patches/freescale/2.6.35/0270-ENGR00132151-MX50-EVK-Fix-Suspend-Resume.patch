@@ -1,7 +1,7 @@
 From 3dda0bdcea9cedb4c6fa5aeb10363e51e6e5e854 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 30 Sep 2010 16:13:04 -0500
-Subject: [PATCH 270/850] ENGR00132151 MX50-EVK: Fix Suspend/Resume.
+Subject: [PATCH 270/902] ENGR00132151 MX50-EVK: Fix Suspend/Resume.
 
 Remove keypad driver for MX50EVK as its not supported.
 

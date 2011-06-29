@@ -1,7 +1,7 @@
 From bbc556203086e602d176d2b627293377354b644e Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 17 Mar 2011 14:20:02 +0800
-Subject: [PATCH 836/850] ENGR00140764 ipuv3 dev: change cache policy to writethrough
+Subject: [PATCH 836/902] ENGR00140764 ipuv3 dev: change cache policy to writethrough
 
 Change from writecombine to writethrough.
 

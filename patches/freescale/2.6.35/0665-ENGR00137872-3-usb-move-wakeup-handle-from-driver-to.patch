@@ -1,7 +1,7 @@
 From 47938ea445fc0b849ca3b1faf7e45fd54a5fb04c Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 12 Jan 2011 11:02:00 +0800
-Subject: [PATCH 665/850] ENGR00137872-3 usb: move wakeup handle from driver to MSL
+Subject: [PATCH 665/902] ENGR00137872-3 usb: move wakeup handle from driver to MSL
 
 Move the wakeup interrupt handler from the driver to MSL.
 Add clk disable if the register gadget driver is failed.

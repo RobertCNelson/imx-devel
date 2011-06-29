@@ -1,7 +1,7 @@
 From 63691d00b5c6ac8033a4417609233faeb57840c1 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 5 Jan 2011 19:48:33 +0800
-Subject: [PATCH 626/850] ENGR00136007-4 enable ASRC in default config
+Subject: [PATCH 626/902] ENGR00136007-4 enable ASRC in default config
 
 Enable ASRC in default config
 

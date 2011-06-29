@@ -1,7 +1,7 @@
 From 37113587d0e3cbcfb793bb3543715a890794b8e8 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 10 Jan 2011 18:43:29 +0800
-Subject: [PATCH 658/850] ENGR00137783-3 OV5640:Add several internal ioctrl support
+Subject: [PATCH 658/902] ENGR00137783-3 OV5640:Add several internal ioctrl support
 
 This patch adds format capability enumeration, frame size
 enumeration and chip identification support.

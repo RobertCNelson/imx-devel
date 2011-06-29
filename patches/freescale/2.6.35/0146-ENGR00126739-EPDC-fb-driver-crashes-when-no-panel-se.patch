@@ -1,7 +1,7 @@
 From edc3dda4f57ad47e280fb34221773c215a09eebc Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 26 Aug 2010 16:28:25 -0500
-Subject: [PATCH 146/850] ENGR00126739 - EPDC fb: driver crashes when no panel selected via command line.
+Subject: [PATCH 146/902] ENGR00126739 - EPDC fb: driver crashes when no panel selected via command line.
 
 Crash averted by preventing the case where a NULL string (representing
 the panel selected via command line) is passed through strcmp().

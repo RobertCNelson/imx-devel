@@ -1,7 +1,7 @@
 From 0cd394e4ba01c3897d4d2787a146c8e4e01d08c6 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Fri, 30 Jul 2010 17:11:57 +0800
-Subject: [PATCH 087/850] ENGR00125760-2 MX28: read mac address from fuse
+Subject: [PATCH 087/902] ENGR00125760-2 MX28: read mac address from fuse
 
 read mac address from fuse
 

@@ -1,7 +1,7 @@
 From 852730d5ac125a90d0ca0141bff31095e5e634cb Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 16 Aug 2010 16:26:08 +0800
-Subject: [PATCH 123/850] ENGR00126343 v4l2 output: jitters come out when show frame too quick
+Subject: [PATCH 123/902] ENGR00126343 v4l2 output: jitters come out when show frame too quick
 
 It's easy to reproduce by run below cmd:
 ./mxc_v4l2_output.out -iw 320 -ih 240 -ow 1024 -oh 768 -fr 80 -d 3

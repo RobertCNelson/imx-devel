@@ -1,7 +1,7 @@
 From 0a776d3bf3ca161203e81545ffb1fcf1aa839b62 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Tue, 8 Mar 2011 17:20:47 +0800
-Subject: [PATCH 820/850] ENGR00140401 SET_BLOCKLEN shouldn't be sent when eanble DDR
+Subject: [PATCH 820/902] ENGR00140401 SET_BLOCKLEN shouldn't be sent when eanble DDR
 
 Customer provided this patch, the SET_BLOCKLEN shouldn't be sent when
 enable the DDR mode required by customer's iNand.

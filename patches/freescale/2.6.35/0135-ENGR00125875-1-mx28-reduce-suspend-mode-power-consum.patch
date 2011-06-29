@@ -1,7 +1,7 @@
 From 8e442a0804e3df1a127916b32fe2edbeed736024 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Mon, 23 Aug 2010 15:26:35 +0800
-Subject: [PATCH 135/850] ENGR00125875-1 mx28: reduce suspend mode power consumption
+Subject: [PATCH 135/902] ENGR00125875-1 mx28: reduce suspend mode power consumption
 
 reduce suspend mode power consumption
 

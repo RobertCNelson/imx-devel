@@ -1,7 +1,7 @@
 From 7cec03d24355ce509df5db1aab48b7a7ec648172 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Wed, 4 Aug 2010 09:49:14 +0800
-Subject: [PATCH 084/850] ENGR00125833 IMX51_BBG USB:need to reset hub when use iomux-v3
+Subject: [PATCH 084/902] ENGR00125833 IMX51_BBG USB:need to reset hub when use iomux-v3
 
 when iomux-v3 is used, hub reset will be dropped which will
 cause the hub can not be detected.

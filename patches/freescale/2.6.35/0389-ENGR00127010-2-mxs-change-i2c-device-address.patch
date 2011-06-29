@@ -1,7 +1,7 @@
 From 8f0f71c99250214922fa7ae51931da9774a3853d Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 4 Nov 2010 15:51:29 +0800
-Subject: [PATCH 389/850] ENGR00127010-2 mxs: change i2c device address
+Subject: [PATCH 389/902] ENGR00127010-2 mxs: change i2c device address
 
 The original defined i2c device address has been shifted 1 to left
 because i2c bus driver's limitation.

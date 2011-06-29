@@ -1,7 +1,7 @@
 From ba6b76747ab51d04c3a50413ddf66007e236d414 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 18 Aug 2010 13:45:03 +0800
-Subject: [PATCH 272/850] ENGR00132249 USB:Fix dead loop when cat iomem
+Subject: [PATCH 272/902] ENGR00132249 USB:Fix dead loop when cat iomem
 
   Apply this fix for mx25.  Has been seperately cherry-picked for
 other platforms.

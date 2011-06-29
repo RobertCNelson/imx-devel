@@ -1,7 +1,7 @@
 From 245ebea850d223b9a3602f8745169d470a72b99b Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 3 Aug 2010 12:18:10 +0800
-Subject: [PATCH 090/850] ENGR00125842 usb: Enable otg function at mx28 defconfig
+Subject: [PATCH 090/902] ENGR00125842 usb: Enable otg function at mx28 defconfig
 
 1. Enable otg function at mx28 defconfig
 2. Make usb function (gadget, host, otg) build-in at mx28 defconfig

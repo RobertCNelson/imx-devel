@@ -1,7 +1,7 @@
 From aaacf5045ce358c287436f612a5bc6adedc1fb37 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Mon, 23 Aug 2010 15:47:36 +0800
-Subject: [PATCH 137/850] ENGR00126576-1 MX28: read mac address from fuse
+Subject: [PATCH 137/902] ENGR00126576-1 MX28: read mac address from fuse
 
 Read mac address from fuse when L2-switch init.
 

@@ -1,7 +1,7 @@
 From 67bac10c5a9bc9d625db4b962c83be3a43f59450 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 11 Aug 2010 10:55:48 +0800
-Subject: [PATCH 111/850] ENGR00125957-1 mx53-MSL: add sii9022 hdmi support
+Subject: [PATCH 111/902] ENGR00125957-1 mx53-MSL: add sii9022 hdmi support
 
 Add MSL support for sii9022.
 

@@ -1,7 +1,7 @@
 From 76a2f53966b45ca049e301b34e95826efc9b0981 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 17 Aug 2010 15:25:29 -0500
-Subject: [PATCH 129/850] ENGR00126213 - EPDC fb: Add ioctl to control powerdown delay
+Subject: [PATCH 129/902] ENGR00126213 - EPDC fb: Add ioctl to control powerdown delay
 
 Ability added to control the delay between all updates being complete
 and the EPDC powering down.  This provides user space control over

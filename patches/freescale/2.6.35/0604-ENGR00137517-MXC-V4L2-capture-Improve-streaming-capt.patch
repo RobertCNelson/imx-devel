@@ -1,7 +1,7 @@
 From 7c1e92c0700c18f8baf1fcd6d77b5e22c6a0c01e Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Fri, 31 Dec 2010 14:57:33 +0800
-Subject: [PATCH 604/850] ENGR00137517 MXC V4L2 capture:Improve streaming capture
+Subject: [PATCH 604/902] ENGR00137517 MXC V4L2 capture:Improve streaming capture
 
 1) Remove skip frame support.
 2) Add dummy buffer support for CSI_PRP_ENC_MEM and

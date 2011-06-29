@@ -1,7 +1,7 @@
 From 73a721dc86360ef995b631ee209690522feafd8a Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Fri, 19 Nov 2010 13:14:36 +0800
-Subject: [PATCH 452/850] ENGR00133864 esdhc: move clk_enalbe out of spin_lock
+Subject: [PATCH 452/902] ENGR00133864 esdhc: move clk_enalbe out of spin_lock
 
 Required by new clock APIs since clk_enable may sleep.
 

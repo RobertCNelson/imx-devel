@@ -1,7 +1,7 @@
 From 4d38b81f9e39aa8d2c09b2e3f3d29ca32599917a Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Sat, 12 Feb 2011 10:49:06 +0800
-Subject: [PATCH 758/850] ENGR00138644-1 MSL:change the video mode setting method
+Subject: [PATCH 758/902] ENGR00138644-1 MSL:change the video mode setting method
 
 The old method of setting display device's video mode is that using platform
 data in MSL to bring into different video modes, all of these modes will be

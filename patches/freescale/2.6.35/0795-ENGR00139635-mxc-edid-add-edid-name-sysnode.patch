@@ -1,7 +1,7 @@
 From 5dbcc3e22a82d849ee69576857bb54060e432fc8 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 23 Feb 2011 18:18:50 +0800
-Subject: [PATCH 795/850] ENGR00139635 mxc edid: add edid name sysnode
+Subject: [PATCH 795/902] ENGR00139635 mxc edid: add edid name sysnode
 
 Add name sysnode to mxc_ddc and sii902x, which can be check under:
 /sys/devices/platform/mxc_ddc.0/fb_name

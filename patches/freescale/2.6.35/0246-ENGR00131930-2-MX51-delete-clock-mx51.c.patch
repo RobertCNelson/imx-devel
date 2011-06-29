@@ -1,7 +1,7 @@
 From 28e11dbeebae16700d582a7d61d09db98a2d0067 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sun, 26 Sep 2010 11:53:41 +0800
-Subject: [PATCH 246/850] ENGR00131930-2 MX51: delete clock-mx51.c
+Subject: [PATCH 246/902] ENGR00131930-2 MX51: delete clock-mx51.c
 
 Delete clock-mx51.c for MX51 platform to avoid
 confusion. MX51 clock use clock.c

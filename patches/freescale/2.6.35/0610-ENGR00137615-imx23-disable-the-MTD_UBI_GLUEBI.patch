@@ -1,7 +1,7 @@
 From bd4bb4c1957915020027f81f7889ad83f7723288 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 5 Jan 2011 17:23:54 +0800
-Subject: [PATCH 610/850] ENGR00137615 imx23 : disable the MTD_UBI_GLUEBI
+Subject: [PATCH 610/902] ENGR00137615 imx23 : disable the MTD_UBI_GLUEBI
 
 If enable it, the gluebi will make the ubi->ref_count in
 a wrong value when you run `ubimkvol`.This will lead to the failure of

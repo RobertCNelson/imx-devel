@@ -1,7 +1,7 @@
 From b083bdc50fa42eaf639f8a121b7359dfcc98adce Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Tue, 12 Oct 2010 14:09:47 +0800
-Subject: [PATCH 302/850] ENGR00132477-3 IMX USB:fix some wakeup releated issues
+Subject: [PATCH 302/902] ENGR00132477-3 IMX USB:fix some wakeup releated issues
 
 Driver Part
 1. add pm_mutex lock/unlock in the device/host switch function.

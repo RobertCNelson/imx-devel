@@ -1,7 +1,7 @@
 From 77c68716bb375856027de43eb0443e729dab158c Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 22 Sep 2010 14:15:18 +0800
-Subject: [PATCH 223/850] ENGR00131841 MX53 ARD: Add MAX7310 support
+Subject: [PATCH 223/902] ENGR00131841 MX53 ARD: Add MAX7310 support
 
 Add I/O expander chip MAX7310 support for MX53
 ARD board

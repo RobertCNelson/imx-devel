@@ -1,7 +1,7 @@
 From 0513be3654c6d537cde96e9e1504146bcc0afe2a Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Sat, 12 Feb 2011 11:15:30 +0800
-Subject: [PATCH 762/850] ENGR00138644-5 HDMI: change the video mode setting method
+Subject: [PATCH 762/902] ENGR00138644-5 HDMI: change the video mode setting method
 
 HDMI Sii902x support for changing the video mode setting method.
 

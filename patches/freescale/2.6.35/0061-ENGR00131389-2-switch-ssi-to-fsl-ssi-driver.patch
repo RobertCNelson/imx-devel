@@ -1,7 +1,7 @@
 From 829f1baab95b759dfdeb1f2e015e434252b1b292 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 13 Sep 2010 21:18:16 +0800
-Subject: [PATCH 061/850] ENGR00131389-2 switch ssi to fsl ssi driver
+Subject: [PATCH 061/902] ENGR00131389-2 switch ssi to fsl ssi driver
 
 1. Switch ssi to fsl ssi driver instead of kernel upstream driver
 2. Fix build break

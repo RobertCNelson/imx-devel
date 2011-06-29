@@ -1,7 +1,7 @@
 From 260f84bfae11f148ea11450ec4a9ca43f7ee4679 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Tue, 9 Nov 2010 11:03:48 +0800
-Subject: [PATCH 414/850] ENGR00133511 MX28: Fixed 1588 clock divider setting error
+Subject: [PATCH 414/902] ENGR00133511 MX28: Fixed 1588 clock divider setting error
 
 1588 clock need to set divider in HW_CLKCTRL_ENET register,
 and these bits should be cleaned before set them.

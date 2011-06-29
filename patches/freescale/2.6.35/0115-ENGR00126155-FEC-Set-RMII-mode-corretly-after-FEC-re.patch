@@ -1,7 +1,7 @@
 From 632c358599889f6e97201fa7aa8baa5e21d82753 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 11 Aug 2010 12:25:22 +0800
-Subject: [PATCH 115/850] ENGR00126155 FEC:Set RMII mode corretly after FEC reset
+Subject: [PATCH 115/902] ENGR00126155 FEC:Set RMII mode corretly after FEC reset
 
 FEC will go to MII mode after the FEC reset
 which lead to PHY not work correctly for next link set up.

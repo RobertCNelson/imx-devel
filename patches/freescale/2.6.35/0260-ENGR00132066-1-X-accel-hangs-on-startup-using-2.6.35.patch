@@ -1,7 +1,7 @@
 From 666f48f823ed8a716a1d3863d3b93d910dbd67d1 Mon Sep 17 00:00:00 2001
 From: Dennis Wenzel <b21659@freescale.com>
 Date: Wed, 29 Sep 2010 10:29:41 -0500
-Subject: [PATCH 260/850] ENGR00132066-1: X-accel hangs on startup using 2.6.35 kernel
+Subject: [PATCH 260/902] ENGR00132066-1: X-accel hangs on startup using 2.6.35 kernel
 
 Changed libz160 to only use AMD CSI and no longer have FSL CSI option.
 Remove uio_pdrv_genirq based gpu2d driver kernel module for mx5x.

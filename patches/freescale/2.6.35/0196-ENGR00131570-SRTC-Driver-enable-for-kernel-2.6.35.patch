@@ -1,7 +1,7 @@
 From 600541d95109c1537184abf676cafb64575b4361 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Wed, 15 Sep 2010 09:50:23 -0500
-Subject: [PATCH 196/850] ENGR00131570 SRTC Driver enable for kernel 2.6.35
+Subject: [PATCH 196/902] ENGR00131570 SRTC Driver enable for kernel 2.6.35
 
 Upgrade of SRTC driver to kernel version 2.6.35 required
 that device pointer be provided when calling clk_get_rate

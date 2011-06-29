@@ -1,7 +1,7 @@
 From 13b6445cda40e29a4471e929effa01fe3b964ff8 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 6 Jan 2011 15:05:28 +0800
-Subject: [PATCH 633/850] ENGR00137666-1 mx5: remove mxc_srtc_platform_data struct
+Subject: [PATCH 633/902] ENGR00137666-1 mx5: remove mxc_srtc_platform_data struct
 
 Remove mxc_srtc_platform_data struct from MX5 platform.
 

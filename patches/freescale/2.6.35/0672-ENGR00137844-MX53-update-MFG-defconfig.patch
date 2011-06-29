@@ -1,7 +1,7 @@
 From 69ee22688844e0ca9ecce19335fdd7982429c922 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Tue, 11 Jan 2011 15:42:38 +0800
-Subject: [PATCH 672/850] ENGR00137844 MX53: update MFG defconfig
+Subject: [PATCH 672/902] ENGR00137844 MX53: update MFG defconfig
 
 - Add MX53 SMD and LOCO board support
 - Build in SATA, DA9053 regulator

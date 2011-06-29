@@ -1,7 +1,7 @@
 From f72cbf0ef2ad6289109ed27ee979b98fd7c3cfd5 Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Thu, 10 Mar 2011 02:43:46 +0800
-Subject: [PATCH 821/850] ENGR00140460 spdif: Fix spdif can't playback at the first bootup
+Subject: [PATCH 821/902] ENGR00140460 spdif: Fix spdif can't playback at the first bootup
 
 spdif can't playback at system first bootup, write I/O error print out.
 This problem is caused by DMA channel not requested before enable spdif dma

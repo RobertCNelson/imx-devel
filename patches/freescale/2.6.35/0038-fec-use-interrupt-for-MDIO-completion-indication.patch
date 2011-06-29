@@ -1,7 +1,7 @@
 From d4b2153e87aa2d35b5f830744c14a04e386b3adb Mon Sep 17 00:00:00 2001
 From: Stefan Bader <stefan.bader@canonical.com>
 Date: Tue, 7 Sep 2010 14:47:11 +0800
-Subject: [PATCH 038/850] fec: use interrupt for MDIO completion indication
+Subject: [PATCH 038/902] fec: use interrupt for MDIO completion indication
 
 Queued for 2.6.36 in git://git.kernel.org/pub/scm/linux/kernel/git/davem/net-next-2.6.git
 

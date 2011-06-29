@@ -1,7 +1,7 @@
 From 74aeacab934a685355c86b70d5015dd0c45d8eda Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Fri, 31 Dec 2010 00:17:56 +0800
-Subject: [PATCH 585/850] ENGR00137485-1 MMA8451: Add mma8451 accelerometer driver
+Subject: [PATCH 585/902] ENGR00137485-1 MMA8451: Add mma8451 accelerometer driver
 
 Add mma8451 accelerometer driver.
 
