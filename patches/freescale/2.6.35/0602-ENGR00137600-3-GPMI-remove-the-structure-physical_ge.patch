@@ -1,7 +1,7 @@
 From 8a892d577347e33ed22d16f268b6fab699a83fff Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 5 Jan 2011 10:29:32 +0800
-Subject: [PATCH 602/902] ENGR00137600-3 GPMI : remove the structure physical_geometry{} for main file
+Subject: [PATCH 602/998] ENGR00137600-3 GPMI : remove the structure physical_geometry{} for main file
 
 Remove the physical_geometry{} for the main file :
 	[1] remove the /sys file for physical_geometry{}

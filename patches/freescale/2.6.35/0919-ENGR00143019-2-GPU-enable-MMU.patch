@@ -1,0 +1,186 @@
+From 326da1d885108399f4e22d10a8fe341a7a110ffc Mon Sep 17 00:00:00 2001
+From: Zhou, Jie <b30303@freescale.com>
+Date: Fri, 6 May 2011 01:11:16 +0800
+Subject: [PATCH 919/998] ENGR00143019-2 GPU: enable MMU
+
+With MMU enabled, there is no need to reserve memory for GPU
+at boot time
+
+Signed-off-by: Zhou, Jie <b30303@freescale.com>
+---
+ drivers/mxc/amd-gpu/common/gsl_mmu.c               |   18 ++++++++++++++++--
+ drivers/mxc/amd-gpu/include/gsl_halconfig.h        |    4 ++--
+ drivers/mxc/amd-gpu/platform/hal/linux/gsl_hal.c   |    8 +++++---
+ drivers/mxc/amd-gpu/platform/hal/linux/gsl_kmod.c  |   15 +++++++++++----
+ .../mxc/amd-gpu/platform/hal/linux/gsl_linux_map.c |    2 +-
+ 5 files changed, 35 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/mxc/amd-gpu/common/gsl_mmu.c b/drivers/mxc/amd-gpu/common/gsl_mmu.c
+index 810a058..2c079a8 100644
+--- a/drivers/mxc/amd-gpu/common/gsl_mmu.c
++++ b/drivers/mxc/amd-gpu/common/gsl_mmu.c
+@@ -89,7 +89,8 @@ const unsigned int GSL_PT_PAGE_AP[4] = {(GSL_PT_PAGE_READ | GSL_PT_PAGE_WRITE),
+ #define GSL_PT_MAP_SETBITS(pte, bits)       (GSL_PT_MAP_GET(pte) |= (((unsigned int) bits) & GSL_PT_PAGE_AP_MASK))
+ #define GSL_PT_MAP_SETADDR(pte, pageaddr)   (GSL_PT_MAP_GET(pte)  = (GSL_PT_MAP_GET(pte) & ~GSL_PT_PAGE_ADDR_MASK) | (((unsigned int) pageaddr) & GSL_PT_PAGE_ADDR_MASK))
+ 
+-#define GSL_PT_MAP_RESET(pte)               (GSL_PT_MAP_GET(pte)  = 0)
++/* reserve RV and WV bits to work around READ_PROTECTION_ERROR in some cases */
++#define GSL_PT_MAP_RESET(pte)               (GSL_PT_MAP_GET(pte) &= ~GSL_PT_PAGE_ADDR_MASK)
+ #define GSL_PT_MAP_RESETBITS(pte, bits)     (GSL_PT_MAP_GET(pte) &= ~(((unsigned int) bits) & GSL_PT_PAGE_AP_MASK))
+ 
+ #define GSL_MMU_VIRT_TO_PAGE(va)            *((unsigned int *)(pagetable->base.gpuaddr + (GSL_PT_ENTRY_GET(va) * GSL_PT_ENTRY_SIZEBYTES)))
+@@ -708,6 +709,16 @@ kgsl_mmu_map(gsl_mmu_t *mmu, gpuaddr_t gpubaseaddr, const gsl_scatterlist_t *sca
+ 
+ //----------------------------------------------------------------------------
+ 
++static bool is_superpte_empty(gsl_pagetable_t  *pagetable, unsigned int superpte)
++{
++	int i;
++	for (i = 0; i < GSL_PT_SUPER_PTE; i++) {
++		if (GSL_PT_MAP_GET(superpte+i))
++			return false;
++	}
++	return true;
++}
++
+ int
+ kgsl_mmu_unmap(gsl_mmu_t *mmu, gpuaddr_t gpubaseaddr, int range, unsigned int pid)
+ {
+@@ -777,7 +788,10 @@ kgsl_mmu_unmap(gsl_mmu_t *mmu, gpuaddr_t gpubaseaddr, int range, unsigned int pi
+         {
+             do
+             {
+-                pagetable->last_superpte -= GSL_PT_SUPER_PTE;
++		if (is_superpte_empty(pagetable, superpte))
++		    pagetable->last_superpte -= GSL_PT_SUPER_PTE;
++		else
++		    break;
+             } while (!GSL_PT_MAP_GETADDR(pagetable->last_superpte) && pagetable->last_superpte >= GSL_PT_SUPER_PTE);
+         }
+ 
+diff --git a/drivers/mxc/amd-gpu/include/gsl_halconfig.h b/drivers/mxc/amd-gpu/include/gsl_halconfig.h
+index 363474b..6c33b9c 100644
+--- a/drivers/mxc/amd-gpu/include/gsl_halconfig.h
++++ b/drivers/mxc/amd-gpu/include/gsl_halconfig.h
+@@ -27,7 +27,7 @@
+  */
+ 
+ /*
+- * Copyright (C) 2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ #ifndef __GSL_HALCONFIG_H
+@@ -38,7 +38,7 @@
+ 
+ #define GSL_HAL_SIZE_REG_G12            0x00001000            /* 4KB */
+ 
+-#define GSL_HAL_SHMEM_SIZE_EMEM1_MMU    0x01800000            /* 24MB */
++#define GSL_HAL_SHMEM_SIZE_EMEM1_MMU    0x08000000            /* 128MB */
+ #define GSL_HAL_SHMEM_SIZE_EMEM2_MMU    0x00400000            /* 4MB */
+ #define GSL_HAL_SHMEM_SIZE_PHYS_MMU     0x00400000            /* 4MB */
+ 
+diff --git a/drivers/mxc/amd-gpu/platform/hal/linux/gsl_hal.c b/drivers/mxc/amd-gpu/platform/hal/linux/gsl_hal.c
+index 8d45283..8ee9664 100644
+--- a/drivers/mxc/amd-gpu/platform/hal/linux/gsl_hal.c
++++ b/drivers/mxc/amd-gpu/platform/hal/linux/gsl_hal.c
+@@ -17,7 +17,7 @@
+  */
+ 
+ /*
+- * Copyright (C) 2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ #include "gsl_hal.h"
+@@ -48,6 +48,7 @@ extern int gmem_size;
+ extern phys_addr_t gpu_reserved_mem;
+ extern int gpu_reserved_mem_size;
+ extern int gpu_2d_irq, gpu_3d_irq;
++extern int enable_mmu;
+ 
+ 
+ KGSLHAL_API int
+@@ -120,8 +121,7 @@ kgsl_hal_init(void)
+ 	hal->has_z160 = 0;
+     }
+ 
+-    /* there is still some problem to enable mmu currently */
+-    gsl_driver.enable_mmu = 0;
++    gsl_driver.enable_mmu = enable_mmu;
+ 
+     /* setup register space */
+     if (hal->has_z430) {
+@@ -157,6 +157,7 @@ kgsl_hal_init(void)
+     }
+ 
+     if (gsl_driver.enable_mmu) {
++	printk(KERN_INFO "gpu mmu enabled\n");
+ 	totalsize = GSL_HAL_SHMEM_SIZE_EMEM2_MMU + GSL_HAL_SHMEM_SIZE_PHYS_MMU;
+ 	mem1size = GSL_HAL_SHMEM_SIZE_EMEM1_MMU;
+ 	if (gpu_reserved_mem && gpu_reserved_mem_size >= totalsize) {
+@@ -166,6 +167,7 @@ kgsl_hal_init(void)
+ 	    va = (unsigned int)dma_alloc_coherent(0, totalsize, (dma_addr_t *)&pa, GFP_DMA | GFP_KERNEL);
+ 	}
+     } else {
++	printk(KERN_INFO "gpu mmu disabled\n");
+ 	if (gpu_reserved_mem && gpu_reserved_mem_size >= SZ_8M) {
+ 	    totalsize = gpu_reserved_mem_size;
+ 	    pa = gpu_reserved_mem;
+diff --git a/drivers/mxc/amd-gpu/platform/hal/linux/gsl_kmod.c b/drivers/mxc/amd-gpu/platform/hal/linux/gsl_kmod.c
+index 1314292..99f468a 100644
+--- a/drivers/mxc/amd-gpu/platform/hal/linux/gsl_kmod.c
++++ b/drivers/mxc/amd-gpu/platform/hal/linux/gsl_kmod.c
+@@ -39,6 +39,8 @@
+ #include <linux/platform_device.h>
+ #include <linux/vmalloc.h>
+ 
++#include <linux/fsl_devices.h>
++
+ int gpu_2d_irq, gpu_3d_irq;
+ 
+ phys_addr_t gpu_2d_regbase;
+@@ -49,6 +51,7 @@ int gmem_size;
+ phys_addr_t gpu_reserved_mem;
+ int gpu_reserved_mem_size;
+ int z160_version;
++int enable_mmu;
+ 
+ static ssize_t gsl_kmod_read(struct file *fd, char __user *buf, size_t len, loff_t *ptr);
+ static ssize_t gsl_kmod_write(struct file *fd, const char __user *buf, size_t len, loff_t *ptr);
+@@ -765,11 +768,15 @@ static int gpu_probe(struct platform_device *pdev)
+     int i;
+     struct resource *res;
+     struct device *dev;
++    struct mxc_gpu_platform_data *gpu_data = NULL;
+ 
+-    if (pdev->dev.platform_data)
+-	z160_version = *((int *)(pdev->dev.platform_data));
+-    else
+-	z160_version = 0;
++    gpu_data = (struct mxc_gpu_platform_data *)pdev->dev.platform_data;
++
++    if (gpu_data == NULL)
++	return 0;
++
++    z160_version = gpu_data->z160_revision;
++    enable_mmu = gpu_data->enable_mmu;
+ 
+     for(i = 0; i < 2; i++){
+         res = platform_get_resource(pdev, IORESOURCE_IRQ, i);
+diff --git a/drivers/mxc/amd-gpu/platform/hal/linux/gsl_linux_map.c b/drivers/mxc/amd-gpu/platform/hal/linux/gsl_linux_map.c
+index 7fee7b8..3c1e02e 100644
+--- a/drivers/mxc/amd-gpu/platform/hal/linux/gsl_linux_map.c
++++ b/drivers/mxc/amd-gpu/platform/hal/linux/gsl_linux_map.c
+@@ -61,7 +61,7 @@ void *gsl_linux_map_alloc(unsigned int gpu_addr, unsigned int size)
+ 		}
+ 	}
+ 
+-	va = __vmalloc(size, GFP_KERNEL, pgprot_noncached(pgprot_kernel));
++	va = __vmalloc(size, GFP_KERNEL, pgprot_writecombine(pgprot_kernel));
+ 	if(va == NULL){
+ 		mutex_unlock(&gsl_linux_map_mutex);
+ 		return NULL;
+-- 
+1.7.4.1
+

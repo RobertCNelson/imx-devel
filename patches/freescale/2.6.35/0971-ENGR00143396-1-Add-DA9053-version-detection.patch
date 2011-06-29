@@ -1,0 +1,83 @@
+From 0016bfc6ced64572c6352a24cdd4ddf76ad14983 Mon Sep 17 00:00:00 2001
+From: Zhou Jingyu <b02241@freescale.com>
+Date: Fri, 13 May 2011 16:09:11 +0800
+Subject: [PATCH 971/998] ENGR00143396-1 Add DA9053 version detection
+
+Add DA9053 version detection
+
+Signed-off-by: Zhou Jingyu <Jingyu.Zhou@freescale.com>
+---
+ drivers/mfd/da9052-core.c         |   21 +++++++++++++++++++++
+ include/linux/mfd/da9052/da9052.h |    5 +++++
+ 2 files changed, 26 insertions(+), 0 deletions(-)
+
+diff --git a/drivers/mfd/da9052-core.c b/drivers/mfd/da9052-core.c
+index a9b6203..4201922 100644
+--- a/drivers/mfd/da9052-core.c
++++ b/drivers/mfd/da9052-core.c
+@@ -496,6 +496,22 @@ int da9052_ssc_init(struct da9052 *da9052)
+ 	ssc_msg.addr = DA9052_IRQMASKC_REG;
+ 	ssc_msg.data = 0xff;
+ 	da9052->write(da9052, &ssc_msg);
++
++	/* read chip version */
++	ssc_msg.addr = DA9052_CHIPID_REG;
++	da9052->read(da9052, &ssc_msg);
++	pr_info("DA9053 chip ID reg read=0x%x ", ssc_msg.data);
++	if ((ssc_msg.data & DA9052_CHIPID_MRC) == 0x80) {
++		da9052->chip_version = DA9053_VERSION_AA;
++		pr_info("AA version probed\n");
++	} else if ((ssc_msg.data & DA9052_CHIPID_MRC) == 0xf0) {
++		da9052->chip_version = DA9053_VERSION_BB;
++		pr_info("BB version probed\n");
++	} else {
++		da9052->chip_version = 0;
++		pr_info("unknown chip version\n");
++	}
++
+ 	if (request_irq(da9052->irq, da9052_eh_isr, IRQ_TYPE_LEVEL_LOW,
+ 		DA9052_EH_DEVICE_NAME, da9052))
+ 		return -EIO;
+@@ -533,6 +549,11 @@ void da9053_power_off(void)
+ 	da9052_data->read(da9052_data, &ssc_msg);
+ }
+ 
++int da9053_get_chip_version(void)
++{
++	return da9052_data->chip_version;
++}
++
+ MODULE_AUTHOR("Dialog Semiconductor Ltd <dchen@diasemi.com>");
+ MODULE_DESCRIPTION("DA9052 MFD Core");
+ MODULE_LICENSE("GPL v2");
+diff --git a/include/linux/mfd/da9052/da9052.h b/include/linux/mfd/da9052/da9052.h
+index 0ff9693..5680a83 100644
+--- a/include/linux/mfd/da9052/da9052.h
++++ b/include/linux/mfd/da9052/da9052.h
+@@ -75,6 +75,9 @@
+ #define DA9052_SSC_I2C_REPEAT_WRITE_MODE	1
+ #define DA9052_SSC_I2C_WRITE_MODE		DA9052_SSC_I2C_REPEAT_WRITE_MODE
+ 
++#define DA9053_VERSION_AA 1
++#define DA9053_VERSION_BB 2
++
+ struct da9052_ssc_msg {
+ 	unsigned char	data;
+ 	unsigned char	addr;
+@@ -162,6 +165,7 @@ struct da9052 {
+ 	struct device *dev;
+ 	struct i2c_adapter *adapter;
+ 	unsigned char	slave_addr;
++	int chip_version;
+ };
+ 
+ struct da9052_platform_data {
+@@ -226,4 +230,5 @@ int eh_unregister_nb(struct da9052 *da9052, struct da9052_eh_nb *nb);
+ int da9052_manual_read(struct da9052 *da9052,
+ 		unsigned char channel);
+ void da9053_power_off(void);
++int da9053_get_chip_version(void);
+ #endif /* __LINUX_MFD_DA9052_DA9052_H */
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From 05381386ba6ae372aa302ae15867cfc1685612d1 Mon Sep 17 00:00:00 2001
 From: Colin Cross <ccross@android.com>
 Date: Fri, 3 Sep 2010 01:24:07 +0200
-Subject: [PATCH 574/902] Fix the bug the system will hang if connect usb cable to PC after suspending
+Subject: [PATCH 574/998] Fix the bug the system will hang if connect usb cable to PC after suspending
 
 Signed-off-by: Peter Chen <peter.chen@freescale.com>
 

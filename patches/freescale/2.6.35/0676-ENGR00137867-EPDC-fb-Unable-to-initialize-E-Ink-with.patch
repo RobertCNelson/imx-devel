@@ -1,7 +1,7 @@
 From 73a92601af1ded02a56e347faaa3786e261c5b39 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 12 Jan 2011 14:03:18 -0600
-Subject: [PATCH 676/902] ENGR00137867 - EPDC fb: Unable to initialize E-Ink with rotated orientation
+Subject: [PATCH 676/998] ENGR00137867 - EPDC fb: Unable to initialize E-Ink with rotated orientation
 
 - EPDC initialization code now accounts for potential of screen rotation
 - Fixed bug in setting waveform modes

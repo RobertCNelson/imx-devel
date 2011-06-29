@@ -1,7 +1,7 @@
 From 1e737c7c2fe75584ab2a3ee86d59987b0825551b Mon Sep 17 00:00:00 2001
 From: Jie Zhou <b30303@freescale.com>
 Date: Sun, 26 Sep 2010 12:41:44 +0800
-Subject: [PATCH 244/902] ENGR00131943 MX50: register gpu2d_clk with only connection ID
+Subject: [PATCH 244/998] ENGR00131943 MX50: register gpu2d_clk with only connection ID
 
 In GPU driver, connection ID is used to look up gpu2d_clk
 

@@ -1,7 +1,7 @@
 From 5b334e64580020bd0d629c6211881267038add7b Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 17 Aug 2010 14:51:31 -0500
-Subject: [PATCH 032/902] ENGR00126692-1: MX5X: Upgrade kernel to 2.6.35
+Subject: [PATCH 032/998] ENGR00126692-1: MX5X: Upgrade kernel to 2.6.35
 
 This patch contains changes to plat-mxc files.
 Contains all checkpatch and copyright fixes.

@@ -1,7 +1,7 @@
 From fad3ee76450f5737e4119bbc7c5ed48802fb6e96 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 18 Jan 2011 16:57:47 -0600
-Subject: [PATCH 730/902] ENGR00138165 - EPDC fb: Updates not protected against changes to FB data
+Subject: [PATCH 730/998] ENGR00138165 - EPDC fb: Updates not protected against changes to FB data
 
 - Ensure that no updates are active when changing the FB info
 - Fix criteria for evaluating whether any updates are active

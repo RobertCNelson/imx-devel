@@ -1,7 +1,7 @@
 From e9801056047e581025db7c660d9b549321d7f9ba Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Mon, 31 Jan 2011 15:39:19 -0600
-Subject: [PATCH 742/902] ENGR00138697 Fix pad control for power key on mx51-babbage
+Subject: [PATCH 742/998] ENGR00138697 Fix pad control for power key on mx51-babbage
 
 The power key on the MX51 babbage board cannot have the PKE
 bit set. Also remove MX51_UART1_PAD_CTRL since it has been

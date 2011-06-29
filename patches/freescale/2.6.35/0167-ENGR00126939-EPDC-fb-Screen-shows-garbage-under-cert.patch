@@ -1,7 +1,7 @@
 From 10cc0d293ce91254b2f96f335dee950e7b204180 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 31 Aug 2010 10:46:32 -0500
-Subject: [PATCH 167/902] ENGR00126939 - EPDC fb: Screen shows garbage under certain update conditions.
+Subject: [PATCH 167/998] ENGR00126939 - EPDC fb: Screen shows garbage under certain update conditions.
 
 When update X coordinate is an odd number and the update region width
 is a multiple of 8, the screen shows garbage due to a bug in how the

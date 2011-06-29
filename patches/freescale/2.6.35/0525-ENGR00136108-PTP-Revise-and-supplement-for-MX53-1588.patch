@@ -1,7 +1,7 @@
 From ff7b73bb55162d1f182c5f7f0a7e8fa8af039dd8 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Wed, 8 Dec 2010 17:06:31 +0800
-Subject: [PATCH 525/902] ENGR00136108 PTP: Revise and supplement for MX53 1588 driver
+Subject: [PATCH 525/998] ENGR00136108 PTP: Revise and supplement for MX53 1588 driver
 
 1. Using the UDP dest port to identifying an event message.
 2. Add related information checking for getting rx/tx timestamp.

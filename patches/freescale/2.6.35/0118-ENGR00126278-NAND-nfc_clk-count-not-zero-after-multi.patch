@@ -1,7 +1,7 @@
 From a62972c18272daa82a57a294d02a469bac16b094 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Thu, 12 Aug 2010 19:07:53 +0800
-Subject: [PATCH 118/902] ENGR00126278 NAND:nfc_clk count not zero after multi-cs NAND scan
+Subject: [PATCH 118/998] ENGR00126278 NAND:nfc_clk count not zero after multi-cs NAND scan
 
 In fact, NAND driver always do clk_enable when use NAND
 and clk_disable when not use. But there is one open issue

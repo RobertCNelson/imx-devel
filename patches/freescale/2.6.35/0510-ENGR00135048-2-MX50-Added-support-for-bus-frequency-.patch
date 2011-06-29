@@ -1,7 +1,7 @@
 From 4714fabc9eafa8df4e25a246d3a0902439724111 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 3 Dec 2010 16:17:12 -0600
-Subject: [PATCH 510/902] ENGR00135048-2: MX50: Added support for bus-frequency scaling.
+Subject: [PATCH 510/998] ENGR00135048-2: MX50: Added support for bus-frequency scaling.
 
 Add the capability to change the bus clocks at half the max frequency based on
 which modules are active. AHB_CLK, AXI_A and AXI_B clock are at half the max.

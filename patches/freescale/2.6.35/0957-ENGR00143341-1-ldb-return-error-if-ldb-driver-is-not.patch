@@ -1,0 +1,38 @@
+From c242febd7e5b797ee5ea99a287b6d15344cb3524 Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Thu, 12 May 2011 20:21:04 +0800
+Subject: [PATCH 957/998] ENGR00143341-1 ldb: return error if ldb driver is not enabled
+
+On mx53 QS board, set boot option as "console=ttymxc0,115200 root=
+/dev/nfs ip=dhcp nfsroot=x.x.x.x:/nfs/rootfs". Run "echo mem >
+/sys/power/state" and then press power key to resume. The following
+error is reported:
+ffe0: 00000000 7efcc5e0 2ab33c48 2ab8624c 60000010 00000001 ddffdb57 e735e8fd
+[<8020ad6c>] (ldb_enable+0x28/0x298) from [<8020b058>] (ldb_resume+0x7c/0x88)
+[<8020b058>] (ldb_resume+0x7c/0x88) from [<8023ed0c>]
+	(platform_pm_resume+0x40/0x4c)
+[<8023ed0c>] (platform_pm_resume+0x40/0x4c) from [<802412f4>] (pm_op+0xac/0x118)
+
+To fix above error, return -ENODEV if the ldb driver is not enabled.
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+---
+ drivers/video/mxc/ldb.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/drivers/video/mxc/ldb.c b/drivers/video/mxc/ldb.c
+index af886ff..088d36a 100644
+--- a/drivers/video/mxc/ldb.c
++++ b/drivers/video/mxc/ldb.c
+@@ -1260,7 +1260,7 @@ static int ldb_probe(struct platform_device *pdev)
+ 
+ 	if (g_enable_ldb == MXC_DISABLE) {
+ 		printk(KERN_WARNING "By setting, LDB driver will not be enabled\n");
+-		return 0;
++		return -ENODEV;
+ 	}
+ 
+ 	spin_lock_init(&ldb_lock);
+-- 
+1.7.4.1
+

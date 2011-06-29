@@ -1,7 +1,7 @@
 From 2ff9ad7f55db9eeedf67cb71c1da38a7012b988c Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 26 Jan 2011 21:47:49 +0800
-Subject: [PATCH 726/902] ENGR00138540 mx51: set low bus flag after entering low bus mode
+Subject: [PATCH 726/998] ENGR00138540 mx51: set low bus flag after entering low bus mode
 
 If enabling DVFS core and enter suspend state, FEC resume was
 failed due to wrong clock. This is because enter_lpapm_mode_mx51

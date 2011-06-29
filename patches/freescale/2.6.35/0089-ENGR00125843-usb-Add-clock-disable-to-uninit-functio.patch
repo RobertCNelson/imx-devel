@@ -1,7 +1,7 @@
 From 822c5738877939febdf3941f856683a3dc22bff7 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 30 Jul 2010 16:08:41 +0800
-Subject: [PATCH 089/902] ENGR00125843 usb: Add clock disable to uninit function for mx23/mx28
+Subject: [PATCH 089/998] ENGR00125843 usb: Add clock disable to uninit function for mx23/mx28
 
 1. Add clock disable to uninit function for mx23/mx28
 2. The platform init function for usb module should execute

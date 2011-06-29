@@ -1,7 +1,7 @@
 From 09b371942aac57ce46f0f54b90435e5981ee7911 Mon Sep 17 00:00:00 2001
 From: Dennis Wenzel <b21659@freescale.com>
 Date: Wed, 29 Sep 2010 10:42:06 -0500
-Subject: [PATCH 261/902] ENGR00132066-2: X-accel hangs on startup using 2.6.35 kernel
+Subject: [PATCH 261/998] ENGR00132066-2: X-accel hangs on startup using 2.6.35 kernel
 
 Changed libz160 to only use AMD CSI and no longer have FSL CSI option.
 Update warning messages when gpu2d driver loaded.

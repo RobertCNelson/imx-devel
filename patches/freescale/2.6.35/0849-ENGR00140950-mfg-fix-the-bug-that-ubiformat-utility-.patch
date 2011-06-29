@@ -1,7 +1,7 @@
 From d42c2893f181c004f4d6dc021bdc34fa6bed2818 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 22 Mar 2011 17:27:17 +0800
-Subject: [PATCH 849/902] ENGR00140950 mfg: fix the bug that ubiformat utility breaks utp protocol
+Subject: [PATCH 849/998] ENGR00140950 mfg: fix the bug that ubiformat utility breaks utp protocol
 
 ubiformat includes command, data, command periods,
 it breaks utp protocol for PUT commands. So we add two operations to fix it.

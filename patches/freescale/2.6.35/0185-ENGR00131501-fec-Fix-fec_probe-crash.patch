@@ -1,7 +1,7 @@
 From 681920a8f509915b07838f0d7b37b21ea696cd71 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 14 Sep 2010 20:35:52 -0500
-Subject: [PATCH 185/902] ENGR00131501 fec: Fix fec_probe crash
+Subject: [PATCH 185/998] ENGR00131501 fec: Fix fec_probe crash
 
 Because of ENGR00125986, trying to access pdata structure before pdata
 gets initialized.

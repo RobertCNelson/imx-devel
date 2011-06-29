@@ -1,0 +1,28 @@
+From f5726c46a2bdd7c009d335e64f301aec08ec382c Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Fri, 13 May 2011 09:46:27 +0800
+Subject: [PATCH 960/998] ENGR00143341-4 mxc edid: return error if the edid driver is not enabled
+
+Return -ENODEV if the mxc edid driver is not enabled
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+---
+ drivers/video/mxc/mxc_edid.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/drivers/video/mxc/mxc_edid.c b/drivers/video/mxc/mxc_edid.c
+index 2010f9c..09159b9 100644
+--- a/drivers/video/mxc/mxc_edid.c
++++ b/drivers/video/mxc/mxc_edid.c
+@@ -498,7 +498,7 @@ static int __devinit mxc_ddc_probe(struct i2c_client *client,
+ 
+ 	if (g_enable_ddc == MXC_DISABLE) {
+ 		printk(KERN_WARNING "By setting, DDC driver will not be enabled\n");
+-		return 0;
++		return -ENODEV;
+ 	}
+ 
+ 	mxc_ddc.client = client;
+-- 
+1.7.4.1
+

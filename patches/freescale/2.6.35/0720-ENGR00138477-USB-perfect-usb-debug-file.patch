@@ -1,7 +1,7 @@
 From a4e6f5dba3859e6ae5261d07577ac3c5dc883234 Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Tue, 25 Jan 2011 16:31:00 +0800
-Subject: [PATCH 720/902] ENGR00138477 USB: perfect usb debug file
+Subject: [PATCH 720/998] ENGR00138477 USB: perfect usb debug file
 
 Open usb clock before view usb debug file. avoid system hang when view
 usb debug information in suspend state.

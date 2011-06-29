@@ -1,7 +1,7 @@
 From aeee26067d822d635463b870767b25dac93301e6 Mon Sep 17 00:00:00 2001
 From: Shen Yong <b00984@freescale.com>
 Date: Tue, 24 Aug 2010 11:44:58 +0800
-Subject: [PATCH 150/902] ENGR00126307 mx53: implement low bus frequency mode
+Subject: [PATCH 150/998] ENGR00126307 mx53: implement low bus frequency mode
 
 implement low bus frequency mode in busfreq driver, and also
 adjust setting of ccm register to achieve more power efficience

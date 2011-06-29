@@ -1,7 +1,7 @@
 From 4f1a6d4571abce13a0300a8f17b528b6fc306b01 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Thu, 6 Jan 2011 19:05:39 +0800
-Subject: [PATCH 773/902] arm: mxc: move IOMUX_CONFIG_SION definition to iomux-v3.h
+Subject: [PATCH 773/998] arm: mxc: move IOMUX_CONFIG_SION definition to iomux-v3.h
 
 Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>

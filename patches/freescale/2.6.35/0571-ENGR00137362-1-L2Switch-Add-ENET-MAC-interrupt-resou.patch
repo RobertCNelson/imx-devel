@@ -1,7 +1,7 @@
 From 94bad557298a1acbb3effbd26fb66742ff4e1465 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Fri, 24 Dec 2010 17:05:25 +0800
-Subject: [PATCH 571/902] ENGR00137362-1 L2Switch: Add ENET-MAC interrupt resource
+Subject: [PATCH 571/998] ENGR00137362-1 L2Switch: Add ENET-MAC interrupt resource
 
 In Switch mode, The ENET-MAC interrupts are enabled and can
 be used to monitor the line activity.

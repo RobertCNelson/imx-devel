@@ -1,7 +1,7 @@
 From 8e41beb36d5ff0175014866dbba15dabd1b0f13e Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 30 Aug 2010 13:08:00 +0800
-Subject: [PATCH 158/902] ENGR00126795 MX28: Update cpufreq table according to CZ data
+Subject: [PATCH 158/998] ENGR00126795 MX28: Update cpufreq table according to CZ data
 
 Update cpufreq table according to CZ data
 

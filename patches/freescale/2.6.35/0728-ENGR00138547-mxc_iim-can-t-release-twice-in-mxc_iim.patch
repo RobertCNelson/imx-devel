@@ -1,7 +1,7 @@
 From b6e36176fb5c07a683ba7fdd135c46f4e507139f Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Thu, 27 Jan 2011 20:54:32 +0800
-Subject: [PATCH 728/902] ENGR00138547: mxc_iim: can't release twice in mxc_iim
+Subject: [PATCH 728/998] ENGR00138547: mxc_iim: can't release twice in mxc_iim
 
 When open mxc_iim twice, mxc_iim can't be close twice.
 

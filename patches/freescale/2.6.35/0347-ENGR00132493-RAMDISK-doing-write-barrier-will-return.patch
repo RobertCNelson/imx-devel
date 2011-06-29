@@ -1,7 +1,7 @@
 From 3b8fbe38e20c758f8ecebb80cb00142fe84bc680 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Wed, 20 Oct 2010 09:49:47 +0800
-Subject: [PATCH 347/902] ENGR00132493 RAMDISK: doing write barrier will return -EIO
+Subject: [PATCH 347/998] ENGR00132493 RAMDISK: doing write barrier will return -EIO
 
 when doing write barrier, the data of the bio is NULL, it's OK for ramdisk
 doing nothing, So the result of the bio must be success.

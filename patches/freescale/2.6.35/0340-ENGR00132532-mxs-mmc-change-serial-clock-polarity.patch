@@ -1,7 +1,7 @@
 From fcdb748cea254c18e3ca85d4a1d3a2254dda6704 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Fri, 15 Oct 2010 17:25:33 +0800
-Subject: [PATCH 340/902] ENGR00132532 mxs-mmc: change serial clock polarity
+Subject: [PATCH 340/998] ENGR00132532 mxs-mmc: change serial clock polarity
 
 Some mmc cards may not work properly with data change after rising
 edge of SCK.

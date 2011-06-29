@@ -1,7 +1,7 @@
 From 3e3632dbd01856d7977b42e217b39930ddaa731b Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Tue, 21 Dec 2010 15:48:37 +0800
-Subject: [PATCH 558/902] ENGR00136035 MX28 ALSA: Pcm read error during arecording and aplaying
+Subject: [PATCH 558/998] ENGR00136035 MX28 ALSA: Pcm read error during arecording and aplaying
 
 Reslove the pcm read error when opening arecord and aplay at the
 same time.

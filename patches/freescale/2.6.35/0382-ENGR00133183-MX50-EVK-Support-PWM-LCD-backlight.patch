@@ -1,7 +1,7 @@
 From 60284c40ecdbd2d650ec3de9e9bb1e148f359761 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 1 Nov 2010 12:41:36 +0800
-Subject: [PATCH 382/902] ENGR00133183 MX50 EVK: Support PWM LCD backlight
+Subject: [PATCH 382/998] ENGR00133183 MX50 EVK: Support PWM LCD backlight
 
 1) Add PWM and PWM backlight platform data.
 2) Change PWM1 pin's mux mode to be PWMO.

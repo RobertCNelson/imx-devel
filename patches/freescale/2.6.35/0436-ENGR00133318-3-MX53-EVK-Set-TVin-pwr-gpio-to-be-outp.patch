@@ -1,7 +1,7 @@
 From eff2453e942edcc9cd85e56a1f3b7bcde7c4aedc Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 10 Nov 2010 18:17:52 +0800
-Subject: [PATCH 436/902] ENGR00133318-3 MX53 EVK:Set TVin pwr gpio to be output in io_init
+Subject: [PATCH 436/998] ENGR00133318-3 MX53 EVK:Set TVin pwr gpio to be output in io_init
 
 This patch sets TVin pwr gpio to be output in io_init.
 

@@ -1,0 +1,121 @@
+From 906aa0894b5b4294e0fb4400e865d7e05d761cb7 Mon Sep 17 00:00:00 2001
+From: Wayne Zou <b36644@freescale.com>
+Date: Wed, 1 Jun 2011 17:54:33 +0800
+Subject: [PATCH 993/998] ENGR00143611-1  mx53_smd: track DA9053 version/USB wakeup issue
+
+fix usb wakeup issue for da9053 BB version on mx53 smd
+
+Signed-off-by: Wayne Zou <b36644@freescale.com>
+(cherry picked from commit bed65ab5aca9987123f68df7c8db8616db56e1a4)
+---
+ arch/arm/mach-mx5/pm.c        |   15 ++++++++++++---
+ arch/arm/mach-mx5/pm_da9053.c |   32 ++++++++++++++++++++++++++------
+ 2 files changed, 38 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/pm.c b/arch/arm/mach-mx5/pm.c
+index d2e2c89..cd6a124 100644
+--- a/arch/arm/mach-mx5/pm.c
++++ b/arch/arm/mach-mx5/pm.c
+@@ -24,6 +24,7 @@
+ #include <linux/cpufreq.h>
+ #include <linux/iram_alloc.h>
+ #include <linux/fsl_devices.h>
++#include <linux/mfd/da9052/da9052.h>
+ #include <asm/mach-types.h>
+ #include <asm/cacheflush.h>
+ #include <asm/tlb.h>
+@@ -58,6 +59,7 @@ extern void mx50_suspend(u32 databahn_addr);
+ extern struct cpu_wp *(*get_cpu_wp)(int *wp);
+ extern void __iomem *databahn_base;
+ extern void da9053_suspend_cmd_hw(void);
++extern int da9053_restore_volt_settings(void);
+ extern void da9053_suspend_cmd_sw(void);
+ extern void da9053_resume_dump(void);
+ extern void pm_da9053_i2c_init(u32 base_addr);
+@@ -123,15 +125,22 @@ static int mx5_suspend_enter(suspend_state_t state)
+ 					mx53_smd_loco_irq_wake_fixup();
+ 					da9053_suspend_cmd_sw();
+ 				} else {
+-			/* for new OTP DA9053 board, comment out next */
+-			/* line to enable other irq for wakeup */
+-					mx53_smd_loco_irq_wake_fixup();
++				/*  for new OTP DA9053 board,
++					enable other irq for wakeup,
++					otherwise disable other wakeup sources.
++				*/
++					if (da9053_get_chip_version() !=
++						DA9053_VERSION_BB)
++						mx53_smd_loco_irq_wake_fixup();
++
+ 					da9053_suspend_cmd_hw();
+ 				}
+ 			}
+ 			/* Run the suspend code from iRAM. */
+ 			suspend_in_iram(suspend_param1);
+ 
++			if (da9053_get_chip_version())
++				da9053_restore_volt_settings();
+ 			/*clear the EMPGC0/1 bits */
+ 			__raw_writel(0, MXC_SRPG_EMPGC0_SRPGCR);
+ 			__raw_writel(0, MXC_SRPG_EMPGC1_SRPGCR);
+diff --git a/arch/arm/mach-mx5/pm_da9053.c b/arch/arm/mach-mx5/pm_da9053.c
+index 435e286..eb48e33 100644
+--- a/arch/arm/mach-mx5/pm_da9053.c
++++ b/arch/arm/mach-mx5/pm_da9053.c
+@@ -301,6 +301,12 @@ as the normal setting on Da9053 */
+ #define LDO6_SUSPEND_PRESET 0xC0
+ /* preset ldo10 to 1200 mv */
+ #define iLDO10_SUSPEND_PRESET 0xC0
++/* set VUSB 2V5 active during suspend */
++#define BUCKPERI_SUSPEND_SW_STEP 0x50
++/* restore VUSB 2V5 active after suspend */
++#define BUCKPERI_RESTORE_SW_STEP 0x55
++/* restore VUSB 2V5 power supply after suspend */
++#define SUPPLY_RESTORE_VPERISW_EN 0x20
+ #define CONF_BIT 0x80
+ 
+ static u8 volt_settings[DA9052_LDO10_REG - DA9052_BUCKCORE_REG + 1];
+@@ -318,6 +324,7 @@ static void pm_da9053_preset_voltage(void)
+ 	pm_da9053_write_reg(DA9052_BUCKPRO_REG, BUCKPRO_SUSPEND_PRESET);
+ 	pm_da9053_write_reg(DA9052_LDO6_REG, LDO6_SUSPEND_PRESET);
+ 	pm_da9053_write_reg(DA9052_LDO10_REG, iLDO10_SUSPEND_PRESET);
++	pm_da9053_write_reg(DA9052_ID1213_REG, BUCKPERI_SUSPEND_SW_STEP);
+ }
+ 
+ void pm_da9053_dump(int start, int end)
+@@ -406,13 +413,26 @@ int da9053_suspend_cmd_hw(void)
+ 	return 0;
+ }
+ 
+-void da9053_restore_volt_settings(void)
++int da9053_restore_volt_settings(void)
+ {
+-	u8 reg;
+-	for (reg = DA9052_BUCKCORE_REG;
+-		reg <= DA9052_LDO10_REG; reg++)
+-		pm_da9053_write_reg(reg,
+-			volt_settings[reg - DA9052_BUCKCORE_REG]);
++	u8 data;
++	struct clk *i2c_clk;
++
++	i2c_clk = clk_get(NULL, "i2c_clk");
++	if (IS_ERR(i2c_clk)) {
++		pr_err("unable to get i2c clk\n");
++		return PTR_ERR(i2c_clk);
++	}
++	clk_enable(i2c_clk);
++
++	pm_da9053_write_reg(DA9052_ID1213_REG, BUCKPERI_RESTORE_SW_STEP);
++	pm_da9053_read_reg(DA9052_SUPPLY_REG, &data);
++	data |= SUPPLY_RESTORE_VPERISW_EN;
++	pm_da9053_write_reg(DA9052_SUPPLY_REG, data);
++
++	clk_disable(i2c_clk);
++	clk_put(i2c_clk);
++	return 0;
+ }
+ 
+ int da9053_poweroff_cmd(void)
+-- 
+1.7.4.1
+

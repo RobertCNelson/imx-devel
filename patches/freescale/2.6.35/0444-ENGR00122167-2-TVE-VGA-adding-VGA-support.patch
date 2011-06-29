@@ -1,7 +1,7 @@
 From 5a40a255bedf5ddd084fc582fb66e120a40d196b Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 17 Nov 2010 17:29:52 +0800
-Subject: [PATCH 444/902] ENGR00122167-2 TVE-VGA: adding VGA support.
+Subject: [PATCH 444/998] ENGR00122167-2 TVE-VGA: adding VGA support.
 
 Add VGA support.
 To enable VGA on second display, you can do the following:

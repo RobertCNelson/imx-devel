@@ -1,7 +1,7 @@
 From 26e00e62300b1cc8f714ea11fc3856805652b67e Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 7 Jan 2011 10:46:43 +0800
-Subject: [PATCH 631/902] ENGR00137718-2 imx28 : add system revision for imx28
+Subject: [PATCH 631/998] ENGR00137718-2 imx28 : add system revision for imx28
 
 Add the system revision number for imx28.
 Also update the copyright.

@@ -1,7 +1,7 @@
 From 60696779561782cba0f85de991d8da9c2a3b44c9 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 29 Dec 2010 10:43:33 +0800
-Subject: [PATCH 576/902] ENGR00137439 GPMI : remove the empty lines
+Subject: [PATCH 576/998] ENGR00137439 GPMI : remove the empty lines
 
 Remove the useless empty lines. Also remove some useless comments.
 Make the code tidy and clean.

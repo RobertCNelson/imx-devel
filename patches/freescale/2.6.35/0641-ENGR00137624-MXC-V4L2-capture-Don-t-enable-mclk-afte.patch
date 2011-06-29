@@ -1,7 +1,7 @@
 From 7456e2f2fee2411f80457a3e16ec84ec88e2afd5 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 5 Jan 2011 18:17:11 +0800
-Subject: [PATCH 641/902] ENGR00137624 MXC V4L2 capture:Don't enable mclk after resume
+Subject: [PATCH 641/998] ENGR00137624 MXC V4L2 capture:Don't enable mclk after resume
 
 We used to enable mclk in resume function of mxc v4l2 capture
 driver even if overlay or catpture is off when entering suspend

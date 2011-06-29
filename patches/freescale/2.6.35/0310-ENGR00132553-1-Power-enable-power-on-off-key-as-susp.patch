@@ -1,7 +1,7 @@
 From 5325044f9f5bfdb8ab7f36cb78e347ffc1d326ef Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Wed, 13 Oct 2010 14:48:10 +0800
-Subject: [PATCH 310/902] ENGR00132553-1 Power: enable power on/off key as suspend/resume key
+Subject: [PATCH 310/998] ENGR00132553-1 Power: enable power on/off key as suspend/resume key
 
 MSL Part
 enable the powerkey as suspend/resume key on mx53evk and mx50 rdp

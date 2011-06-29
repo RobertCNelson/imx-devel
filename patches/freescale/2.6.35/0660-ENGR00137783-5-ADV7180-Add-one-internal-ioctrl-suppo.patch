@@ -1,7 +1,7 @@
 From 75b759b19e919d18b1104a1c7be2e70c58b50b63 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 10 Jan 2011 18:45:05 +0800
-Subject: [PATCH 660/902] ENGR00137783-5 ADV7180:Add one internal ioctrl support
+Subject: [PATCH 660/998] ENGR00137783-5 ADV7180:Add one internal ioctrl support
 
 This patch adds chip identification support.
 

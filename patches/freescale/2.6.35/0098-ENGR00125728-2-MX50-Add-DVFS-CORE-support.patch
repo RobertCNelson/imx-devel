@@ -1,7 +1,7 @@
 From b1b4d183945e50b9b24fb6e49a1c73589070b648 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 29 Jul 2010 13:59:05 -0500
-Subject: [PATCH 098/902] ENGR00125728-2: MX50 - Add DVFS-CORE support.
+Subject: [PATCH 098/998] ENGR00125728-2: MX50 - Add DVFS-CORE support.
 
 Added DVFS-CORE support. In the current implementation PLL1 continues
 to run at 800MHz and the ARM Core frequency is dropped using ARM_PODF divider.

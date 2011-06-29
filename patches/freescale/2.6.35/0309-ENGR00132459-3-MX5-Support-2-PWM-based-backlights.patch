@@ -1,7 +1,7 @@
 From 6b0f3a58488964cbce3d96d5083c7c342ea86c14 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Mon, 11 Oct 2010 21:04:48 +0800
-Subject: [PATCH 309/902] ENGR00132459-3 MX5: Support 2 PWM based backlights
+Subject: [PATCH 309/998] ENGR00132459-3 MX5: Support 2 PWM based backlights
 
 Support 2 PWM based backlights, and add PWMO invertion
 option on i.MX53 ARD.

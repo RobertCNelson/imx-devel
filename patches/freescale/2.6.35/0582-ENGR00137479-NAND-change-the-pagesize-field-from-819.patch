@@ -1,7 +1,7 @@
 From 8c11eaf816dad71ca4c8a9ce3c67d503b3ad600a Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 30 Dec 2010 13:59:13 +0800
-Subject: [PATCH 582/902] ENGR00137479 NAND : change the `pagesize` field from 8192 to 0 for ONFI NAND
+Subject: [PATCH 582/998] ENGR00137479 NAND : change the `pagesize` field from 8192 to 0 for ONFI NAND
 
 Change the field to 0 will cause the kernel call the ->init_size()
 hook of the nand_chip{} which will set the proper parameters.

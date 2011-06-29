@@ -1,7 +1,7 @@
 From 8d81485259554faba92355ab3956019f675d6acc Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 16 Nov 2010 14:05:21 +0800
-Subject: [PATCH 431/902] ENGR00133702-3 usb host1: Add usb host1 low power and wakeup support for mx28
+Subject: [PATCH 431/998] ENGR00133702-3 usb host1: Add usb host1 low power and wakeup support for mx28
 
 mx28 defconfig
 

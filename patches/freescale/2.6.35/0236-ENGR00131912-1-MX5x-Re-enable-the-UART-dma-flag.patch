@@ -1,7 +1,7 @@
 From f15b8d93f8180da441e273b8ce309fcfec46fd64 Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Sat, 25 Sep 2010 13:57:14 +0800
-Subject: [PATCH 236/902] ENGR00131912-1 MX5x: Re-enable the UART dma flag
+Subject: [PATCH 236/998] ENGR00131912-1 MX5x: Re-enable the UART dma flag
 
 Due to the dma enable flag used by clock.c, there's some
 clock settings and dependency between uart and aips_tz1 are

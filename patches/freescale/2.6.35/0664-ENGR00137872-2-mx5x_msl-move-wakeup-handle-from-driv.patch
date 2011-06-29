@@ -1,7 +1,7 @@
 From 07a6eff7295b18eec72494e564c6de61aaeab2aa Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 12 Jan 2011 11:00:39 +0800
-Subject: [PATCH 664/902] ENGR00137872-2 mx5x_msl: move wakeup handle from driver to MSL
+Subject: [PATCH 664/998] ENGR00137872-2 mx5x_msl: move wakeup handle from driver to MSL
 
 Move mx5x usb wakeup interrupt handler from the driver to MSL
 

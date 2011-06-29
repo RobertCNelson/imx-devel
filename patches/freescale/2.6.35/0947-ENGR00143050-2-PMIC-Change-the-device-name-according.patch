@@ -1,0 +1,56 @@
+From bcbc21dc495c6a4384c8b0d7979503cba0bb4875 Mon Sep 17 00:00:00 2001
+From: Robby Cai <R63905@freescale.com>
+Date: Fri, 6 May 2011 08:08:48 +0800
+Subject: [PATCH 947/998] ENGR00143050-2 PMIC: Change the device name according to new framework
+
+Change the .modalias in spi_board_info to work with new framework
+
+Signed-off-by: Robby Cai <R63905@freescale.com>
+---
+ arch/arm/configs/imx5_defconfig               |    2 +-
+ arch/arm/mach-mx5/mx50_arm2_pmic_mc13892.c    |    2 +-
+ arch/arm/mach-mx5/mx51_babbage_pmic_mc13892.c |    2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/configs/imx5_defconfig b/arch/arm/configs/imx5_defconfig
+index 152949f..c52d711 100644
+--- a/arch/arm/configs/imx5_defconfig
++++ b/arch/arm/configs/imx5_defconfig
+@@ -2092,7 +2092,7 @@ CONFIG_MXC_PMIC=y
+ # CONFIG_MXC_PMIC_MC13783 is not set
+ CONFIG_MXC_PMIC_MC13892=y
+ CONFIG_MXC_PMIC_MC34708=y
+-# CONFIG_MXC_PMIC_I2C is not set
++CONFIG_MXC_PMIC_I2C=y
+ CONFIG_MXC_PMIC_SPI=y
+ # CONFIG_MXC_PMIC_MC34704 is not set
+ # CONFIG_MXC_PMIC_MC9SDZ60 is not set
+diff --git a/arch/arm/mach-mx5/mx50_arm2_pmic_mc13892.c b/arch/arm/mach-mx5/mx50_arm2_pmic_mc13892.c
+index 567f08d..fd50061 100644
+--- a/arch/arm/mach-mx5/mx50_arm2_pmic_mc13892.c
++++ b/arch/arm/mach-mx5/mx50_arm2_pmic_mc13892.c
+@@ -422,7 +422,7 @@ static struct mc13892_platform_data mc13892_plat = {
+ };
+ 
+ static struct spi_board_info __initdata mc13892_spi_device = {
+-	.modalias = "pmic_spi",
++	.modalias = "mc13892",
+ 	.irq = gpio_to_irq(114),
+ 	.max_speed_hz = 6000000,	/* max spi SCK clock speed in HZ */
+ 	.bus_num = 3,
+diff --git a/arch/arm/mach-mx5/mx51_babbage_pmic_mc13892.c b/arch/arm/mach-mx5/mx51_babbage_pmic_mc13892.c
+index dd7fd03..00a49f5 100644
+--- a/arch/arm/mach-mx5/mx51_babbage_pmic_mc13892.c
++++ b/arch/arm/mach-mx5/mx51_babbage_pmic_mc13892.c
+@@ -422,7 +422,7 @@ static struct mc13892_platform_data mc13892_plat = {
+ };
+ 
+ static struct spi_board_info __initdata mc13892_spi_device = {
+-	.modalias = "pmic_spi",
++	.modalias = "mc13892",
+ 	.irq = gpio_to_irq(8),
+ 	.max_speed_hz = 6000000,	/* max spi SCK clock speed in HZ */
+ 	.bus_num = 1,
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From 0cb66bfe09ca41821c96f220020fb79805383bb2 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Wed, 13 Oct 2010 15:46:06 +0800
-Subject: [PATCH 308/902] ENGR00132459-2 PWM: Add PWMO signal invertion option
+Subject: [PATCH 308/998] ENGR00132459-2 PWM: Add PWMO signal invertion option
 
 Add a member pwmo_invert to the PWM structure to record
 whether the PWMO signal needs invertion or not.

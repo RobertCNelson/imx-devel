@@ -1,0 +1,36 @@
+From ce051ba12dc5db7cf90c61745fd478065f176f66 Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Wed, 13 Apr 2011 14:28:46 +0800
+Subject: [PATCH 908/998] ENGR00141486-4 backlight: ath6kl: remove build warning message
+
+remove building warning message in pwm backlight driver and ath6kl driver
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+---
+ drivers/video/backlight/pwm_bl.c                   |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+ delete mode 100644 drivers/staging/ath6kl/os/linux/include/athendpack_linux.h
+ delete mode 100644 drivers/staging/ath6kl/os/linux/include/athstartpack_linux.h
+
+diff --git a/drivers/staging/ath6kl/os/linux/include/athendpack_linux.h b/drivers/staging/ath6kl/os/linux/include/athendpack_linux.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/drivers/staging/ath6kl/os/linux/include/athstartpack_linux.h b/drivers/staging/ath6kl/os/linux/include/athstartpack_linux.h
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/drivers/video/backlight/pwm_bl.c b/drivers/video/backlight/pwm_bl.c
+index 3c14c92..0890b2a 100644
+--- a/drivers/video/backlight/pwm_bl.c
++++ b/drivers/video/backlight/pwm_bl.c
+@@ -59,7 +59,7 @@ static int pwm_backlight_get_brightness(struct backlight_device *bl)
+ 	return bl->props.brightness;
+ }
+ 
+-static int pwm_backlight_check_fb(struct fb_info *info)
++static int pwm_backlight_check_fb(struct backlight_device *bl, struct fb_info *info)
+ {
+ 	char *id = info->fix.id;
+ 	if (!strcmp(id, "DISP3 BG"))
+-- 
+1.7.4.1
+

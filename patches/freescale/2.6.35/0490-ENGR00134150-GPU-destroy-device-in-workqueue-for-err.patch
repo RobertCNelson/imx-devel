@@ -1,7 +1,7 @@
 From 4bead8462c52d817acf1db05a33740a9ac0f30e7 Mon Sep 17 00:00:00 2001
 From: Jie Zhou <b30303@freescale.com>
 Date: Thu, 25 Nov 2010 15:19:42 +0800
-Subject: [PATCH 490/902] ENGR00134150 GPU: destroy device in workqueue for error interrupts
+Subject: [PATCH 490/998] ENGR00134150 GPU: destroy device in workqueue for error interrupts
 
 If GPU error interrupt detected, related device will be destroyed.
 In the destory function, device_idle and mutex_lock may cause sleep,

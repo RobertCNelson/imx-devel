@@ -1,7 +1,7 @@
 From e8a50f135f45aa606b7be249c40c71322b6f7ca3 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 5 Jan 2011 17:50:37 +0800
-Subject: [PATCH 625/902] ENGR00136007-3 SDMA: add ASRC support
+Subject: [PATCH 625/998] ENGR00136007-3 SDMA: add ASRC support
 
 Upgrade SDMA codes to support ASRC
 

@@ -1,7 +1,7 @@
 From f1bde3f50af22c975170cab48768f9428de3e11a Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 25 Nov 2010 12:56:04 +0800
-Subject: [PATCH 481/902] ENGR00134043-1: PM: change device suspend time debug driver to default off.
+Subject: [PATCH 481/998] ENGR00134043-1: PM: change device suspend time debug driver to default off.
 
 the default state of suspend driver is default off,
 if you want to debug the suspend time, echo time in

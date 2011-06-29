@@ -1,7 +1,7 @@
 From 167eeb25f706b7f4f2552a62e35197c227cb5f53 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 22 Mar 2011 11:30:53 -0500
-Subject: [PATCH 847/902] ENGR00140875: MX51: Added 400MHz working point
+Subject: [PATCH 847/998] ENGR00140875: MX51: Added 400MHz working point
 
 Added 400MHz to the cpu_wp_tbl and to the dvfs_core_setpoint arrays.
 

@@ -1,7 +1,7 @@
 From 07424fb284e4697bc7dec594631d20a82327440b Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Sat, 25 Sep 2010 16:57:41 +0800
-Subject: [PATCH 238/902] ENGR00131929 mxs spi: fix mx23 compiling failed issue
+Subject: [PATCH 238/998] ENGR00131929 mxs spi: fix mx23 compiling failed issue
 
 Missed another pre-defined micro on spi driver for mx23 which will
 cause mx23 kernel build failed.

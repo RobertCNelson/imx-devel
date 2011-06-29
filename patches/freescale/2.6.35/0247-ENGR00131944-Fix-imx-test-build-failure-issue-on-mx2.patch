@@ -1,7 +1,7 @@
 From 0165c042aeb22bc03a3e833de5f316a39bdbe92c Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Sun, 26 Sep 2010 21:15:20 +0800
-Subject: [PATCH 247/902] ENGR00131944 Fix imx-test build failure issue on mx25
+Subject: [PATCH 247/998] ENGR00131944 Fix imx-test build failure issue on mx25
 
 Fix imx-test build failure issue on mx25
 

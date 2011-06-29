@@ -1,7 +1,7 @@
 From b3433146532b445fc9475a8d918bb217513e3d3c Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 5 Jan 2011 12:34:08 +0800
-Subject: [PATCH 612/902] ENGR00137602-2 MX53_SMD: add mpr121 button in MX53_SMD.
+Subject: [PATCH 612/998] ENGR00137602-2 MX53_SMD: add mpr121 button in MX53_SMD.
 
 add mpr121 capacitive button driver in MX53 SMD board.
 

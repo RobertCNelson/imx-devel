@@ -1,7 +1,7 @@
 From fa67b31fdc4eaa9fb4185d4478e44c9beed9448a Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 6 Jan 2011 13:57:21 +0800
-Subject: [PATCH 632/902] ENGR00137654 SRTC: keep clock always on
+Subject: [PATCH 632/998] ENGR00137654 SRTC: keep clock always on
 
 This patch is to remove clk operations from interrupt
 handler and keep SRTC clock on.

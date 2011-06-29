@@ -1,7 +1,7 @@
 From dd750d173872af170061296459c45c91184452ec Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 5 Jan 2011 10:31:24 +0800
-Subject: [PATCH 606/902] ENGR00137543 tve-vga: can not return correctly after suspend/resume
+Subject: [PATCH 606/998] ENGR00137543 tve-vga: can not return correctly after suspend/resume
 
 The org fb/ipu/tve suspend/resume timing cause the vga vsync/hsync
 delay can not be set at correct point. Move tve suspend/resume to

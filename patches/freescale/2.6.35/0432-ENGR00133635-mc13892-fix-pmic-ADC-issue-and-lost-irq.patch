@@ -1,7 +1,7 @@
 From 11d7db4f8885fe2ea756a51ce4493314fcc47e1e Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Mon, 15 Nov 2010 17:35:19 +0800
-Subject: [PATCH 432/902] ENGR00133635 mc13892, fix pmic ADC issue and lost irq issue
+Subject: [PATCH 432/998] ENGR00133635 mc13892, fix pmic ADC issue and lost irq issue
 
 1) Add re-check to avoid event lost in edge irq mode
 2) fix mutex problem caused by CHECK_ERROR(xxx) macro

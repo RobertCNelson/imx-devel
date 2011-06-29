@@ -1,0 +1,88 @@
+From 74362fa3d1057ba1975e52191fcd22bb7c2a6d3b Mon Sep 17 00:00:00 2001
+From: Zhang Jiejing <jiejing.zhang@freescale.com>
+Date: Wed, 6 Apr 2011 13:05:20 +0800
+Subject: [PATCH 877/998] ENGR00141652 MX53_SMD: BT: don't reset BT chip during system suspend & resume.
+
+Bluez stack layer will call rfkill to enable/disable BT chip.
+This will cause AR3001 chip reset during resume, bluez layer
+need to re-init all the BT stuff.
+
+Add this code to let BT not reset during suspend/resume.
+
+Signed-off-by: Zhang Jiejing <jiejing.zhang@freescale.com>
+---
+ arch/arm/mach-mx5/mx53_smd_rfkill.c |   34 ++++++++++++++++++++++++++++++++++
+ 1 files changed, 34 insertions(+), 0 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/mx53_smd_rfkill.c b/arch/arm/mach-mx5/mx53_smd_rfkill.c
+index f0f95a8..f669dd0 100644
+--- a/arch/arm/mach-mx5/mx53_smd_rfkill.c
++++ b/arch/arm/mach-mx5/mx53_smd_rfkill.c
+@@ -30,16 +30,24 @@
+ #include <linux/platform_device.h>
+ #include <linux/device.h>
+ #include <linux/kernel.h>
++#include <linux/suspend.h>
+ #include <linux/init.h>
+ #include <linux/rfkill.h>
+ #include <mach/hardware.h>
+ #include <mach/mxc_rfkill.h>
+ 
++static int system_in_suspend;
++
+ static int mxc_bt_set_block(void *rfkdata, bool blocked)
+ {
+ 	struct mxc_bt_rfkill_platform_data *data = rfkdata;
+ 	int ret;
+ 
++	/* Bluetooth stack will reset the bluetooth chip during
++	 * resume, since we keep bluetooth's power during suspend,
++	 * don't let rfkill to actually reset the chip. */
++	if (system_in_suspend)
++		return 0;
+ 	pr_info("rfkill: BT RF going to : %s\n", blocked ? "off" : "on");
+ 	if (!blocked)
+ 		ret = data->power_change(1);
+@@ -53,6 +61,28 @@ static const struct rfkill_ops mxc_bt_rfkill_ops = {
+ 	.set_block = mxc_bt_set_block,
+ };
+ 
++static int mxc_bt_power_event(struct notifier_block *this,
++			      unsigned long event, void *dummy)
++{
++	switch (event) {
++	case PM_SUSPEND_PREPARE:
++		system_in_suspend = 1;
++		/* going to suspend, don't reset chip */
++		break;
++	case PM_POST_SUSPEND:
++		system_in_suspend = 0;
++		/* System is resume, can reset chip */
++		break;
++	default:
++		break;
++	}
++	return NOTIFY_DONE;
++}
++
++static struct notifier_block mxc_bt_power_notifier = {
++	.notifier_call = mxc_bt_power_event,
++};
++
+ static int mxc_bt_rfkill_probe(struct platform_device *dev)
+ {
+ 	int rc;
+@@ -66,6 +96,10 @@ static int mxc_bt_rfkill_probe(struct platform_device *dev)
+ 		goto error_check_func;
+ 	}
+ 
++	rc = register_pm_notifier(&mxc_bt_power_notifier);
++	if (rc)
++		goto error_check_func;
++
+ 	rfk = rfkill_alloc("mxc-bt", &dev->dev, RFKILL_TYPE_BLUETOOTH,
+ 			   &mxc_bt_rfkill_ops, data);
+ 
+-- 
+1.7.4.1
+

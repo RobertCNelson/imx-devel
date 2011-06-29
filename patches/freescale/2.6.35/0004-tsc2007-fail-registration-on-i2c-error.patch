@@ -1,7 +1,7 @@
 From 687702e4b20ceb07b6fd247b015c86e59c9afcb7 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Fri, 16 Oct 2009 14:41:52 -0500
-Subject: [PATCH 004/902] tsc2007: fail registration on i2c error
+Subject: [PATCH 004/998] tsc2007: fail registration on i2c error
 
 Return an error on probe if i2c errors occur indicating the device
 is not present.

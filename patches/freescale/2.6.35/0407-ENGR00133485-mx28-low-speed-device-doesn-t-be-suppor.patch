@@ -1,7 +1,7 @@
 From 25da4a6f5fd3566ae1b0bd5bc1a7bf645e169e6b Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 8 Nov 2010 15:27:04 +0800
-Subject: [PATCH 407/902] ENGR00133485 mx28: low speed device doesn't be supported at otg port
+Subject: [PATCH 407/998] ENGR00133485 mx28: low speed device doesn't be supported at otg port
 
 Fix bug that low speed device doesn't be supported at otg port
 

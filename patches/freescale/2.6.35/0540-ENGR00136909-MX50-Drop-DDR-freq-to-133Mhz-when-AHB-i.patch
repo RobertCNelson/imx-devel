@@ -1,7 +1,7 @@
 From bc819a6f071f114e883080b04ad5d7e94b5120be Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 9 Dec 2010 13:59:33 -0600
-Subject: [PATCH 540/902] ENGR00136909: MX50: Drop DDR freq to 133Mhz when AHB is at medium setpoint.
+Subject: [PATCH 540/998] ENGR00136909: MX50: Drop DDR freq to 133Mhz when AHB is at medium setpoint.
 
 Change the DDR freq to 133MHz from 266Mhz (or 200MHz) when the AHB
 is dropped to 66.5MHz. The DDR freq change will be initiated only

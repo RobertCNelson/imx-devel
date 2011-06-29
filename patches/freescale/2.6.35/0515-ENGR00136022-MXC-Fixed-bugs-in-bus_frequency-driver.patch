@@ -1,7 +1,7 @@
 From 12fbb20426381fa1a498b0d8c17f9be2198627b8 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 6 Dec 2010 11:34:20 -0600
-Subject: [PATCH 515/902] ENGR00136022: MXC:Fixed bugs in bus_frequency driver.
+Subject: [PATCH 515/998] ENGR00136022: MXC:Fixed bugs in bus_frequency driver.
 
 Fix MX53 boot issue caused by the changes made to bus_freq driver.
 Ensure that all MX5x platforms can enter/exit various low power modes.

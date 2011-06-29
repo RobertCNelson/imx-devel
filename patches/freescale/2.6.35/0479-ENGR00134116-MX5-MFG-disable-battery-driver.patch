@@ -1,7 +1,7 @@
 From b59a1326a6ccde04a35955365826d1e367767682 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 29 Nov 2010 18:16:17 +0800
-Subject: [PATCH 479/902] ENGR00134116 MX5 MFG: disable battery driver
+Subject: [PATCH 479/998] ENGR00134116 MX5 MFG: disable battery driver
 
 MC13892 LED workaround can only be applied when a battery is connected.
 But we can not detect if a battery is connected since the ADIN5

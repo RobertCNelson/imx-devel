@@ -1,7 +1,7 @@
 From 8ddefc1034fb7aa27ec6de7144cf8661bb5ad3c2 Mon Sep 17 00:00:00 2001
 From: Niu Xule <b23300@freescale.com>
 Date: Mon, 24 May 2010 15:49:58 +0800
-Subject: [PATCH 365/902] ENGR00123741 MX28: Add IOCTL commands to L2 switch driver
+Subject: [PATCH 365/998] ENGR00123741 MX28: Add IOCTL commands to L2 switch driver
 
 L2 switch driver command line controlling support
 

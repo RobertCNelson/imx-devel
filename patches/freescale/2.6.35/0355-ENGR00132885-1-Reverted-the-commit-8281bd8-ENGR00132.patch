@@ -1,7 +1,7 @@
 From f0818042151047caf2874678f0039d5c3072d9ae Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 22 Oct 2010 13:56:50 +0800
-Subject: [PATCH 355/902] ENGR00132885-1 Reverted the commit 8281bd8 (ENGR00132615-1)
+Subject: [PATCH 355/998] ENGR00132885-1 Reverted the commit 8281bd8 (ENGR00132615-1)
 
 Previous patch is not stable enough, reverted.
 

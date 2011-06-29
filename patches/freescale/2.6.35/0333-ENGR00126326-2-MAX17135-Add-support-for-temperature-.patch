@@ -1,7 +1,7 @@
 From 964d38d6659d54f036fd7f8177192833e8521927 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 7 Oct 2010 16:08:58 -0500
-Subject: [PATCH 333/902] ENGR00126326-2 - MAX17135: Add support for temperature sensor monitoring
+Subject: [PATCH 333/998] ENGR00126326-2 - MAX17135: Add support for temperature sensor monitoring
 
 - MAX17135 re-architected:
 	- Core functionality, including I2C access to the chip, moved into

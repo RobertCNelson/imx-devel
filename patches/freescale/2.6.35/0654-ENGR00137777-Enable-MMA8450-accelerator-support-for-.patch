@@ -1,7 +1,7 @@
 From 7214e35a40067cd1f5cc66b3dace29d78ad65547 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Mon, 10 Jan 2011 16:26:17 +0800
-Subject: [PATCH 654/902] ENGR00137777 Enable MMA8450 accelerator support for i.mx50 evk
+Subject: [PATCH 654/998] ENGR00137777 Enable MMA8450 accelerator support for i.mx50 evk
 
 Enable MMA8450 accelerator support for i.mx50 evk.
 

@@ -1,7 +1,7 @@
 From fc7156f17d49bfabf9771a16193ed21d22a71a95 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 17 Dec 2010 11:14:14 +0800
-Subject: [PATCH 550/902] ENGR00137101-4 GPMI : change the is_onfi_nand() to is_ddr_nand()
+Subject: [PATCH 550/998] ENGR00137101-4 GPMI : change the is_onfi_nand() to is_ddr_nand()
 
 change the function name is_onfi_nand() to is_ddr_nand().
 

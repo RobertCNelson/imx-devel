@@ -1,7 +1,7 @@
 From a558f24944c418a17c2db3185aefb933d3f820fb Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sat, 25 Sep 2010 15:02:26 +0800
-Subject: [PATCH 242/902] ENGR00131906-2 MX51: enable ds2438_battery module
+Subject: [PATCH 242/998] ENGR00131906-2 MX51: enable ds2438_battery module
 
 Enable ds2438_battery module for MX51 EVK
 

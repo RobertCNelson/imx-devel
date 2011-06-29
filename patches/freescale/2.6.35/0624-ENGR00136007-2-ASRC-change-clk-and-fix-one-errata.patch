@@ -1,7 +1,7 @@
 From fd2a36d43c9cfba2a518bcbfb28552fe0ab77a19 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 5 Jan 2011 13:19:04 +0800
-Subject: [PATCH 624/902] ENGR00136007-2 ASRC: change clk and fix one errata
+Subject: [PATCH 624/998] ENGR00136007-2 ASRC: change clk and fix one errata
 
 ASRC driver change to support MX53 TO2.0
 - MX53 clk source is different from MX35. Add clk map version.

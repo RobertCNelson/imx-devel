@@ -1,7 +1,7 @@
 From a0a87ab3b49c4529674a63b096dd65d17a602364 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Thu, 13 Jan 2011 14:34:36 +0800
-Subject: [PATCH 668/902] ENGR00137932 SATA AHCI Built in SATA driver
+Subject: [PATCH 668/998] ENGR00137932 SATA AHCI Built in SATA driver
 
 Build the SATA AHCI driver in kernel Image.
 

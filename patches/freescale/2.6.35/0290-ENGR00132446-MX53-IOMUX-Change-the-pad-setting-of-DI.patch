@@ -1,7 +1,7 @@
 From 11eeddc60cb9333d33f9f1673154b712b8a82b01 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 11 Oct 2010 16:17:19 +0800
-Subject: [PATCH 290/902] ENGR00132446 MX53 IOMUX:Change the pad setting of DI0_PIN15
+Subject: [PATCH 290/998] ENGR00132446 MX53 IOMUX:Change the pad setting of DI0_PIN15
 
 Change the pad setting of DI0_PIN15 so that all the CLAA WVGA
 LCD panels can work normally.

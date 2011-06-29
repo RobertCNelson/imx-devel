@@ -1,7 +1,7 @@
 From a51f364bb5afe9c46534cf4fbc10a84b7e97b59b Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 13 Sep 2010 16:54:05 +0800
-Subject: [PATCH 225/902] ENGR00131466-2 mxs spi: fix incorrect way to handle plat_data of spi device
+Subject: [PATCH 225/998] ENGR00131466-2 mxs spi: fix incorrect way to handle plat_data of spi device
 
 1. The spi host driver should not process the plat_data of spi device
 2. The spi host driver should not assume the type of plat_data of spi

@@ -1,7 +1,7 @@
 From 08e478a4180e4baff231e42e9836df3495eb47ad Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 30 Dec 2010 15:29:20 +0800
-Subject: [PATCH 584/902] ENGR00137487 GPMI : remove fake_ecc_layout
+Subject: [PATCH 584/998] ENGR00137487 GPMI : remove fake_ecc_layout
 
 We use the ->init_size() to initialize the nand->ecc.layout now.
 So the fake_ecc_layout is redundant.

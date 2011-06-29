@@ -1,7 +1,7 @@
 From 58e28194337e75113dacfd8cf1277532f1dff96e Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 1 Oct 2010 11:36:16 -0500
-Subject: [PATCH 288/902] ENGR00125652 - EPDC fb: Fix for bug in handling alternate buffer size
+Subject: [PATCH 288/998] ENGR00125652 - EPDC fb: Fix for bug in handling alternate buffer size
 
 - PxP processing task was always assuming that the input buffer size was
 based on the frame buffer dimensions.  So, it was working incorrectly

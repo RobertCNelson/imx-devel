@@ -1,7 +1,7 @@
 From 021d31454b7cebff5645702f88bb1834e0441c5a Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 18 Oct 2010 11:45:19 +0800
-Subject: [PATCH 341/902] ENGR00132536 usb-host: Clock should be opened before calling ehci_shutdown
+Subject: [PATCH 341/998] ENGR00132536 usb-host: Clock should be opened before calling ehci_shutdown
 
 When trigger "reboot" command, the driver will call xxx_shutdown.
 For usb-host, it will write registers. So, it needs to open

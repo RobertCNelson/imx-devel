@@ -1,7 +1,7 @@
 From e603b390ad854ee85f9b0d3adfa0095ee8658d02 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 25 Nov 2010 09:55:20 +0800
-Subject: [PATCH 478/902] ENGR00134018 v4l2 output: get exact di fmt for DC format.
+Subject: [PATCH 478/998] ENGR00134018 v4l2 output: get exact di fmt for DC format.
 
 Get exact di fmt for DC format.
 

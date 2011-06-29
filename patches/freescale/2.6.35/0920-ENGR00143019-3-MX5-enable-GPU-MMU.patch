@@ -1,0 +1,474 @@
+From 3f4d0bb551143d4891e035e0ab95aa1c4f88cf07 Mon Sep 17 00:00:00 2001
+From: Zhou, Jie <b30303@freescale.com>
+Date: Fri, 6 May 2011 01:12:49 +0800
+Subject: [PATCH 920/998] ENGR00143019-3 MX5: enable GPU MMU
+
+With GPU MMU enabled, there is no need to reserve GPU memory at
+boot time.
+
+It is enabled by default, and can be disabled by 'gpu_nommu' kernel
+boot option.
+
+Signed-off-by: Zhou, Jie <b30303@freescale.com>
+---
+ arch/arm/mach-mx5/devices.c      |   11 +++++++----
+ arch/arm/mach-mx5/devices.h      |    2 +-
+ arch/arm/mach-mx5/mx50_arm2.c    |    2 +-
+ arch/arm/mach-mx5/mx50_rdp.c     |    2 +-
+ arch/arm/mach-mx5/mx51_3stack.c  |    2 +-
+ arch/arm/mach-mx5/mx51_babbage.c |   24 ++++++++++++++++++------
+ arch/arm/mach-mx5/mx53_ard.c     |   24 ++++++++++++++++++------
+ arch/arm/mach-mx5/mx53_evk.c     |   24 ++++++++++++++++++------
+ arch/arm/mach-mx5/mx53_loco.c    |   24 ++++++++++++++++++------
+ arch/arm/mach-mx5/mx53_smd.c     |   24 ++++++++++++++++++------
+ 10 files changed, 101 insertions(+), 38 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/devices.c b/arch/arm/mach-mx5/devices.c
+index 2050edc..591d729 100644
+--- a/arch/arm/mach-mx5/devices.c
++++ b/arch/arm/mach-mx5/devices.c
+@@ -1405,7 +1405,10 @@ struct platform_device gpu_device = {
+ 	.resource = mxc_gpu_resources,
+ };
+ 
+-int z160_revision;
++struct mxc_gpu_platform_data gpu_data = {
++	.z160_revision = 0,
++	.enable_mmu = 1,
++};
+ 
+ static struct resource mxc_gpu2d_resources[] = {
+ 	{
+@@ -1877,9 +1880,9 @@ int __init mxc_init_devices(void)
+ 			mxc_gpu_resources[4].end = MX53_GPU_GMEM_BASE_ADDR
+ 						+ SZ_256K - 1;
+ 			if (mx53_revision() >= IMX_CHIP_REVISION_2_0) {
+-				z160_revision = 1;
++				gpu_data.z160_revision = 1;
+ 			} else {
+-				z160_revision = 0;
++				gpu_data.z160_revision = 0;
+ 			}
+ 		} else {
+ 			mxc_gpu_resources[1].start = 0;
+@@ -1888,7 +1891,7 @@ int __init mxc_init_devices(void)
+ 			mxc_gpu_resources[3].end = 0;
+ 			mxc_gpu_resources[4].start = 0;
+ 			mxc_gpu_resources[4].end = 0;
+-			z160_revision = 1;
++			gpu_data.z160_revision = 1;
+ 		}
+ 		ipu_resources[0].start = MX53_IPU_CTRL_BASE_ADDR;
+ 		ipu_resources[0].end = MX53_IPU_CTRL_BASE_ADDR + SZ_128M - 1;
+diff --git a/arch/arm/mach-mx5/devices.h b/arch/arm/mach-mx5/devices.h
+index 2671b5d..3927383 100644
+--- a/arch/arm/mach-mx5/devices.h
++++ b/arch/arm/mach-mx5/devices.h
+@@ -92,4 +92,4 @@ extern struct platform_device mxc_zq_calib_device;
+ extern struct platform_device mxc_asrc_device;
+ extern struct platform_device mxc_perfmon;
+ extern struct mxs_platform_perfmon_data mxc_perfmon_data;
+-extern int z160_revision;
++extern struct mxc_gpu_platform_data gpu_data;
+diff --git a/arch/arm/mach-mx5/mx50_arm2.c b/arch/arm/mach-mx5/mx50_arm2.c
+index b3c4727..03d498e 100644
+--- a/arch/arm/mach-mx5/mx50_arm2.c
++++ b/arch/arm/mach-mx5/mx50_arm2.c
+@@ -1317,7 +1317,7 @@ static void __init mxc_board_init(void)
+ 
+ 	mxc_register_device(&mxc_rtc_device, NULL);
+ 	mxc_register_device(&mxc_w1_master_device, &mxc_w1_data);
+-	mxc_register_device(&gpu_device, &z160_revision);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxc_pxp_device, NULL);
+ 	mxc_register_device(&mxc_pxp_client_device, NULL);
+ 	mxc_register_device(&mxc_pxp_v4l2, NULL);
+diff --git a/arch/arm/mach-mx5/mx50_rdp.c b/arch/arm/mach-mx5/mx50_rdp.c
+index 48b5076..e92612e 100644
+--- a/arch/arm/mach-mx5/mx50_rdp.c
++++ b/arch/arm/mach-mx5/mx50_rdp.c
+@@ -1533,7 +1533,7 @@ static void __init mxc_board_init(void)
+ 
+ 	mxc_register_device(&mxc_rtc_device, NULL);
+ 	mxc_register_device(&mxc_w1_master_device, &mxc_w1_data);
+-	mxc_register_device(&gpu_device, &z160_revision);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxc_pxp_device, NULL);
+ 	mxc_register_device(&mxc_pxp_client_device, NULL);
+ 	mxc_register_device(&mxc_pxp_v4l2, NULL);
+diff --git a/arch/arm/mach-mx5/mx51_3stack.c b/arch/arm/mach-mx5/mx51_3stack.c
+index a516e877..148f6e2 100644
+--- a/arch/arm/mach-mx5/mx51_3stack.c
++++ b/arch/arm/mach-mx5/mx51_3stack.c
+@@ -986,7 +986,7 @@ static void __init mxc_board_init(void)
+ 	mxc_register_device(&mxc_ipu_device, &mxc_ipu_data);
+ 	mxc_register_device(&mxc_tve_device, &tve_data);
+ 	mxc_register_device(&mxcvpu_device, &mxc_vpu_data);
+-	mxc_register_device(&gpu_device, NULL);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxcscc_device, NULL);
+ 	mxc_register_device(&mx51_lpmode_device, NULL);
+ 	mxc_register_device(&busfreq_device, &bus_freq_data);
+diff --git a/arch/arm/mach-mx5/mx51_babbage.c b/arch/arm/mach-mx5/mx51_babbage.c
+index bf9982d..f34cc3d 100644
+--- a/arch/arm/mach-mx5/mx51_babbage.c
++++ b/arch/arm/mach-mx5/mx51_babbage.c
+@@ -944,7 +944,6 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 	for_each_tag(mem_tag, tags) {
+ 		if (mem_tag->hdr.tag == ATAG_MEM) {
+ 			total_mem = mem_tag->u.mem.size;
+-			left_mem = total_mem - gpu_mem - fb_mem;
+ 			break;
+ 		}
+ 	}
+@@ -956,11 +955,14 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 			if (str != NULL) {
+ 				str += 4;
+ 				left_mem = memparse(str, &str);
+-				if (left_mem == 0 || left_mem > total_mem)
+-					left_mem = total_mem - gpu_mem - fb_mem;
+ 			}
+ 
+ 			str = t->u.cmdline.cmdline;
++			str = strstr(str, "gpu_nommu");
++			if (str != NULL)
++				gpu_data.enable_mmu = 0;
++
++			str = t->u.cmdline.cmdline;
+ 			str = strstr(str, "gpu_memory=");
+ 			if (str != NULL) {
+ 				str += 11;
+@@ -971,6 +973,12 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		}
+ 	}
+ 
++	if (gpu_data.enable_mmu)
++		gpu_mem = 0;
++
++	if (left_mem == 0 || left_mem > total_mem)
++		left_mem = total_mem - gpu_mem - fb_mem;
++
+ 	if (mem_tag) {
+ 		fb_mem = total_mem - left_mem - gpu_mem;
+ 		if (fb_mem < 0) {
+@@ -980,14 +988,18 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		mem_tag->u.mem.size = left_mem;
+ 
+ 		/*reserve memory for gpu*/
+-		gpu_device.resource[5].start =
++		if (!gpu_data.enable_mmu) {
++			gpu_device.resource[5].start =
+ 				mem_tag->u.mem.start + left_mem;
+-		gpu_device.resource[5].end =
++			gpu_device.resource[5].end =
+ 				gpu_device.resource[5].start + gpu_mem - 1;
++		}
+ #if defined(CONFIG_FB_MXC_SYNC_PANEL) || \
+ 	defined(CONFIG_FB_MXC_SYNC_PANEL_MODULE)
+ 		if (fb_mem) {
+ 			mxcfb_resources[0].start =
++				gpu_data.enable_mmu ?
++				mem_tag->u.mem.start + left_mem :
+ 				gpu_device.resource[5].end + 1;
+ 			mxcfb_resources[0].end =
+ 				mxcfb_resources[0].start + fb_mem - 1;
+@@ -1199,7 +1211,7 @@ static void __init mxc_board_init(void)
+ 	mxc_register_device(&mxc_ipu_device, &mxc_ipu_data);
+ 	mxc_register_device(&mxc_tve_device, &tve_data);
+ 	mxc_register_device(&mxcvpu_device, &mxc_vpu_data);
+-	mxc_register_device(&gpu_device, NULL);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxcscc_device, NULL);
+ 	mxc_register_device(&mx51_lpmode_device, NULL);
+ 	mxc_register_device(&busfreq_device, &bus_freq_data);
+diff --git a/arch/arm/mach-mx5/mx53_ard.c b/arch/arm/mach-mx5/mx53_ard.c
+index 4f1e8c9..e13430f 100644
+--- a/arch/arm/mach-mx5/mx53_ard.c
++++ b/arch/arm/mach-mx5/mx53_ard.c
+@@ -1012,7 +1012,6 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 	for_each_tag(mem_tag, tags) {
+ 		if (mem_tag->hdr.tag == ATAG_MEM) {
+ 			total_mem = mem_tag->u.mem.size;
+-			left_mem = total_mem - gpu_mem - fb_mem;
+ 			break;
+ 		}
+ 	}
+@@ -1024,11 +1023,14 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 			if (str != NULL) {
+ 				str += 4;
+ 				left_mem = memparse(str, &str);
+-				if (left_mem == 0 || left_mem > total_mem)
+-					left_mem = total_mem - gpu_mem - fb_mem;
+ 			}
+ 
+ 			str = t->u.cmdline.cmdline;
++			str = strstr(str, "gpu_nommu");
++			if (str != NULL)
++				gpu_data.enable_mmu = 0;
++
++			str = t->u.cmdline.cmdline;
+ 			str = strstr(str, "gpu_memory=");
+ 			if (str != NULL) {
+ 				str += 11;
+@@ -1039,6 +1041,12 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		}
+ 	}
+ 
++	if (gpu_data.enable_mmu)
++		gpu_mem = 0;
++
++	if (left_mem == 0 || left_mem > total_mem)
++		left_mem = total_mem - gpu_mem - fb_mem;
++
+ 	if (mem_tag) {
+ 		fb_mem = total_mem - left_mem - gpu_mem;
+ 		if (fb_mem < 0) {
+@@ -1048,14 +1056,18 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		mem_tag->u.mem.size = left_mem;
+ 
+ 		/*reserve memory for gpu*/
+-		gpu_device.resource[5].start =
++		if (!gpu_data.enable_mmu) {
++			gpu_device.resource[5].start =
+ 				mem_tag->u.mem.start + left_mem;
+-		gpu_device.resource[5].end =
++			gpu_device.resource[5].end =
+ 				gpu_device.resource[5].start + gpu_mem - 1;
++		}
+ #if defined(CONFIG_FB_MXC_SYNC_PANEL) || \
+ 	defined(CONFIG_FB_MXC_SYNC_PANEL_MODULE)
+ 		if (fb_mem) {
+ 			mxcfb_resources[0].start =
++				gpu_data.enable_mmu ?
++				mem_tag->u.mem.start + left_mem :
+ 				gpu_device.resource[5].end + 1;
+ 			mxcfb_resources[0].end =
+ 				mxcfb_resources[0].start + fb_mem - 1;
+@@ -1263,7 +1275,7 @@ static void __init mxc_board_init(void)
+ 	mxc_register_device(&mxc_ldb_device, &ldb_data);
+ 	mxc_register_device(&mxc_tve_device, &tve_data);
+ 	mxc_register_device(&mxcvpu_device, &mxc_vpu_data);
+-	mxc_register_device(&gpu_device, &z160_revision);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxcscc_device, NULL);
+ 
+ 	mxc_register_device(&mxc_dvfs_core_device, &dvfs_core_data);
+diff --git a/arch/arm/mach-mx5/mx53_evk.c b/arch/arm/mach-mx5/mx53_evk.c
+index 7bfd096..3afa5f9 100644
+--- a/arch/arm/mach-mx5/mx53_evk.c
++++ b/arch/arm/mach-mx5/mx53_evk.c
+@@ -1243,7 +1243,6 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 	for_each_tag(mem_tag, tags) {
+ 		if (mem_tag->hdr.tag == ATAG_MEM) {
+ 			total_mem = mem_tag->u.mem.size;
+-			left_mem = total_mem - gpu_mem - fb_mem;
+ 			break;
+ 		}
+ 	}
+@@ -1255,11 +1254,14 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 			if (str != NULL) {
+ 				str += 4;
+ 				left_mem = memparse(str, &str);
+-				if (left_mem == 0 || left_mem > total_mem)
+-					left_mem = total_mem - gpu_mem - fb_mem;
+ 			}
+ 
+ 			str = t->u.cmdline.cmdline;
++			str = strstr(str, "gpu_nommu");
++			if (str != NULL)
++				gpu_data.enable_mmu = 0;
++
++			str = t->u.cmdline.cmdline;
+ 			str = strstr(str, "gpu_memory=");
+ 			if (str != NULL) {
+ 				str += 11;
+@@ -1270,6 +1272,12 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		}
+ 	}
+ 
++	if (gpu_data.enable_mmu)
++		gpu_mem = 0;
++
++	if (left_mem == 0 || left_mem > total_mem)
++		left_mem = total_mem - gpu_mem - fb_mem;
++
+ 	if (mem_tag) {
+ 		fb_mem = total_mem - left_mem - gpu_mem;
+ 		if (fb_mem < 0) {
+@@ -1279,14 +1287,18 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		mem_tag->u.mem.size = left_mem;
+ 
+ 		/*reserve memory for gpu*/
+-		gpu_device.resource[5].start =
++		if (!gpu_data.enable_mmu) {
++			gpu_device.resource[5].start =
+ 				mem_tag->u.mem.start + left_mem;
+-		gpu_device.resource[5].end =
++			gpu_device.resource[5].end =
+ 				gpu_device.resource[5].start + gpu_mem - 1;
++		}
+ #if defined(CONFIG_FB_MXC_SYNC_PANEL) || \
+ 	defined(CONFIG_FB_MXC_SYNC_PANEL_MODULE)
+ 		if (fb_mem) {
+ 			mxcfb_resources[0].start =
++				gpu_data.enable_mmu ?
++				mem_tag->u.mem.start + left_mem :
+ 				gpu_device.resource[5].end + 1;
+ 			mxcfb_resources[0].end =
+ 				mxcfb_resources[0].start + fb_mem - 1;
+@@ -1479,7 +1491,7 @@ static void __init mxc_board_init(void)
+ 	mxc_register_device(&mxc_ldb_device, &ldb_data);
+ 	mxc_register_device(&mxc_tve_device, &tve_data);
+ 	mxc_register_device(&mxcvpu_device, &mxc_vpu_data);
+-	mxc_register_device(&gpu_device, &z160_revision);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxcscc_device, NULL);
+ 	/*
+ 	mxc_register_device(&mx53_lpmode_device, NULL);
+diff --git a/arch/arm/mach-mx5/mx53_loco.c b/arch/arm/mach-mx5/mx53_loco.c
+index a668a2d..d5dabc1 100644
+--- a/arch/arm/mach-mx5/mx53_loco.c
++++ b/arch/arm/mach-mx5/mx53_loco.c
+@@ -651,7 +651,6 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 	for_each_tag(mem_tag, tags) {
+ 		if (mem_tag->hdr.tag == ATAG_MEM) {
+ 			total_mem = mem_tag->u.mem.size;
+-			left_mem = total_mem - gpu_mem - fb_mem;
+ 			break;
+ 		}
+ 	}
+@@ -663,11 +662,14 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 			if (str != NULL) {
+ 				str += 4;
+ 				left_mem = memparse(str, &str);
+-				if (left_mem == 0 || left_mem > total_mem)
+-					left_mem = total_mem - gpu_mem - fb_mem;
+ 			}
+ 
+ 			str = t->u.cmdline.cmdline;
++			str = strstr(str, "gpu_nommu");
++			if (str != NULL)
++				gpu_data.enable_mmu = 0;
++
++			str = t->u.cmdline.cmdline;
+ 			str = strstr(str, "gpu_memory=");
+ 			if (str != NULL) {
+ 				str += 11;
+@@ -678,6 +680,12 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		}
+ 	}
+ 
++	if (gpu_data.enable_mmu)
++		gpu_mem = 0;
++
++	if (left_mem == 0 || left_mem > total_mem)
++		left_mem = total_mem - gpu_mem - fb_mem;
++
+ 	if (mem_tag) {
+ 		fb_mem = total_mem - left_mem - gpu_mem;
+ 		if (fb_mem < 0) {
+@@ -687,14 +695,18 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		mem_tag->u.mem.size = left_mem;
+ 
+ 		/*reserve memory for gpu*/
+-		gpu_device.resource[5].start =
++		if (!gpu_data.enable_mmu) {
++			gpu_device.resource[5].start =
+ 				mem_tag->u.mem.start + left_mem;
+-		gpu_device.resource[5].end =
++			gpu_device.resource[5].end =
+ 				gpu_device.resource[5].start + gpu_mem - 1;
++		}
+ #if defined(CONFIG_FB_MXC_SYNC_PANEL) || \
+ 	defined(CONFIG_FB_MXC_SYNC_PANEL_MODULE)
+ 		if (fb_mem) {
+ 			mxcfb_resources[0].start =
++				gpu_data.enable_mmu ?
++				mem_tag->u.mem.start + left_mem :
+ 				gpu_device.resource[5].end + 1;
+ 			mxcfb_resources[0].end =
+ 				mxcfb_resources[0].start + fb_mem - 1;
+@@ -772,7 +784,7 @@ static void __init mxc_board_init(void)
+ 	mxc_register_device(&mxc_ldb_device, &ldb_data);
+ 	mxc_register_device(&mxc_tve_device, &tve_data);
+ 	mxc_register_device(&mxcvpu_device, &mxc_vpu_data);
+-	mxc_register_device(&gpu_device, &z160_revision);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxcscc_device, NULL);
+ 	mxc_register_device(&mxc_dvfs_core_device, &dvfs_core_data);
+ 	mxc_register_device(&busfreq_device, &bus_freq_data);
+diff --git a/arch/arm/mach-mx5/mx53_smd.c b/arch/arm/mach-mx5/mx53_smd.c
+index d943705..5be183d 100644
+--- a/arch/arm/mach-mx5/mx53_smd.c
++++ b/arch/arm/mach-mx5/mx53_smd.c
+@@ -1018,7 +1018,6 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 	for_each_tag(mem_tag, tags) {
+ 		if (mem_tag->hdr.tag == ATAG_MEM) {
+ 			total_mem = mem_tag->u.mem.size;
+-			left_mem = total_mem - gpu_mem - fb_mem;
+ 			break;
+ 		}
+ 	}
+@@ -1030,11 +1029,14 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 			if (str != NULL) {
+ 				str += 4;
+ 				left_mem = memparse(str, &str);
+-				if (left_mem == 0 || left_mem > total_mem)
+-					left_mem = total_mem - gpu_mem - fb_mem;
+ 			}
+ 
+ 			str = t->u.cmdline.cmdline;
++			str = strstr(str, "gpu_nommu");
++			if (str != NULL)
++				gpu_data.enable_mmu = 0;
++
++			str = t->u.cmdline.cmdline;
+ 			str = strstr(str, "gpu_memory=");
+ 			if (str != NULL) {
+ 				str += 11;
+@@ -1045,6 +1047,12 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		}
+ 	}
+ 
++	if (gpu_data.enable_mmu)
++		gpu_mem = 0;
++
++	if (left_mem == 0 || left_mem > total_mem)
++		left_mem = total_mem - gpu_mem - fb_mem;
++
+ 	if (mem_tag) {
+ 		fb_mem = total_mem - left_mem - gpu_mem;
+ 		if (fb_mem < 0) {
+@@ -1054,14 +1062,18 @@ static void __init fixup_mxc_board(struct machine_desc *desc, struct tag *tags,
+ 		mem_tag->u.mem.size = left_mem;
+ 
+ 		/*reserve memory for gpu*/
+-		gpu_device.resource[5].start =
++		if (!gpu_data.enable_mmu) {
++			gpu_device.resource[5].start =
+ 				mem_tag->u.mem.start + left_mem;
+-		gpu_device.resource[5].end =
++			gpu_device.resource[5].end =
+ 				gpu_device.resource[5].start + gpu_mem - 1;
++		}
+ #if defined(CONFIG_FB_MXC_SYNC_PANEL) || \
+ 	defined(CONFIG_FB_MXC_SYNC_PANEL_MODULE)
+ 		if (fb_mem) {
+ 			mxcfb_resources[0].start =
++				gpu_data.enable_mmu ?
++				mem_tag->u.mem.start + left_mem :
+ 				gpu_device.resource[5].end + 1;
+ 			mxcfb_resources[0].end =
+ 				mxcfb_resources[0].start + fb_mem - 1;
+@@ -1197,7 +1209,7 @@ static void __init mxc_board_init(void)
+ 	mxc_register_device(&mxc_ldb_device, &ldb_data);
+ 	mxc_register_device(&mxc_tve_device, &tve_data);
+ 	mxc_register_device(&mxcvpu_device, &mxc_vpu_data);
+-	mxc_register_device(&gpu_device, &z160_revision);
++	mxc_register_device(&gpu_device, &gpu_data);
+ 	mxc_register_device(&mxcscc_device, NULL);
+ 	mxc_register_device(&mxc_dvfs_core_device, &dvfs_core_data);
+ 	mxc_register_device(&busfreq_device, &bus_freq_data);
+-- 
+1.7.4.1
+

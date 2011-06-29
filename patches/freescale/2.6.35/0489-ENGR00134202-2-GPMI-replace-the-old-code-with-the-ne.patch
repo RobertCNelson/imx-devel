@@ -1,7 +1,7 @@
 From 9654a544518acebf6543d2ee0fba11e7e965ca61 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 1 Dec 2010 15:00:42 +0800
-Subject: [PATCH 489/902] ENGR00134202-2 GPMI : replace the old code with the new macro
+Subject: [PATCH 489/998] ENGR00134202-2 GPMI : replace the old code with the new macro
 
 Just replace the old code with the new macro fill_dma_word1().
 

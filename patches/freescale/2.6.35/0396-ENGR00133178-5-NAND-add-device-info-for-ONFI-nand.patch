@@ -1,7 +1,7 @@
 From c6f3c7ea5d8f87cda3f1c6800d84ef073f99272f Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 13:41:27 +0800
-Subject: [PATCH 396/902] ENGR00133178-5 NAND : add device info for ONFI nand
+Subject: [PATCH 396/998] ENGR00133178-5 NAND : add device info for ONFI nand
 
 ONFI nand needs 24-bit ECC per 1080 bytes of data.
 

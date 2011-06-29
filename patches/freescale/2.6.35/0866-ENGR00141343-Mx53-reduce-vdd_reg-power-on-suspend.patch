@@ -1,7 +1,7 @@
 From 69077131aaffe1ec60fdc942e024fc047a30e4a1 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 30 Mar 2011 10:04:52 +0800
-Subject: [PATCH 866/902] ENGR00141343 Mx53: reduce vdd_reg power on suspend
+Subject: [PATCH 866/998] ENGR00141343 Mx53: reduce vdd_reg power on suspend
 
 CLear DSE[2] bit to 0 for DDR pads before WFI to reduce ddr pre-driver power
 Restore the settings after WFI to enable DDR access

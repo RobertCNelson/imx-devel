@@ -1,7 +1,7 @@
 From 57bdba19407c73db152d3cf06c152c9a857f63e1 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 13 Sep 2010 21:16:33 +0800
-Subject: [PATCH 060/902] ENGR00131389-1 MX5: enable STGL5000 audio codec
+Subject: [PATCH 060/998] ENGR00131389-1 MX5: enable STGL5000 audio codec
 
 1.Enable STGL5000 audio codec in default config.
 2.Enable IRAM playback in default config.

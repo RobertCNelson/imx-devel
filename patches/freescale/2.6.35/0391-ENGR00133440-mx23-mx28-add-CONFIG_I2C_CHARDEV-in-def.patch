@@ -1,7 +1,7 @@
 From 249aff2795916d1f87e6d9313ad74520eaee16f7 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Fri, 5 Nov 2010 09:52:50 +0800
-Subject: [PATCH 391/902] ENGR00133440 mx23/mx28: add CONFIG_I2C_CHARDEV in defconfig
+Subject: [PATCH 391/998] ENGR00133440 mx23/mx28: add CONFIG_I2C_CHARDEV in defconfig
 
 This is required for using i2c tools.
 

@@ -1,7 +1,7 @@
 From 0b25e4da23d209f96ec0503b5d391cf34e9a67f0 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 30 Dec 2010 10:16:15 +0800
-Subject: [PATCH 579/902] ENGR00137472-2 GPMI : remove mil_set_mtd_geometry()
+Subject: [PATCH 579/998] ENGR00137472-2 GPMI : remove mil_set_mtd_geometry()
 
 This function is used to re-calculate the parameters for NAND and MTD.
 But because we have used the ->init_size() to initialize these parameters.

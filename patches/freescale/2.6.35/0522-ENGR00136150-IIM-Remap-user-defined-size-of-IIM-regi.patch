@@ -1,7 +1,7 @@
 From 833b0697e99cf7fd3b54e0635fae85892ce2534b Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Thu, 9 Dec 2010 12:33:58 +0800
-Subject: [PATCH 522/902] ENGR00136150 IIM:Remap user defined size of IIM registers
+Subject: [PATCH 522/998] ENGR00136150 IIM:Remap user defined size of IIM registers
 
 This patch remaps user defined size of IIM registers from
 IIM base address.

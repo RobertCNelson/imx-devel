@@ -1,7 +1,7 @@
 From e2b8545c2dea2731797020fea9340da5947486e4 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Tue, 14 Sep 2010 16:14:53 +0800
-Subject: [PATCH 190/902] ENGR00131470 Fix MX53 SATA failed bug after upgrade to 2.6.35 kernel
+Subject: [PATCH 190/998] ENGR00131470 Fix MX53 SATA failed bug after upgrade to 2.6.35 kernel
 
 Wrong sata clock configuration after upgrade the 2.6.35 kernel.
 

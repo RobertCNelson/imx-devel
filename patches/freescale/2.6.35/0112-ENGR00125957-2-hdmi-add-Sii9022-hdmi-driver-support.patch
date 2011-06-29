@@ -1,7 +1,7 @@
 From c8f6f074b2f043a73d9af666db9805b74c42d42e Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 11 Aug 2010 10:56:13 +0800
-Subject: [PATCH 112/902] ENGR00125957-2 hdmi: add Sii9022 hdmi driver support
+Subject: [PATCH 112/998] ENGR00125957-2 hdmi: add Sii9022 hdmi driver support
 
 Add sii9022 driver support.
 

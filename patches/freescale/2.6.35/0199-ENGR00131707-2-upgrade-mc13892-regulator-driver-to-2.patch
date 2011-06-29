@@ -1,7 +1,7 @@
 From 3263afb720bede2e490ddb3ac4f7c73fce8a251b Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Sun, 19 Sep 2010 13:52:12 +0800
-Subject: [PATCH 199/902] ENGR00131707-2 upgrade mc13892 regulator driver to 2.6.35
+Subject: [PATCH 199/998] ENGR00131707-2 upgrade mc13892 regulator driver to 2.6.35
 
 upgrade mc13892 regulator driver to 2.6.35
 mc13892 regulator driver code

@@ -1,7 +1,7 @@
 From 3bbd20aafdad1c06ca7c6155701de8c230694a21 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Tue, 21 Sep 2010 11:12:00 +0800
-Subject: [PATCH 206/902] ENGR00131788 MX50: add support uncompress putc
+Subject: [PATCH 206/998] ENGR00131788 MX50: add support uncompress putc
 
 Add uart1 base address for MACH_TYPE_MX50_ARM2 and MACH_TYPE_MX50_RDP.
 

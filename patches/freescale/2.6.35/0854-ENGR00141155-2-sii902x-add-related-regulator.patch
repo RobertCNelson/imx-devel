@@ -1,7 +1,7 @@
 From a07fd1a3d2cec2bbc6b28dab8bd025afcfc5b5f0 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 25 Mar 2011 11:19:55 +0800
-Subject: [PATCH 854/902] ENGR00141155-2 sii902x: add related regulator
+Subject: [PATCH 854/998] ENGR00141155-2 sii902x: add related regulator
 
 Add related regulator.
 

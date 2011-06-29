@@ -1,7 +1,7 @@
 From 9a75b3c9a9a09f6ffeecf5b617b1a3c72d4aa1b9 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Wed, 27 Oct 2010 13:52:16 +0800
-Subject: [PATCH 378/902] ENGR00132538 MX53: Get the CAN clk via dev_id and con_id
+Subject: [PATCH 378/998] ENGR00132538 MX53: Get the CAN clk via dev_id and con_id
 
 Use both dev_id and con_id to get enable the CAN clock.
 Only use the con_id can't get the can_clk2, which is the

@@ -1,7 +1,7 @@
 From 6592ed3f9b416a7e17255b4a7a73b0cf5297dd8a Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Tue, 15 Feb 2011 15:32:10 +0800
-Subject: [PATCH 769/902] ENGR00139196 MX53 ARD: add VGA support
+Subject: [PATCH 769/998] ENGR00139196 MX53 ARD: add VGA support
 
 The VGA pins in MX53 ARD share the same PINs with WEIM.
 So when the VGA is used, the ethernet and NOR via WEIM can

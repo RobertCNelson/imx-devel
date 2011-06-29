@@ -1,7 +1,7 @@
 From 129810dc73a840e8c88f95fa5b26bf2870de5116 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 16 Sep 2009 11:44:38 -0500
-Subject: [PATCH 011/902] nand: add more nand devices
+Subject: [PATCH 011/998] nand: add more nand devices
 
 Signed-off-by: Rob Herring <r.herring@freescale.com>
 ---

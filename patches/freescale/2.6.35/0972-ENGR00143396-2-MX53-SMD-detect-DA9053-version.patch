@@ -1,0 +1,43 @@
+From 055a883239e5941fb28bfd1df0654fb0e576568f Mon Sep 17 00:00:00 2001
+From: Zhou Jingyu <b02241@freescale.com>
+Date: Fri, 13 May 2011 16:09:47 +0800
+Subject: [PATCH 972/998] ENGR00143396-2 MX53 SMD: detect DA9053 version
+
+detect DA9053 version to determin if other irqs can be used
+as wakeup source
+
+Signed-off-by: Zhou Jingyu <Jingyu.Zhou@freescale.com>
+---
+ arch/arm/mach-mx5/pm.c |    9 ++++++---
+ 1 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/pm.c b/arch/arm/mach-mx5/pm.c
+index 3052374..95cf4a2 100644
+--- a/arch/arm/mach-mx5/pm.c
++++ b/arch/arm/mach-mx5/pm.c
+@@ -24,6 +24,7 @@
+ #include <linux/cpufreq.h>
+ #include <linux/iram_alloc.h>
+ #include <linux/fsl_devices.h>
++#include <linux/mfd/da9052/da9052.h>
+ #include <asm/mach-types.h>
+ #include <asm/cacheflush.h>
+ #include <asm/tlb.h>
+@@ -122,9 +123,11 @@ static int mx5_suspend_enter(suspend_state_t state)
+ 					mx53_smd_loco_irq_wake_fixup();
+ 					da9053_suspend_cmd_sw();
+ 				} else {
+-			/* for new OTP DA9053 board, comment out next */
+-			/* line to enable other irq for wakeup */
+-					mx53_smd_loco_irq_wake_fixup();
++		/* for new OTP DA9053 board, enable other irq for wakeup */
++		/* otherwise disable other wakeup sources */
++					if (da9053_get_chip_version() !=
++						DA9053_VERSION_BB)
++						mx53_smd_loco_irq_wake_fixup();
+ 					da9053_suspend_cmd_hw();
+ 				}
+ 			}
+-- 
+1.7.4.1
+

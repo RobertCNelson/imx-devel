@@ -1,7 +1,7 @@
-From 0e3e88e624de24e0a5f2bd3491552f0622db2275 Mon Sep 17 00:00:00 2001
+From c7f452925bc245581fc0933d05ae69563d79ab28 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 31 Mar 2011 22:25:52 -0500
-Subject: [PATCH 879/902] ENGR00140737-2 - ARM: imx50: Fix APLL relocking and remove APLL auto-disable
+Subject: [PATCH 879/998] ENGR00140737-2 - ARM: imx50: Fix APLL relocking and remove APLL auto-disable
 
 - Removed setting of pfd_disable_mask bits in pfd enable/disable functions.
 This feature, which automates the disabling of the APLL, was being used

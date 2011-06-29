@@ -1,0 +1,74 @@
+From 9ce6f3cfd1980d9631d018b0a00a1cc615932a70 Mon Sep 17 00:00:00 2001
+From: Alan Tull <alan.tull@freescale.com>
+Date: Thu, 21 Apr 2011 09:59:15 -0500
+Subject: [PATCH 901/998] ENGR00142462 SPDIF buffers default to external ram
+
+For i.Mx53 SMD and EVK boards, put the S/PDIF audio buffers in external ram
+by default.
+
+Otherwise, the iram_alloc will fail and there will be a nasty message before
+falling back to external ram.
+
+Signed-off-by: Alan Tull <alan.tull@freescale.com>
+---
+ arch/arm/mach-mx5/mx53_evk.c |    9 +++++++++
+ arch/arm/mach-mx5/mx53_smd.c |    9 +++++++++
+ 2 files changed, 18 insertions(+), 0 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/mx53_evk.c b/arch/arm/mach-mx5/mx53_evk.c
+index cf35c74..6601ef2 100644
+--- a/arch/arm/mach-mx5/mx53_evk.c
++++ b/arch/arm/mach-mx5/mx53_evk.c
+@@ -1172,6 +1172,14 @@ static struct mxc_spdif_platform_data mxc_spdif_data = {
+ 	.spdif_clk = NULL,	/* spdif bus clk */
+ };
+ 
++static struct mxc_audio_platform_data spdif_audio_data = {
++	.ext_ram = 1,
++};
++
++static struct platform_device mxc_spdif_audio_device = {
++	.name = "imx-spdif-audio-device",
++};
++
+ static struct mxc_audio_platform_data mxc_surround_audio_data = {
+ 	.ext_ram = 1,
+ 	.sysclk = 22579200,
+@@ -1527,6 +1535,7 @@ static void __init mxc_board_init(void)
+ 	pm_power_off = mxc_power_off;
+ 	*/
+ 	mxc_register_device(&mxc_sgtl5000_device, &sgtl5000_data);
++	mxc_register_device(&mxc_spdif_audio_device, &spdif_audio_data);
+ 	mxc_register_device(&mxc_mlb_device, &mlb_data);
+ 	mxc_register_device(&mxc_powerkey_device, &pwrkey_data);
+ 	mx5_set_otghost_vbus_func(mx53_gpio_usbotg_driver_vbus);
+diff --git a/arch/arm/mach-mx5/mx53_smd.c b/arch/arm/mach-mx5/mx53_smd.c
+index 0d08abe..a10fc32 100644
+--- a/arch/arm/mach-mx5/mx53_smd.c
++++ b/arch/arm/mach-mx5/mx53_smd.c
+@@ -899,6 +899,14 @@ static struct mxc_spdif_platform_data mxc_spdif_data = {
+ 	.spdif_clk = NULL,	/* spdif bus clk */
+ };
+ 
++static struct mxc_audio_platform_data spdif_audio_data = {
++	.ext_ram = 1,
++};
++
++static struct platform_device mxc_spdif_audio_device = {
++	.name = "imx-spdif-audio-device",
++};
++
+ static void mx53_smd_bt_reset(void)
+ {
+ 	gpio_request(MX53_SMD_BT_RESET, "bt-reset");
+@@ -1219,6 +1227,7 @@ static void __init mxc_board_init(void)
+ 				ARRAY_SIZE(mxc_i2c2_board_info));
+ 
+ 	mxc_register_device(&mxc_sgtl5000_device, &sgtl5000_data);
++	mxc_register_device(&mxc_spdif_audio_device, &spdif_audio_data);
+ 	mx5_set_otghost_vbus_func(mx53_gpio_usbotg_driver_vbus);
+ 	mx5_usb_dr_init();
+ 	mx5_usbh1_init();
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From cd4a2cca56bb62371975b091c5ab1c230ea5d252 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 10 Feb 2011 15:41:59 -0600
-Subject: [PATCH 755/902] ENGR00139053-2: MX50_ARM2:Incorrect num_cpu_wp initialization breaks dvfs_core
+Subject: [PATCH 755/998] ENGR00139053-2: MX50_ARM2:Incorrect num_cpu_wp initialization breaks dvfs_core
 
 Incorrect initialization of num_cpu_wp breaks DVFS-CORE on MX50_ARM2.
 Fix by removing static initialization of the global variable.

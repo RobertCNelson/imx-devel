@@ -1,7 +1,7 @@
 From 3359e6b3c6eb851532c7b58c1bdcd45371a776d3 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 6 Jan 2011 18:25:34 +0800
-Subject: [PATCH 635/902] ENGR00137666-3 MX5: Enable SRTC driver in defconfig
+Subject: [PATCH 635/998] ENGR00137666-3 MX5: Enable SRTC driver in defconfig
 
 Enable SRTC driver in MX5 defconfig.
 

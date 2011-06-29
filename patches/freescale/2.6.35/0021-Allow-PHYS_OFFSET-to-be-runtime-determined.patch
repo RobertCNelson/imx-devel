@@ -1,7 +1,7 @@
 From a1ccb4e8597640812ae3cf5eb5f9bff819ef72c3 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 Date: Thu, 18 Mar 2010 09:07:08 -0500
-Subject: [PATCH 021/902] Allow PHYS_OFFSET to be runtime determined
+Subject: [PATCH 021/998] Allow PHYS_OFFSET to be runtime determined
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

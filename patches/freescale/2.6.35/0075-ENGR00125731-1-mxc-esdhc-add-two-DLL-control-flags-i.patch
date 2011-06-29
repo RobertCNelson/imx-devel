@@ -1,7 +1,7 @@
 From 5f9feeee16a26ffebb4ec5fdae26c1565b30ff86 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Fri, 30 Jul 2010 14:10:21 +0800
-Subject: [PATCH 075/902] ENGR00125731-1 mxc esdhc: add two DLL control flags in platform_data
+Subject: [PATCH 075/998] ENGR00125731-1 mxc esdhc: add two DLL control flags in platform_data
 
 Add dll override mode enable and the number of delay cells flag
 in platform_data.

@@ -1,7 +1,7 @@
 From ce5a02e16a4fd62a58ac4e78ec27b3966750f72d Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Tue, 9 Nov 2010 11:13:30 +0800
-Subject: [PATCH 425/902] ENGR00133481-1 [MX28] eMMC Write failed on MX28 boards
+Subject: [PATCH 425/998] ENGR00133481-1 [MX28] eMMC Write failed on MX28 boards
 
 Fix eMMC can't write bug on mx28 evk boards.
 HOST send the data at neg edge, the card receive the

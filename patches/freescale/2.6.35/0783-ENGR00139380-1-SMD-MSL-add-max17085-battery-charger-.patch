@@ -1,7 +1,7 @@
 From 11e8de6cd235b45076001f127a63a30d9dafc78a Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 21 Feb 2011 11:28:46 +0800
-Subject: [PATCH 783/902] ENGR00139380-1 SMD-MSL: add max17085 battery charger support
+Subject: [PATCH 783/998] ENGR00139380-1 SMD-MSL: add max17085 battery charger support
 
 Add max17085 battery charger support
 

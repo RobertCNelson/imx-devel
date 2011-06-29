@@ -1,7 +1,7 @@
 From a0874092ccae80cc7de9524947287c1fb735c9ec Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 8 Mar 2011 14:59:21 +0800
-Subject: [PATCH 815/902] ENGR00140391 ISL29023:Keep int thresholds in interrupt handler
+Subject: [PATCH 815/998] ENGR00140391 ISL29023:Keep int thresholds in interrupt handler
 
 We used to set the interrupt thresholds to the measure range
 of the light sensor in the interrupt handler, this potentially

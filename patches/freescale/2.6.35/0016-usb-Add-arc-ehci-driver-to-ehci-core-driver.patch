@@ -1,7 +1,7 @@
 From 7ab996bcda5a7c4b564a46c86885a5495d169fda Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 16 Sep 2009 12:58:30 -0500
-Subject: [PATCH 016/902] usb: Add arc ehci driver to ehci core driver
+Subject: [PATCH 016/998] usb: Add arc ehci driver to ehci core driver
 
 Signed-off-by: Rob Herring <r.herring@freescale.com>
 ---

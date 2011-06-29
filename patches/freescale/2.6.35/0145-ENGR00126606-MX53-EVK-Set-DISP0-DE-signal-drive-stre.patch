@@ -1,7 +1,7 @@
 From 30d44a83969c1d8bb62ed6a89af03cc2dc513cd5 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 24 Aug 2010 12:37:39 +0800
-Subject: [PATCH 145/902] ENGR00126606 MX53 EVK:Set DISP0 DE signal drive strength high
+Subject: [PATCH 145/998] ENGR00126606 MX53 EVK:Set DISP0 DE signal drive strength high
 
 This patch fixes the malfunction of WVGA LCD panel.
 

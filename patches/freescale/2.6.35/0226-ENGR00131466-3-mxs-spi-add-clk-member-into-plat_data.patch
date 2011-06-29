@@ -1,7 +1,7 @@
 From 39138ccff1a7a4194ef5ad433bf04087eed7f1f5 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 13 Sep 2010 22:28:11 +0800
-Subject: [PATCH 226/902] ENGR00131466-3 mxs spi: add clk member into plat_data
+Subject: [PATCH 226/998] ENGR00131466-3 mxs spi: add clk member into plat_data
 
 Used by spi host driver to dynamically check which clock to use.
 

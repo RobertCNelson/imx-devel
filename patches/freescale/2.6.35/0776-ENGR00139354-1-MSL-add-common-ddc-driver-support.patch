@@ -1,7 +1,7 @@
 From d09369ab5cac6414d9790837cc805254d180c092 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 17 Feb 2011 16:03:15 +0800
-Subject: [PATCH 776/902] ENGR00139354-1 MSL: add common ddc driver support
+Subject: [PATCH 776/998] ENGR00139354-1 MSL: add common ddc driver support
 
 Add common DDC driver support, one use case is for DVI monitor edid reading
 and cable detection.

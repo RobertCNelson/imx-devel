@@ -1,7 +1,7 @@
 From f618ab58066ee2cd5b944108068044fb64f8ef32 Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Thu, 27 Jan 2011 17:27:03 +0800
-Subject: [PATCH 732/902] ENGR00138560 USB: Disable usb interrupt before host resume
+Subject: [PATCH 732/998] ENGR00138560 USB: Disable usb interrupt before host resume
 
 Disable usb interrupt in host wakeup to avoid bad irq. USB host
 irq was re-enabled in resume. BTW, set host-to-gadget discharge 20ms.

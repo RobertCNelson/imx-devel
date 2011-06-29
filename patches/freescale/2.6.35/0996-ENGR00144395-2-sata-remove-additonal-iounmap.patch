@@ -1,0 +1,29 @@
+From c9ff4e8abe27aec15528ac11513b71ab4aac6ba0 Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Wed, 1 Jun 2011 20:34:32 +0800
+Subject: [PATCH 996/998] ENGR00144395-2 sata: remove additonal iounmap
+
+When sata device is not found, iounmap is handled twice.
+This patch is to remove additional iounmap.
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+(cherry picked from commit ef8705f56ee38bf50d946c3fda241a5d12657c0f)
+---
+ arch/arm/plat-mxc/ahci_sata.c |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/arch/arm/plat-mxc/ahci_sata.c b/arch/arm/plat-mxc/ahci_sata.c
+index 52d5adf..9fc552c 100644
+--- a/arch/arm/plat-mxc/ahci_sata.c
++++ b/arch/arm/plat-mxc/ahci_sata.c
+@@ -486,7 +486,6 @@ static int sata_init(struct device *dev)
+ 	if (AHCI_SAVE_PWR_WITHOUT_HOTPLUG) {
+ 		/* Release resources when there is no device on the port */
+ 		if ((readl(mmio + PORT_SATA_SR) & 0xF) == 0) {
+-			iounmap(mmio);
+ 			ret = -ENODEV;
+ 			if (machine_is_mx53_smd() || machine_is_mx53_loco()
+ 				|| board_is_mx53_ard_b())
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From 7c757f3fac44f4432a8d4ca8d665374c6fc5489f Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Mon, 6 Sep 2010 11:29:06 +0800
-Subject: [PATCH 180/902] ENGR00127009 MX23 ALSA: Resolve the occasional DMA stuck when recording
+Subject: [PATCH 180/998] ENGR00127009 MX23 ALSA: Resolve the occasional DMA stuck when recording
 
 Sometimes the DMA for audioin will get stuck when recording, this patch
 is used to resolve the problem.

@@ -1,7 +1,7 @@
 From f73ca5c64dd7af9fc953e41980dc71b0cb59de2f Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Sun, 19 Sep 2010 14:37:15 +0800
-Subject: [PATCH 201/902] ENGR00131709 MX5 clock:Fix the wrong way to register IIM/LDB clocks
+Subject: [PATCH 201/998] ENGR00131709 MX5 clock:Fix the wrong way to register IIM/LDB clocks
 
 Fix the wrong way to register IIM/LDB clocks.
 

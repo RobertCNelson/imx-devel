@@ -1,7 +1,7 @@
 From 70d7a71fa7de571c227f959136ea68932d9916c5 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Mon, 8 Nov 2010 17:28:58 +0800
-Subject: [PATCH 413/902] ENGR00133377 mx28: fix system suspend twice issue
+Subject: [PATCH 413/998] ENGR00133377 mx28: fix system suspend twice issue
 
 fix issue: system would enter suspend twice instead
 of resume when press pwr key twice

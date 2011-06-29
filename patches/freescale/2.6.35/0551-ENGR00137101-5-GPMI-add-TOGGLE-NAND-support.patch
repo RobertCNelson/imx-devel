@@ -1,7 +1,7 @@
 From 7d2206657cb68e164bfdb99b29ec11cffa15b23d Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 17 Dec 2010 11:15:50 +0800
-Subject: [PATCH 551/902] ENGR00137101-5 GPMI : add TOGGLE NAND support
+Subject: [PATCH 551/998] ENGR00137101-5 GPMI : add TOGGLE NAND support
 
 [1] Add the initializtion for TOGGLE nand.
 [2] chang the is_onfi_nand() to is_ddr_nand().

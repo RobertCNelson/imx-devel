@@ -1,7 +1,7 @@
 From 3d97a424acb89acfb18bd8f211045db1f8ee4c5c Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Tue, 31 Aug 2010 10:53:01 +0800
-Subject: [PATCH 160/902] ENGR00126867 mx53: add clk gate for usb_phy2_clk
+Subject: [PATCH 160/998] ENGR00126867 mx53: add clk gate for usb_phy2_clk
 
 add usb host1 clock gate for usb host1's phy clock
 

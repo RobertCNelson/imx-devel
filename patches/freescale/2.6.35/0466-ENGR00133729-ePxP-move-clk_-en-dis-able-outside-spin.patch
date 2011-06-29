@@ -1,7 +1,7 @@
 From 6df06f89062bfc62b48a4748dcf06d3ba6c7b7a5 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 16 Nov 2010 13:56:32 +0800
-Subject: [PATCH 466/902] ENGR00133729 ePxP: move clk_[en|dis]able outside spinlock section
+Subject: [PATCH 466/998] ENGR00133729 ePxP: move clk_[en|dis]able outside spinlock section
 
 clk_enable and clk_disable could be sleep, so it can not be
 surrounded with spin_lock/spin_unlock. This patch fixed it.

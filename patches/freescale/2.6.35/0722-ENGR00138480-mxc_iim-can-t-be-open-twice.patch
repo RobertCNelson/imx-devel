@@ -1,7 +1,7 @@
 From 2ac2b6aba028a18fac6c87fcc2668cf53bcdfed8 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Wed, 26 Jan 2011 02:34:56 +0800
-Subject: [PATCH 722/902] ENGR00138480: mxc_iim can't be open twice
+Subject: [PATCH 722/998] ENGR00138480: mxc_iim can't be open twice
 
 mxc_iim can't be open twice.
 The reason is that request_irq failed when open mxc_iim again.

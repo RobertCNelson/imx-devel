@@ -1,7 +1,7 @@
 From ae208c32357859816fae44b9102a844af966f6a2 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Wed, 8 Sep 2010 14:11:44 +0800
-Subject: [PATCH 048/902] ENGR00127274 mx5: use upstream i2c driver i2c-imx.c
+Subject: [PATCH 048/998] ENGR00127274 mx5: use upstream i2c driver i2c-imx.c
 
 Change clock name, device name, platform data type.
 

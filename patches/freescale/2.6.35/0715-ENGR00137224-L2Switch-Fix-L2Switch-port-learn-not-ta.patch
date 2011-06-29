@@ -1,7 +1,7 @@
 From 65da4da27e7efa756b5902362ad86432fb2e1915 Mon Sep 17 00:00:00 2001
 From: Fan Zhicheng <r32736@freescale.com>
 Date: Tue, 28 Dec 2010 14:39:31 +0800
-Subject: [PATCH 715/902] ENGR00137224 L2Switch: Fix L2Switch port learn not take effect issue.
+Subject: [PATCH 715/998] ENGR00137224 L2Switch: Fix L2Switch port learn not take effect issue.
 
 Fix Mx28 L2Switch port learning not works issue.
 

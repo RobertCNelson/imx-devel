@@ -1,7 +1,7 @@
 From 77d5800db91842d173f7520b3a0181acf51e7557 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 2 Mar 2011 16:16:24 -0600
-Subject: [PATCH 811/902] ENGR00140086 - EPDC fb: Alternate buffer virtual address handled incorrectly
+Subject: [PATCH 811/998] ENGR00140086 - EPDC fb: Alternate buffer virtual address handled incorrectly
 
 - Virtual address parameter for alternate buffer feature removed. Virtual
 address now computed based on physical address parameter.

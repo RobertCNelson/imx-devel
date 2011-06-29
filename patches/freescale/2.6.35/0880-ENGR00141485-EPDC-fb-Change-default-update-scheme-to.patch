@@ -1,7 +1,7 @@
-From 9e4acd9c98323999940a0d3e99a4a576b6ff123e Mon Sep 17 00:00:00 2001
+From 208c1c5d1f7c658dc33d63211956f87903a90953 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 31 Mar 2011 23:01:09 -0500
-Subject: [PATCH 880/902] ENGR00141485 - EPDC fb: Change default update scheme to Queue & Merge
+Subject: [PATCH 880/998] ENGR00141485 - EPDC fb: Change default update scheme to Queue & Merge
 
 - Change from Snapshot scheme to Queue & Merge scheme for improved
 performance.

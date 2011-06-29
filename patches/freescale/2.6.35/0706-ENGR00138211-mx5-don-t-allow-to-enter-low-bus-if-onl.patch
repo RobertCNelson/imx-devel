@@ -1,7 +1,7 @@
 From d6ec69b17ce7f741c6af72d38014ccd4d0b83c5c Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 19 Jan 2011 20:17:48 +0800
-Subject: [PATCH 706/902] ENGR00138211 mx5: don't allow to enter low bus if only have 1 WP
+Subject: [PATCH 706/998] ENGR00138211 mx5: don't allow to enter low bus if only have 1 WP
 
 Current set_low_bus_freq codes enter low bus frequency automatically
 if the CPU frequency is the lowest one. If only have one working

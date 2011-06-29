@@ -1,7 +1,7 @@
 From d97ac408db7e783db0b4b97b624e2bc502be88f1 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 17 Jan 2011 17:21:12 +0800
-Subject: [PATCH 694/902] ENGR00138050 mx53 smd: enable WiFi power during system boot up
+Subject: [PATCH 694/998] ENGR00138050 mx53 smd: enable WiFi power during system boot up
 
 1) Enable WiFi power during system boot up or WiFi card can not
 be detected.

@@ -1,0 +1,27 @@
+From a26aa8a4a991d46f809653077726164fa6c1a2f6 Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Wed, 13 Apr 2011 14:28:46 +0800
+Subject: [PATCH 907/998] ENGR00141486-3 serial: remove building warning message
+
+remove building warning message in serial core driver
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+---
+ drivers/serial/serial_core.c |    1 -
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+
+diff --git a/drivers/serial/serial_core.c b/drivers/serial/serial_core.c
+index 4087aff..fac6be6 100644
+--- a/drivers/serial/serial_core.c
++++ b/drivers/serial/serial_core.c
+@@ -2075,7 +2075,6 @@ int uart_resume_port(struct uart_driver *drv, struct uart_port *uport)
+ 	struct tty_port *port = &state->port;
+ 	struct device *tty_dev;
+ 	struct uart_match match = {uport, drv};
+-	struct ktermios termios;
+ 
+ 	mutex_lock(&port->mutex);
+ 
+-- 
+1.7.4.1
+

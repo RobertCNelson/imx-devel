@@ -1,7 +1,7 @@
 From eedec9da572b4b18aaf718f2baf671d2674c0123 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Thu, 24 Mar 2011 19:46:46 +0800
-Subject: [PATCH 852/902] ENGR00141109: MX53-SMD: SPI-NOR: Add mxc_m25p80 to imx5_defconfig
+Subject: [PATCH 852/998] ENGR00141109: MX53-SMD: SPI-NOR: Add mxc_m25p80 to imx5_defconfig
 
 mxc_m25p80 config is not added to imx5_defconfig.
 Thus in this patch it is added.

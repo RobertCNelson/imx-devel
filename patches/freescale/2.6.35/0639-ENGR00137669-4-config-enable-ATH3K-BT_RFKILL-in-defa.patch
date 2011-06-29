@@ -1,7 +1,7 @@
 From a8c4aedbf5e357f9a0f99ae877d2548fcd49795a Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Mon, 6 Dec 2010 20:04:08 +0800
-Subject: [PATCH 639/902] ENGR00137669-4 config: enable ATH3K BT_RFKILL in default config
+Subject: [PATCH 639/998] ENGR00137669-4 config: enable ATH3K BT_RFKILL in default config
 
 enable ATH3K and mx53 SMD Bluetooth RF kill configs.
 

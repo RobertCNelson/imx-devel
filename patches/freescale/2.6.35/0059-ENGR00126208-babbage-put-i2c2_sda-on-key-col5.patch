@@ -1,7 +1,7 @@
 From 55d182d86fc345bc434cb4a1e83e746116f0fae8 Mon Sep 17 00:00:00 2001
 From: Alan Tull <r80115@freescale.com>
 Date: Wed, 11 Aug 2010 12:38:43 -0500
-Subject: [PATCH 059/902] ENGR00126208 babbage: put i2c2_sda on key col5
+Subject: [PATCH 059/998] ENGR00126208 babbage: put i2c2_sda on key col5
 
 Fix iomux setting that crept in with the recent iomux v3 stuff.
 Put i2c2_sda on key col5 for imx51 babbage board.

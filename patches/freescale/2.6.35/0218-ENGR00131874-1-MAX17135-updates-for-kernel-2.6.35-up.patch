@@ -1,7 +1,7 @@
 From c07587dcf93d4aff1e6516469f3e8365b4dfa434 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 22 Sep 2010 19:00:03 -0500
-Subject: [PATCH 218/902] ENGR00131874-1 - MAX17135 updates for kernel 2.6.35 upgrade
+Subject: [PATCH 218/998] ENGR00131874-1 - MAX17135 updates for kernel 2.6.35 upgrade
 
 Added function to determine if VCOM is enabled, which is required for 2.6.35
 (otherwise code always assumes regulator is active and aborts attempts to

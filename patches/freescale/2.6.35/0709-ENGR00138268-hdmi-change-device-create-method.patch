@@ -1,7 +1,7 @@
 From 5fdb2a731b3fa458e138b4575cef35021b5ad7b8 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 20 Jan 2011 15:50:24 +0800
-Subject: [PATCH 709/902] ENGR00138268 hdmi: change device create method
+Subject: [PATCH 709/998] ENGR00138268 hdmi: change device create method
 
 Change to platform_device_register_simple().
 Change check sysfs node to /sys/devices/platform/sii9022.0/cable_state.

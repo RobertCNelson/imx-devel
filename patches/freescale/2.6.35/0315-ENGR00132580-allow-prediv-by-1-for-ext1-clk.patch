@@ -1,7 +1,7 @@
 From 58d4ee1057bc5d0db055a80c29c9861f9b79b183 Mon Sep 17 00:00:00 2001
 From: Alan Tull <alan.tull@freescale.com>
 Date: Wed, 13 Oct 2010 14:20:02 -0500
-Subject: [PATCH 315/902] ENGR00132580 allow prediv by 1 for ext1 clk
+Subject: [PATCH 315/998] ENGR00132580 allow prediv by 1 for ext1 clk
 
 Not allowed in the spec, but the hardware guy said it was ok.
 Needed because clock is shared between audio and camera.

@@ -1,7 +1,7 @@
 From 875650bdcacebf42302d4c4f017b48e9c83611b9 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Fri, 3 Dec 2010 13:29:00 +0800
-Subject: [PATCH 511/902] ENGR00134285 LDB:Correct the way to match registered fb info
+Subject: [PATCH 511/998] ENGR00134285 LDB:Correct the way to match registered fb info
 
 In the probe function of LDB framebuffer driver, we will
 try to match the LVDS video modes defined in the driver.

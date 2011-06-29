@@ -1,7 +1,7 @@
 From e25c1f701745378c6c97a354d92294f14fca290f Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 1 Feb 2011 14:00:32 -0600
-Subject: [PATCH 747/902] ENGR00138731-2: MX5X: Update DVFS-CORE to support more than 2 operating points.
+Subject: [PATCH 747/998] ENGR00138731-2: MX5X: Update DVFS-CORE to support more than 2 operating points.
 
 DVFS-CORE has been updated to support different working points.
 Move the dvfs_core working point structure into platform specific files.

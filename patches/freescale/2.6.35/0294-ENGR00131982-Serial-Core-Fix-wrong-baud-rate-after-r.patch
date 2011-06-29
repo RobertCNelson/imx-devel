@@ -1,7 +1,7 @@
 From aa82039db2517372726e98326b92e296b938b642 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Tue, 12 Oct 2010 10:36:24 +0800
-Subject: [PATCH 294/902] ENGR00131982 Serial Core: Fix wrong baud rate after resume
+Subject: [PATCH 294/998] ENGR00131982 Serial Core: Fix wrong baud rate after resume
 
 Fix MX28 uart can't work after suspend and resume.
 The reason is serial core pass down a uninitialized variable termios

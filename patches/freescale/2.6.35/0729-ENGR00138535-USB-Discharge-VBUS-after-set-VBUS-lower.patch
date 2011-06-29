@@ -1,7 +1,7 @@
 From 7de02a6e0aa33d7ab109c7b7df163b60c8482f14 Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Wed, 26 Jan 2011 20:14:11 +0800
-Subject: [PATCH 729/902] ENGR00138535 USB: Discharge VBUS after set VBUS lower or unplug from HOST
+Subject: [PATCH 729/998] ENGR00138535 USB: Discharge VBUS after set VBUS lower or unplug from HOST
 
  1. Add discharge vbus when set vbus lower;
  2. Due to unplug from HOST bring up suspend irq. add discharge in suspend irq.

@@ -1,7 +1,7 @@
 From ba9aaf1a51a4de40bb0efb1f20dee6d8f1939d7b Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Tue, 14 Sep 2010 19:29:20 +0800
-Subject: [PATCH 065/902] ENGR00131479-2 MX53: Enable CS42888 by default
+Subject: [PATCH 065/998] ENGR00131479-2 MX53: Enable CS42888 by default
 
 Correct the pad setting and clock name for ESAI, and
 enable CS42888 by default.

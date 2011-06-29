@@ -1,7 +1,7 @@
 From 5634bc5fe5d6caf6e5817f3664baa4445734a1cd Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Fri, 30 Jul 2010 18:00:48 +0800
-Subject: [PATCH 063/902] ENGR00125736 MX53 PMIC: Turn on the vvideo power supply by default
+Subject: [PATCH 063/998] ENGR00125736 MX53 PMIC: Turn on the vvideo power supply by default
 
 The vvideo power supply drives the gpio bank, from gpio_12 to
 gpio14. Turn on the power in case other modules need these gpio.

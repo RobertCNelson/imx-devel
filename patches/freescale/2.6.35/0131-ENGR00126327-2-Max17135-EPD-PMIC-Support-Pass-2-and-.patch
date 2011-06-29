@@ -1,7 +1,7 @@
 From 1e57bf404518d285b990188ae5621e7a04f676dd Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Tue, 17 Aug 2010 14:52:17 -0500
-Subject: [PATCH 131/902] ENGR00126327-2 - Max17135 EPD PMIC: Support Pass 2 and VCOM setting
+Subject: [PATCH 131/998] ENGR00126327-2 - Max17135 EPD PMIC: Support Pass 2 and VCOM setting
 
 Add support for platform-level selection of PMIC pass version.  1 and 2
 supported currently.  Also support platform-level selection of VCOM

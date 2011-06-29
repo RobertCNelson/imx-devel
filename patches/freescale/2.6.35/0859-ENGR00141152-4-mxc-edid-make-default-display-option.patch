@@ -1,7 +1,7 @@
 From a93506107d4638455283ea472235496c37560eae Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 28 Mar 2011 13:25:58 +0800
-Subject: [PATCH 859/902] ENGR00141152-4 mxc edid: make default display option
+Subject: [PATCH 859/998] ENGR00141152-4 mxc edid: make default display option
 
 mxc edid driver change.
 

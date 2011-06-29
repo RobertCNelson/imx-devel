@@ -1,7 +1,7 @@
 From 9d051dbb41aaebc462bf88ad2931d286058b88ae Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 22 Feb 2011 17:11:30 +0800
-Subject: [PATCH 799/902] ENGR00139383-1 Add ISL29023 light sensor support
+Subject: [PATCH 799/998] ENGR00139383-1 Add ISL29023 light sensor support
 
 This patch adds ISL29023 light sensor support.
 Users may control the light sensor work at

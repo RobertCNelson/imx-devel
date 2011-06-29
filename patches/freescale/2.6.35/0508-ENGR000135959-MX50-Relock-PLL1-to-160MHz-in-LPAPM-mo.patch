@@ -1,7 +1,7 @@
 From e3ae393baf26c85e5ad2c16f21af6d385a9c5d27 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 3 Dec 2010 17:53:35 -0600
-Subject: [PATCH 508/902] ENGR000135959: MX50: Relock PLL1 to 160MHz in LPAPM mode.
+Subject: [PATCH 508/998] ENGR000135959: MX50: Relock PLL1 to 160MHz in LPAPM mode.
 
 In LPAPM mode, DDR is sourced from 24MHz OSC. Since only ARM clock is
 sourced from PLL1, relock it to 160MHz to save some power.

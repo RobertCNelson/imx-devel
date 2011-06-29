@@ -1,7 +1,7 @@
 From 0fdb81774efe465c608533d08ebc18e0f3a328ab Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 4 Feb 2011 14:16:42 -0600
-Subject: [PATCH 751/902] ENGR00138820 - EPDC fb: PxP mutex handling may cause race condition
+Subject: [PATCH 751/998] ENGR00138820 - EPDC fb: PxP mutex handling may cause race condition
 
 PxP mutex was being released and retaken while EPDC power turned on.
 This provides opportunity for a race condition where another thread

@@ -1,7 +1,7 @@
 From fef561fde1a272f776c234f8bbb8c9837ef1b3e5 Mon Sep 17 00:00:00 2001
 From: Jie Zhou <b30303@freescale.com>
 Date: Mon, 23 Aug 2010 09:59:36 +0800
-Subject: [PATCH 138/902] ENGR00126565-1 MX50: add z160 version to platform_data of gpu_device
+Subject: [PATCH 138/998] ENGR00126565-1 MX50: add z160 version to platform_data of gpu_device
 
 MX50 has some RTL fix for Z160
 

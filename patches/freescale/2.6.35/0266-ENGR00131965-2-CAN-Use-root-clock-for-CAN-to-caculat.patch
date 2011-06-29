@@ -1,7 +1,7 @@
 From cbbbff5ff43f9479f7b5ccc2bc4bc29fcfb44f74 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Tue, 28 Sep 2010 10:00:13 +0800
-Subject: [PATCH 266/902] ENGR00131965-2 CAN: Use root clock for CAN to caculate bitrate
+Subject: [PATCH 266/998] ENGR00131965-2 CAN: Use root clock for CAN to caculate bitrate
 
 Caculate the bitrate on the root clock for CAN, in case the
 root_clk_id is set. Otherwise caculatge on the default clock

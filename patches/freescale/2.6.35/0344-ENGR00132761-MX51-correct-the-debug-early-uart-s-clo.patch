@@ -1,7 +1,7 @@
 From b866451e8c0100877e52874299fa17c30f78387e Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Tue, 19 Oct 2010 14:05:46 +0800
-Subject: [PATCH 344/902] ENGR00132761 MX51: correct the debug early uart's clock
+Subject: [PATCH 344/998] ENGR00132761 MX51: correct the debug early uart's clock
 
 As uboot changes the PLL1, this causes the UART1 clock
 PRE/PODF divider settings are not correct.

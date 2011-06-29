@@ -1,7 +1,7 @@
 From 281099e8078fa6b590517104ba32b275fba921fe Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Thu, 19 Aug 2010 11:18:29 +0800
-Subject: [PATCH 132/902] ENGR00126451 NAND:Set 4-bit ECC correctly on MX51
+Subject: [PATCH 132/998] ENGR00126451 NAND:Set 4-bit ECC correctly on MX51
 
 4-bit ECC is not set correctly when the driver does
 consolidation. This patch fix it

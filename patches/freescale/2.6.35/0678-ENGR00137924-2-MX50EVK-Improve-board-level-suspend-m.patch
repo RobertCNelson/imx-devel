@@ -1,7 +1,7 @@
 From 42809643ea008c0644dba0a9c006e548c97306a4 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 12 Jan 2011 16:49:47 -0600
-Subject: [PATCH 678/902] ENGR00137924-2: MX50EVK: Improve board level suspend mode power.
+Subject: [PATCH 678/998] ENGR00137924-2: MX50EVK: Improve board level suspend mode power.
 
 Fix many IOMUX pad settings so that the suspend power is improved.
 

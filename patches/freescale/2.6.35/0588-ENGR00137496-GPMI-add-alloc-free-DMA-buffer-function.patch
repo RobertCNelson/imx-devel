@@ -1,7 +1,7 @@
 From 4eeda35be548f8ac760a69a664e3ea448ffa827f Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 31 Dec 2010 10:18:18 +0800
-Subject: [PATCH 588/902] ENGR00137496 GPMI : add alloc/free DMA buffer functions
+Subject: [PATCH 588/998] ENGR00137496 GPMI : add alloc/free DMA buffer functions
 
 Add these two functions to allocate or free the DMA buffers(including
 the DMA command buffer and DMA page buffer) for the GPMI driver.

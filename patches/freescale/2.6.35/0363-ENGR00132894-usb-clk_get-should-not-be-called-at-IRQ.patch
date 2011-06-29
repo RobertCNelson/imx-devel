@@ -1,7 +1,7 @@
 From 8238957cb2223f0fe46e8d32cdb891d5433ec830 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 25 Oct 2010 15:39:24 +0800
-Subject: [PATCH 363/902] ENGR00132894 usb: clk_get should not be called at IRQ context
+Subject: [PATCH 363/998] ENGR00132894 usb: clk_get should not be called at IRQ context
 
 The old implementation will clk_get/clk_put for each clk on/off operation.
 As some clk on/off operation would be IRQ context.

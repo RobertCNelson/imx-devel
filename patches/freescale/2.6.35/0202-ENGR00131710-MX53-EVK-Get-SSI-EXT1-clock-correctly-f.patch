@@ -1,7 +1,7 @@
 From 296ec69aef404f5eb543be8f3c3e781b497ad718 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Sun, 19 Sep 2010 14:42:52 +0800
-Subject: [PATCH 202/902] ENGR00131710 MX53 EVK:Get SSI EXT1 clock correctly for CSI MCLK
+Subject: [PATCH 202/998] ENGR00131710 MX53 EVK:Get SSI EXT1 clock correctly for CSI MCLK
 
 Get SSI EXT1 clock correctly for CSI MCLK.
 

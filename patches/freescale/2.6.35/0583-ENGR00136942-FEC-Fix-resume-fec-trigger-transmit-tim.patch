@@ -1,7 +1,7 @@
 From 09d00f73af70b8d08aede9d913f82f07f82b5d09 Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Tue, 14 Dec 2010 11:43:21 +0800
-Subject: [PATCH 583/902] ENGR00136942 FEC: Fix resume fec trigger transmit timeout
+Subject: [PATCH 583/998] ENGR00136942 FEC: Fix resume fec trigger transmit timeout
 
 Set carrier flag to off when suspend,
 to avoid kernel warning about sending timeout.

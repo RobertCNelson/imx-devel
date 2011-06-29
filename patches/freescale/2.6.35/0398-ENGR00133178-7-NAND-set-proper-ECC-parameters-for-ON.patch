@@ -1,7 +1,7 @@
 From 375d9bf88742207132d54525ea1d9ca0c2fd8327 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 15:13:53 +0800
-Subject: [PATCH 398/902] ENGR00133178-7 NAND : set proper ECC parameters for ONFI nand
+Subject: [PATCH 398/998] ENGR00133178-7 NAND : set proper ECC parameters for ONFI nand
 
 ONFI nand needs the 24-bit ECC and 1k data chunk.
 DMA page size changes to the real used size.

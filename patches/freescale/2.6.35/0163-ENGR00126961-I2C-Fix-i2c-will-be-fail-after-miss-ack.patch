@@ -1,7 +1,7 @@
 From fac90f506d8cf2c2def2b38ffabf35fd91630dff Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Wed, 1 Sep 2010 14:08:05 +0800
-Subject: [PATCH 163/902] ENGR00126961 I2C: Fix i2c will be fail after miss ack
+Subject: [PATCH 163/998] ENGR00126961 I2C: Fix i2c will be fail after miss ack
 
 I2C transfer will be always fail if miss ack happen.
 i2cdump will be fail after i2cdetect.

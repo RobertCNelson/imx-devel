@@ -1,7 +1,7 @@
 From 1bc3ee8d27f1bcfdb5dd3004461c85ecc3ebb8ac Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Tue, 31 Aug 2010 14:30:11 +0800
-Subject: [PATCH 161/902] ENGR00126882 mx28:increase suspend vddio voltage
+Subject: [PATCH 161/998] ENGR00126882 mx28:increase suspend vddio voltage
 
 increase suspend vddio voltage to make suspend/resume more stable
 

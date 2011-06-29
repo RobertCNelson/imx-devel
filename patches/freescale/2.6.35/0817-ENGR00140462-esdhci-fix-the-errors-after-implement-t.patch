@@ -1,7 +1,7 @@
 From 3d73cfbd161f145368b22b9566ab501a9ec048f4 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Thu, 10 Mar 2011 14:31:51 +0800
-Subject: [PATCH 817/902] ENGR00140462 esdhci fix the errors after implement the new SOC rev APIs
+Subject: [PATCH 817/998] ENGR00140462 esdhci fix the errors after implement the new SOC rev APIs
 
 Fix the errors after implement the new soc rev APIs
 Refine the SOC revision APIs in the esdhc driver.

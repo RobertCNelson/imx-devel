@@ -1,7 +1,7 @@
 From 0489df2258a7e04068a21c2c6874181fa8cc89b8 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 13 Jan 2011 10:27:28 +0800
-Subject: [PATCH 667/902] ENGR00137489 mx50 rdp: specify the regulator in esdhc2 platform data
+Subject: [PATCH 667/998] ENGR00137489 mx50 rdp: specify the regulator in esdhc2 platform data
 
 By defining the regulator name in the esdhc platform data,
 the esdhc driver will dynamically check and set a proper voltage

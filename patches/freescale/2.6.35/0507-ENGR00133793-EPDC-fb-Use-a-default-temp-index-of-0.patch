@@ -1,7 +1,7 @@
 From d1204cd45abd5a7acde2191a0cd712baf069dd0b Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 17 Nov 2010 10:49:08 -0600
-Subject: [PATCH 507/902] ENGR00133793 - EPDC fb: Use a default temp index of 0
+Subject: [PATCH 507/998] ENGR00133793 - EPDC fb: Use a default temp index of 0
 
 - Current default temp index is 8, which causes issues for panels with only 1
 temperature index.  So if no temp index is found to match the temperature,

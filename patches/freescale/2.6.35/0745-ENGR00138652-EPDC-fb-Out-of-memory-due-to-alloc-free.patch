@@ -1,7 +1,7 @@
 From a5f65f39a4ae96aa8dd3a2d60d31accf8b14cfec Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Mon, 31 Jan 2011 21:05:44 -0600
-Subject: [PATCH 745/902] ENGR00138652 - EPDC fb: Out-of-memory due to alloc/free temp buffers
+Subject: [PATCH 745/998] ENGR00138652 - EPDC fb: Out-of-memory due to alloc/free temp buffers
 
 Statically allocate buffers for each update object, rather
 than dynamically allocating/freeing buffers per use. These buffers

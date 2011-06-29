@@ -1,7 +1,7 @@
 From 18deb78901f6513a4f6131bd8d2c0187ff0cc823 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Thu, 2 Dec 2010 17:54:39 +0800
-Subject: [PATCH 504/902] ENGR00126514 L2Switch: Fixed the warning information report issue
+Subject: [PATCH 504/998] ENGR00126514 L2Switch: Fixed the warning information report issue
 
 When boot one mx28 board through another mx28 as switch, the former
 would report warning information "FEC ENET: rcv is not + last error".

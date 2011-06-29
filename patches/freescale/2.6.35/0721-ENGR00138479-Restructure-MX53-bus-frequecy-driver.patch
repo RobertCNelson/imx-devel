@@ -1,7 +1,7 @@
 From 484e773009ea98c2a21f05b4e88a42456bd7db70 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Tue, 25 Jan 2011 16:08:45 +0800
-Subject: [PATCH 721/902] ENGR00138479 Restructure MX53 bus frequecy driver
+Subject: [PATCH 721/998] ENGR00138479 Restructure MX53 bus frequecy driver
 
 Restructure MX53 bus frequecy driver,
 Add handlers for DDR3 boards,

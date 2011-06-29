@@ -1,7 +1,7 @@
 From eecea786655b5cc48f8dc6bf2e40c5678946ee3a Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Fri, 12 Nov 2010 19:22:27 +0800
-Subject: [PATCH 450/902] ENGR00133658 PTP: Improvement and supplemental check for i.MX28 1588
+Subject: [PATCH 450/998] ENGR00133658 PTP: Improvement and supplemental check for i.MX28 1588
 
 1. Improved the 1588 frequency drift compensation for MX28.
 2. Added the sender port ID value check.

@@ -1,7 +1,7 @@
 From 19c511da7cc64d552483d5f5ca4872c607408d44 Mon Sep 17 00:00:00 2001
 From: Alan Tull <r80115@freescale.com>
 Date: Wed, 6 Oct 2010 15:04:28 -0500
-Subject: [PATCH 330/902] ENGR00132525-2 sgtl5000: audio clock gating
+Subject: [PATCH 330/998] ENGR00132525-2 sgtl5000: audio clock gating
 
 Turn off audio clock when possible.  Empirical data says that we
 need to leave the clocks on for 300 mSec after all codec writes

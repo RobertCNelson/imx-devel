@@ -1,7 +1,7 @@
 From ff4706f6c42165f05bad53e1082eac1fae3efca1 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 27 Sep 2010 10:30:22 +0800
-Subject: [PATCH 256/902] ENGR00131616-4 defconfig: enable otg mode and real-time PM
+Subject: [PATCH 256/998] ENGR00131616-4 defconfig: enable otg mode and real-time PM
 
 1. Enable otg mode at defconfig for otg port
 2. The 2.6.35 usb core uses real-time power management to deal with

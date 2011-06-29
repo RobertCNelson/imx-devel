@@ -1,7 +1,7 @@
 From 296d9dcff4b42030158997937d9d832be2376794 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 25 Oct 2010 17:31:30 +0800
-Subject: [PATCH 370/902] ENGR00132935-2 MX53 ARD:Add pwm enable/disable pad functions
+Subject: [PATCH 370/998] ENGR00132935-2 MX53 ARD:Add pwm enable/disable pad functions
 
 This patch adds pwm enable/disable pad functions to pwm platform
 data.

@@ -1,7 +1,7 @@
 From a1ed10aa19aa3d6f839ad3f764b3025177f935e1 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 5 Jan 2011 11:37:12 +0800
-Subject: [PATCH 611/902] ENGR00137602-1 input: FSL MPR121 capacitive touch button.
+Subject: [PATCH 611/998] ENGR00137602-1 input: FSL MPR121 capacitive touch button.
 
 This button driver is based on Freescale MPR121 capacitive
 touch sensor controller.

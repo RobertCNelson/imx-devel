@@ -1,7 +1,7 @@
 From fbdb42446aff46ed706986656d22a6e14df9d3bd Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Mon, 13 Dec 2010 17:36:38 +0800
-Subject: [PATCH 536/902] ENGR00136875-2 make video buffer cacheable to improve video performance
+Subject: [PATCH 536/998] ENGR00136875-2 make video buffer cacheable to improve video performance
 
 Use pgprot_writethru() instead of pgprot_noncached()
 

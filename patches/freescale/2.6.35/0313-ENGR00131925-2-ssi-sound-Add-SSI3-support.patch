@@ -1,7 +1,7 @@
 From f3d827970a68078982f68e9c693494579e04c1ce Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Wed, 13 Oct 2010 07:11:55 +0800
-Subject: [PATCH 313/902] ENGR00131925-2 ssi, sound: Add SSI3 support
+Subject: [PATCH 313/998] ENGR00131925-2 ssi, sound: Add SSI3 support
 
 Add ssi3 support for sound module, ssi3 not enabled by default.
 

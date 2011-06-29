@@ -1,7 +1,7 @@
 From b6b9437aa023d281e44ea29e346c0f426ab45aab Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Sat, 12 Feb 2011 11:07:20 +0800
-Subject: [PATCH 760/902] ENGR00138644-3 ipuv3 fb: change the video mode setting method
+Subject: [PATCH 760/998] ENGR00138644-3 ipuv3 fb: change the video mode setting method
 
 FB driver support for the video mode setting method.
 

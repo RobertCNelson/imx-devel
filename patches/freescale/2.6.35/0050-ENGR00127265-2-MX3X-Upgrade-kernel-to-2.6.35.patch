@@ -1,7 +1,7 @@
 From b1c99e21b09adef75302e437e8cee35722d9b523 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 8 Sep 2010 10:53:26 +0800
-Subject: [PATCH 050/902] ENGR00127265-2 MX3X: Upgrade kernel to 2.6.35
+Subject: [PATCH 050/998] ENGR00127265-2 MX3X: Upgrade kernel to 2.6.35
 
 This patch contains changes to mach-mx3 files.
 Contains all checkpatch and copyright fixes.

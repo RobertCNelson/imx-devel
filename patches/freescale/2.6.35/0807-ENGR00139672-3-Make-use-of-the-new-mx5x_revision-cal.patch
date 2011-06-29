@@ -1,7 +1,7 @@
 From 852c5cd938f4892e534e552fa8af6f626255a3b1 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Wed, 23 Feb 2011 14:53:25 -0600
-Subject: [PATCH 807/902] ENGR00139672-3 Make use of the new mx5x_revision call
+Subject: [PATCH 807/998] ENGR00139672-3 Make use of the new mx5x_revision call
 
 For better alignment with the upstream i.MX kernel, switch from
 cpu_is_mx5x_rev() to mx5x_revision().

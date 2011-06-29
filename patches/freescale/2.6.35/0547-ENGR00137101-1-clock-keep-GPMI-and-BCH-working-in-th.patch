@@ -1,7 +1,7 @@
 From 274f83da97e82ada8c6e3d147f03cd86cb336a69 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 17 Dec 2010 11:04:48 +0800
-Subject: [PATCH 547/902] ENGR00137101-1 clock : keep GPMI and BCH working in the same frequency
+Subject: [PATCH 547/998] ENGR00137101-1 clock : keep GPMI and BCH working in the same frequency
 
 add the BCH clock setting, and keep them work in the same
 frequncy.

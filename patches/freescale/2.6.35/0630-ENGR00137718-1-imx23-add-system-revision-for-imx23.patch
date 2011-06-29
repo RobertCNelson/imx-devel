@@ -1,7 +1,7 @@
 From 85ad7cf7f0c1432a4bf4cac3273dee1925d87b63 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 7 Jan 2011 10:37:07 +0800
-Subject: [PATCH 630/902] ENGR00137718-1 imx23 : add system revision for imx23
+Subject: [PATCH 630/998] ENGR00137718-1 imx23 : add system revision for imx23
 
 Add the revision number for imx23.
 

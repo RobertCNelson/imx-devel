@@ -1,7 +1,7 @@
 From 5a5920c53db8eb10cc8c3d07a9097f6daac3dbf5 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 2 Sep 2010 14:39:02 +0800
-Subject: [PATCH 224/902] ENGR00131466-1 mxs spi: add version 4.x support
+Subject: [PATCH 224/998] ENGR00131466-1 mxs spi: add version 4.x support
 
 Version 4.x will be used for mx28 platform.
 

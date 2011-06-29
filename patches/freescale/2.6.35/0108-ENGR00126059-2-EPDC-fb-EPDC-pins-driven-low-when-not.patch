@@ -1,7 +1,7 @@
 From 163d175605d6718c741c3c448cd95c853757a99c Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 6 Aug 2010 15:04:44 -0500
-Subject: [PATCH 108/902] ENGR00126059-2 - EPDC fb: EPDC pins driven low when not in use
+Subject: [PATCH 108/998] ENGR00126059-2 - EPDC fb: EPDC pins driven low when not in use
 
 Add ability to claim/release EPDC pins when turning
 enabling/disabling EPDC.  This is important for EPDC

@@ -1,7 +1,7 @@
 From b9ecd90b0bda46bffeaf2bc515cdd335f6c570c5 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 23 Dec 2010 10:55:56 +0800
-Subject: [PATCH 563/902] ENGR00137270-1 GPMI : add a separate DMA starting function with BCH interrupt
+Subject: [PATCH 563/998] ENGR00137270-1 GPMI : add a separate DMA starting function with BCH interrupt
 
 Add a separate DMA starting function for common use.
 

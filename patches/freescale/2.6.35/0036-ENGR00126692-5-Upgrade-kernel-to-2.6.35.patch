@@ -1,7 +1,7 @@
 From 6f6f1f967bfbefaca38e77e2d3b17fc9fd83a330 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 17 Aug 2010 16:46:40 -0500
-Subject: [PATCH 036/902] ENGR00126692-5: Upgrade kernel to 2.6.35
+Subject: [PATCH 036/998] ENGR00126692-5: Upgrade kernel to 2.6.35
 
 This patch contains changes to /include/linux/ files
 Contains all checkpatch and copyright fixes.

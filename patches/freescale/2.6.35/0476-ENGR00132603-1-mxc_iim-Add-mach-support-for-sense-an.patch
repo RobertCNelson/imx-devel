@@ -1,7 +1,7 @@
 From 3f6618866662a3edcd8ff13c4eef74dc4186a448 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Fri, 19 Nov 2010 11:44:29 +0800
-Subject: [PATCH 476/902] ENGR00132603-1 mxc_iim: Add mach support for sense and fuse function in mxc_iim
+Subject: [PATCH 476/998] ENGR00132603-1 mxc_iim: Add mach support for sense and fuse function in mxc_iim
 
 This patch add code in msl for adding sense and fuse.
 

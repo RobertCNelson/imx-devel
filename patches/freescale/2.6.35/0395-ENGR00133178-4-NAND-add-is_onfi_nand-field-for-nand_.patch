@@ -1,7 +1,7 @@
 From 1d2dccb074606dc674d5609b95b17a72188a0098 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 2 Nov 2010 10:48:51 +0800
-Subject: [PATCH 395/902] ENGR00133178-4 NAND : add is_onfi_nand field for nand_device_info{}
+Subject: [PATCH 395/998] ENGR00133178-4 NAND : add is_onfi_nand field for nand_device_info{}
 
 Add the new field to distinguish the ONFI nand from the others.
 Alos add the function is_onfi_nand() to check the ONFI nand.

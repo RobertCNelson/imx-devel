@@ -1,7 +1,7 @@
 From 5deec2e4f3bc3e21f7b8fb65f9f75276be0920d0 Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Tue, 23 Nov 2010 13:54:02 +0800
-Subject: [PATCH 465/902] ENGR00133955 MX50: dma apbh incorrect ioremap size
+Subject: [PATCH 465/998] ENGR00133955 MX50: dma apbh incorrect ioremap size
 
 The ioremap for dma apbh registers mapping is not correct.
 

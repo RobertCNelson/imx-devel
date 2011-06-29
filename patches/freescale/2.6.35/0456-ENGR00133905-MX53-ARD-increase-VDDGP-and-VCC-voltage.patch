@@ -1,7 +1,7 @@
 From 8a432649213ac1da40d9b9074ef1c05ec881db24 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 22 Nov 2010 09:53:04 +0800
-Subject: [PATCH 456/902] ENGR00133905 MX53 ARD: increase VDDGP and VCC voltages in suspend mode
+Subject: [PATCH 456/998] ENGR00133905 MX53 ARD: increase VDDGP and VCC voltages in suspend mode
 
 It's found that MX53 ARD reset sometimes if setting VDDGP/VCC
 to 0.95V in suspend mode. After many experiments, it's found

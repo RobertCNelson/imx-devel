@@ -1,7 +1,7 @@
 From aac2452486efe311019215c34d837eaab7ef1fde Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 26 Aug 2010 20:17:44 +0800
-Subject: [PATCH 148/902] ENGR00126716 usb-otg: fix using host structure before init it
+Subject: [PATCH 148/998] ENGR00126716 usb-otg: fix using host structure before init it
 
 The OTG driver will be loaded before usb host driver, at OTG driver
 the usb host data structure can only be used after usb host driver

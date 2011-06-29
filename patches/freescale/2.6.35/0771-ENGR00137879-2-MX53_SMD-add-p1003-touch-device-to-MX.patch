@@ -1,7 +1,7 @@
 From c8ade17c768ad764f7387bbfb31ec1b8bcd2ee4d Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 12 Jan 2011 15:04:33 +0800
-Subject: [PATCH 771/902] ENGR00137879-2 MX53_SMD: add p1003 touch device to MX53_SMD
+Subject: [PATCH 771/998] ENGR00137879-2 MX53_SMD: add p1003 touch device to MX53_SMD
 
 Add p1003 touch screen device on MX53_SMD board.
 

@@ -1,7 +1,7 @@
 From 0e0af21a639366876d46ae8b38a5a4c9bab713af Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 22 Dec 2010 12:42:08 +0800
-Subject: [PATCH 559/902] ENGR00137259-1 NAND : share the same code for ONFI and TOGGLE nand
+Subject: [PATCH 559/998] ENGR00137259-1 NAND : share the same code for ONFI and TOGGLE nand
 
 Spilit the same initialization code for DDR.
 Make the code simply and tidy.

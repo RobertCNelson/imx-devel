@@ -1,7 +1,7 @@
 From 2a769d0843947b44b107807af75e682404efa4dd Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Tue, 12 Oct 2010 14:05:13 +0800
-Subject: [PATCH 301/902] ENGR00132477-2 IMX USB:fix some wakeup releated issues
+Subject: [PATCH 301/998] ENGR00132477-2 IMX USB:fix some wakeup releated issues
 
 Common Part
 move the is_b_host detecting from common code to the driver,so keep

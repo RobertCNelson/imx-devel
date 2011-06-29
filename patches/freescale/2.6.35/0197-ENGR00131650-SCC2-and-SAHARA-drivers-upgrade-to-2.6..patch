@@ -1,7 +1,7 @@
 From 20100e633c68787378f6a933c3da266edfe495d4 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Fri, 17 Sep 2010 12:11:29 -0500
-Subject: [PATCH 197/902] ENGR00131650 SCC2 and SAHARA drivers upgrade to 2.6.35
+Subject: [PATCH 197/998] ENGR00131650 SCC2 and SAHARA drivers upgrade to 2.6.35
 
 Add security driver files. SCC2 unit tests all pass on MX51 and
 MX53. Some SAHARA kernel mode unit tests fail on both SOCs

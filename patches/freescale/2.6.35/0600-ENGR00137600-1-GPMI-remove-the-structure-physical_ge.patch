@@ -1,7 +1,7 @@
 From 5b5b45fcea9e770003907082058dbbd653b25fd7 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 5 Jan 2011 10:14:13 +0800
-Subject: [PATCH 600/902] ENGR00137600-1 GPMI : remove the structure physical_geometry{}
+Subject: [PATCH 600/998] ENGR00137600-1 GPMI : remove the structure physical_geometry{}
 
 The MTD/NAND structrues have all the infomation the physical_geometry{}
 reserves. The physical_geometry{} makes the code too much layers, and

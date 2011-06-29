@@ -1,7 +1,7 @@
 From ea84cbb8a83857b7ac7fc8f3c865269943c01df7 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 31 Dec 2010 10:14:00 +0800
-Subject: [PATCH 589/902] ENGR00137447-1 mx53 evk MSL: add hdmi cable detect irq number
+Subject: [PATCH 589/998] ENGR00137447-1 mx53 evk MSL: add hdmi cable detect irq number
 
 Add hdmi cable detect irq number.
 

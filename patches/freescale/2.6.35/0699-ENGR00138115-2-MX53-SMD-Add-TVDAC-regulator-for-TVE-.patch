@@ -1,7 +1,7 @@
 From f1c56f7fda3b0eae6c3442c960bb2e31b2858f68 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 18 Jan 2011 10:45:55 +0800
-Subject: [PATCH 699/902] ENGR00138115-2 MX53 SMD:Add TVDAC regulator for TVE pdata
+Subject: [PATCH 699/998] ENGR00138115-2 MX53 SMD:Add TVDAC regulator for TVE pdata
 
 This patch adds TVDAC regulator for TVE platform data.
 

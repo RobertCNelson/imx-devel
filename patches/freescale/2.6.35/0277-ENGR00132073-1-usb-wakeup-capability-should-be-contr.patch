@@ -1,7 +1,7 @@
 From f89ac0af8d6fbc1de406c44107b0c851ad729755 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 29 Sep 2010 14:00:30 +0800
-Subject: [PATCH 277/902] ENGR00132073-1 usb: wakeup capability should be controlled by user
+Subject: [PATCH 277/998] ENGR00132073-1 usb: wakeup capability should be controlled by user
 
 MSL part
 

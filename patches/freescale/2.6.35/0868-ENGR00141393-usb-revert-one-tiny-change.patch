@@ -1,7 +1,7 @@
 From c0b2882d78ebf70af66694be2efb6535c96d812c Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 31 Mar 2011 11:24:07 +0800
-Subject: [PATCH 868/902] ENGR00141393 usb: revert one tiny change
+Subject: [PATCH 868/998] ENGR00141393 usb: revert one tiny change
 
 The variables for low power should be updated after phcd updated
 

@@ -1,7 +1,7 @@
 From 020fa3509623f49aa759fb47864b70eb017403f8 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 15 Nov 2010 10:55:47 +0800
-Subject: [PATCH 424/902] ENGR00133681 VPU:Fix kernel dump when VPU doesn't use IRAM
+Subject: [PATCH 424/998] ENGR00133681 VPU:Fix kernel dump when VPU doesn't use IRAM
 
 If VPU doesn't use IRAM, there will be a kernel dump when
 we enter VPU driver probe function.

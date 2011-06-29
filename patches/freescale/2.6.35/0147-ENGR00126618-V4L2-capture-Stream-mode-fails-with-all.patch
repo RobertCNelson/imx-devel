@@ -1,7 +1,7 @@
 From a2b69707b63af0dc7926d40aea54bc9184a052db Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 24 Aug 2010 15:47:54 +0800
-Subject: [PATCH 147/902] ENGR00126618 V4L2 capture:Stream mode fails with all IPU channels off
+Subject: [PATCH 147/998] ENGR00126618 V4L2 capture:Stream mode fails with all IPU channels off
 
 If IPU clock is disabled, enable it when configuring the CSI module.
 

@@ -1,7 +1,7 @@
 From 788936a479a78af83bdec911545e27f0a30b3e29 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Tue, 14 Sep 2010 19:25:22 +0800
-Subject: [PATCH 064/902] ENGR00131479-1 CS42888: Playback and record support on 35kernel
+Subject: [PATCH 064/998] ENGR00131479-1 CS42888: Playback and record support on 35kernel
 
 CS42888 codec support on 2.6.35 Kernel
 

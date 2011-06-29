@@ -1,7 +1,7 @@
 From f0a2e01c65859e1b6ffc9d4d12954b61c05bfab8 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Sun, 22 Aug 2010 21:20:26 -0500
-Subject: [PATCH 141/902] ENGR00126260-2 - EPDC fb: Support 9.7" panel
+Subject: [PATCH 141/998] ENGR00126260-2 - EPDC fb: Support 9.7" panel
 
 Add support for 9.7" E Ink panel.
 Expand driver support for multiple panels by storing platform data

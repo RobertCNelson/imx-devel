@@ -1,7 +1,7 @@
 From b04ac1be838a614f7c8f3ec39337e9fc0ca058e4 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 13 Sep 2010 16:00:17 +0800
-Subject: [PATCH 181/902] ENGR00127332 ipuv3: change the disalbe dp-dc timming
+Subject: [PATCH 181/998] ENGR00127332 ipuv3: change the disalbe dp-dc timming
 
 disable dp-dc in the display flow end irq handler, otherwise,
 ipu may get NFB4EOF error for next fb enabling under big resolution(like 1080p).

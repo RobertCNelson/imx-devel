@@ -1,7 +1,7 @@
 From 6d4073fc0147d0526926b50d0a7c1112a2c448c2 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 12 Jan 2011 16:48:39 -0600
-Subject: [PATCH 677/902] ENGR00137924-1: Added API to read IOMUX settings
+Subject: [PATCH 677/998] ENGR00137924-1: Added API to read IOMUX settings
 
 Added APIs to read single and multiple IOMUX pad settings.
 

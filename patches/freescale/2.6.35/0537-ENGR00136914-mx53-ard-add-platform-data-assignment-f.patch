@@ -1,7 +1,7 @@
 From 22bb9216d1aa7510b384ecad99c5c870cc1236fd Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 14 Dec 2010 09:30:35 +0800
-Subject: [PATCH 537/902] ENGR00136914 mx53-ard: add platform data assignment for usb host h2
+Subject: [PATCH 537/998] ENGR00136914 mx53-ard: add platform data assignment for usb host h2
 
 add platform data assignment for usb host h2
 

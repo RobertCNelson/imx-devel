@@ -1,7 +1,7 @@
 From 09783b283ef1e2d07a4dee376ff07d5ab7ef259a Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 1 Dec 2010 17:17:51 +0800
-Subject: [PATCH 495/902] ENGR00134220 NAND: fix up the chip select handling
+Subject: [PATCH 495/998] ENGR00134220 NAND: fix up the chip select handling
 
 When the NAND has multi-cs, the chip select other than
 cs0 is not handled correctly which will lead to NAND not

@@ -1,7 +1,7 @@
 From 03863136932546d67b4282744cc1e3e3119d2497 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Mon, 28 Mar 2011 13:51:12 +0800
-Subject: [PATCH 862/902] ENGR00141184: MX53 SMD: spi nor: the expected SPI-NOR partitions are not created
+Subject: [PATCH 862/998] ENGR00141184: MX53 SMD: spi nor: the expected SPI-NOR partitions are not created
 
 For in mxc platforms, we use arm/mach/flash.h for flash_platform_data
 definition, but our driver m25p80 uses linux/spi/flash.h.

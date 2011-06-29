@@ -1,7 +1,7 @@
 From d0f68951a35954b4b8e3e07a2a2e6085bba1edd8 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 30 Aug 2010 14:38:33 +0800
-Subject: [PATCH 155/902] ENGR00126800 esdhc: fix sdio interrupt may be lost issue
+Subject: [PATCH 155/998] ENGR00126800 esdhc: fix sdio interrupt may be lost issue
 
 Due to the SDIO interrupt of esdhc is implemented in edge trigger
 mode, the interrupt may be lost in some critical cases.

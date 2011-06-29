@@ -1,7 +1,7 @@
 From 41913e0c7c4d758b50857339e78bd185f6dad7e4 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Fri, 12 Nov 2010 14:13:22 +0800
-Subject: [PATCH 421/902] ENGR00133182 esdhc: do not use clk_disable in ISR context
+Subject: [PATCH 421/998] ENGR00133182 esdhc: do not use clk_disable in ISR context
 
 Required by new clock APIs.
 The new clk api(clk_enable/clk_disable) may sleep,

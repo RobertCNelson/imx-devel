@@ -1,7 +1,7 @@
 From 37ab55b227d3c21b7ec53507ff077e6280b0b994 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 3 Dec 2010 16:15:17 -0600
-Subject: [PATCH 509/902] ENGR00135048-1: Fixed bugs in common sw bus frequency scaling code.
+Subject: [PATCH 509/998] ENGR00135048-1: Fixed bugs in common sw bus frequency scaling code.
 
 Some GPC bits were getting set twice, fixed the issue. Protected the section where CPU
 frequency is changed. For MX50, increase the cpu frequency along with increasing

@@ -1,7 +1,7 @@
 From 93adf107c8f4acd65f3613e51dbb8d3377a18b8f Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 22 Sep 2010 19:05:22 -0500
-Subject: [PATCH 220/902] ENGR00131874-3 - EPDC fb: updates for kernel 2.6.35
+Subject: [PATCH 220/998] ENGR00131874-3 - EPDC fb: updates for kernel 2.6.35
 
 Added checks to ensure that clocks and regulators can be accessed.
 Removed redundant call to clean up fb_deferred_io.

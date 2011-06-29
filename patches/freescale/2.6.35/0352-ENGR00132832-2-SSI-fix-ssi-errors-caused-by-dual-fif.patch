@@ -1,7 +1,7 @@
 From 1368fd2fb092fbc03b5adbdebd5a4581f632696d Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Thu, 21 Oct 2010 03:32:31 +0800
-Subject: [PATCH 352/902] ENGR00132832-2 SSI: fix ssi errors caused by dual fifo sdma script
+Subject: [PATCH 352/998] ENGR00132832-2 SSI: fix ssi errors caused by dual fifo sdma script
 
 MX5 dual fifo breaks mx50 ssi, because new sdma script only support
 mx51 and mx53.

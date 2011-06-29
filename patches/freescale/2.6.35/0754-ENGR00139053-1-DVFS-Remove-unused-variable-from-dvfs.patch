@@ -1,7 +1,7 @@
 From b9f72759e9b17b919238a67d9e1a7e52487dbf82 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Thu, 10 Feb 2011 15:38:33 -0600
-Subject: [PATCH 754/902] ENGR00139053-1: DVFS: Remove unused variable from dvfs_core structure
+Subject: [PATCH 754/998] ENGR00139053-1: DVFS: Remove unused variable from dvfs_core structure
 
 Remove unused variable, num_wp from the dvfs_core structure.
 

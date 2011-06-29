@@ -1,7 +1,7 @@
 From 8281bd85cab25cbc1ff7c828f14925dbc9790b01 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 14 Oct 2010 18:50:30 +0800
-Subject: [PATCH 319/902] ENGR00132615-1 esdhc: auto switch clock to 20Mhz when AHB is 24Mhz
+Subject: [PATCH 319/998] ENGR00132615-1 esdhc: auto switch clock to 20Mhz when AHB is 24Mhz
 
 The issue we found in 35 kernel is that esdhc will easily get failed
 with crc error when ahb bus clock is down to 24Mhz in low power mode.

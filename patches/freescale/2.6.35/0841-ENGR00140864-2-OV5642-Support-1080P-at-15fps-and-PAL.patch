@@ -1,7 +1,7 @@
 From 1bf3ea33483788f800039bd79687a447ac77b0f4 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Mon, 21 Mar 2011 11:35:05 +0800
-Subject: [PATCH 841/902] ENGR00140864-2 OV5642:Support 1080P at 15fps and PAL at 30fps
+Subject: [PATCH 841/998] ENGR00140864-2 OV5642:Support 1080P at 15fps and PAL at 30fps
 
 This patch supports OV5642 camera to work at 1080P at 15fps and
 PAL at 30fps. Tested on MX53 SMD board.

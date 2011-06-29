@@ -1,7 +1,7 @@
 From 4e9f9f94bdf737eab93082058ebaf5a942ba0b68 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 8 Sep 2010 13:22:44 +0800
-Subject: [PATCH 052/902] ENGR00127265-4 hmp4e: fix build error
+Subject: [PATCH 052/998] ENGR00127265-4 hmp4e: fix build error
 
 fix build error after 35 kernel upgrade
 

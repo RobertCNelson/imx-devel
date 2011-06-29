@@ -1,7 +1,7 @@
 From a3f165de7ec64aa95166d5349170172c5fe8a496 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 13 Oct 2010 17:44:39 +0800
-Subject: [PATCH 338/902] ENGR00132563 mx50: enable battery charger on mx50 rdp
+Subject: [PATCH 338/998] ENGR00132563 mx50: enable battery charger on mx50 rdp
 
 enable battery charger on mx50 rdp
 

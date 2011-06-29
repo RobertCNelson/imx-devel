@@ -1,0 +1,45 @@
+From def6497a344435a678956943ccfb8df2243d99d7 Mon Sep 17 00:00:00 2001
+From: Richard Zhu <r65037@freescale.com>
+Date: Wed, 1 Jun 2011 13:49:52 +0800
+Subject: [PATCH 992/998] ENGR00144104-2 AHCI: Some usb related clocks are always on even without USB disk
+
+In order to decrease the pwr consumption, release the CLK
+resources such as usb_phy1_clk, when there is no SATA device
+adaptored into the AHCI SATA port. The HOTPLUG feature can't
+be enabled in this situation.
+
+Modify the AHCI confiuration to control the configurations of
+AHCI_SAVE_PWR_WITHOUT_HOTPLUG macro used in AHCI driver.
+
+Signed-off-by: Richard Zhu <r65037@freescale.com>
+(cherry picked from commit 585681801860b81a76ec1ef5970267de0a97c8c2)
+---
+ drivers/ata/Kconfig |   12 ++++++++++++
+ 1 files changed, 12 insertions(+), 0 deletions(-)
+
+diff --git a/drivers/ata/Kconfig b/drivers/ata/Kconfig
+index c320595..873dcf9 100644
+--- a/drivers/ata/Kconfig
++++ b/drivers/ata/Kconfig
+@@ -75,6 +75,18 @@ config SATA_AHCI_PLATFORM
+ 
+ 	  If unsure, say N.
+ 
++config SATA_AHCI_FSL_NO_HOTPLUG_MODE
++	bool "Freescale i.MX SATA AHCI NO HOTPLUG mode"
++	depends on SATA_AHCI_PLATFORM != n
++	default n
++	help
++	  In order to decrease the pwr consumption, release the CLK resources
++	  such as usb_phy1_clk, when there is no SATA device adaptored into the
++	  AHCI SATA port. The HOTPLUG feature can't be enabled in this situation.
++	  Please disable this option if the HOTPLUG is mandatory required.
++
++	  If unsure, say N.
++
+ config SATA_FSL
+ 	tristate "Freescale 3.0Gbps SATA support"
+ 	depends on FSL_SOC
+-- 
+1.7.4.1
+

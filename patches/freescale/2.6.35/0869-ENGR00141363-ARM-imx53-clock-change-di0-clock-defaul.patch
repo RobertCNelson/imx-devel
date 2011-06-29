@@ -1,7 +1,7 @@
 From a52fde5acdec2fef599130246eb037204db38f3e Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 30 Mar 2011 17:37:33 +0800
-Subject: [PATCH 869/902] ENGR00141363 ARM imx53 clock: change di0 clock default parent to pll3
+Subject: [PATCH 869/998] ENGR00141363 ARM imx53 clock: change di0 clock default parent to pll3
 
 If enable both LVDS and one display device use external di clock, there will
 be conflict between their clock parent -- both use pll4 on mx53. So it need

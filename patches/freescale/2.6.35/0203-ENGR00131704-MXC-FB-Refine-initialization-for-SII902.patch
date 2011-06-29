@@ -1,7 +1,7 @@
 From 29bd21dce9ec998adfd2dd5d12326acae60d9a8f Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Sun, 19 Sep 2010 11:22:09 +0800
-Subject: [PATCH 203/902] ENGR00131704 MXC FB:Refine initialization for SII9022 transmitter
+Subject: [PATCH 203/998] ENGR00131704 MXC FB:Refine initialization for SII9022 transmitter
 
 1) Return directly if the first access to SII9022 transmitter via
    I2C bus fails.

@@ -1,7 +1,7 @@
 From f004a3bace4aea0801c1f6fbea8c170d408cc09c Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Tue, 29 Mar 2011 15:35:52 +0800
-Subject: [PATCH 865/902] ENGR00141310 mx5x clock: add emi_fast_clk as tz1's parent for uart dma
+Subject: [PATCH 865/998] ENGR00141310 mx5x clock: add emi_fast_clk as tz1's parent for uart dma
 
 UART dma mode doing data transfer between uart fifo and ddr.
 So emi_fast_clk must be enabled when dma on.

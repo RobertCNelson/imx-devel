@@ -1,7 +1,7 @@
 From da755b938f72f03538d2a04ef2953dbfca427071 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 28 Sep 2010 11:42:43 +0800
-Subject: [PATCH 298/902] ENGR00132491-3 ath6kl upgrade: enable WEXT implicitely
+Subject: [PATCH 298/998] ENGR00132491-3 ath6kl upgrade: enable WEXT implicitely
 
 Atheros ath6kl driver is based on WEXT subsystem and therefore
 needs to select CONFIG_WIRELESS_EXT for compiling.

@@ -1,7 +1,7 @@
 From d76cc9e5bfa26e6f1da057610e6b864466f0840b Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Sun, 1 Nov 2009 11:14:53 +0800
-Subject: [PATCH 023/902] ENGR00117843 Missing i.MX headers for kernel headers_install
+Subject: [PATCH 023/998] ENGR00117843 Missing i.MX headers for kernel headers_install
 
 Add i.MX specific files into include/linux/Kbuild
 

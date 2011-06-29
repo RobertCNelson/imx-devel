@@ -1,7 +1,7 @@
 From 4f87c61f07ca4c692d9a5b1f1c538396857ad112 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 13 Jan 2011 13:23:30 +0800
-Subject: [PATCH 671/902] ENGR00137927-3 usb-host add vbus ON operation for OTG host driver
+Subject: [PATCH 671/998] ENGR00137927-3 usb-host add vbus ON operation for OTG host driver
 
 The old implementation did not cover the host only driver for
 OTG port situation.

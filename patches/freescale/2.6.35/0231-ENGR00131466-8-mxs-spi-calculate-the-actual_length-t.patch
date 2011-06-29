@@ -1,7 +1,7 @@
 From 0bef5378d18f3ce2d8028151d8fb683beee4ad00 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 14 Sep 2010 14:23:01 +0800
-Subject: [PATCH 231/902] ENGR00131466-8 mxs spi: calculate the actual_length transferred.
+Subject: [PATCH 231/998] ENGR00131466-8 mxs spi: calculate the actual_length transferred.
 
 If we do not do actual_length calculation, the upper layer of spi
 may fail when performing data sanity check such as m25p80 spi nor.

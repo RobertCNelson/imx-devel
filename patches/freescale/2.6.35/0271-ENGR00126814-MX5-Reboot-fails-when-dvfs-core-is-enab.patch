@@ -1,7 +1,7 @@
 From 7d9b9adb47975c4ea80227ea0585e2353e33ea47 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 15 Sep 2010 11:20:22 -0500
-Subject: [PATCH 271/902] ENGR00126814 MX5: Reboot fails when dvfs-core is enabled.
+Subject: [PATCH 271/998] ENGR00126814 MX5: Reboot fails when dvfs-core is enabled.
 
 Disable dvfs-core before the reboot process starts since its possible that the
 core voltage is at 0.85V when reboot command was issued. This will cause the

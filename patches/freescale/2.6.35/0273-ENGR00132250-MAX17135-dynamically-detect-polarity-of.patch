@@ -1,7 +1,7 @@
 From d5bb7414e385f2ac8ad5cf842633325a1aafb6ba Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 1 Oct 2010 17:00:19 -0500
-Subject: [PATCH 273/902] ENGR00132250 - MAX17135: dynamically detect polarity of PWRGOOD signal
+Subject: [PATCH 273/998] ENGR00132250 - MAX17135: dynamically detect polarity of PWRGOOD signal
 
 We have multiple extension boards with some using positive polarity (EPD boards)
 and others using negative polarity (E-book add-on boards). Thus, we need to

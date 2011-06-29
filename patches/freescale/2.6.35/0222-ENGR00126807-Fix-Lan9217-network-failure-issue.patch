@@ -1,7 +1,7 @@
 From cc04b22102d7920d84b0a66c596ef7daa0cd4984 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Tue, 31 Aug 2010 00:34:44 +0800
-Subject: [PATCH 222/902] ENGR00126807 Fix Lan9217 network failure issue
+Subject: [PATCH 222/998] ENGR00126807 Fix Lan9217 network failure issue
 
 Network failure due to CSPI common code change, so needs to change
 cpld_cspi mode, too.

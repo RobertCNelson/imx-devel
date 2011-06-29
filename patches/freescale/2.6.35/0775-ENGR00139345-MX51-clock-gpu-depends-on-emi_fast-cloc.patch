@@ -1,7 +1,7 @@
 From 4a55e280bf20f7d688cd4a85fb5cec023f48ff3a Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 16 Feb 2011 15:58:10 +0800
-Subject: [PATCH 775/902] ENGR00139345 MX51: clock: gpu depends on emi_fast clock
+Subject: [PATCH 775/998] ENGR00139345 MX51: clock: gpu depends on emi_fast clock
 
 MX51 will hang if gpu is running when emi_fast was disabled,
 add depends on clock tree to fix it.

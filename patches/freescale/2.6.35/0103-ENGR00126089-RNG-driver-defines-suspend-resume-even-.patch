@@ -1,7 +1,7 @@
 From c9888ae52f3ca01f28c04f527d5ed0317706bc2d Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Mon, 9 Aug 2010 15:05:24 -0500
-Subject: [PATCH 103/902] ENGR00126089 RNG driver defines suspend resume even when CONFIG_PM not set
+Subject: [PATCH 103/998] ENGR00126089 RNG driver defines suspend resume even when CONFIG_PM not set
 
 Define suspend resume functions only when CONFIG_PM is set
 

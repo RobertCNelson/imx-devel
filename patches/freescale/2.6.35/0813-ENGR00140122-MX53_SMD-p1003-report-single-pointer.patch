@@ -1,7 +1,7 @@
 From bf71e002fb1445f67fd57c8d40409714b8731152 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 3 Mar 2011 18:04:40 +0800
-Subject: [PATCH 813/902] ENGR00140122 MX53_SMD: p1003: report single pointer.
+Subject: [PATCH 813/998] ENGR00140122 MX53_SMD: p1003: report single pointer.
 
 Since Ubuntu needs report single pointer, I add BTN_TOUCH
 event in single pointer event report.

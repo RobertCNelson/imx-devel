@@ -1,7 +1,7 @@
 From 155aa684d64070ad2a3599547bb3eac3c23f598f Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 28 Mar 2011 13:26:16 +0800
-Subject: [PATCH 860/902] ENGR00141152-5 sii902x: make default display option
+Subject: [PATCH 860/998] ENGR00141152-5 sii902x: make default display option
 
 sii902x driver change.
 

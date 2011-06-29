@@ -1,7 +1,7 @@
 From 27b0d7864bfaa73b92e4aa2125a9c00a147db641 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 16 Feb 2011 15:08:56 -0600
-Subject: [PATCH 782/902] ENGR00139192 - EPDC fb: Refine merging and workaround missed collision
+Subject: [PATCH 782/998] ENGR00139192 - EPDC fb: Refine merging and workaround missed collision
 
 Added code to detect the potential for a "missed collision", where
 an update would cause a collision with an update sitting on the collision

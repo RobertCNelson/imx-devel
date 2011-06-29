@@ -1,7 +1,7 @@
 From 6e2aadfe7cd5b3e69f5d21c95bf022eed07ec165 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 3 Dec 2010 10:20:07 +0800
-Subject: [PATCH 505/902] ENGR00134277 MX50: turn off the ZQ calibration config
+Subject: [PATCH 505/998] ENGR00134277 MX50: turn off the ZQ calibration config
 
 The dynamic ZQ calibration procedure need some revision and further debug.
 Currently turn off this option for safety.

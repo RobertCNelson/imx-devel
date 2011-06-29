@@ -1,7 +1,7 @@
 From 0d8444e23e422135ce0caa8b95de1e07052706c7 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 24 Mar 2011 14:25:45 +0800
-Subject: [PATCH 851/902] ENGR00141092 usb: fix some tiny bugs for usb
+Subject: [PATCH 851/998] ENGR00141092 usb: fix some tiny bugs for usb
 
 For android system, the gadget driver is built in, when the usb
 device is on otg port, the udc suspended counter will be error at

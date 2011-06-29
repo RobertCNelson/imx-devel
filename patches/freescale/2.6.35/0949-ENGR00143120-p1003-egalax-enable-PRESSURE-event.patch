@@ -1,0 +1,74 @@
+From 53e03306742288842705ee0ddc93a0e0022cfaaa Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Mon, 9 May 2011 17:19:46 +0800
+Subject: [PATCH 949/998] ENGR00143120 p1003, egalax: enable PRESSURE event
+
+Enable PRESSURE event in P1003 and egalax touch screen
+driver. This event is required for tslib used in gnome
+mobile.
+
+To use egalax touch screen driver in gnome mobile, please
+follow the steps:
+1. Add "#define FORCE_SINGLE_POINTER_SUPPORT" in egalax_ts.c
+2. If you find the touch screen is not accurate, please run
+ts_calibrate to do calibration:
+export TSLIB_TSDEVICE=/dev/input/ts0
+ts_calibrate
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+---
+ drivers/input/touchscreen/egalax_ts.c    |    3 +++
+ drivers/input/touchscreen/p1003_v33-ts.c |    2 ++
+ 2 files changed, 5 insertions(+), 0 deletions(-)
+
+diff --git a/drivers/input/touchscreen/egalax_ts.c b/drivers/input/touchscreen/egalax_ts.c
+index 8464ccf..896458f 100644
+--- a/drivers/input/touchscreen/egalax_ts.c
++++ b/drivers/input/touchscreen/egalax_ts.c
+@@ -143,6 +143,7 @@ retry:
+ 		input_report_abs(input_dev, ABS_X, x);
+ 		input_report_abs(input_dev, ABS_Y, y);
+ 		input_event(data->input_dev, EV_KEY, BTN_TOUCH, 1);
++		input_report_abs(input_dev, ABS_PRESSURE, 1);
+ #else
+ 		for (i = 0; i < MAX_SUPPORT_POINTS; i++) {
+ 			if (!events[i].valid)
+@@ -167,6 +168,7 @@ retry:
+ 		events[id].status = 0;
+ #ifdef FORCE_SINGLE_POINTER_SUPPORT
+ 		input_report_key(input_dev, BTN_TOUCH, 0);
++		input_report_abs(input_dev, ABS_PRESSURE, 0);
+ #else
+ 		input_report_abs(input_dev, ABS_MT_TRACKING_ID, id);
+ 		input_event(input_dev, EV_ABS, ABS_MT_TOUCH_MAJOR, 0);
+@@ -231,6 +233,7 @@ static int __devinit egalax_ts_probe(struct i2c_client *client,
+ 	__set_bit(BTN_TOUCH, input_dev->keybit);
+ 	__set_bit(ABS_X, input_dev->absbit);
+ 	__set_bit(ABS_Y, input_dev->absbit);
++	__set_bit(ABS_PRESSURE, input_dev->absbit);
+ 	input_set_abs_params(input_dev, ABS_X, 0, 32767, 0, 0);
+ 	input_set_abs_params(input_dev, ABS_Y, 0, 32767, 0, 0);
+ 
+diff --git a/drivers/input/touchscreen/p1003_v33-ts.c b/drivers/input/touchscreen/p1003_v33-ts.c
+index 0f02732..39e9c65 100644
+--- a/drivers/input/touchscreen/p1003_v33-ts.c
++++ b/drivers/input/touchscreen/p1003_v33-ts.c
+@@ -150,6 +150,7 @@ static void p1003_work(struct work_struct *work)
+ 			input_event(input, EV_ABS, ABS_X, x1);
+ 			input_event(input, EV_ABS, ABS_Y, y1);
+ 			input_event(input, EV_KEY, BTN_TOUCH, 1);
++			input_report_abs(input, ABS_PRESSURE, 1);
+ 			input_sync(input);
+ 			old_state->x1 = x1;
+ 			old_state->y1 = y1;
+@@ -190,6 +191,7 @@ static void p1003_work(struct work_struct *work)
+ 	input_event(input, EV_ABS, ABS_MT_TOUCH_MAJOR, 0);
+ 	input_mt_sync(input);
+ 	input_event(input, EV_KEY, BTN_TOUCH, 0);
++	input_report_abs(input, ABS_PRESSURE, 0);
+ 	input_sync(input);
+ 	old_state->state = data[0];
+ }
+-- 
+1.7.4.1
+

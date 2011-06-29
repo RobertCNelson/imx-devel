@@ -1,7 +1,7 @@
 From 4d0e58e894a9a7d6d0e5c574fe0bb4736c7e9a6a Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 21 Oct 2010 10:03:43 -0500
-Subject: [PATCH 408/902] ENGR00132537-1 - EPDC fb/PxP: Support conversion from grayscale to monochrome
+Subject: [PATCH 408/998] ENGR00132537-1 - EPDC fb/PxP: Support conversion from grayscale to monochrome
 
 - User can specify a flag (EPDC_FLAG_FORCE_MONOCHROME) to have 8-bit grayscale
 converted to monochrome (black or white) via processing in the PxP

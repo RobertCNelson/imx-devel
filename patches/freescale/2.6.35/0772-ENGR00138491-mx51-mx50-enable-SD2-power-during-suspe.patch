@@ -1,7 +1,7 @@
 From 191f89cd412a4e89687728e5af80ef8cf3024d5c Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 25 Jan 2011 19:29:48 +0800
-Subject: [PATCH 772/902] ENGR00138491 mx51/mx50: enable SD2 power during suspend
+Subject: [PATCH 772/998] ENGR00138491 mx51/mx50: enable SD2 power during suspend
 
 Remove the regulator standby mask for sd2 to make sure its power
 is enabled during suspend.

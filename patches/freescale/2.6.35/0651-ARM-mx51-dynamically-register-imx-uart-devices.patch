@@ -1,7 +1,7 @@
 From a297d523e18f84b4f592536aa5c4a08d3b88361d Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
 Date: Wed, 11 Aug 2010 22:23:06 +0200
-Subject: [PATCH 651/902] ARM: mx51: dynamically register imx-uart devices
+Subject: [PATCH 651/998] ARM: mx51: dynamically register imx-uart devices
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

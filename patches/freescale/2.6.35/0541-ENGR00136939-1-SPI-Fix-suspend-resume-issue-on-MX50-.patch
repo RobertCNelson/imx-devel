@@ -1,7 +1,7 @@
 From 87379f9aea2713294daba1ad2a94692b84b0fcb8 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 15 Dec 2010 13:50:09 -0600
-Subject: [PATCH 541/902] ENGR00136939-1: SPI:Fix suspend/resume issue on MX50 RDP
+Subject: [PATCH 541/998] ENGR00136939-1: SPI:Fix suspend/resume issue on MX50 RDP
 
 Fixed the SPI driver suspend/resume code. The SPI driver was missing
 releasing the spin lock in certain conditions.In the resume code,

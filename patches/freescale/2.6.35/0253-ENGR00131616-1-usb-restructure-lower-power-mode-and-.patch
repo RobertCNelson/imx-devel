@@ -1,7 +1,7 @@
 From 37f1e49b3ea3803b2acfef0ee24346763c4c9cb8 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 27 Sep 2010 09:58:28 +0800
-Subject: [PATCH 253/902] ENGR00131616-1 usb: restructure lower power mode and wakeup function
+Subject: [PATCH 253/998] ENGR00131616-1 usb: restructure lower power mode and wakeup function
 
 MSL part (squashed with ENGR00131775)
 

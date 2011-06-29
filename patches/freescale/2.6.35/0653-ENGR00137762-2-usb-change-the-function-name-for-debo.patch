@@ -1,7 +1,7 @@
 From f3c300f8682d03ab07c568210fc13b3c3b0d9ee2 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Sat, 8 Jan 2011 17:17:32 +0800
-Subject: [PATCH 653/902] ENGR00137762-2 usb: change the function name for debounce vbus & id value
+Subject: [PATCH 653/998] ENGR00137762-2 usb: change the function name for debounce vbus & id value
 
 Driver part
 

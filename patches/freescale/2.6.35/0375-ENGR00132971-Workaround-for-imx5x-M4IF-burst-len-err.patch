@@ -1,7 +1,7 @@
 From 1e48145ed446105dea8b615cf4c4c77d60f4b988 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@shlinux2.ap.freescale.net>
 Date: Tue, 26 Oct 2010 16:52:17 +0800
-Subject: [PATCH 375/902] ENGR00132971 Workaround for imx5x M4IF burst len errata for armv7 neon
+Subject: [PATCH 375/998] ENGR00132971 Workaround for imx5x M4IF burst len errata for armv7 neon
 
 Workaround for imx5x M4IF burst len errata when armv7 neon enabled, use
 pgprot_writecombine instead of pgprot_noncached, to avoid burst len > 8.

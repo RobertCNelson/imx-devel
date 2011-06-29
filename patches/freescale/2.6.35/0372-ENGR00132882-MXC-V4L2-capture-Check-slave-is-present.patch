@@ -1,7 +1,7 @@
 From 29f466a69e5ec6ac3253936c9f3f25004f7aff19 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 25 Oct 2010 14:01:28 +0800
-Subject: [PATCH 372/902] ENGR00132882 MXC V4L2 capture:Check slave is present when open dev
+Subject: [PATCH 372/998] ENGR00132882 MXC V4L2 capture:Check slave is present when open dev
 
 This patch makes sure that slave device is present when opening
 related video device. It will avoid a kernel dump if slave device

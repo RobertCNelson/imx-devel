@@ -1,7 +1,7 @@
 From 2d939af982bbd25e056b5908097f071dbf0b8520 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Sat, 12 Feb 2011 11:16:11 +0800
-Subject: [PATCH 763/902] ENGR00138644-6 imx5_defconfig: change config name for hdmi
+Subject: [PATCH 763/998] ENGR00138644-6 imx5_defconfig: change config name for hdmi
 
 Change from CONFIG_FB_MXC_SII9022 to CONFIG_FB_MXC_SII902X.
 

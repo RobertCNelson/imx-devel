@@ -1,7 +1,7 @@
 From 9faad20f4fd686185ccd4e3ef348327349ef4574 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 17 Dec 2010 11:10:45 +0800
-Subject: [PATCH 549/902] ENGR00137101-3 NAND : add TOGGLE NAND device info to the table
+Subject: [PATCH 549/998] ENGR00137101-3 NAND : add TOGGLE NAND device info to the table
 
 Add the TOGGLE nand device infomation to the table.
 

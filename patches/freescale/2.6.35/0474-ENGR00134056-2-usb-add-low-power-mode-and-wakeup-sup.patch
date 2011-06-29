@@ -1,7 +1,7 @@
 From 6287e26624f2a05658ef261ec27e3210fc8cd835 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 25 Nov 2010 15:43:40 +0800
-Subject: [PATCH 474/902] ENGR00134056-2 usb: add low power mode and wakeup support for mx28 otg port
+Subject: [PATCH 474/998] ENGR00134056-2 usb: add low power mode and wakeup support for mx28 otg port
 
 Add low power mode and wakeup support for mx28 otg port,
 and the host1 and otg port are fully verified for low power mode and wakeup

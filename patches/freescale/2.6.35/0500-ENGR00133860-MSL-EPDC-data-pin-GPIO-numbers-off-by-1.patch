@@ -1,7 +1,7 @@
 From 957f7a60dc2847b9d0429b786c1e9fd7e1355569 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 18 Nov 2010 16:25:57 -0600
-Subject: [PATCH 500/902] ENGR00133860 - MSL: EPDC data pin GPIO numbers off by 1
+Subject: [PATCH 500/998] ENGR00133860 - MSL: EPDC data pin GPIO numbers off by 1
 
 The #defines for EPDC data lines were all off by 1. This
 is now fixed.

@@ -1,7 +1,7 @@
 From 0b2f25689644929e654f07182d54a9ae4a36e30a Mon Sep 17 00:00:00 2001
 From: Niu Xule <b23300@freescale.com>
 Date: Wed, 12 May 2010 15:47:41 +0800
-Subject: [PATCH 364/902] ENGR00123078 L2 Switch support
+Subject: [PATCH 364/998] ENGR00123078 L2 Switch support
 
 L2 Switch support for mx28
 

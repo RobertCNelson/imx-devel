@@ -1,7 +1,7 @@
 From eb9b07a20801466786f5089dabe5986964076dec Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 4 Jan 2011 15:21:51 +0800
-Subject: [PATCH 598/902] ENGR00137558-3 GPMI : add ->rom_extra_init() for imx23
+Subject: [PATCH 598/998] ENGR00137558-3 GPMI : add ->rom_extra_init() for imx23
 
 Add the imx23-specific code for imx23.
 The code is about how to find the bad block marker in imx23.

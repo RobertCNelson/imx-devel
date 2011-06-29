@@ -1,7 +1,7 @@
 From 6182d1a1c6745d16ced808e7e6612c5f58c9121e Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 22 Oct 2010 07:55:11 -0500
-Subject: [PATCH 361/902] ENGR00132875-2: MX50EVK:Add platform specific Suspend/Resume support
+Subject: [PATCH 361/998] ENGR00132875-2: MX50EVK:Add platform specific Suspend/Resume support
 
 EIM IOMUX settings that improve the power numbers break keypad. Move the EIM
 IOMUX settings to platform specific functions called during suspend/resume.

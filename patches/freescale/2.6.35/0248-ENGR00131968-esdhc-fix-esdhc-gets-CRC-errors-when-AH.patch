@@ -1,7 +1,7 @@
 From 89f0eb77382692c0774c0eae57e6b4f8862e756d Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Mon, 27 Sep 2010 13:31:08 +0800
-Subject: [PATCH 248/902] ENGR00131968 esdhc: fix esdhc gets CRC errors when AHB is 24Mhz
+Subject: [PATCH 248/998] ENGR00131968 esdhc: fix esdhc gets CRC errors when AHB is 24Mhz
 
 This issue is found on MX50 ARM2 board when AHB is 24Mhz and esdhc
 is 50Mhz (maybe just need > 24Mhz, however not tested).

@@ -1,7 +1,7 @@
 From 7dcab63f86f59e7c3257c7bc4eb562bebdb30085 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Tue, 14 Sep 2010 13:50:18 +0800
-Subject: [PATCH 193/902] ENGR00131417 ipuv3: change FG position setting code
+Subject: [PATCH 193/998] ENGR00131417 ipuv3: change FG position setting code
 
 There is one bug related with FG position setting.
 Detailed reproduce steps:

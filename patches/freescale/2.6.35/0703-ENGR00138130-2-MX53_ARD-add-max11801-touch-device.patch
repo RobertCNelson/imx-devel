@@ -1,7 +1,7 @@
 From 2c785547079f2ad5ee6afc028676ac2b60bb7ad2 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Tue, 18 Jan 2011 17:01:57 +0800
-Subject: [PATCH 703/902] ENGR00138130-2 MX53_ARD: add max11801 touch device.
+Subject: [PATCH 703/998] ENGR00138130-2 MX53_ARD: add max11801 touch device.
 
 Add max11801 touch screen driver for MX53_ARD.
 

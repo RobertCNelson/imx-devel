@@ -1,7 +1,7 @@
 From 5fce66b2483ebb9c8faa2bd031835887249a518e Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Wed, 8 Sep 2010 21:17:39 +0800
-Subject: [PATCH 174/902] ENGR00126873 mx50: fix esdhc clock setting issue
+Subject: [PATCH 174/998] ENGR00126873 mx50: fix esdhc clock setting issue
 
 There's a little issue in the original esdhc clock setting
 that we used the wrong predefined microes for clock setting.

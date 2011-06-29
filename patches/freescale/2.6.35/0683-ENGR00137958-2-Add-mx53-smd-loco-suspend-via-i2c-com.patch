@@ -1,7 +1,7 @@
 From b81596cbc3188522be727dd6dec2d3a9488df7bd Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Thu, 13 Jan 2011 21:50:55 +0800
-Subject: [PATCH 683/902] ENGR00137958-2 Add mx53 smd&loco suspend via i2c command
+Subject: [PATCH 683/998] ENGR00137958-2 Add mx53 smd&loco suspend via i2c command
 
 Add mx53 smd&loco suspend via i2c command
 Only a maximu 30ms delay before da9053 enter suspend, thus

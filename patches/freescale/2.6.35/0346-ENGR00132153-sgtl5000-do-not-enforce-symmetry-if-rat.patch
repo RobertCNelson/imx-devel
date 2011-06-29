@@ -1,7 +1,7 @@
 From e492e72693de1fbec348f3f46f0bb8241f70428d Mon Sep 17 00:00:00 2001
 From: Alan Tull <alan.tull@freescale.com>
 Date: Wed, 13 Oct 2010 17:52:58 -0500
-Subject: [PATCH 346/902] ENGR00132153 sgtl5000: do not enforce symmetry if rate is unknown
+Subject: [PATCH 346/998] ENGR00132153 sgtl5000: do not enforce symmetry if rate is unknown
 
 If a playback and a record stream are started together, the
 alsa userspace may not not do the necessary ioctl calls for

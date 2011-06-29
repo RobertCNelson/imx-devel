@@ -1,0 +1,91 @@
+From 55938c0328a62570d31ba989cb9eb124c617f12b Mon Sep 17 00:00:00 2001
+From: Peter Chen <peter.chen@freescale.com>
+Date: Wed, 27 Apr 2011 10:15:00 +0800
+Subject: [PATCH 904/998] ENGR00142631 usb: id is 0 for default mode for mx53 loco board
+
+Due to this limitation, the device driver needs to change correspondingly.
+
+Add one notice to notify the user that the otg function can't be used
+at mx53 loco board, and defconfig need to change for support only one
+usb function (host/device) at one image
+
+Signed-off-by: Peter Chen <peter.chen@freescale.com>
+---
+ drivers/usb/gadget/arcotg_udc.c |    9 +++++++--
+ drivers/usb/otg/fsl_otg.c       |   25 +++++++++++++++++++++++++
+ 2 files changed, 32 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/usb/gadget/arcotg_udc.c b/drivers/usb/gadget/arcotg_udc.c
+index 9f12c9f..2fe23e9 100644
+--- a/drivers/usb/gadget/arcotg_udc.c
++++ b/drivers/usb/gadget/arcotg_udc.c
+@@ -48,6 +48,7 @@
+ #include <asm/unaligned.h>
+ #include <asm/dma.h>
+ #include <asm/cacheflush.h>
++#include <asm/mach-types.h>
+ 
+ #include "arcotg_udc.h"
+ #include <mach/arc_otg.h>
+@@ -2162,9 +2163,13 @@ bool try_wake_up_udc(struct fsl_udc *udc)
+ 	if (irq_src & OTGSC_B_SESSION_VALID_IRQ_STS) {
+ 		u32 tmp;
+ 		fsl_writel(irq_src, &dr_regs->otgsc);
++		/* For mx53 loco board, the debug ID value is 0 and
++		 * DO NOT support OTG function
++		 */
++		if (!machine_is_mx53_loco())
+ 		/* only handle device interrupt event */
+-		if (!(fsl_readl(&dr_regs->otgsc) & OTGSC_STS_USB_ID))
+-			return false;
++			if (!(fsl_readl(&dr_regs->otgsc) & OTGSC_STS_USB_ID))
++				return false;
+ 
+ 		tmp = fsl_readl(&dr_regs->usbcmd);
+ 		/* check BSV bit to see if fall or rise */
+diff --git a/drivers/usb/otg/fsl_otg.c b/drivers/usb/otg/fsl_otg.c
+index 512e848..bd4023c 100644
+--- a/drivers/usb/otg/fsl_otg.c
++++ b/drivers/usb/otg/fsl_otg.c
+@@ -54,6 +54,7 @@
+ #include <asm/byteorder.h>
+ #include <asm/uaccess.h>
+ #include <asm/unaligned.h>
++#include <asm/mach-types.h>
+ #include "fsl_otg.h"
+ 
+ #define CONFIG_USB_OTG_DEBUG_FILES
+@@ -1294,6 +1295,30 @@ static int __init fsl_otg_probe(struct platform_device *pdev)
+ 
+ 	DBG("pdev=0x%p\n", pdev);
+ 
++	if (machine_is_mx53_loco())
++		pr_warning(
++		"\n"
++		"****************************** NOTICE *****************************\n"
++		"You have seen this notice as you have enabled OTG driver for mx53 LOCO board\n"
++		"For mx53 loco board, the OTG function is unavailable due to hardware limitation\n"
++		"So, Only one usb function (device or host) can be available for certain image\n"
++		"Please config your kernel to disable OTG and the usb function you don't want to use\n"
++		"And remain the other usb function you would like to use\n"
++		"\n"
++		"Below OTG configs should be removed:\n"
++		"CONFIG_MXC_OTG, CONFIG_USB_OTG\n"
++		"\n"
++		"Choose one of below configs for host or device function\n"
++		"But DO NOT choose them together\n"
++		"\n"
++		"OTG host config\n"
++		"CONFIG_USB_EHCI_ARC_OTG\n"
++		"\n"
++		"OTG device config\n"
++		"CONFIG_USB_GADGET\n"
++		"\n"
++		);
++
+ 	if (!pdev)
+ 		return -ENODEV;
+ 
+-- 
+1.7.4.1
+

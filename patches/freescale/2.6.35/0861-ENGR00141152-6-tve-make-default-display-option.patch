@@ -1,7 +1,7 @@
 From f68da25cffdeabdc12c848238a2c733226521da2 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 28 Mar 2011 13:26:48 +0800
-Subject: [PATCH 861/902] ENGR00141152-6 tve: make default display option
+Subject: [PATCH 861/998] ENGR00141152-6 tve: make default display option
 
 tve driver change.
 

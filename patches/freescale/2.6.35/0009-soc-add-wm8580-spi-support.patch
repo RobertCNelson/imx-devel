@@ -1,7 +1,7 @@
 From 9e4e14c7eed692134bd4c76e1333acfc36752927 Mon Sep 17 00:00:00 2001
 From: Wallace Wang <r59996@freescale.com>
 Date: Tue, 13 Oct 2009 15:15:31 -0500
-Subject: [PATCH 009/902] soc: add wm8580 spi support
+Subject: [PATCH 009/998] soc: add wm8580 spi support
 
 Add spi interface support to wm8580 codec.
 

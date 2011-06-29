@@ -1,7 +1,7 @@
 From e99165a454c88e633f3f53510a6c4d2aefbc6e47 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Tue, 22 Mar 2011 10:44:55 +0800
-Subject: [PATCH 842/902] ENGR00140933 MX51 IOMUX fix headphone detect pin iomux.
+Subject: [PATCH 842/998] ENGR00140933 MX51 IOMUX fix headphone detect pin iomux.
 
 After iomux upgrade, this pin's iomux change to a PULL up
 100K, but not PUE bit, this will cause the pin can't work.

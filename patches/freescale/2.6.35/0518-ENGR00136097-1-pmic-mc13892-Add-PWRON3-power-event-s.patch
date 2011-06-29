@@ -1,7 +1,7 @@
 From c54828551641ce33e88c934869f81097d2b3b306 Mon Sep 17 00:00:00 2001
 From: Xinyu Chen <xinyu.chen@freescale.com>
 Date: Wed, 8 Dec 2010 15:55:43 +0800
-Subject: [PATCH 518/902] ENGR00136097-1 pmic mc13892: Add PWRON3 power event support
+Subject: [PATCH 518/998] ENGR00136097-1 pmic mc13892: Add PWRON3 power event support
 
 Enable the PWRON3 event in mc13892.
 

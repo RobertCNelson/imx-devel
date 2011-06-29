@@ -1,7 +1,7 @@
 From 00a4ed1d0b3cded90ae5bbe724781be929faf456 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 28 Mar 2011 13:22:04 +0800
-Subject: [PATCH 856/902] ENGR00141152-1 header file: make default display option
+Subject: [PATCH 856/998] ENGR00141152-1 header file: make default display option
 
 After this patch, default display for below platforms:
 

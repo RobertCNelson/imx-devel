@@ -1,7 +1,7 @@
 From 4bebb4122d44fee4952e63a1fefe1f019a8931f1 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 18 Feb 2011 10:46:40 +0800
-Subject: [PATCH 780/902] ENGR00139422 mxc edid: fix build break for imx25
+Subject: [PATCH 780/998] ENGR00139422 mxc edid: fix build break for imx25
 
 fix build break for imx25
 

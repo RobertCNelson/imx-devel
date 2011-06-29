@@ -1,7 +1,7 @@
 From f7cac6a6000c0ee0b5f6531afc73bf5ab53b9943 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Sun, 19 Sep 2010 16:15:05 +0800
-Subject: [PATCH 208/902] ENGR00131711-2 MXC: Add mxc_audio_codec_platform_data structrue
+Subject: [PATCH 208/998] ENGR00131711-2 MXC: Add mxc_audio_codec_platform_data structrue
 
 The mxc_audio_codec_platform_data passes the board specific data
 to the codec, i.e., regulator, mclk and pwdn function.

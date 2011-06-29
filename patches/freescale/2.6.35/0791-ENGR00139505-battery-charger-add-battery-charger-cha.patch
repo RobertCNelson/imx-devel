@@ -1,7 +1,7 @@
 From 0607b1a80949f73fb5e470f2aa743c743465b71a Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Tue, 22 Feb 2011 15:17:05 +0800
-Subject: [PATCH 791/902] ENGR00139505 battery charger: add battery charger change event for max17085
+Subject: [PATCH 791/998] ENGR00139505 battery charger: add battery charger change event for max17085
 
 add battery charger change event.
 

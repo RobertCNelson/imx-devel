@@ -1,7 +1,7 @@
 From 142bbbe14e415ae6fcf3c073b566ae1ecc1ce405 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 5 Jan 2011 10:32:12 +0800
-Subject: [PATCH 603/902] ENGR00137600-4 GPMI : remove the structure physical_geometry{} for common files
+Subject: [PATCH 603/998] ENGR00137600-4 GPMI : remove the structure physical_geometry{} for common files
 
 Use the MTD/NAND structrues to replace the physical_geometry{}.
 Frankly speaking, the mtd_info{} and nand_chip{} is the real physical

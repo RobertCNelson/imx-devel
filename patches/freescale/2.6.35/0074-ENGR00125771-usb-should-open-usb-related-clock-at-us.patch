@@ -1,7 +1,7 @@
 From 80389fb1f8f0e0be533ece56db42e9caaebd9393 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 30 Jul 2010 19:29:52 +0800
-Subject: [PATCH 074/902] ENGR00125771 usb:should open usb related clock at usb wakeup enable mode
+Subject: [PATCH 074/998] ENGR00125771 usb:should open usb related clock at usb wakeup enable mode
 
 Fix the bug that not open usb related clock at usb wakeup enable mode
 

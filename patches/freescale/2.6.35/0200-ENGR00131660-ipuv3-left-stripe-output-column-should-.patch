@@ -1,7 +1,7 @@
 From 74b4a4b025ca6b224697ea5417ec9ed76ed43042 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Sun, 19 Sep 2010 17:15:12 +0800
-Subject: [PATCH 200/902] ENGR00131660 ipuv3: left stripe output column should be set to zero
+Subject: [PATCH 200/998] ENGR00131660 ipuv3: left stripe output column should be set to zero
 
 left stripe output column should be set to zero for equal size case.
 

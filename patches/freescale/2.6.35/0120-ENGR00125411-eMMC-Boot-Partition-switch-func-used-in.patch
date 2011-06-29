@@ -1,7 +1,7 @@
 From d568605892f64f3d47908404e2fd549611917477 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Fri, 23 Jul 2010 16:38:06 +0800
-Subject: [PATCH 120/902] ENGR00125411 eMMC: Boot Partition switch func used in MFG tool
+Subject: [PATCH 120/998] ENGR00125411 eMMC: Boot Partition switch func used in MFG tool
 
 User can get eMMC partitions info from user space layer in
 linux OS enviroment.

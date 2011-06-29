@@ -1,7 +1,7 @@
 From b80d46486d2d8024f720ea8e3f053ad11ba7b435 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Fri, 18 Feb 2011 10:49:44 -0600
-Subject: [PATCH 785/902] ENGR00139455 Add support for pad settings in groups
+Subject: [PATCH 785/998] ENGR00139455 Add support for pad settings in groups
 
 On MX50 and MX53, there are a group of registers that
 control a pad setting for a whole group of pins. This commit

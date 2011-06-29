@@ -1,7 +1,7 @@
-From 36c4b00496c27b90bb3b0b9d26ba0ce23e5c7a71 Mon Sep 17 00:00:00 2001
+From 490dd315e7119870fd33b0e56ff27990b7e026c6 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 31 Mar 2011 22:23:26 -0500
-Subject: [PATCH 878/902] ENGR00140737-1 - ARM: plat-mxc: Disable child clocks before parent clocks
+Subject: [PATCH 878/998] ENGR00140737-1 - ARM: plat-mxc: Disable child clocks before parent clocks
 
 - Reversed ordering in which clocks are disabled.  Child clocks should
 be disabled before parent (root) clocks.

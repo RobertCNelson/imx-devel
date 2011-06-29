@@ -1,7 +1,7 @@
 From 85cfa213c2557ebbd4bd469e63a898dd1f7e408e Mon Sep 17 00:00:00 2001
 From: Arnaud Patard (Rtp) <arnaud.patard@rtp-net.org>
 Date: Wed, 3 Nov 2010 15:54:36 +0100
-Subject: [PATCH 737/902] imx: fix iomux v3
+Subject: [PATCH 737/998] imx: fix iomux v3
 
 Commit "ARM: i.MX IOMUX-V3 replace struct pad_desc with bitmapped cookie"
 (b705cb4d42e95a4a43a8945571c8613e71526c3d) introduced a typo which was

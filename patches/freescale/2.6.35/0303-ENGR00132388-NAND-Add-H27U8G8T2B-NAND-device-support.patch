@@ -1,7 +1,7 @@
 From 91c0c680e27057159230ce7802cdf35749a8f93a Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Fri, 8 Oct 2010 16:49:21 +0800
-Subject: [PATCH 303/902] ENGR00132388 NAND: Add H27U8G8T2B NAND device support
+Subject: [PATCH 303/998] ENGR00132388 NAND: Add H27U8G8T2B NAND device support
 
 Add H27U8G8T2B NAND device support
 

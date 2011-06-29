@@ -1,7 +1,7 @@
 From 688cfcbb44be62581d80151899f9296fabe57d5c Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Fri, 19 Nov 2010 17:02:42 +0800
-Subject: [PATCH 477/902] ENGR00132603-2 mxc_iim: Add driver code for sense and fuse function in mxc_iim
+Subject: [PATCH 477/998] ENGR00132603-2 mxc_iim: Add driver code for sense and fuse function in mxc_iim
 
 This patch adds driver code for adding sense and fuse.
 

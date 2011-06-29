@@ -1,7 +1,7 @@
 From a56663f8604a5f0a39c510b0d58e4fea4e129cf2 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Wed, 20 Oct 2010 14:51:40 -0500
-Subject: [PATCH 353/902] ENGR00132874 Mx50: Donot change Vcc votlage in LPAPM mode
+Subject: [PATCH 353/998] ENGR00132874 Mx50: Donot change Vcc votlage in LPAPM mode
 
 Vcc voltage needs to be increased before increasing the frequency when exiting
 from LPAPM mode. Some drivers are initiating the frequency/voltage change

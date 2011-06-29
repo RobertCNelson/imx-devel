@@ -1,7 +1,7 @@
 From 575555df3f59ad8ac02c964d46812c475d01da6b Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 10 Dec 2010 21:00:51 +0800
-Subject: [PATCH 532/902] ENGR00136223 MX50 Fix epdc display issue via PAN_DISPLAY after resume
+Subject: [PATCH 532/998] ENGR00136223 MX50 Fix epdc display issue via PAN_DISPLAY after resume
 
 Problem
 ========

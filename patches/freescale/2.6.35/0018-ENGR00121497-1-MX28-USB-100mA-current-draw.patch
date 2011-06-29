@@ -1,7 +1,7 @@
 From dea12995240540761450c517c49939e74ae3e03d Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.li@freescale.com>
 Date: Wed, 10 Mar 2010 15:20:22 +0800
-Subject: [PATCH 018/902] ENGR00121497-1 MX28 USB 100mA current draw
+Subject: [PATCH 018/998] ENGR00121497-1 MX28 USB 100mA current draw
 
 Add USB 100mA limitation feature for mx28 to mach usb 2.0 current requirment
 

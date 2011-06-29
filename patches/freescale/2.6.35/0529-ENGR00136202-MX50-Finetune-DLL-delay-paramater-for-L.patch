@@ -1,7 +1,7 @@
 From 823038f9c610db62f55abc5a770f43332068fea0 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 10 Dec 2010 14:15:32 +0800
-Subject: [PATCH 529/902] ENGR00136202 MX50: Finetune DLL delay paramater for LPDDR2
+Subject: [PATCH 529/998] ENGR00136202 MX50: Finetune DLL delay paramater for LPDDR2
 
 Changed DLL delay from 0x14 to 0x0b
 Swapped pu and (pu+1), pd and (pd+1) assignment in CFG1 and CFG2.

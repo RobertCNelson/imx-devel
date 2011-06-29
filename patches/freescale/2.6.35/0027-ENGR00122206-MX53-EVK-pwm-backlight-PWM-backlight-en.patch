@@ -1,7 +1,7 @@
 From d2be2acc581686529fd94f285c3043e3854e5285 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Thu, 1 Apr 2010 13:19:07 +0800
-Subject: [PATCH 027/902] ENGR00122206 MX53-EVK pwm-backlight: PWM backlight enhancement
+Subject: [PATCH 027/998] ENGR00122206 MX53-EVK pwm-backlight: PWM backlight enhancement
 
 Don't trun off the pwm backlight when blanking the fore-ground.
 

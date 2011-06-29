@@ -1,0 +1,55 @@
+From c82491bd332b756c058098a786edb2c122c61794 Mon Sep 17 00:00:00 2001
+From: Zhou Jingyu <b02241@freescale.com>
+Date: Wed, 27 Apr 2011 12:57:12 +0800
+Subject: [PATCH 948/998] ENGR00142638 pmic mc13xxx: make event thread freezable
+
+make event thread freezable to avoid possible pmic access
+before driver resume is done.
+
+Signed-off-by: Zhou Jingyu <Jingyu.Zhou@freescale.com>
+---
+ drivers/mxc/pmic/core/pmic_common.c |   15 ++++++++++++---
+ 1 files changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/mxc/pmic/core/pmic_common.c b/drivers/mxc/pmic/core/pmic_common.c
+index 7e53121..fd07c4d 100644
+--- a/drivers/mxc/pmic/core/pmic_common.c
++++ b/drivers/mxc/pmic/core/pmic_common.c
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2009-2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ * Copyright 2009-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ /*
+@@ -30,6 +30,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/irq.h>
+ #include <linux/kthread.h>
++#include <linux/freezer.h>
+ #include <linux/pmic_external.h>
+ #include <linux/pmic_status.h>
+ 
+@@ -53,9 +54,17 @@ static int pmic_event_thread_func(void *v)
+ 	unsigned int count = 0;
+ 	unsigned int irq = (int)v;
+ 
++	set_freezable_with_signal();
+ 	while (1) {
+-		wait_for_completion_interruptible(
+-				&event_completion);
++		if (wait_for_completion_interruptible(
++				&event_completion)) {
++			/* possiblely wakeup by a freeze request*/
++			try_to_freeze();
++			/* check if irq arrives when resume*/
++			if (!try_wait_for_completion(
++				&event_completion))
++				continue;
++		}
+ 		if (kthread_should_stop())
+ 			break;
+ 
+-- 
+1.7.4.1
+

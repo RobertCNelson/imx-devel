@@ -1,7 +1,7 @@
 From 00f925823560aeb1b0724c1d57a281a4464de115 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 14 Sep 2010 23:20:18 -0500
-Subject: [PATCH 186/902] ENGR00131515  MX50 DCP driver enable with clock gating
+Subject: [PATCH 186/998] ENGR00131515  MX50 DCP driver enable with clock gating
 
 Added DCP device and clock gate support to MX50 MSL
 

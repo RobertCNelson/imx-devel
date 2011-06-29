@@ -1,7 +1,7 @@
 From f7c49049375d0c0030d2337934281af894442144 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Tue, 3 Aug 2010 19:36:09 +0800
-Subject: [PATCH 083/902] ENGR00125874 mx50 esdhc: fix the issue that SD2 can not detect card remove
+Subject: [PATCH 083/998] ENGR00125874 mx50 esdhc: fix the issue that SD2 can not detect card remove
 
 IOMUX v3 missed the pullup pad setting for SD2_CD which is required
 for SD2 card detect.

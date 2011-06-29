@@ -1,7 +1,7 @@
 From 783c3d1a3e78127e6d9f9499ce39c9d478dae5cc Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Tue, 3 Aug 2010 15:58:24 +0800
-Subject: [PATCH 082/902] ENGR00125856-2 MX51 eSDHC iomux updates when iomux V3 is used
+Subject: [PATCH 082/998] ENGR00125856-2 MX51 eSDHC iomux updates when iomux V3 is used
 
 The eSDHC iomux is not updated properly when iomux v3 is upgraded.
 

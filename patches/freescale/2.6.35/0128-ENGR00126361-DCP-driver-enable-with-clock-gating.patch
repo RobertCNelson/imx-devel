@@ -1,7 +1,7 @@
 From e3397609077d68b145fc2e6d62b6b40f7701ef55 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Mon, 16 Aug 2010 11:29:04 -0500
-Subject: [PATCH 128/902] ENGR00126361 DCP driver enable with clock gating
+Subject: [PATCH 128/998] ENGR00126361 DCP driver enable with clock gating
 
 Ported DCP driver.
 Added clock gating functionality when DCP is not in use

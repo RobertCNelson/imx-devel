@@ -1,7 +1,7 @@
 From 34c14824642c2cd311252294bfd874e62a6a1d2c Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 2 Sep 2010 14:41:11 +0800
-Subject: [PATCH 229/902] ENGR00131466-6 mx28: add spi support
+Subject: [PATCH 229/998] ENGR00131466-6 mx28: add spi support
 
 Add spi device, pad setting and set the correct clock to use.
 

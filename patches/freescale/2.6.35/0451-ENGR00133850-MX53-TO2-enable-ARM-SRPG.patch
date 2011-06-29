@@ -1,7 +1,7 @@
 From 293b046e23aa710eab05fbaff293c784920ce9bc Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 18 Nov 2010 19:03:55 +0800
-Subject: [PATCH 451/902] ENGR00133850 MX53 TO2: enable ARM SRPG
+Subject: [PATCH 451/998] ENGR00133850 MX53 TO2: enable ARM SRPG
 
 MX53 TO2.0 fix the errata ENGcm11185 (L2 data corruption after
 SRPG event). So this patch enables ARM SRPG for MX53 TO2.0

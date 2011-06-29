@@ -1,7 +1,7 @@
 From bdd8d6f7b43a2209242fd5e72fde271bc1b2e2b8 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 5 Aug 2010 11:15:13 -0500
-Subject: [PATCH 106/902] ENGR00126061 - EPDC fb: Linux logo should appear when console enabled
+Subject: [PATCH 106/998] ENGR00126061 - EPDC fb: Linux logo should appear when console enabled
 
 When FB console is enabled, the EPDC will perform a full-screen update
 after completing register_framebuffer().  This update will show

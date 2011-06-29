@@ -1,7 +1,7 @@
 From 30eea023a33152159c835d4d5c2d14213bca7210 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Wed, 8 Sep 2010 12:54:05 +0800
-Subject: [PATCH 047/902] ENGR00127270 ALSA: Fix 35kernel upgrade cause DMA request fail
+Subject: [PATCH 047/998] ENGR00127270 ALSA: Fix 35kernel upgrade cause DMA request fail
 
 Fix DMA request fail.
 Fix warning when request irq.

@@ -1,7 +1,7 @@
 From c01fcfed4d2c0e852161fba3c968fcfedea0d734 Mon Sep 17 00:00:00 2001
 From: Alan Tull <r80115@freescale.com>
 Date: Wed, 4 Nov 2009 20:25:42 -0600
-Subject: [PATCH 024/902] ENGR00118016-2 wm8350: update to 2.6.31
+Subject: [PATCH 024/998] ENGR00118016-2 wm8350: update to 2.6.31
 
 In WM8350_FLL_CONTROL_1, keep FLL_RATE at default.
 Don't mute outputs by default.

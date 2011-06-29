@@ -1,7 +1,7 @@
 From c6fbfc5857e1fc1b543d043ddb82187a744750f2 Mon Sep 17 00:00:00 2001
 From: Dennis Wenzel <b21659@freescale.com>
 Date: Thu, 20 Jan 2011 14:51:15 -0600
-Subject: [PATCH 717/902] ENGR00138065 linux: System hang when running tiger and then moving usb mouse
+Subject: [PATCH 717/998] ENGR00138065 linux: System hang when running tiger and then moving usb mouse
 
 Problem fixed so remove warning message not to run OpenVG apps with X accel.
 

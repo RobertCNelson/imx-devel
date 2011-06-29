@@ -1,7 +1,7 @@
 From 7d9f5b849841726b7e60e86284e1ac5e0b2cf9a8 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Mon, 24 Jan 2011 18:08:39 -0600
-Subject: [PATCH 723/902] ENGR00138333 MX5x In security drivers use IS_ERR to check for clk pointer error
+Subject: [PATCH 723/998] ENGR00138333 MX5x In security drivers use IS_ERR to check for clk pointer error
 
 Error check of clk pointer should use IS_ERR instead of
 ERR_PTR(ENOENT). Updated SCC2 and SAHARA drivers to use

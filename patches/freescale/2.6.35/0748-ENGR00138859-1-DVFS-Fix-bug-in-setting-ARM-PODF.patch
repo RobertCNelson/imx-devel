@@ -1,7 +1,7 @@
 From 83d24772a52ce96222f6da70fb7a2f903e83922b Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 7 Feb 2011 14:22:02 -0600
-Subject: [PATCH 748/902] ENGR00138859-1: DVFS: Fix bug in setting ARM-PODF
+Subject: [PATCH 748/998] ENGR00138859-1: DVFS: Fix bug in setting ARM-PODF
 
 Fix possible forever loop bug in DVFS-CORE when setting the ARM-PODF bits
 while changing CPU frequency.

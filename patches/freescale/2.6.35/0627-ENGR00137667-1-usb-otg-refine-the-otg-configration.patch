@@ -1,7 +1,7 @@
 From 723cdb38b346a48b6053aed280e32f454853ad42 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 6 Jan 2011 16:46:11 +0800
-Subject: [PATCH 627/902] ENGR00137667-1 usb-otg: refine the otg configration
+Subject: [PATCH 627/998] ENGR00137667-1 usb-otg: refine the otg configration
 
 CONFIG_USB_OTG & CONFIG_USB_OTG_UTILS is better to be only
 selected by CONFIG_MXC_OTG. In that case, the user only

@@ -1,7 +1,7 @@
 From 39abbad4b453f707b2c3d07233876efe018943c4 Mon Sep 17 00:00:00 2001
 From: Zhou, Jie <b30303@freescale.com>
 Date: Thu, 3 Mar 2011 01:02:40 +0800
-Subject: [PATCH 809/902] ENGR00140050 GPU: workaround hang with heavy bus loading
+Subject: [PATCH 809/998] ENGR00140050 GPU: workaround hang with heavy bus loading
 
 The GPU hang when run two cubes together with one video playback.
 According to the suggestion from AMD, we'd better not read register

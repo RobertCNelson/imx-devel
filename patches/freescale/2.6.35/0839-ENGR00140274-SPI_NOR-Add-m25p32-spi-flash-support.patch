@@ -1,7 +1,7 @@
 From aedf3fdbc078531248cbc4e93a1359bec5d5e613 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Sun, 20 Mar 2011 14:34:08 +0800
-Subject: [PATCH 839/902] ENGR00140274: SPI_NOR: Add m25p32 spi flash support
+Subject: [PATCH 839/998] ENGR00140274: SPI_NOR: Add m25p32 spi flash support
 
 SPI_NOR: Add m25p32 spi flash support.
 

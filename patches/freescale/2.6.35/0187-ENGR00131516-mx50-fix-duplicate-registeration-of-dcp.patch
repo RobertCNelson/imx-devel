@@ -1,7 +1,7 @@
 From 649a88c3cc18f7fd3ec95cc7f264e78720fcb551 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 14 Sep 2010 23:37:39 -0500
-Subject: [PATCH 187/902] ENGR00131516  mx50: fix duplicate registeration of dcp_device
+Subject: [PATCH 187/998] ENGR00131516  mx50: fix duplicate registeration of dcp_device
 
 dcp_device was registered twice. should only be registered
 once.

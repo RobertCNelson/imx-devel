@@ -1,7 +1,7 @@
 From 1fcf0b4b0c6e9576b0d23bfb1609b394dd9ae0d0 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 7 Feb 2011 14:24:36 -0600
-Subject: [PATCH 749/902] ENGR00138859-2: MX53-Incorrect CPU frequency when exiting LPAPM mode
+Subject: [PATCH 749/998] ENGR00138859-2: MX53-Incorrect CPU frequency when exiting LPAPM mode
 
 CPU frequency was incorrect when exiting from LPAPM mode. The ARM-PODF
 divider was not getting set correctly when switching the source of

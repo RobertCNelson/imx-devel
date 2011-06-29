@@ -1,0 +1,410 @@
+From 4c4417fe1895bd5427abe64c78d8379be6a38eec Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Wed, 13 Apr 2011 14:28:46 +0800
+Subject: [PATCH 906/998] ENGR00141486-2 i.mx drivers: remove building warning message
+
+remove building warning message in i.mx drivers
+
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+---
+ drivers/dma/pxp/pxp_dma.c                   |    1 -
+ drivers/hwmon/max17135-hwmon.c              |    5 +--
+ drivers/input/touchscreen/max11801_ts.c     |    2 +-
+ drivers/mfd/max17135-core.c                 |    4 +-
+ drivers/mxc/amd-gpu/common/gsl_ringbuffer.c |    2 -
+ drivers/mxc/mlb/mxc_mlb.c                   |    4 +-
+ drivers/net/fec.c                           |    3 +-
+ drivers/regulator/max17135-regulator.c      |    6 +-
+ drivers/usb/gadget/arcotg_udc.c             |   32 --------------
+ drivers/usb/host/ehci-hub.c                 |   63 ---------------------------
+ drivers/usb/otg/fsl_otg.c                   |   22 ---------
+ sound/soc/codecs/cs42888.c                  |   12 ++---
+ sound/soc/imx/imx-3stack-sgtl5000.c         |    8 ++-
+ 13 files changed, 19 insertions(+), 145 deletions(-)
+
+diff --git a/drivers/dma/pxp/pxp_dma.c b/drivers/dma/pxp/pxp_dma.c
+index eabf007..1e3df12 100644
+--- a/drivers/dma/pxp/pxp_dma.c
++++ b/drivers/dma/pxp/pxp_dma.c
+@@ -988,7 +988,6 @@ static void pxpdma_desc_put(struct pxp_channel *pxp_chan,
+ 	if (desc) {
+ 		struct device *dev = &pxp_chan->dma_chan.dev->device;
+ 		struct pxp_tx_desc *child;
+-		unsigned long flags;
+ 
+ 		list_for_each_entry(child, &desc->tx_list, list)
+ 		    dev_info(dev, "moving child desc %p to freelist\n", child);
+diff --git a/drivers/hwmon/max17135-hwmon.c b/drivers/hwmon/max17135-hwmon.c
+index 8aa9aad..528a76c 100644
+--- a/drivers/hwmon/max17135-hwmon.c
++++ b/drivers/hwmon/max17135-hwmon.c
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright (C) 2010 Freescale Semiconductor, Inc.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc.
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+@@ -92,9 +92,6 @@ static ssize_t show_temp_input2(struct device *dev,
+ 	return snprintf(buf, PAGE_SIZE, "%d\n", temp_from_reg(reg_val));
+ }
+ 
+-show_temp(temp_input1);
+-show_temp(temp_input2);
+-
+ static DEVICE_ATTR(temp1_input, S_IRUGO, show_temp_input1, NULL);
+ static DEVICE_ATTR(temp2_input, S_IRUGO, show_temp_input2, NULL);
+ 
+diff --git a/drivers/input/touchscreen/max11801_ts.c b/drivers/input/touchscreen/max11801_ts.c
+index 7fd983c..0211439 100644
+--- a/drivers/input/touchscreen/max11801_ts.c
++++ b/drivers/input/touchscreen/max11801_ts.c
+@@ -142,7 +142,7 @@ static void maxi_ts_work(struct work_struct *work)
+ 	struct max11801_data *data = container_of(to_delayed_work(work),
+ 						  struct max11801_data, work);
+ 	struct i2c_client *client = data->client;
+-	unsigned int x, y;
++	unsigned int x = 0, y;
+ 	int status, i, ret;
+ 	u8 buf[XY_BUFSIZE];
+ 
+diff --git a/drivers/mfd/max17135-core.c b/drivers/mfd/max17135-core.c
+index 0be007f..7629cc5 100644
+--- a/drivers/mfd/max17135-core.c
++++ b/drivers/mfd/max17135-core.c
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright (C) 2010 Freescale Semiconductor, Inc.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc.
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+@@ -212,7 +212,7 @@ static struct i2c_driver max17135_driver = {
+ 	.resume = max17135_resume,
+ 	.id_table = max17135_id,
+ 	.detect = max17135_detect,
+-	.address_list = &normal_i2c,
++	.address_list = &normal_i2c[0],
+ };
+ 
+ static int __init max17135_init(void)
+diff --git a/drivers/mxc/amd-gpu/common/gsl_ringbuffer.c b/drivers/mxc/amd-gpu/common/gsl_ringbuffer.c
+index fb05ff3..112fd08 100644
+--- a/drivers/mxc/amd-gpu/common/gsl_ringbuffer.c
++++ b/drivers/mxc/amd-gpu/common/gsl_ringbuffer.c
+@@ -342,8 +342,6 @@ kgsl_ringbuffer_checkpm4(unsigned int* cmds, unsigned int sizedwords, int pmodeo
+ static void
+ kgsl_ringbuffer_submit(gsl_ringbuffer_t *rb)
+ {
+-    unsigned int value;
+-
+     kgsl_log_write( KGSL_LOG_GROUP_COMMAND | KGSL_LOG_LEVEL_TRACE,
+                     "--> static void kgsl_ringbuffer_submit(gsl_ringbuffer_t *rb=0x%08x)\n", rb );
+ 
+diff --git a/drivers/mxc/mlb/mxc_mlb.c b/drivers/mxc/mlb/mxc_mlb.c
+index 48c160a..f7d5eb3 100644
+--- a/drivers/mxc/mlb/mxc_mlb.c
++++ b/drivers/mxc/mlb/mxc_mlb.c
+@@ -1,7 +1,7 @@
+ /*
+  * linux/drivers/mxc/mlb/mxc_mlb.c
+  *
+- * Copyright (C) 2008-2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ * Copyright (C) 2008-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ /*
+@@ -918,7 +918,7 @@ static int __devinit mxc_mlb_probe(struct platform_device *pdev)
+ 
+ 	for (i = 0; i < MLB_MINOR_DEVICES; i++) {
+ 		/* set the virtual and physical buf head address */
+-		_get_txchan(i).buf_head = bufaddr;
++		_get_txchan(i).buf_head = (unsigned long)bufaddr;
+ 		_get_txchan(i).phy_head = phyaddr;
+ 
+ 		bufaddr += TX_CHANNEL_BUF_SIZE;
+diff --git a/drivers/net/fec.c b/drivers/net/fec.c
+index d0e2e69..b85f196 100644
+--- a/drivers/net/fec.c
++++ b/drivers/net/fec.c
+@@ -19,7 +19,7 @@
+  * Copyright (c) 2004-2006 Macq Electronique SA.
+  *
+  * Support for FEC IEEE 1588.
+- * Copyright (C) 2010 Freescale Semiconductor, Inc.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc.
+  */
+ 
+ #include <linux/module.h>
+@@ -407,7 +407,6 @@ fec_enet_tx(struct net_device *dev)
+ 	struct  fec_ptp_private *fpp;
+ 	struct bufdesc *bdp;
+ 	unsigned short status;
+-	unsigned long estatus;
+ 	struct	sk_buff	*skb;
+ 
+ 	fep = netdev_priv(dev);
+diff --git a/drivers/regulator/max17135-regulator.c b/drivers/regulator/max17135-regulator.c
+index 2d4cbcc..9f030b4 100644
+--- a/drivers/regulator/max17135-regulator.c
++++ b/drivers/regulator/max17135-regulator.c
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright (C) 2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  *
+  * This program is free software; you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+@@ -82,7 +82,7 @@ struct max17135_vcom_programming_data {
+ 	int vcom_step_uV;
+ };
+ 
+-static int max17135_pass_num = { 1 };
++static long unsigned int max17135_pass_num = { 1 };
+ static int max17135_vcom = { -1250000 };
+ 
+ struct max17135_vcom_programming_data vcom_data[2] = {
+@@ -623,7 +623,7 @@ static int __init max17135_setup(char *options)
+ 			int offs = 5;
+ 			if (opt[5] == '-')
+ 				offs = 6;
+-			ret = strict_strtoul(opt + offs, 0, &max17135_vcom);
++			ret = strict_strtoul(opt + offs, 0, (long *)&max17135_vcom);
+ 			if (ret < 0)
+ 				return ret;
+ 			max17135_vcom = -max17135_vcom;
+diff --git a/drivers/usb/gadget/arcotg_udc.c b/drivers/usb/gadget/arcotg_udc.c
+index 2fe23e9..66b7311 100644
+--- a/drivers/usb/gadget/arcotg_udc.c
++++ b/drivers/usb/gadget/arcotg_udc.c
+@@ -337,38 +337,6 @@ static void dr_phy_low_power_mode(struct fsl_udc *udc, bool enable)
+ 	pdata->lowpower = enable;
+ }
+ 
+-
+-/* workaroud for some boards, maybe there is a large capacitor between the ground and the Vbus
+- * that will cause the vbus dropping very slowly when device is detached,
+- * may cost 2-3 seconds to below 0.8V */
+-static void udc_wait_b_session_low(void)
+-{
+-	u32 temp;
+-	u32 wait = 5000/jiffies_to_msecs(1); /* max wait time is 5000 ms */
+-	/* if we are in host mode, don't need to care the B session */
+-	if ((fsl_readl(&dr_regs->otgsc) & OTGSC_STS_USB_ID) == 0)
+-		return;
+-	/* if the udc is dettached , there will be a suspend irq */
+-	if (udc_controller->usb_state != USB_STATE_SUSPENDED)
+-		return;
+-	temp = fsl_readl(&dr_regs->otgsc);
+-	temp &= ~OTGSC_B_SESSION_VALID_IRQ_EN;
+-	fsl_writel(temp, &dr_regs->otgsc);
+-
+-	do {
+-		if (!(fsl_readl(&dr_regs->otgsc) & OTGSC_B_SESSION_VALID))
+-			break;
+-		msleep(jiffies_to_msecs(1));
+-		wait -= 1;
+-	} while (wait);
+-	if (!wait)
+-		printk(KERN_ERR "ERROR!!!!!: the vbus can not be lower \
+-				then 0.8V for 5 seconds, Pls Check your HW design\n");
+-	temp = fsl_readl(&dr_regs->otgsc);
+-	temp |= OTGSC_B_SESSION_VALID_IRQ_EN;
+-	fsl_writel(temp, &dr_regs->otgsc);
+-}
+-
+ static int dr_controller_setup(struct fsl_udc *udc)
+ {
+ 	unsigned int tmp = 0, portctrl = 0;
+diff --git a/drivers/usb/host/ehci-hub.c b/drivers/usb/host/ehci-hub.c
+index e7d3d8d..0323ceb 100644
+--- a/drivers/usb/host/ehci-hub.c
++++ b/drivers/usb/host/ehci-hub.c
+@@ -106,69 +106,6 @@ static void ehci_handover_companion_ports(struct ehci_hcd *ehci)
+ 	ehci->owned_ports = 0;
+ }
+ 
+-static void ehci_adjust_port_wakeup_flags(struct ehci_hcd *ehci,
+-		bool suspending)
+-{
+-	int		port;
+-	u32		temp;
+-
+-	/* If remote wakeup is enabled for the root hub but disabled
+-	 * for the controller, we must adjust all the port wakeup flags
+-	 * when the controller is suspended or resumed.  In all other
+-	 * cases they don't need to be changed.
+-	 */
+-	if (!ehci_to_hcd(ehci)->self.root_hub->do_remote_wakeup ||
+-			device_may_wakeup(ehci_to_hcd(ehci)->self.controller))
+-		return;
+-
+-	/* clear phy low-power mode before changing wakeup flags */
+-	if (ehci->has_hostpc) {
+-		port = HCS_N_PORTS(ehci->hcs_params);
+-		while (port--) {
+-			u32 __iomem	*hostpc_reg;
+-
+-			hostpc_reg = (u32 __iomem *)((u8 *) ehci->regs
+-					+ HOSTPC0 + 4 * port);
+-			temp = ehci_readl(ehci, hostpc_reg);
+-			ehci_writel(ehci, temp & ~HOSTPC_PHCD, hostpc_reg);
+-		}
+-		msleep(5);
+-	}
+-
+-	port = HCS_N_PORTS(ehci->hcs_params);
+-	while (port--) {
+-		u32 __iomem	*reg = &ehci->regs->port_status[port];
+-		u32		t1 = ehci_readl(ehci, reg) & ~PORT_RWC_BITS;
+-		u32		t2 = t1 & ~PORT_WAKE_BITS;
+-
+-		/* If we are suspending the controller, clear the flags.
+-		 * If we are resuming the controller, set the wakeup flags.
+-		 */
+-		if (!suspending) {
+-			if (t1 & PORT_CONNECT)
+-				t2 |= PORT_WKOC_E | PORT_WKDISC_E;
+-			else
+-				t2 |= PORT_WKOC_E | PORT_WKCONN_E;
+-		}
+-		ehci_vdbg(ehci, "port %d, %08x -> %08x\n",
+-				port + 1, t1, t2);
+-		ehci_writel(ehci, t2, reg);
+-	}
+-
+-	/* enter phy low-power mode again */
+-	if (ehci->has_hostpc) {
+-		port = HCS_N_PORTS(ehci->hcs_params);
+-		while (port--) {
+-			u32 __iomem	*hostpc_reg;
+-
+-			hostpc_reg = (u32 __iomem *)((u8 *) ehci->regs
+-					+ HOSTPC0 + 4 * port);
+-			temp = ehci_readl(ehci, hostpc_reg);
+-			ehci_writel(ehci, temp | HOSTPC_PHCD, hostpc_reg);
+-		}
+-	}
+-}
+-
+ static int ehci_bus_suspend (struct usb_hcd *hcd)
+ {
+ 	struct ehci_hcd		*ehci = hcd_to_ehci (hcd);
+diff --git a/drivers/usb/otg/fsl_otg.c b/drivers/usb/otg/fsl_otg.c
+index bd4023c..a13ebb4 100644
+--- a/drivers/usb/otg/fsl_otg.c
++++ b/drivers/usb/otg/fsl_otg.c
+@@ -99,7 +99,6 @@ static struct fsl_otg_config fsl_otg_initdata = {
+  */
+ static unsigned long last_busy;
+ static bool clk_stopped;
+-static struct timer_list monitor_timer;
+ static struct workqueue_struct *otg_queue;
+ 
+ static void schedule_otg_work(struct delayed_work *dwork, unsigned long delay)
+@@ -429,27 +428,6 @@ static void fsl_otg_clk_gate(bool on)
+ 	}
+ }
+ 
+-static void fsl_otg_clk_ctl(void)
+-{
+-	if (clk_stopped) {
+-		fsl_otg_clk_gate(true);
+-		clk_stopped = false;
+-	}
+-	last_busy = jiffies;
+-}
+-
+-static void fsl_otg_loading_monitor(unsigned long data)
+-{
+-	unsigned long now = jiffies;
+-	if (!clk_stopped) {
+-		if (time_after(now, last_busy + msecs_to_jiffies(IDLE_TIME))) {
+-			clk_stopped = true;
+-			fsl_otg_clk_gate(false);
+-		}
+-	}
+-	mod_timer(&monitor_timer, jiffies + msecs_to_jiffies(TIMER_FREQ));
+-}
+-
+ /**
+  * Enable vbus interrupt
+  * The otg cares USB_ID interrupt
+diff --git a/sound/soc/codecs/cs42888.c b/sound/soc/codecs/cs42888.c
+index 93f6dba..19f1d64 100644
+--- a/sound/soc/codecs/cs42888.c
++++ b/sound/soc/codecs/cs42888.c
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright (C) 2010 Freescale  Semiconductor, Inc. All Rights Reserved.
++ * Copyright (C) 2010-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ /*
+@@ -218,7 +218,7 @@ static int cs42888_fill_cache(struct snd_soc_codec *codec)
+  * After the initial read to pre-fill the cache, the CS42888 never updates
+  * the register values, so we won't have a cache coherency problem.
+  */
+-static u8 cs42888_read_reg_cache(struct snd_soc_codec *codec,
++static unsigned int  cs42888_read_reg_cache(struct snd_soc_codec *codec,
+ 	unsigned int reg)
+ {
+ 	u8 *cache = codec->reg_cache;
+@@ -243,7 +243,7 @@ static u8 cs42888_read_reg_cache(struct snd_soc_codec *codec,
+  * i2c_smbus_write_byte_data(), and it's just another layer of overhead.
+  */
+ static int cs42888_i2c_write(struct snd_soc_codec *codec, unsigned int reg,
+-			    u8 value)
++			    unsigned int value)
+ {
+ 	u8 *cache = codec->reg_cache;
+ 
+@@ -286,10 +286,6 @@ static void dump_reg(struct snd_soc_codec *codec)
+ 
+ 	printk(KERN_DEBUG "dump end\n");
+ }
+-#else
+-static void dump_reg(struct snd_soc_codec *codec)
+-{
+-}
+ #endif
+ 
+ /* -127.5dB to 0dB with step of 0.5dB */
+@@ -720,7 +716,7 @@ static int cs42888_hw_params(struct snd_pcm_substream *substream,
+ 	unsigned int i;
+ 	unsigned int rate;
+ 	unsigned int ratio;
+-	u8 val;
++	unsigned int val;
+ 
+ 	rate = params_rate(params);	/* Sampling rate, in Hz */
+ 	ratio = cs42888->mclk / rate;	/* MCLK/LRCK ratio */
+diff --git a/sound/soc/imx/imx-3stack-sgtl5000.c b/sound/soc/imx/imx-3stack-sgtl5000.c
+index 3f13a25..d820d80 100644
+--- a/sound/soc/imx/imx-3stack-sgtl5000.c
++++ b/sound/soc/imx/imx-3stack-sgtl5000.c
+@@ -309,8 +309,10 @@ static void headphone_detect_handler(struct work_struct *work)
+ 
+ 	/* setup a message for userspace headphone in */
+ 	buf = kmalloc(32, GFP_ATOMIC);
+-	if (!buf)
+-		return -ENOMEM;
++	if (!buf) {
++		pr_err("%s kmalloc failed\n", __func__);
++		return;
++	}
+ 	envp[0] = "NAME=headphone";
+ 	snprintf(buf, 32, "STATE=%d", hp_status);
+ 	envp[1] = buf;
+@@ -587,7 +589,7 @@ static int __devinit imx_3stack_sgtl5000_probe(struct platform_device *pdev)
+ {
+ 	struct mxc_audio_platform_data *plat = pdev->dev.platform_data;
+ 	struct imx_3stack_priv *priv = &card_priv;
+-	struct snd_soc_dai *sgtl5000_cpu_dai;
++	struct snd_soc_dai *sgtl5000_cpu_dai = 0;
+ 	struct sgtl5000_setup_data *setup;
+ 
+ 	int ret = 0;
+-- 
+1.7.4.1
+

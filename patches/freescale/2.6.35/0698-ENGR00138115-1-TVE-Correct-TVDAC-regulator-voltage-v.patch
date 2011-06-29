@@ -1,7 +1,7 @@
 From 4d503f423a6d876c2003fcfe858485ace43ffc35 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 18 Jan 2011 10:45:34 +0800
-Subject: [PATCH 698/902] ENGR00138115-1 TVE:Correct TVDAC regulator voltage value
+Subject: [PATCH 698/998] ENGR00138115-1 TVE:Correct TVDAC regulator voltage value
 
 This patch correct TVDAC regulator voltage value to
 be 2.75V.

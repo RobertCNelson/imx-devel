@@ -1,7 +1,7 @@
 From 88ff7c86cb6a73ec22936b07b830f7e6c5aaf585 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 11:02:05 +0800
-Subject: [PATCH 394/902] ENGR00133178-3 NAND : add ID infomation for ONFI nand
+Subject: [PATCH 394/998] ENGR00133178-3 NAND : add ID infomation for ONFI nand
 
 add the necessary id infomation for the MICRON ONFI nand.
 

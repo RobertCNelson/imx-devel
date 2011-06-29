@@ -1,7 +1,7 @@
 From 6ab7c65efd6435c46256551a56b52afc55f1f88a Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Sun, 19 Sep 2010 16:18:31 +0800
-Subject: [PATCH 211/902] ENGR00131711-5 MX53: Define cs42888 codec data
+Subject: [PATCH 211/998] ENGR00131711-5 MX53: Define cs42888 codec data
 
 Pass the codec data to the CS42888, via platform data structrue.
 

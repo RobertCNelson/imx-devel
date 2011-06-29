@@ -1,7 +1,7 @@
 From 6734a0004d461dee7e545986f9a98b0f4d259623 Mon Sep 17 00:00:00 2001
 From: Robby Cai <r63905@freescale.com>
 Date: Fri, 7 Aug 2009 15:28:14 +0800
-Subject: [PATCH 006/902] ENGR00114911 make video buffer cacheable to improve video performance
+Subject: [PATCH 006/998] ENGR00114911 make video buffer cacheable to improve video performance
 
 use pgprot_writethru instead
 

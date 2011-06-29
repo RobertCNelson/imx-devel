@@ -1,7 +1,7 @@
 From 205d226b4f3ee574e30b6b0f1a3652a39d71d8d0 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Sat, 8 Jan 2011 17:13:19 +0800
-Subject: [PATCH 652/902] ENGR00137762-1 usb: debounce vbus and id value for all usb mode
+Subject: [PATCH 652/998] ENGR00137762-1 usb: debounce vbus and id value for all usb mode
 
 The old code only debounce vbus and id value for OTG mode,
 these value should be debounce for all usb mode,

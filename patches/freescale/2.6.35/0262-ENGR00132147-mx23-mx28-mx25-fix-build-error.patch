@@ -1,7 +1,7 @@
 From 9c860370e03ec5a59d9b5cd92fafc9b79a975eb9 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 30 Sep 2010 09:11:42 +0800
-Subject: [PATCH 262/902] ENGR00132147 mx23/mx28/mx25: fix build error
+Subject: [PATCH 262/998] ENGR00132147 mx23/mx28/mx25: fix build error
 
 1. fix build error for mx23/mx28/mx25
 2. Build-in usb gadget/host driver, as some usb-core functions

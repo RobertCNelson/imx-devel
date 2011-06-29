@@ -1,7 +1,7 @@
 From 9defbaad284a00a384b04c72ed6a8e00fb647b98 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Wed, 18 Aug 2010 09:28:29 -0500
-Subject: [PATCH 134/902] ENGR00126325 - EPDC fb: Support GPU by aligning framebuffer on 4K boundary
+Subject: [PATCH 134/998] ENGR00126325 - EPDC fb: Support GPU by aligning framebuffer on 4K boundary
 
 In order to enable full use of GPU, framebuffer surfaces must adhere
 to GPU alignment restrictions.  Width must be 32-byte aligned and

@@ -1,7 +1,7 @@
 From 54f4d945f6a0c54c63db0e383836ebaa82d5211f Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 18 Feb 2011 13:45:52 -0600
-Subject: [PATCH 788/902] ENGR00139460: MX50 - Suspend/Resume fails on ARM2 board.
+Subject: [PATCH 788/998] ENGR00139460: MX50 - Suspend/Resume fails on ARM2 board.
 
 Fix suspend/resume on ARM2 boards.
 Also add code to set various IOMUXes as GPIO to reduce power in STOP mode.

@@ -1,7 +1,7 @@
 From 04a5343a8d7cd5c6b81f3dfd0522ea1f68b2d988 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 21 Sep 2010 14:16:32 +0800
-Subject: [PATCH 213/902] ENGR00131789-2 MXC FB:Support Seiko WVGA LCD panel driver
+Subject: [PATCH 213/998] ENGR00131789-2 MXC FB:Support Seiko WVGA LCD panel driver
 
 1) Add Seiko WVGA LCD panel driver Support.
 2) Add fsl-devices.h headfile to ELCDIF FB driver and

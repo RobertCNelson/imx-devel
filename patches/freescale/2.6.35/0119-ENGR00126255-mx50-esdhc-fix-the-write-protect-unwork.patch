@@ -1,7 +1,7 @@
 From 81a269c5f6ae50d169f0e1e5a9e2395181211163 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 12 Aug 2010 20:03:53 +0800
-Subject: [PATCH 119/902] ENGR00126255 mx50 esdhc: fix the write protect unwork issue
+Subject: [PATCH 119/998] ENGR00126255 mx50 esdhc: fix the write protect unwork issue
 
 Change the pad setting of SD1_WP and SD2_WP for supporting
 write protect function.

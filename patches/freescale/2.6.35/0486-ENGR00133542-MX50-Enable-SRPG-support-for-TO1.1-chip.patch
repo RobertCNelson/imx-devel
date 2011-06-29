@@ -1,7 +1,7 @@
 From e2d47a74eb8615009463147d7f9a2037e9cbaa85 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 1 Dec 2010 13:25:00 +0800
-Subject: [PATCH 486/902] ENGR00133542: MX50- Enable SRPG support for TO1.1 chips
+Subject: [PATCH 486/998] ENGR00133542: MX50- Enable SRPG support for TO1.1 chips
 
 Enable SRPG for TO1.1 chips.
 

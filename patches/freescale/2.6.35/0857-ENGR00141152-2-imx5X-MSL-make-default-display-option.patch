@@ -1,7 +1,7 @@
 From 60df3c30c4583a227e66eed9c963a7962efa3bfa Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 28 Mar 2011 13:24:16 +0800
-Subject: [PATCH 857/902] ENGR00141152-2 imx5X MSL: make default display option
+Subject: [PATCH 857/998] ENGR00141152-2 imx5X MSL: make default display option
 
 Change MSL files.
 

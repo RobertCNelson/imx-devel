@@ -1,0 +1,28 @@
+From 21d547ceed5a787fe2d53c226690c169163c5b27 Mon Sep 17 00:00:00 2001
+From: Lionel Xu <Lionel.Xu@freescale.com>
+Date: Thu, 19 May 2011 13:36:08 +0800
+Subject: [PATCH 979/998] ENGR00143648 MX53: Fix iomux config error
+
+Fix the iomux config error for uart2.
+
+Signed-off-by: Lionel Xu <r63889@freescale.com>
+---
+ arch/arm/plat-mxc/include/mach/iomux-mx53.h |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/arch/arm/plat-mxc/include/mach/iomux-mx53.h b/arch/arm/plat-mxc/include/mach/iomux-mx53.h
+index 4f28c0f..e401528 100644
+--- a/arch/arm/plat-mxc/include/mach/iomux-mx53.h
++++ b/arch/arm/plat-mxc/include/mach/iomux-mx53.h
+@@ -899,7 +899,7 @@
+ #define _MX53_PAD_PATA_DMACK__USBPHY2_DATAOUT_3	IOMUX_PAD(0x5F4, 0x274, 7, 0x0, 0, 0)
+ #define _MX53_PAD_PATA_DMARQ__PATA_DMARQ		IOMUX_PAD(0x5F8, 0x278, 0, 0x0, 0, 0)
+ #define _MX53_PAD_PATA_DMARQ__GPIO7_0		IOMUX_PAD(0x5F8, 0x278, 1, 0x0, 0, 0)
+-#define _MX53_PAD_PATA_DMARQ__UART2_TXD_MUX	IOMUX_PAD(0x5F8, 0x278, 3, 0x880, 2, 0)
++#define _MX53_PAD_PATA_DMARQ__UART2_TXD_MUX     IOMUX_PAD(0x5F8, 0x278, 3, 0x0, 0, 0)
+ #define _MX53_PAD_PATA_DMARQ__CCM_CCM_OUT_0	IOMUX_PAD(0x5F8, 0x278, 5, 0x0, 0, 0)
+ #define _MX53_PAD_PATA_DMARQ__USBPHY2_DATAOUT_4	IOMUX_PAD(0x5F8, 0x278, 7, 0x0, 0, 0)
+ #define _MX53_PAD_PATA_BUFFER_EN__PATA_BUFFER_EN	IOMUX_PAD(0x5FC, 0x27C, 0, 0x0, 0, 0)
+-- 
+1.7.4.1
+

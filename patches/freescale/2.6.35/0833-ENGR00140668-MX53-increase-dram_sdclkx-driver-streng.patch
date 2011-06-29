@@ -1,7 +1,7 @@
 From b59758641097abaa9ba6b243b855bdca4926bf48 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 16 Mar 2011 17:31:52 +0800
-Subject: [PATCH 833/902] ENGR00140668 MX53: increase dram_sdclkx driver strength
+Subject: [PATCH 833/998] ENGR00140668 MX53: increase dram_sdclkx driver strength
 
 increase dram_sdclkx driver strength to avoid resume failure
 

@@ -1,7 +1,7 @@
 From 3c65eec162512077215f719aa4fb6709a89c67f4 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Sat, 12 Feb 2011 15:51:16 +0800
-Subject: [PATCH 765/902] ENGR00139110-1 MX53 SMD/ARD/EVK:MSL change for LDB video mode
+Subject: [PATCH 765/998] ENGR00139110-1 MX53 SMD/ARD/EVK:MSL change for LDB video mode
 
 This patch removes LDB related video modes from MSL code.
 

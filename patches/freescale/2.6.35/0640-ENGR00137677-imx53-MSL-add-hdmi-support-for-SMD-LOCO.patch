@@ -1,7 +1,7 @@
 From db28bc2e79e6de97157879d27febfb8c15fd3646 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 7 Jan 2011 13:15:43 +0800
-Subject: [PATCH 640/902] ENGR00137677 imx53 MSL: add hdmi support for SMD/LOCO platform
+Subject: [PATCH 640/998] ENGR00137677 imx53 MSL: add hdmi support for SMD/LOCO platform
 
 add hdmi support for SMD/LOCO platform.
 

@@ -1,7 +1,7 @@
 From 5f0340c5984b7b2548db2bfd9abcc3189ec724a8 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Mon, 8 Nov 2010 10:31:45 +0800
-Subject: [PATCH 406/902] ENGR00133478-2 IMX USB:move clk_enable from irq context to thread context
+Subject: [PATCH 406/998] ENGR00133478-2 IMX USB:move clk_enable from irq context to thread context
 
 Driver Part
 move the usb clk_enable from irq context to a kernel thread context, so

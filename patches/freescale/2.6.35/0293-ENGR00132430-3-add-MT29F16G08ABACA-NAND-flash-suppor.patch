@@ -1,7 +1,7 @@
 From 83d8e64e3d067624125587ddf14d115e1c787cfa Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Mon, 11 Oct 2010 18:29:12 +0800
-Subject: [PATCH 293/902] ENGR00132430-3 add MT29F16G08ABACA NAND flash support
+Subject: [PATCH 293/998] ENGR00132430-3 add MT29F16G08ABACA NAND flash support
 
 Add MT29F16G08ABACA NAND flash support. Although the actual
 oob size of MT29F16G08ABACA NAND is 224 byte, set it as 218

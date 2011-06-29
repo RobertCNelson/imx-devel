@@ -1,7 +1,7 @@
 From 24a38cb1e4b8b2d36f54054de97cc7627086e677 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 9 Aug 2010 17:26:11 +0800
-Subject: [PATCH 104/902] ENGR000123347 CAN: Fix crash when transfer 8Byte follow 7Byte
+Subject: [PATCH 104/998] ENGR000123347 CAN: Fix crash when transfer 8Byte follow 7Byte
 
 Max Data length of can frame is 8 Byte. If previous transfer size
 is 8, the length will exceed 8 if next package data size is 7 byte.

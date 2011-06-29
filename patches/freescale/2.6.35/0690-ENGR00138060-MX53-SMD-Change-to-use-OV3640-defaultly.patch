@@ -1,7 +1,7 @@
 From cf5f926bd3e70a6f3298d042911f5ccac25b6609 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Mon, 17 Jan 2011 17:08:04 +0800
-Subject: [PATCH 690/902] ENGR00138060 MX53 SMD:Change to use OV3640 defaultly
+Subject: [PATCH 690/998] ENGR00138060 MX53 SMD:Change to use OV3640 defaultly
 
 This patch changes to use OV3640 defaultly.
 

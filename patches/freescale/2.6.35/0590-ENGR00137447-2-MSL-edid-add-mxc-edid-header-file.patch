@@ -1,7 +1,7 @@
 From 2c8df33031419235872d398d39b46d2f502c23d8 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 31 Dec 2010 10:14:32 +0800
-Subject: [PATCH 590/902] ENGR00137447-2 MSL edid: add mxc edid header file
+Subject: [PATCH 590/998] ENGR00137447-2 MSL edid: add mxc edid header file
 
 Add mxc edid header file.
 

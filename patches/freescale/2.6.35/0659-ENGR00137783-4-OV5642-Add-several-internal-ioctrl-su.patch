@@ -1,7 +1,7 @@
 From 3dcc4abf94bf7bfec419f57eec1538b831147a30 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 10 Jan 2011 18:44:33 +0800
-Subject: [PATCH 659/902] ENGR00137783-4 OV5642:Add several internal ioctrl support
+Subject: [PATCH 659/998] ENGR00137783-4 OV5642:Add several internal ioctrl support
 
 This patch adds format capability enumeration, frame size
 enumeration and chip identification support.

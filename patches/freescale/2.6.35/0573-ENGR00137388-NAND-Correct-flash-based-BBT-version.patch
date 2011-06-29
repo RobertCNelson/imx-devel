@@ -1,7 +1,7 @@
 From ab66a7e8df091c1725f909fd0f19fb5a1072d44f Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Mon, 27 Dec 2010 20:21:05 +0800
-Subject: [PATCH 573/902] ENGR00137388 NAND: Correct flash-based BBT version
+Subject: [PATCH 573/998] ENGR00137388 NAND: Correct flash-based BBT version
 
 The flash-based BBT version is not set correctly
 

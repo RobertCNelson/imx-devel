@@ -1,7 +1,7 @@
 From 38de1fb8941a52d43b3c0991b16a99b51e54941b Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 17 Nov 2010 13:49:44 +0800
-Subject: [PATCH 448/902] ENGR00133795-2 MX53 ARD:Support ADV7180 TVin
+Subject: [PATCH 448/998] ENGR00133795-2 MX53 ARD:Support ADV7180 TVin
 
 1)Set TVin pwr gpio to be output in io_init.
 2)Add V4L2 capture device.

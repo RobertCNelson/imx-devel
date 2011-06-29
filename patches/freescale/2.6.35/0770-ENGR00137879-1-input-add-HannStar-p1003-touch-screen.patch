@@ -1,7 +1,7 @@
 From 9100ee083527cfd71023c8cc988182b815235bcc Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 12 Jan 2011 15:03:40 +0800
-Subject: [PATCH 770/902] ENGR00137879-1 input: add HannStar p1003 touch screen driver
+Subject: [PATCH 770/998] ENGR00137879-1 input: add HannStar p1003 touch screen driver
 
 This is HannStar p1003 touch screen driver with Ilitek firmware
 multitouch(two point at max) touch screen driver.

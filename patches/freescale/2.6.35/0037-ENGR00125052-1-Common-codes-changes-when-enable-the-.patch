@@ -1,7 +1,7 @@
 From 27663597dfe1aa5336db166882a41069249fd777 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Fri, 30 Jul 2010 14:57:09 -0500
-Subject: [PATCH 037/902] ENGR00125052-1 Common codes changes when enable the eMMC44 DDR
+Subject: [PATCH 037/998] ENGR00125052-1 Common codes changes when enable the eMMC44 DDR
 
 The modifications of linux kernel common codes
 when enable the eMMC44 DDR mode

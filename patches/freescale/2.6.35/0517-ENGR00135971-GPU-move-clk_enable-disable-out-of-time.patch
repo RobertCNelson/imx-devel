@@ -1,7 +1,7 @@
 From c1f86749c4d16aa3c982d9b28dd73f8e5eccb14d Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Mon, 6 Dec 2010 10:50:52 +0800
-Subject: [PATCH 517/902] ENGR00135971 GPU: move clk_enable/disable out of timer handler
+Subject: [PATCH 517/998] ENGR00135971 GPU: move clk_enable/disable out of timer handler
 
 For timer based power autogating, we have to move clk_enable/disable out of
 timer handler, because they become may sleep.

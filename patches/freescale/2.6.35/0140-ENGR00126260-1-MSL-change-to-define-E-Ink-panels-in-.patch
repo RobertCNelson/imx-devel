@@ -1,7 +1,7 @@
 From a89c1a636c537809bef5676bed71f66388df2ceb Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Sun, 22 Aug 2010 21:17:35 -0500
-Subject: [PATCH 140/902] ENGR00126260-1 - MSL change to define E Ink panels in platform code
+Subject: [PATCH 140/998] ENGR00126260-1 - MSL change to define E Ink panels in platform code
 
 Shift panel definitions to platform code, and expand panel structure
 to encapsulate all variable parameters for configuring the EPDC to drive

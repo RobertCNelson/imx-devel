@@ -1,0 +1,52 @@
+From 42773c13edb972c29eb64c5a9ec7dbe03f61d7a2 Mon Sep 17 00:00:00 2001
+From: Zhang Jiejing <jiejing.zhang@freescale.com>
+Date: Tue, 17 May 2011 04:49:00 +0800
+Subject: [PATCH 969/998] ENGR00143473 MX5X: fix backlight disable after suspend.
+
+This issue only in android platform. But the orignal patch
+are sent in LPDK branch, so push it to LPDK branch.
+
+The suspend will not work after this patch,
+
+commit 4052bf07c9f45328334126a03ee666c9047618e7
+Author: Lily Zhang <r58066@freescale.com>
+Date:   Wed Apr 13 14:28:46 2011 +0800
+
+The late resume added in mxc_ipuv4_fb.c will call back of backlight,
+before this patch, the backlight driver have error,
+so the backlight will not update by the mxc_ipuv4_fb.c 's callback.
+
+But after this patch, mxc_ipuv4_fb.c will call every
+framebuffer's callback,
+
+unfortunly, we have 3 framebuffer, the blank status are:
+0:[poweroff], 1[unblank], 2[poweroff],
+the callback will finally disable the backlight.
+So we can't see display in screen.
+
+This patch aim to avoid control backlight by driver,
+all controled by application.
+
+Signed-off-by: Zhang Jiejing <jiejing.zhang@freescale.com>
+---
+ drivers/video/backlight/pwm_bl.c |    4 ----
+ 1 files changed, 0 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/video/backlight/pwm_bl.c b/drivers/video/backlight/pwm_bl.c
+index 0890b2a..0de5e6f 100644
+--- a/drivers/video/backlight/pwm_bl.c
++++ b/drivers/video/backlight/pwm_bl.c
+@@ -61,10 +61,6 @@ static int pwm_backlight_get_brightness(struct backlight_device *bl)
+ 
+ static int pwm_backlight_check_fb(struct backlight_device *bl, struct fb_info *info)
+ {
+-	char *id = info->fix.id;
+-	if (!strcmp(id, "DISP3 BG"))
+-	    return 1;
+-	else
+ 	return 0;
+ }
+ 
+-- 
+1.7.4.1
+

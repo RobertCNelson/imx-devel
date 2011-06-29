@@ -1,7 +1,7 @@
 From f3e7e14b77b21f693b91eccfa06981878b67906a Mon Sep 17 00:00:00 2001
 From: Zeng Zhaoming <b32542@freescale.com>
 Date: Fri, 15 Oct 2010 09:10:43 +0800
-Subject: [PATCH 343/902] ENGR00131932-2 ssi, sound: Upgrade SDMA scripts to v1.1.0 version
+Subject: [PATCH 343/998] ENGR00131932-2 ssi, sound: Upgrade SDMA scripts to v1.1.0 version
 
 New sdma script support double ssi fifo.
 This feature is not enabled by default in mx51 and mx53 configs.

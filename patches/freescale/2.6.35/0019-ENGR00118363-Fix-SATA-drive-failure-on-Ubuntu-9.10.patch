@@ -1,7 +1,7 @@
 From 771cd80265ff2062bc9b6d4f76db34cafda6fb09 Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <r00091@freescale.com>
 Date: Fri, 11 Dec 2009 11:08:45 +0800
-Subject: [PATCH 019/902] ENGR00118363 Fix SATA drive failure on Ubuntu 9.10
+Subject: [PATCH 019/998] ENGR00118363 Fix SATA drive failure on Ubuntu 9.10
 
 Fix SATA drive failure on Ubuntu 9.10
 BugLink: https://bugs.launchpad.net/bugs/431963

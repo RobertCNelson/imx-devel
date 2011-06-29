@@ -1,7 +1,7 @@
 From 4767cb4e6eb31f3f5bf1d360089b2f693ce2605a Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Mon, 1 Nov 2010 17:05:15 -0500
-Subject: [PATCH 410/902] ENGR00132537-3 - MSL: Add 6.0" V220 panel, update other E-Ink panels
+Subject: [PATCH 410/998] ENGR00132537-3 - MSL: Add 6.0" V220 panel, update other E-Ink panels
 
 - Added new entry for 6.0" V220 E-Ink panel
 - Updated timing info for other panels

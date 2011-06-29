@@ -1,7 +1,7 @@
 From e0199989aaf74fbd41c6742d73ff9bc491c7c06e Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Fri, 14 Jan 2011 12:40:18 +0800
-Subject: [PATCH 691/902] ENGR00137992 MX53 LOCO:Add Seiko WVGA LCD panel support
+Subject: [PATCH 691/998] ENGR00137992 MX53 LOCO:Add Seiko WVGA LCD panel support
 
 This patch adds Seiko WVGA LCD panel support.
 Note that you need to populate D4 on the LCD board.

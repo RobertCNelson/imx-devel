@@ -1,7 +1,7 @@
 From 37572c3d6884880cff4f10e6084818d92d13c89b Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Tue, 18 Jan 2011 16:54:09 +0800
-Subject: [PATCH 702/902] ENGR00138130-1 input: Maxi max11801 resistance touchscreen controller
+Subject: [PATCH 702/998] ENGR00138130-1 input: Maxi max11801 resistance touchscreen controller
 
 Add MAXI max11801 resistance touch screen controller driver,
 add a compile config of ts_lib calibration in driver, it is default disable.

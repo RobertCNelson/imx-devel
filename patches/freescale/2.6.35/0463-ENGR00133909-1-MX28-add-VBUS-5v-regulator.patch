@@ -1,7 +1,7 @@
 From 272401c2b17c4a21d0c9c17e10bd0875870f631b Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Mon, 22 Nov 2010 16:24:36 +0800
-Subject: [PATCH 463/902] ENGR00133909-1 MX28: add VBUS 5v regulator
+Subject: [PATCH 463/998] ENGR00133909-1 MX28: add VBUS 5v regulator
 
 add onboard VBUS 5v regulator for USB ops in host mode
 

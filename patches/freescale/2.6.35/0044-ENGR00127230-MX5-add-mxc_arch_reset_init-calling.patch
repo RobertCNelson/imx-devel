@@ -1,7 +1,7 @@
 From 89f19e7bfa191fd82ffeff3307abfeeb27a34656 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Tue, 7 Sep 2010 21:06:19 +0800
-Subject: [PATCH 044/902] ENGR00127230 MX5: add mxc_arch_reset_init calling
+Subject: [PATCH 044/998] ENGR00127230 MX5: add mxc_arch_reset_init calling
 
 In 35 kernel, system.c under plat-mxc exports the interface
 "mxc_arch_reset_init" to set watchdog base address. So calling

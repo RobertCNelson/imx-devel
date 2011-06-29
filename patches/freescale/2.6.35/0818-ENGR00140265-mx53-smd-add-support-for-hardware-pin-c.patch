@@ -1,7 +1,7 @@
 From 53d43f944d200f0490616c80a0de7896e45f5df7 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Thu, 24 Feb 2011 15:31:32 +0800
-Subject: [PATCH 818/902] ENGR00140265 mx53 smd: add support for hardware pin controlled suspend
+Subject: [PATCH 818/998] ENGR00140265 mx53 smd: add support for hardware pin controlled suspend
 
 Add support for hardware pin controlled suspend for mx53 smd revB,
 Also reduce DRAM_SDCLK drive strength for both mx51 and mx53 on suspend

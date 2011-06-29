@@ -1,7 +1,7 @@
 From cb912be86437d400415ea6dd3a0c0bc12526cdab Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 22 Mar 2011 10:17:45 -0500
-Subject: [PATCH 846/902] ENGR00140971 Add support for LVDS & touchscreen on MX53 ARD RevB brd
+Subject: [PATCH 846/998] ENGR00140971 Add support for LVDS & touchscreen on MX53 ARD RevB brd
 
 MX53 ARD Rev.B board uses a different LVDS and touchscreen panel.
 This patch adds support for the panel with the new touchscreen. Also

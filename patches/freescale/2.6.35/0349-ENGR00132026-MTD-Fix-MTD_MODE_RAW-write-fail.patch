@@ -1,7 +1,7 @@
 From 61c0d92ab072e92882d07d716bacf8468934f35e Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Tue, 19 Oct 2010 18:25:02 +0800
-Subject: [PATCH 349/902] ENGR00132026 MTD: Fix MTD_MODE_RAW write fail
+Subject: [PATCH 349/998] ENGR00132026 MTD: Fix MTD_MODE_RAW write fail
 
 Kobs-ng use MTD_MODE_RAW write boot stream to NAND flash.
 mtdchar have not initilized all field of struct mtd_oob_ops

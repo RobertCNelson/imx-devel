@@ -1,7 +1,7 @@
 From 7dce35abe43a65f659b3e08263852226678590fc Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 4 Mar 2011 15:38:51 -0600
-Subject: [PATCH 812/902] ENGR00140086-1 - EPDC fb: Alternate buffer virtaul address handled incorrectly
+Subject: [PATCH 812/998] ENGR00140086-1 - EPDC fb: Alternate buffer virtaul address handled incorrectly
 
 - Removed virtual address parameter (virt_addr) for alternate buffer feature,
 as it is no longer used.

@@ -1,7 +1,7 @@
 From 925c5e424b04f31b14004b8b7fcbc8ae9dcf12d9 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 28 Jan 2011 16:19:15 -0600
-Subject: [PATCH 744/902] ENGR00138742 - EPDC fb: Driver may run out of markers after a while
+Subject: [PATCH 744/998] ENGR00138742 - EPDC fb: Driver may run out of markers after a while
 
 Markers now cleared once the associated LUT completes.  This
 ensures that markers will always be cleared. The marker does not

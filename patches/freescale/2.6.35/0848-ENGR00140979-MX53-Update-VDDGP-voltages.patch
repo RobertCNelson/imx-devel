@@ -1,7 +1,7 @@
 From f2c368dab2f7beed9cb394b46d2d30a648c19794 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 22 Mar 2011 15:04:01 -0500
-Subject: [PATCH 848/902] ENGR00140979: MX53: Update VDDGP voltages
+Subject: [PATCH 848/998] ENGR00140979: MX53: Update VDDGP voltages
 
 Update the VDDGP voltages for the various supported frequencies to
 correspond to the latest characterized data.

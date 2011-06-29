@@ -1,7 +1,7 @@
 From 5a32ba6ff343ddad8837cf859f4e45397ca9249b Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 6 Sep 2010 12:47:23 +0800
-Subject: [PATCH 039/902] ENGR00127171-1 MX23\MX28: Copy 2.6.31 MSL
+Subject: [PATCH 039/998] ENGR00127171-1 MX23\MX28: Copy 2.6.31 MSL
 
 31kernel upgrade.
 Copy 9fefd36353aeccd32d2531238753d87b705e431e

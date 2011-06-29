@@ -1,7 +1,7 @@
 From 1447ede5d2941e2726cf66971c2bd60a55942b2f Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <r00091@freescale.com>
 Date: Wed, 16 Sep 2009 11:31:02 -0500
-Subject: [PATCH 014/902] usb: add ehci otg support
+Subject: [PATCH 014/998] usb: add ehci otg support
 
 Add OTG support to ehci host controllers
 

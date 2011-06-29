@@ -1,7 +1,7 @@
 From dc74f28d20a9242dd2bd7442087a739ca25e2523 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 29 Dec 2010 16:58:28 +0800
-Subject: [PATCH 578/902] ENGR00137472-1 GPMI : spilit the hack code from the mil_scan_bbt()
+Subject: [PATCH 578/998] ENGR00137472-1 GPMI : spilit the hack code from the mil_scan_bbt()
 
 Add the ->init_size() hook function for the GPMI driver.
 Move most the initialization code to ->init_size().

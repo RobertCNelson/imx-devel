@@ -1,7 +1,7 @@
 From 14343811c6d665b45a57a1bddc27de97d49a6198 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Lothar=20Wa=C3=9Fmann?= <LW@KARO-electronics.de>
 Date: Mon, 22 Nov 2010 09:39:51 +0100
-Subject: [PATCH 738/902] MXC IOMUX-V3 replace struct pad_desc with bitmapped cookie (step 2)
+Subject: [PATCH 738/998] MXC IOMUX-V3 replace struct pad_desc with bitmapped cookie (step 2)
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

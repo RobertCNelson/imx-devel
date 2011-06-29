@@ -1,7 +1,7 @@
 From 824687be0c581599a6db319da4f67d966b6814b9 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Thu, 20 Jan 2011 16:23:35 +0800
-Subject: [PATCH 712/902] ENGR00138270-3 ipuv3 fb: refine pan display method
+Subject: [PATCH 712/998] ENGR00138270-3 ipuv3 fb: refine pan display method
 
 Refine pan display method.
 

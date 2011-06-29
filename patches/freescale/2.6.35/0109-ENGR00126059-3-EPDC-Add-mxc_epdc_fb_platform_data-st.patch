@@ -1,7 +1,7 @@
 From f78ff644650922c9f87eea3aef50ac62eb51971c Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 14 Sep 2010 21:04:29 -0500
-Subject: [PATCH 109/902] ENGR00126059-3 EPDC: Add mxc_epdc_fb_platform_data structure
+Subject: [PATCH 109/998] ENGR00126059-3 EPDC: Add mxc_epdc_fb_platform_data structure
 
 Add mxc_epdc_fb_platform_data to fsl_devices.h
 

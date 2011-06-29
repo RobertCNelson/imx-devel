@@ -1,7 +1,7 @@
 From e075f922477d06e849e34f9d2440f46417c28f52 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 31 Aug 2010 10:11:21 -0500
-Subject: [PATCH 162/902] ENGR00126935: MX50: Fix Clock Dependencies
+Subject: [PATCH 162/998] ENGR00126935: MX50: Fix Clock Dependencies
 
 Add appropriate secondary clocks to the various clocks defined in mx50_clock.c.
 This will enable correct clock management of many system level clocks.

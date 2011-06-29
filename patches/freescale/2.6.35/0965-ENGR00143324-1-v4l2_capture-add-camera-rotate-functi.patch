@@ -1,0 +1,85 @@
+From 33c7d84b799fa625d1f6f37bba4b9cb02e2ad758 Mon Sep 17 00:00:00 2001
+From: Yuxi Sun <b36102@freescale.com>
+Date: Mon, 16 May 2011 14:25:41 +0800
+Subject: [PATCH 965/998] ENGR00143324-1 v4l2_capture: add camera rotate function
+
+add four kinds of camera rotate function: rotate_none, rotate_vert
+rotate_horiz, rotate_180
+
+Signed-off-by: Yuxi Sun <b36102@freescale.com>
+---
+ drivers/media/video/mxc/capture/ipu_csi_enc.c      |    2 +-
+ drivers/media/video/mxc/capture/mxc_v4l2_capture.c |   20 ++++++++++++++++++++
+ include/linux/mxc_v4l2.h                           |    7 ++++++-
+ 3 files changed, 27 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/media/video/mxc/capture/ipu_csi_enc.c b/drivers/media/video/mxc/capture/ipu_csi_enc.c
+index c8a4dab7..068332e 100644
+--- a/drivers/media/video/mxc/capture/ipu_csi_enc.c
++++ b/drivers/media/video/mxc/capture/ipu_csi_enc.c
+@@ -131,7 +131,7 @@ static int csi_enc_setup(cam_data *cam)
+ 	err = ipu_init_channel_buffer(CSI_MEM, IPU_OUTPUT_BUFFER,
+ 				      pixel_fmt, cam->v2f.fmt.pix.width,
+ 				      cam->v2f.fmt.pix.height,
+-				      cam->v2f.fmt.pix.width, IPU_ROTATE_NONE,
++				      cam->v2f.fmt.pix.width, cam->rotation,
+ 				      dummy, dummy,
+ 				      cam->offset.u_offset,
+ 				      cam->offset.v_offset);
+diff --git a/drivers/media/video/mxc/capture/mxc_v4l2_capture.c b/drivers/media/video/mxc/capture/mxc_v4l2_capture.c
+index 83c98ad..982dcea 100644
+--- a/drivers/media/video/mxc/capture/mxc_v4l2_capture.c
++++ b/drivers/media/video/mxc/capture/mxc_v4l2_capture.c
+@@ -1035,6 +1035,26 @@ static int mxc_v4l2_s_ctrl(cam_data *cam, struct v4l2_control *c)
+ 		case V4L2_MXC_ROTATE_90_LEFT:
+ 			tmp_rotation = IPU_ROTATE_90_LEFT;
+ 			break;
++		case V4L2_MXC_CAM_ROTATE_NONE:
++			if (vidioc_int_s_ctrl(cam->sensor, c)) {
++				ret = -EINVAL;
++			}
++			break;
++		case V4L2_MXC_CAM_ROTATE_VERT_FLIP:
++			if (vidioc_int_s_ctrl(cam->sensor, c)) {
++				ret = -EINVAL;
++			}
++			break;
++		case V4L2_MXC_CAM_ROTATE_HORIZ_FLIP:
++			if (vidioc_int_s_ctrl(cam->sensor, c)) {
++				ret = -EINVAL;
++			}
++			break;
++		case V4L2_MXC_CAM_ROTATE_180:
++			if (vidioc_int_s_ctrl(cam->sensor, c)) {
++				ret = -EINVAL;
++			}
++			break;
+ 		default:
+ 			ret = -EINVAL;
+ 		}
+diff --git a/include/linux/mxc_v4l2.h b/include/linux/mxc_v4l2.h
+index 530cf91..8652df4 100644
+--- a/include/linux/mxc_v4l2.h
++++ b/include/linux/mxc_v4l2.h
+@@ -1,5 +1,5 @@
+ /*
+- * Copyright 2004-2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ * Copyright 2004-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ /*
+@@ -40,6 +40,11 @@
+ #define V4L2_MXC_ROTATE_90_RIGHT_HFLIP		6
+ #define V4L2_MXC_ROTATE_90_LEFT			7
+ 
++#define V4L2_MXC_CAM_ROTATE_NONE		8
++#define V4L2_MXC_CAM_ROTATE_VERT_FLIP		9
++#define V4L2_MXC_CAM_ROTATE_HORIZ_FLIP		10
++#define V4L2_MXC_CAM_ROTATE_180			11
++
+ struct v4l2_mxc_offset {
+ 	uint32_t u_offset;
+ 	uint32_t v_offset;
+-- 
+1.7.4.1
+

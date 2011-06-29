@@ -1,7 +1,7 @@
 From c92859faa8c874119e768c22ac1710cbec579b04 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 29 Nov 2010 17:53:18 +0800
-Subject: [PATCH 480/902] ENGR00134076 ipuv3: should not set burst size again
+Subject: [PATCH 480/998] ENGR00134076 ipuv3: should not set burst size again
 
 Burst size has been set for non-interleaing format channel.
 

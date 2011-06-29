@@ -1,7 +1,7 @@
 From 6fa82aa5d882c189e8e306825d2bf3e67317fccc Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 22 Nov 2010 09:50:57 +0800
-Subject: [PATCH 460/902] ENGR00133906-2 NAND : remove the DMA dumping code
+Subject: [PATCH 460/998] ENGR00133906-2 NAND : remove the DMA dumping code
 
 Remove the DMA dumping code, and move it to DMA file.
 

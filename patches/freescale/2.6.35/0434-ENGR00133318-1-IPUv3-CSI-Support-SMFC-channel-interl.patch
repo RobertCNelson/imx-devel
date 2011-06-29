@@ -1,7 +1,7 @@
 From f146e2a90cb91f2b867e40fec4f44aa20b7aa933 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 10 Nov 2010 18:10:28 +0800
-Subject: [PATCH 434/902] ENGR00133318-1 IPUv3 CSI:Support SMFC channel interlaced scan order
+Subject: [PATCH 434/998] ENGR00133318-1 IPUv3 CSI:Support SMFC channel interlaced scan order
 
 This patch supports interlaced scan order for CSI->SMFCx->MEM
 channels.

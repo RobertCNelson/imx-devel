@@ -1,7 +1,7 @@
 From c2014b756f5646e3caa9f6c96031faf370d0dfd1 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 10:17:15 +0800
-Subject: [PATCH 393/902] ENGR00133178-2 DMA : remove mutex for each channel
+Subject: [PATCH 393/998] ENGR00133178-2 DMA : remove mutex for each channel
 
 The spin_lock is enough for each DMA channel, so
 remove the mutex lock.

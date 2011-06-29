@@ -1,7 +1,7 @@
 From 5db5144b1e551914183abfec5d41f28b789350c0 Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Mon, 13 Sep 2010 17:34:54 +0800
-Subject: [PATCH 257/902] ENGR00131404 MXS DMA: Fix occasional system panic when playback finish
+Subject: [PATCH 257/998] ENGR00131404 MXS DMA: Fix occasional system panic when playback finish
 
 System got panic sometimes when a playback stops, this patch is used to
 fix the problem.

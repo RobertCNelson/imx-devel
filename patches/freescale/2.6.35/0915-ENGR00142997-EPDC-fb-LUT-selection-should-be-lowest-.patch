@@ -1,0 +1,29 @@
+From c507cf051e69e120fabb318ca5f3071663587972 Mon Sep 17 00:00:00 2001
+From: Danny Nold <dannynold@freescale.com>
+Date: Wed, 4 May 2011 18:23:37 -0500
+Subject: [PATCH 915/998] ENGR00142997 - EPDC fb: LUT selection should be lowest possible when LUT15 busy
+
+- Modified the LUT selection code to choose the lowest available LUT when
+LUT15 is busy.
+
+Signed-off-by: Danny Nold <dannynold@freescale.com>
+---
+ drivers/video/mxc/mxc_epdc_fb.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/drivers/video/mxc/mxc_epdc_fb.c b/drivers/video/mxc/mxc_epdc_fb.c
+index 3366eee..812af4a 100644
+--- a/drivers/video/mxc/mxc_epdc_fb.c
++++ b/drivers/video/mxc/mxc_epdc_fb.c
+@@ -609,7 +609,7 @@ static int epdc_choose_next_lut(int *next_lut)
+ 	*next_lut = fls(luts_status & 0xFFFF);
+ 
+ 	if (*next_lut > 15)
+-		*next_lut = epdc_get_next_lut();
++		*next_lut = ffz(luts_status & 0xFFFF);
+ 
+ 	if (luts_status & 0x8000)
+ 		return 1;
+-- 
+1.7.4.1
+

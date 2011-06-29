@@ -1,7 +1,7 @@
 From a8ae0d6193cad4f58f204f50b6dad6610db067b5 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 30 Jul 2010 10:57:54 -0500
-Subject: [PATCH 072/902] ENGR00125779 - EPDC fb module load/unload
+Subject: [PATCH 072/998] ENGR00125779 - EPDC fb module load/unload
 
 Modified mxc_epdc_fb_remove() to prevent crashes and errors when
 the FB driver is removed.  deferred_io must be unloaded before FB

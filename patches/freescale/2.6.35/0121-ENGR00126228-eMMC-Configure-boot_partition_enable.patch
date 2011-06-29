@@ -1,7 +1,7 @@
 From 791242e36b13d6a78621de5aeb742d87718172d8 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Thu, 12 Aug 2010 16:34:23 +0800
-Subject: [PATCH 121/902] ENGR00126228 eMMC: Configure boot_partition_enable
+Subject: [PATCH 121/998] ENGR00126228 eMMC: Configure boot_partition_enable
 
 Enable the configurations of the boot enable on the eMMC cards.
 

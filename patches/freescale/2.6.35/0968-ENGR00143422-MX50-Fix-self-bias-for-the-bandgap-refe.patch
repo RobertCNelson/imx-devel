@@ -1,0 +1,138 @@
+From 94a2dcdd0f251e86cf7527b128fa1071de7a06d6 Mon Sep 17 00:00:00 2001
+From: Ranjani Vaidyanathan <ra5478@freescale.com>
+Date: Thu, 5 May 2011 12:13:07 -0500
+Subject: [PATCH 968/998] ENGR00143422: MX50- Fix self-bias for the bandgap refernce.
+
+To ensure the best noise performance operation of the iMX508 bandgap
+outputs, we need to set the REF_SELFBIAS_OFF bit high after the
+bandgap has stabilized.
+This bit should be cleared before the core goes into STOP mode,
+else we run the risk of causing a start-up issue on the bandgap
+after the core exits STOP mode.
+
+Signed-off-by: Ranjani Vaidyanathan <ra5478@freescale.com>
+---
+ arch/arm/mach-mx5/clock_mx50.c |    4 ++++
+ arch/arm/mach-mx5/crm_regs.h   |    1 +
+ arch/arm/mach-mx5/mx50_rdp.c   |   16 ++++++++++++++++
+ arch/arm/mach-mx5/pm.c         |   22 +++++++++++-----------
+ 4 files changed, 32 insertions(+), 11 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/clock_mx50.c b/arch/arm/mach-mx5/clock_mx50.c
+index f93aa3a..3158cf8 100644
+--- a/arch/arm/mach-mx5/clock_mx50.c
++++ b/arch/arm/mach-mx5/clock_mx50.c
+@@ -3349,6 +3349,10 @@ int __init mx50_clocks_init(unsigned long ckil, unsigned long osc, unsigned long
+ 	clk_disable(&pxp_axi_clk);
+ 	clk_disable(&elcdif_axi_clk);
+ 
++	/* Set the SELF-BIAS bit. */
++	__raw_writel(MXC_ANADIG_REF_SELFBIAS_OFF,
++					apll_base + MXC_ANADIG_MISC_SET);
++
+ 	clk_enable(&elcdif_pix_clk);
+ 	clk_set_parent(&elcdif_pix_clk, &pll1_sw_clk);
+ 	clk_disable(&elcdif_pix_clk);
+diff --git a/arch/arm/mach-mx5/crm_regs.h b/arch/arm/mach-mx5/crm_regs.h
+index 8979d21..e258a7c 100644
+--- a/arch/arm/mach-mx5/crm_regs.h
++++ b/arch/arm/mach-mx5/crm_regs.h
+@@ -111,6 +111,7 @@
+ #define MXC_ANADIG_PFD4_STABLE		(1 << 6)
+ #define MXC_ANADIG_PFD4_FRAC_OFFSET	0
+ 
++#define MXC_ANADIG_REF_PWD			(1 << 18)
+ #define MXC_ANADIG_REF_SELFBIAS_OFF	(1 << 20)
+ #define MXC_ANADIG_PLL_HOLD_RING_OFF	(1 << 7)
+ #define MXC_ANADIG_PLL_POWERUP		(1 << 0)
+diff --git a/arch/arm/mach-mx5/mx50_rdp.c b/arch/arm/mach-mx5/mx50_rdp.c
+index b4662a5..4371336 100644
+--- a/arch/arm/mach-mx5/mx50_rdp.c
++++ b/arch/arm/mach-mx5/mx50_rdp.c
+@@ -145,6 +145,7 @@ extern void (*set_num_cpu_wp)(int num);
+ extern struct dvfs_wp *(*get_dvfs_core_wp)(int *wp);
+ extern int lcdif_sel_lcd;
+ extern int lcd_seiko_on_j12;
++extern void __iomem *apll_base;
+ 
+ static void mx50_suspend_enter(void);
+ static void mx50_suspend_exit(void);
+@@ -1740,6 +1741,14 @@ static void mx50_suspend_enter()
+ 			(MX50_PAD_ECSPI2_SCLK__GPIO_4_16 &
+ 			~MUX_PAD_CTRL_MASK) | MUX_PAD_CTRL(0x84);
+ 
++	/* Clear the SELF_BIAS bit and power down
++	 * the band-gap.
++	 */
++	__raw_writel(MXC_ANADIG_REF_SELFBIAS_OFF,
++			apll_base + MXC_ANADIG_MISC_CLR);
++	__raw_writel(MXC_ANADIG_REF_PWD,
++			apll_base + MXC_ANADIG_MISC_SET);
++
+ 	if (board_is_mx50_rd3()) {
+ 		/* Enable the Pull/keeper */
+ 		mxc_iomux_v3_setup_pad(iomux_setting);
+@@ -1767,6 +1776,13 @@ static void mx50_suspend_exit()
+ 			(MX50_PAD_ECSPI2_SCLK__GPIO_4_16 &
+ 			~MUX_PAD_CTRL_MASK) | MUX_PAD_CTRL(0x84);
+ 
++	/* Power Up the band-gap and set the SELFBIAS bit. */
++	__raw_writel(MXC_ANADIG_REF_PWD,
++			apll_base + MXC_ANADIG_MISC_CLR);
++	udelay(100);
++	__raw_writel(MXC_ANADIG_REF_SELFBIAS_OFF,
++			apll_base + MXC_ANADIG_MISC_SET);
++
+ 	if (board_is_mx50_rd3()) {
+ 		/* Enable the Pull/keeper */
+ 		mxc_iomux_v3_setup_pad(iomux_setting);
+diff --git a/arch/arm/mach-mx5/pm.c b/arch/arm/mach-mx5/pm.c
+index 894484c..3052374 100644
+--- a/arch/arm/mach-mx5/pm.c
++++ b/arch/arm/mach-mx5/pm.c
+@@ -30,10 +30,6 @@
+ #include <asm/delay.h>
+ #include <asm/mach/map.h>
+ #include <mach/hardware.h>
+-#include <mach/gpio.h>
+-#ifdef CONFIG_ARCH_MX50
+-#include <mach/iomux-mx50.h>
+-#endif
+ 
+ #define MXC_SRPG_EMPGC0_SRPGCR	(IO_ADDRESS(GPC_BASE_ADDR) + 0x2C0)
+ #define MXC_SRPG_EMPGC1_SRPGCR	(IO_ADDRESS(GPC_BASE_ADDR) + 0x2D0)
+@@ -68,7 +64,7 @@ extern void pm_da9053_i2c_init(u32 base_addr);
+ 
+ extern int iram_ready;
+ void *suspend_iram_base;
+-void (*suspend_in_iram)(void *sdclk_iomux_addr) = NULL;
++void (*suspend_in_iram)(void *param1) = NULL;
+ void __iomem *suspend_param1;
+ 
+ #define TZIC_WAKEUP0_OFFSET            0x0E00
+@@ -139,12 +135,16 @@ static int mx5_suspend_enter(suspend_state_t state)
+ 			__raw_writel(0, MXC_SRPG_EMPGC0_SRPGCR);
+ 			__raw_writel(0, MXC_SRPG_EMPGC1_SRPGCR);
+ 		} else {
+-			if (cpu_is_mx50() && pm_data->suspend_enter)
+-				pm_data->suspend_enter();
+-			/* Suspend now. */
+-			suspend_in_iram(databahn_base);
+-			if (cpu_is_mx50() && pm_data->suspend_exit)
+-				pm_data->suspend_exit();
++			if (cpu_is_mx50()) {
++				if (pm_data->suspend_enter)
++					pm_data->suspend_enter();
++
++				/* Suspend now. */
++				suspend_in_iram(databahn_base);
++
++				if (pm_data->suspend_exit)
++					pm_data->suspend_exit();
++			}
+ 		}
+ 	} else {
+ 			cpu_do_idle();
+-- 
+1.7.4.1
+

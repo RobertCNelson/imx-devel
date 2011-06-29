@@ -1,7 +1,7 @@
 From 23051ba2222041bbbc8825406551a0564c3796c7 Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Mon, 27 Dec 2010 14:05:25 +0800
-Subject: [PATCH 645/902] ENGR00137500-2 OV5642 camera: Add driver support
+Subject: [PATCH 645/998] ENGR00137500-2 OV5642 camera: Add driver support
 
 320x240@30fps, 640x480@30fps, 720x480@30fps, 720x576@30fps,
 720P@30fps and QSXGA@15fps(actual frame rate is 10fps due to

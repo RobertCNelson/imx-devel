@@ -1,7 +1,7 @@
 From 9e82e99d5df9f28f6775397bfa7a540ae3be775e Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 15 Sep 2010 11:16:50 +0800
-Subject: [PATCH 189/902] ENGR00131489-2 MX3: add arch_idle support
+Subject: [PATCH 189/998] ENGR00131489-2 MX3: add arch_idle support
 
 Add arch_idle support for MX3 platform
 

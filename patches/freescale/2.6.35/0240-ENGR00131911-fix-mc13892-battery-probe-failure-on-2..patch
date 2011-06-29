@@ -1,7 +1,7 @@
 From 27d19e5176a0b235a610d9de564f424d484c4f9b Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Sat, 25 Sep 2010 15:04:49 +0800
-Subject: [PATCH 240/902] ENGR00131911 fix mc13892 battery probe failure on 2.6.35 kernel
+Subject: [PATCH 240/998] ENGR00131911 fix mc13892 battery probe failure on 2.6.35 kernel
 
 Fix mc13892 battery probe failure on 2.6.35 kernel
 

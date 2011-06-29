@@ -1,7 +1,7 @@
 From 32acc7b24d829f3d7d5b651668f6b8fa54a0c610 Mon Sep 17 00:00:00 2001
 From: William Lai <b04597@freescale.com>
 Date: Tue, 21 Sep 2010 11:16:43 +0800
-Subject: [PATCH 207/902] ENGR00131711-1 MX5: Set esai clock con_id
+Subject: [PATCH 207/998] ENGR00131711-1 MX5: Set esai clock con_id
 
 Set the esai clock with con_id to lookup in the driver.
 

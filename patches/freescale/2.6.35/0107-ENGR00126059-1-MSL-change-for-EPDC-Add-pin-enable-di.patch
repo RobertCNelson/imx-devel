@@ -1,7 +1,7 @@
 From cda7046c03f844563208cf19d4924eb756f66fc4 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Fri, 6 Aug 2010 15:03:19 -0500
-Subject: [PATCH 107/902] ENGR00126059-1 - MSL change for EPDC: Add pin enable/disable funcs
+Subject: [PATCH 107/998] ENGR00126059-1 - MSL change for EPDC: Add pin enable/disable funcs
 
 Defined new platform_data functions for EPDC driver.  These
 functions allow EPDC to enable/disable EPDC pins when EPDC

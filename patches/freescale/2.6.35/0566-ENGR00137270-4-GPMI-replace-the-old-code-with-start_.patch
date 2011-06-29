@@ -1,7 +1,7 @@
 From 91f6b3bd0753dc1ce7650d81dfca36878d2e1cd4 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 23 Dec 2010 13:06:55 +0800
-Subject: [PATCH 566/902] ENGR00137270-4 GPMI : replace the old code with start_dma_without_bch_irq()
+Subject: [PATCH 566/998] ENGR00137270-4 GPMI : replace the old code with start_dma_without_bch_irq()
 
 Replace the old code with the function start_dma_without_bch_irq().
 This will make code tidy and clean.

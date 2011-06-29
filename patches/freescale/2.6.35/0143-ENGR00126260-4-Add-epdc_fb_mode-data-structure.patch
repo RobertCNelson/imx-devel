@@ -1,7 +1,7 @@
 From 015118b94ecd62e63139e95df5bd32aef670b1da Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Tue, 14 Sep 2010 21:18:49 -0500
-Subject: [PATCH 143/902] ENGR00126260-4 - Add epdc_fb_mode data structure
+Subject: [PATCH 143/998] ENGR00126260-4 - Add epdc_fb_mode data structure
 
 Add epdc_fb_mode data struction to fsl_devices.h
 

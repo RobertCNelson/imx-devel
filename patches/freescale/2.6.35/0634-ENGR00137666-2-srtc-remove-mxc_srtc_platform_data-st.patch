@@ -1,7 +1,7 @@
 From 7b3d0e9056175ea3c2ad5e09f45abbe0a1aecfd6 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 6 Jan 2011 17:27:22 +0800
-Subject: [PATCH 634/902] ENGR00137666-2 srtc: remove mxc_srtc_platform_data struct
+Subject: [PATCH 634/998] ENGR00137666-2 srtc: remove mxc_srtc_platform_data struct
 
 remove mxc_srtc_platform_data struct from srtc driver
 

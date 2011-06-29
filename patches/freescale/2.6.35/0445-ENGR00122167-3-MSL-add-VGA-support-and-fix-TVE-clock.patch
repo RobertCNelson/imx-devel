@@ -1,7 +1,7 @@
 From 97accc76149f8c54811296cfd3ec837e00852c1a Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Wed, 17 Nov 2010 17:30:24 +0800
-Subject: [PATCH 445/902] ENGR00122167-3 MSL: add VGA support and fix TVE clock issue.
+Subject: [PATCH 445/998] ENGR00122167-3 MSL: add VGA support and fix TVE clock issue.
 
 Fix tve clock tree and adding TVE-VGA support.
 

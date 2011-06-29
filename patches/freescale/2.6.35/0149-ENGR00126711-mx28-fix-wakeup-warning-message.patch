@@ -1,7 +1,7 @@
 From 9c8a7cdb767772817f7394e539395dba7cf2cfc9 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Fri, 27 Aug 2010 10:51:00 +0800
-Subject: [PATCH 149/902] ENGR00126711 mx28:fix wakeup warning message
+Subject: [PATCH 149/998] ENGR00126711 mx28:fix wakeup warning message
 
 fix suspend/wakeup warning message
 

@@ -1,7 +1,7 @@
 From 8eac089536bff310646af11009d91cf23063454d Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Wed, 3 Nov 2010 17:50:00 +0800
-Subject: [PATCH 427/902] ENGR00133345-1 IPUv3 VDI:Support bottom field first setting
+Subject: [PATCH 427/998] ENGR00133345-1 IPUv3 VDI:Support bottom field first setting
 
 This patch supports bottom field first setting.
 

@@ -1,7 +1,7 @@
 From a034f7af1935360b8ff45991b0433e502d3bb3d3 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Fri, 15 Oct 2010 16:16:28 +0800
-Subject: [PATCH 324/902] ENGR00131580-2 PTP: Support IEEE 1588 interface functionality for MX5
+Subject: [PATCH 324/998] ENGR00131580-2 PTP: Support IEEE 1588 interface functionality for MX5
 
 IEEE1588 implementation is a Hardware-assisted method in i.MX5,
 This supply the 1588 support for MX53 FEC.

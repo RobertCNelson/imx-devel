@@ -1,7 +1,7 @@
 From e755cbbe1e0fe1c007af21a1b92e4992ee622029 Mon Sep 17 00:00:00 2001
 From: Danny Nold <dannynold@freescale.com>
 Date: Thu, 23 Sep 2010 10:36:56 -0500
-Subject: [PATCH 221/902] ENGR00131874-4 - EPDC 2.6.35 kernel upgrade - hang in PxP during transfer setup
+Subject: [PATCH 221/998] ENGR00131874-4 - EPDC 2.6.35 kernel upgrade - hang in PxP during transfer setup
 
 The tx_list member in pxp_tx_desc (which is new to 2.6.35 kernel) is not being
 initialized, which causes a hang when it is accessed in pxp_preip_slave_sg().

@@ -1,7 +1,7 @@
 From 8e12ea8fac0bc15e502c61ab9e2f57546bbe3091 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Fri, 15 Oct 2010 17:14:19 +0800
-Subject: [PATCH 327/902] ENGR00132656 MX53 ARD: add MFG support
+Subject: [PATCH 327/998] ENGR00132656 MX53 ARD: add MFG support
 
 Add MFG tool support for MX53 ARD.
 Remove MLB driver in updater defconfig because it

@@ -1,7 +1,7 @@
 From 8b0d7773a17eaa25f6a2b5eedb9abd3e03780712 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Mon, 28 Mar 2011 13:25:25 +0800
-Subject: [PATCH 858/902] ENGR00141152-3 ldb: make default display option
+Subject: [PATCH 858/998] ENGR00141152-3 ldb: make default display option
 
 ldb driver change.
 

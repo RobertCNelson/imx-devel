@@ -1,7 +1,7 @@
 From d41b02510439e73440707b6fb5a5b8e8411fe794 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 31 Dec 2010 10:16:10 +0800
-Subject: [PATCH 592/902] ENGR00137447-4 edid: mxc edid operation modification
+Subject: [PATCH 592/998] ENGR00137447-4 edid: mxc edid operation modification
 
 mxc edid operation modification.
 

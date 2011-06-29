@@ -1,7 +1,7 @@
 From 4c6539f3161b66cdc2bb0d0ab917b2cd3c315cb9 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Thu, 30 Sep 2010 15:46:50 +0800
-Subject: [PATCH 268/902] ENGR00132173 MX28: Optimize suspend current to 9mA
+Subject: [PATCH 268/998] ENGR00132173 MX28: Optimize suspend current to 9mA
 
 Change EMI ODT mode to save current on VDDIO_EMI pad. Save about 17mA@4.2v
 Change EMI pad type to GPIO in suspend can save about 4mA@4.2v

@@ -1,7 +1,7 @@
 From b2d2a7f6c46993d6b4c2c3aef43db5ec166bef45 Mon Sep 17 00:00:00 2001
 From: Anish Trivedi <anish@freescale.com>
 Date: Mon, 20 Sep 2010 13:52:08 -0500
-Subject: [PATCH 205/902] ENGR00131694-2 MX50 RDP Kernel upgrade to 2.6.35
+Subject: [PATCH 205/998] ENGR00131694-2 MX50 RDP Kernel upgrade to 2.6.35
 
 Disable MC13892 charging for MX50 RDP
 

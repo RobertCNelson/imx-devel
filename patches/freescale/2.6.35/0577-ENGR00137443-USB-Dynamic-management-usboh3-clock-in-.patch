@@ -1,7 +1,7 @@
 From 673c1ebfb50c6a3c04bbeaab13ffe3d0b874b73b Mon Sep 17 00:00:00 2001
 From: Zhang Yan <b34916@freescale.com>
 Date: Wed, 29 Dec 2010 13:50:27 +0800
-Subject: [PATCH 577/902] ENGR00137443 USB: Dynamic management usboh3 clock in suspend/resume
+Subject: [PATCH 577/998] ENGR00137443 USB: Dynamic management usboh3 clock in suspend/resume
 
 Move MX51 USBOH3 clock management from usb_common to usb_h1
 

@@ -1,7 +1,7 @@
 From 9aa1f378ddc40de25b9e34c5c458c682c7553046 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Mon, 14 Mar 2011 12:07:44 +0800
-Subject: [PATCH 822/902] ENGR00140543 ISL29023:Add device head file to Kbuild
+Subject: [PATCH 822/998] ENGR00140543 ISL29023:Add device head file to Kbuild
 
 This patch adds device head file to Kbuild to pass
 unit test build.

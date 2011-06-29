@@ -1,7 +1,7 @@
 From cd68ad1dbffe40752116a7c261d9a32ed1e1f859 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Fri, 19 Nov 2010 16:54:08 +0800
-Subject: [PATCH 501/902] ENGR00134041 [MX53] Add the SATA AHCI temperature monitor
+Subject: [PATCH 501/998] ENGR00134041 [MX53] Add the SATA AHCI temperature monitor
 
 SATA AHCI temperature monitor
 HOWTO-USE:

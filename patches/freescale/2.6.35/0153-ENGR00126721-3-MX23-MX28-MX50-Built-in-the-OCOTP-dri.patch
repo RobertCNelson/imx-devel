@@ -1,7 +1,7 @@
 From cb132e96b7289945c17e2ac05481d0a551b747a8 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 30 Aug 2010 09:56:06 +0800
-Subject: [PATCH 153/902] ENGR00126721-3 MX23\MX28\MX50: Built-in the OCOTP driver in update_defconfig
+Subject: [PATCH 153/998] ENGR00126721-3 MX23\MX28\MX50: Built-in the OCOTP driver in update_defconfig
 
   Turn on the OCOTP driver for the update def_config(imx23/28/50).
 

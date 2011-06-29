@@ -1,7 +1,7 @@
 From dea5921d2ea32b809939edc66a4d555c3b2e72e0 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 19 Aug 2010 15:53:12 +0800
-Subject: [PATCH 133/902] ENGR00126331 MX28 ALSA: fix 11Khz and 22KHz stream playback issue
+Subject: [PATCH 133/998] ENGR00126331 MX28 ALSA: fix 11Khz and 22KHz stream playback issue
 
 For playing 11Khz and 22Khz stream, currently the DMA may be in
 an abnormal state during mxs_pcm_close phase which causes the

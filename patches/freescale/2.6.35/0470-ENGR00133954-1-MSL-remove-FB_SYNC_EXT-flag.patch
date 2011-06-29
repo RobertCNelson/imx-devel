@@ -1,7 +1,7 @@
 From 8030080b8fac227756d35b71e0d86280173e1c06 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Tue, 23 Nov 2010 13:56:48 +0800
-Subject: [PATCH 470/902] ENGR00133954-1 MSL: remove FB_SYNC_EXT flag
+Subject: [PATCH 470/998] ENGR00133954-1 MSL: remove FB_SYNC_EXT flag
 
 FB_SYNC_EXT was used to represent ext clk, but actually, it represent ext sync.
 Some applications do not recognize it, during fb_set_var ioctl may miss it,

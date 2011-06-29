@@ -1,7 +1,7 @@
 From f6b55e9492db231b1442eb468aaf8ac0a0d352a2 Mon Sep 17 00:00:00 2001
 From: Lionel Xu <Lionel.Xu@freescale.com>
 Date: Wed, 13 Oct 2010 15:24:19 +0800
-Subject: [PATCH 321/902] ENGR00132169 MX28 ALSA: arecord from LINE IN has no sound
+Subject: [PATCH 321/998] ENGR00132169 MX28 ALSA: arecord from LINE IN has no sound
 
 To fix the problem of no sound when recording from line in.
 

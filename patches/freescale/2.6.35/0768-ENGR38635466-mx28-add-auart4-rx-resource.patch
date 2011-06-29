@@ -1,7 +1,7 @@
 From 19e6cc9c7f6191a1f676893a4c6f5e44da764c59 Mon Sep 17 00:00:00 2001
 From: Tony Lin <tony.lin@freescale.com>
 Date: Tue, 15 Feb 2011 13:19:07 +0800
-Subject: [PATCH 768/902] ENGR38635466 [mx28]add auart4 rx resource
+Subject: [PATCH 768/998] ENGR38635466 [mx28]add auart4 rx resource
 
 	add missed rx resource for auart4
 

@@ -1,7 +1,7 @@
 From a12473942ea0c9ea8ae531f80fdb94f20730702b Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Tue, 14 Sep 2010 13:58:01 +0800
-Subject: [PATCH 184/902] ENGR00131459 MX53: fix system suspend issue
+Subject: [PATCH 184/998] ENGR00131459 MX53: fix system suspend issue
 
 1. MX53 system suspend is broken by MX50 change
 (ENGR00125546). This patch restores suspend iram operation

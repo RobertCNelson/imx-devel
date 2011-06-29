@@ -1,7 +1,7 @@
 From 93dce5ff31d6c1c79fddf997fb87fac2df5b6041 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 4 Jan 2011 15:11:36 +0800
-Subject: [PATCH 596/902] ENGR00137558-1 GPMI : add rom_extra_init() hook for ROM
+Subject: [PATCH 596/998] ENGR00137558-1 GPMI : add rom_extra_init() hook for ROM
 
 Add the ->rom_extra_init() hook for structure boot_rom_helper{}.
 

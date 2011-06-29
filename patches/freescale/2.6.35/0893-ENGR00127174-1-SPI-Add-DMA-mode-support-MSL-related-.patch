@@ -1,0 +1,122 @@
+From bded18c2cb04b1efb79ea3872913959a2dc54efd Mon Sep 17 00:00:00 2001
+From: Richard Zhu <r65037@freescale.com>
+Date: Sun, 17 Apr 2011 12:06:50 +0800
+Subject: [PATCH 893/998] ENGR00127174-1 SPI : Add DMA mode support MSL related modifications
+
+MSL related codes modifictaion when add SPI DMA on MX51 BBG.
+
+Signed-off-by: Richard Zhu <r65037@freescale.com>
+---
+ arch/arm/mach-mx5/devices.c |   19 +++++++++++++++++++
+ arch/arm/mach-mx5/dma.c     |   32 +++++++++++++++++++++++++++++++-
+ 2 files changed, 50 insertions(+), 1 deletions(-)
+
+diff --git a/arch/arm/mach-mx5/devices.c b/arch/arm/mach-mx5/devices.c
+index ae02d84..2050edc 100644
+--- a/arch/arm/mach-mx5/devices.c
++++ b/arch/arm/mach-mx5/devices.c
+@@ -597,13 +597,23 @@ static struct resource mxcspi1_resources[] = {
+ 		.end = MXC_INT_CSPI1,
+ 		.flags = IORESOURCE_IRQ,
+ 	},
++	{
++		.start = MXC_DMA_CSPI1_TX,
++		.end = MXC_DMA_CSPI1_TX,
++		.flags = IORESOURCE_DMA,
++	},
+ };
+ 
++static u64 spi_dma_mask = DMA_BIT_MASK(32);
+ struct platform_device mxcspi1_device = {
+ 	.name = "mxc_spi",
+ 	.id = 0,
+ 	.num_resources = ARRAY_SIZE(mxcspi1_resources),
+ 	.resource = mxcspi1_resources,
++	.dev = {
++		.dma_mask = &spi_dma_mask,
++		.coherent_dma_mask = DMA_BIT_MASK(32),
++	},
+ };
+ 
+ static struct resource mxcspi2_resources[] = {
+@@ -617,6 +627,11 @@ static struct resource mxcspi2_resources[] = {
+ 		.end = MXC_INT_CSPI2,
+ 		.flags = IORESOURCE_IRQ,
+ 	},
++	{
++		.start = MXC_DMA_CSPI2_TX,
++		.end = MXC_DMA_CSPI2_TX,
++		.flags = IORESOURCE_DMA,
++	},
+ };
+ 
+ struct platform_device mxcspi2_device = {
+@@ -624,6 +639,10 @@ struct platform_device mxcspi2_device = {
+ 	.id = 1,
+ 	.num_resources = ARRAY_SIZE(mxcspi2_resources),
+ 	.resource = mxcspi2_resources,
++	.dev = {
++		.dma_mask = &spi_dma_mask,
++		.coherent_dma_mask = DMA_BIT_MASK(32),
++	},
+ };
+ 
+ static struct resource mxcspi3_resources[] = {
+diff --git a/arch/arm/mach-mx5/dma.c b/arch/arm/mach-mx5/dma.c
+index aec79d5..4164942 100644
+--- a/arch/arm/mach-mx5/dma.c
++++ b/arch/arm/mach-mx5/dma.c
+@@ -1,5 +1,5 @@
+ /*
+- *  Copyright (C) 2008-2010 Freescale Semiconductor, Inc. All Rights Reserved.
++ *  Copyright (C) 2008-2011 Freescale Semiconductor, Inc. All Rights Reserved.
+  */
+ 
+ /*
+@@ -1265,6 +1265,34 @@ static mxc_sdma_channel_params_t mxc_sdma_esai_24bit_tx_params = {
+ 	.chnl_priority = MXC_SDMA_DEFAULT_PRIORITY,
+ };
+ 
++static mxc_sdma_channel_params_t mxc_sdma_cspi1_tx_params = {
++	.chnl_params = {
++			.watermark_level = 32,
++			.per_address = CSPI1_BASE_ADDR + 0x04,
++			.peripheral_type = CSPI,
++			.transfer_type = emi_2_per,
++			.event_id = DMA_REQ_CSPI1_TX,
++			.bd_number = 16,
++			.word_size = TRANSFER_32BIT,
++			},
++	.channel_num = MXC_DMA_CHANNEL_CSPI1_TX,
++	.chnl_priority = MXC_SDMA_DEFAULT_PRIORITY,
++};
++
++static mxc_sdma_channel_params_t mxc_sdma_cspi2_tx_params = {
++	.chnl_params = {
++			.watermark_level = 32,
++			.per_address = CSPI2_BASE_ADDR + 0x04,
++			.peripheral_type = CSPI,
++			.transfer_type = emi_2_per,
++			.event_id = DMA_REQ_CSPI2_TX,
++			.bd_number = 16,
++			.word_size = TRANSFER_32BIT,
++			},
++	.channel_num = MXC_DMA_CHANNEL_CSPI2_TX,
++	.chnl_priority = MXC_SDMA_DEFAULT_PRIORITY,
++};
++
+ static mxc_sdma_info_entry_t mxc_sdma_active_dma_info[] = {
+ 	{MXC_DMA_UART1_RX, &mxc_sdma_uart1_rx_params},
+ 	{MXC_DMA_UART1_TX, &mxc_sdma_uart1_tx_params},
+@@ -1343,6 +1371,8 @@ static mxc_sdma_info_entry_t mxc_sdma_active_dma_info[] = {
+ 	{MXC_DMA_ESAI_16BIT_TX, &mxc_sdma_esai_16bit_tx_params},
+ 	{MXC_DMA_ESAI_24BIT_RX, &mxc_sdma_esai_24bit_rx_params},
+ 	{MXC_DMA_ESAI_24BIT_TX, &mxc_sdma_esai_24bit_tx_params},
++	{MXC_DMA_CSPI1_TX, &mxc_sdma_cspi1_tx_params},
++	{MXC_DMA_CSPI2_TX, &mxc_sdma_cspi2_tx_params},
+ };
+ 
+ static int mxc_sdma_info_entrys =
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From 1f57a96a53d4abf07a5fc4cd88e209f937cc75d6 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 23 Dec 2010 12:46:58 +0800
-Subject: [PATCH 565/902] ENGR00137270-3 GPMI : add a DMA starting function called in non-BCH context
+Subject: [PATCH 565/998] ENGR00137270-3 GPMI : add a DMA starting function called in non-BCH context
 
 This function is called in non-BCH context, such send_command(),
 read_data() and send_data().

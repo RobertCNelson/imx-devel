@@ -1,7 +1,7 @@
 From c6dfc07699359084b9a8f5e705f502cc59be9b77 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 31 Aug 2010 19:30:19 +0800
-Subject: [PATCH 164/902] ENGR00126313-1 MX50: Add platform data for V4L2 device
+Subject: [PATCH 164/998] ENGR00126313-1 MX50: Add platform data for V4L2 device
 
 Add MSL codes for PxP v4l2 device
 

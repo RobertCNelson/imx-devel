@@ -1,7 +1,7 @@
 From 4dff0362a76ec26dc1b31abe6c4833d0ab11ae58 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 6 Dec 2010 18:47:11 +0800
-Subject: [PATCH 514/902] ENGR00136004 iMX28: set NO_HZ and preempt as default config
+Subject: [PATCH 514/998] ENGR00136004 iMX28: set NO_HZ and preempt as default config
 
 Enable NO_HZ and PREEMPT as default config for mx28
 

@@ -1,7 +1,7 @@
 From 076f16fb4d86d72967b5a0dd23ec4401a61b91b8 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Thu, 30 Dec 2010 15:35:47 +0800
-Subject: [PATCH 617/902] ENGR00137501 MX53 SMD/LOCO Enable the AHCI SATA
+Subject: [PATCH 617/998] ENGR00137501 MX53 SMD/LOCO Enable the AHCI SATA
 
 The internal CLK(USB PHY1) input is used for AHCI SATA bus.
 

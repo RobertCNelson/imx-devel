@@ -1,7 +1,7 @@
 From 9a00c93ddc13af5af2ab8b6c7ba559231d758ab7 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Mon, 16 Aug 2010 11:17:43 +0800
-Subject: [PATCH 124/902] ENGR00126330 iMX23: Fix os timer slower 3%
+Subject: [PATCH 124/998] ENGR00126330 iMX23: Fix os timer slower 3%
 
 MX23\MX28 use 24M/750 = 32000 as os timer clock source.
 Not 32768.

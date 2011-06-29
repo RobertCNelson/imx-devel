@@ -1,7 +1,7 @@
 From 527d3392b4f96d1102853a6e8f3f5b29a9aa92db Mon Sep 17 00:00:00 2001
 From: Huang Shijie <shijie8@gmail.com>
 Date: Mon, 27 Sep 2010 10:43:53 +0800
-Subject: [PATCH 419/902] mtd: add init_size hook for NAND driver
+Subject: [PATCH 419/998] mtd: add init_size hook for NAND driver
 
 Not all the NAND devices have all the information in additional
 id bytes.

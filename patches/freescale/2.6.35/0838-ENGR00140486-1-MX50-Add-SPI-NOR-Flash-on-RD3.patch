@@ -1,7 +1,7 @@
 From ec436634c100157d55e2b43aa20dac60d0d77dc1 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 11 Mar 2011 11:19:20 +0800
-Subject: [PATCH 838/902] ENGR00140486-1 MX50 Add SPI NOR Flash on RD3
+Subject: [PATCH 838/998] ENGR00140486-1 MX50 Add SPI NOR Flash on RD3
 
 support new chip M25P32 driver via FSL SPI interface
 

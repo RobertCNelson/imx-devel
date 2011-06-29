@@ -1,7 +1,7 @@
 From 51918e1af6c0baa5ff0ef4d64bb2323b4a1681ed Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 18 Feb 2011 11:33:39 +0800
-Subject: [PATCH 781/902] ENGR00139423 mxc edid: add edid attr sysnode
+Subject: [PATCH 781/998] ENGR00139423 mxc edid: add edid attr sysnode
 
 After this patch, you can check edid info under
 /sys/devices/platform/sii902x.0/edid for sii902x HDMI.

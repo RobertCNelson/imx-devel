@@ -1,7 +1,7 @@
 From 350f9cd2d2e940c361b596ca4a7d8c00a0129b6c Mon Sep 17 00:00:00 2001
 From: Michal Ludvig <mludvig@suse.cz>
 Date: Tue, 5 May 2009 14:25:06 -0500
-Subject: [PATCH 005/902] ENGR00112200 Add cryptodev device
+Subject: [PATCH 005/998] ENGR00112200 Add cryptodev device
 
 Linux driver for /dev/crypto (aka CryptoDev)
 See http://www.logix.cz/michal/devel/cryptodev for details.

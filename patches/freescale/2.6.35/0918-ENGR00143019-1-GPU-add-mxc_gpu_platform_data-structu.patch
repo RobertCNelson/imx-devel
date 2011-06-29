@@ -1,0 +1,32 @@
+From 8d6582bcbe7deb802296a8967147b1bdd363df8b Mon Sep 17 00:00:00 2001
+From: Zhou, Jie <b30303@freescale.com>
+Date: Fri, 6 May 2011 01:09:06 +0800
+Subject: [PATCH 918/998] ENGR00143019-1 GPU: add mxc_gpu_platform_data structure
+
+define mxc_gpu_platform_data data structure to transfer option values
+between kernel and gpu driver
+
+Signed-off-by: Zhou, Jie <b30303@freescale.com>
+---
+ include/linux/fsl_devices.h |    5 +++++
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+
+diff --git a/include/linux/fsl_devices.h b/include/linux/fsl_devices.h
+index 348884d..675b52e 100644
+--- a/include/linux/fsl_devices.h
++++ b/include/linux/fsl_devices.h
+@@ -528,6 +528,11 @@ struct mxc_pwm_platform_data {
+ 	void (*disable_pwm_pad) (void);
+ };
+ 
++struct mxc_gpu_platform_data {
++	int z160_revision;
++	int enable_mmu;
++};
++
+ /* The name that links the i.MX NAND Flash Controller driver to its devices. */
+ 
+ #define IMX_NFC_DRIVER_NAME  ("imx_nfc")
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From 28cbcbf35b01b46f2eb3bc65e51fb3e4b171c66f Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 20 Oct 2010 12:19:10 +0800
-Subject: [PATCH 348/902] ENGR00132805 MX5 MFG: enable MAX173135 and LTC3589
+Subject: [PATCH 348/998] ENGR00132805 MX5 MFG: enable MAX173135 and LTC3589
 
 Enable MAX173135 and LTC3589 drivers in MX5 MFG
 defconfig.

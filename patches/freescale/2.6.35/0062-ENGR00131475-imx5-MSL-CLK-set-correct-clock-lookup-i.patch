@@ -1,7 +1,7 @@
 From eaadb1446c7c0e9cf183e30400ff048b913da495 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Tue, 14 Sep 2010 17:46:02 +0800
-Subject: [PATCH 062/902] ENGR00131475 imx5 MSL-CLK: set correct clock lookup item for csi and di
+Subject: [PATCH 062/998] ENGR00131475 imx5 MSL-CLK: set correct clock lookup item for csi and di
 
 The clk_get function in clkdev should fit exact dev_id name,
 set dev_id name then call clk_get() with dev parameter=NULL

@@ -1,7 +1,7 @@
 From af266ca104675e2ba67d7d62f0c6758957480560 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 25 Mar 2011 13:47:44 +0800
-Subject: [PATCH 855/902] ENGR00141161 ipuv3: add bgr24 fmt support for di
+Subject: [PATCH 855/998] ENGR00141161 ipuv3: add bgr24 fmt support for di
 
 add bgr24 fmt support for di
 

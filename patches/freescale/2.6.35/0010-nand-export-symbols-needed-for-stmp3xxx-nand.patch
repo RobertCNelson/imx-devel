@@ -1,7 +1,7 @@
 From db98c855841577fb6d48016c1eace31275113508 Mon Sep 17 00:00:00 2001
 From: Rob Herring <r.herring@freescale.com>
 Date: Wed, 16 Sep 2009 11:43:45 -0500
-Subject: [PATCH 010/902] nand: export symbols needed for stmp3xxx nand
+Subject: [PATCH 010/998] nand: export symbols needed for stmp3xxx nand
  nand: increase max nand page and oob sizes
 
 Signed-off-by: Rob Herring <r.herring@freescale.com>

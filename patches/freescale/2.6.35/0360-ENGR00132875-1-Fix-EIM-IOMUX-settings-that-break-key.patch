@@ -1,7 +1,7 @@
 From 0c4c7cae6b4ff95e4fb42b0ae8586d74337a7732 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Fri, 22 Oct 2010 07:51:25 -0500
-Subject: [PATCH 360/902] ENGR00132875-1: Fix EIM IOMUX settings that break keypad
+Subject: [PATCH 360/998] ENGR00132875-1: Fix EIM IOMUX settings that break keypad
 
 Create a platform specific power management data structure that will
 facilitate platform specific functions to be called during suspend/resume.

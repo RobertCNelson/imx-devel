@@ -1,7 +1,7 @@
 From cc874d41db181db3739adcc3a6faa625c672bf9d Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 28 Dec 2010 15:58:53 +0800
-Subject: [PATCH 575/902] ENGR00137424 GPMI : remove the event reporting code
+Subject: [PATCH 575/998] ENGR00137424 GPMI : remove the event reporting code
 
 The code is compiled error, and it is useless to debug.
 Remove the code, make the code tidy.

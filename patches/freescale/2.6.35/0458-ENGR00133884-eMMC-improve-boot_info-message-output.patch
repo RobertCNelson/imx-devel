@@ -1,7 +1,7 @@
 From 47868e11c6162edd2252fbf8a53cb93385422e47 Mon Sep 17 00:00:00 2001
 From: Frank Li <Frank.Li@freescale.com>
 Date: Fri, 19 Nov 2010 18:19:00 +0800
-Subject: [PATCH 458/902] ENGR00133884 eMMC: improve boot_info message output
+Subject: [PATCH 458/998] ENGR00133884 eMMC: improve boot_info message output
 
 Output bit means of important esd_csd register
 

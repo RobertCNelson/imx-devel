@@ -1,7 +1,7 @@
 From 3f2669370298be12521bc6f1dd906dc8a7b279da Mon Sep 17 00:00:00 2001
 From: Liu Ying <b17645@freescale.com>
 Date: Tue, 4 Jan 2011 14:21:14 +0800
-Subject: [PATCH 605/902] ENGR00137557 MXC V4L2 overlay:Fix preview issue on DI1 BG fb
+Subject: [PATCH 605/998] ENGR00137557 MXC V4L2 overlay:Fix preview issue on DI1 BG fb
 
 1) Add DISP3 BG-DI1 output support.
 2) Remove ADC output support.

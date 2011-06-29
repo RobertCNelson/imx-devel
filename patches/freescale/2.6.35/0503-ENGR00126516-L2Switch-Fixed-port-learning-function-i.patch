@@ -1,7 +1,7 @@
 From a46313dba9daa51e482359fa3c53afe907175f37 Mon Sep 17 00:00:00 2001
 From: Xie Xiaobo <r63061@freescale.com>
 Date: Thu, 2 Dec 2010 17:45:04 +0800
-Subject: [PATCH 503/902] ENGR00126516 L2Switch: Fixed port learning function issue
+Subject: [PATCH 503/998] ENGR00126516 L2Switch: Fixed port learning function issue
 
 Enable/disable L2 switch port learning does not take effect,
 and this patch fixed the issue.

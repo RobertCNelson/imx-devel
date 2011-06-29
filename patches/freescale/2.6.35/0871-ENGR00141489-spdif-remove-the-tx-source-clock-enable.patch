@@ -1,0 +1,37 @@
+From acba90905508678b5d54938bc726d8091cca38d8 Mon Sep 17 00:00:00 2001
+From: Xinyu Chen <xinyu.chen@freescale.com>
+Date: Fri, 1 Apr 2011 14:17:55 +0800
+Subject: [PATCH 871/998] ENGR00141489 spdif: remove the tx source clock enable in the driver probe
+
+The tx clock source mxc_alsa_spdif.0 should not be enabled in the probe.
+Instead, enable it in pcm open. Otherwise, busfreq driver can not set
+current soc to low power mode due to this clock enabled with AHB HIGH flag set.
+
+Signed-off-by: Xinyu Chen <xinyu.chen@freescale.com>
+---
+ sound/arm/mxc-alsa-spdif.c |    8 +++-----
+ 1 files changed, 3 insertions(+), 5 deletions(-)
+
+diff --git a/sound/arm/mxc-alsa-spdif.c b/sound/arm/mxc-alsa-spdif.c
+index 523a807..384f493 100644
+--- a/sound/arm/mxc-alsa-spdif.c
++++ b/sound/arm/mxc-alsa-spdif.c
+@@ -2130,12 +2130,10 @@ static int mxc_alsa_spdif_probe(struct platform_device
+ 	chip->spdif_txclk_44100 = plat_data->spdif_clk_44100;
+ 	chip->spdif_txclk_48000 = plat_data->spdif_clk_48000;
+ 	if ((chip->spdif_txclk_44100 == 1) ||
+-		(chip->spdif_txclk_48000 == 1)) {
++		(chip->spdif_txclk_48000 == 1))
+ 		/*spdif0_clk used as clk src*/
+-		struct clk *spdif_clk;
+-		spdif_clk = clk_get(&pdev->dev, NULL);
+-		clk_enable(spdif_clk);
+-	}
++		plat_data->spdif_clk = clk_get(&pdev->dev, NULL);
++
+ 	atomic_set(&chip->dpll_locked, 0);
+ 
+ 	err = snd_card_mxc_spdif_pcm(chip);
+-- 
+1.7.4.1
+

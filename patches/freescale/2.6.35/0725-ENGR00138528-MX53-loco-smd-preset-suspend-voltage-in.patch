@@ -1,7 +1,7 @@
 From 4846985ab13bdc09a01a1a7d828de879c0ff1008 Mon Sep 17 00:00:00 2001
 From: Zhou Jingyu <b02241@freescale.com>
 Date: Wed, 26 Jan 2011 16:16:31 +0800
-Subject: [PATCH 725/902] ENGR00138528 MX53 loco&smd:preset suspend voltage in the latest stage
+Subject: [PATCH 725/998] ENGR00138528 MX53 loco&smd:preset suspend voltage in the latest stage
 
 MX53 loco&smd:preset suspend voltage in the latest stage because
 Da9053 use the same register for preset and normal mode

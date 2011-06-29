@@ -1,7 +1,7 @@
 From d3ad344c3d9098a029f09214d66103bdfd17d9f0 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 9 Sep 2010 13:15:11 +0800
-Subject: [PATCH 173/902] ENGR00127105 DMA:remove mutex when enable/disable DMA channel
+Subject: [PATCH 173/998] ENGR00127105 DMA:remove mutex when enable/disable DMA channel
 
 These two functions can be called in IRQ context, but mutex may
 cause the schedule. So remove the mutex lock, the spinlock of each

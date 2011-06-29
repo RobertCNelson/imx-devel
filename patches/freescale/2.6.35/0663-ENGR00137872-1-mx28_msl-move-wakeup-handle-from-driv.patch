@@ -1,7 +1,7 @@
 From b48a2abc0a9a2e06ba9f78cbc145c1312d57ddc7 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 12 Jan 2011 10:47:42 +0800
-Subject: [PATCH 663/902] ENGR00137872-1 mx28_msl: move wakeup handle from driver to MSL
+Subject: [PATCH 663/998] ENGR00137872-1 mx28_msl: move wakeup handle from driver to MSL
 
 There were two places to handle wakeup irq routine, one is MSL,
 The other is at driver. It increases the complexity for maintaining

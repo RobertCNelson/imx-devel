@@ -1,7 +1,7 @@
 From c686ef90bea2d6cdaa61e9b6cf8a09ad38725683 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 23 Dec 2010 11:18:11 +0800
-Subject: [PATCH 564/902] ENGR00137270-2 GPMI : use start_dma_with_bch_irq() to replace old code
+Subject: [PATCH 564/998] ENGR00137270-2 GPMI : use start_dma_with_bch_irq() to replace old code
 
 Use the start_dma_with_bch_irq() to replace old code.
 This new code will make the imx23/imx28 wait the DMA for one second,

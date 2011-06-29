@@ -1,7 +1,7 @@
 From 91a1458499a8864f51eb3b40643a7b1aa07b0809 Mon Sep 17 00:00:00 2001
 From: Sammy He <r62914@freescale.com>
 Date: Tue, 4 Jan 2011 14:38:23 +0800
-Subject: [PATCH 608/902] ENGR00137546-2 IMX53_LOCO: Enable MMA8450 accelerometer sensor
+Subject: [PATCH 608/998] ENGR00137546-2 IMX53_LOCO: Enable MMA8450 accelerometer sensor
 
 Enable MMA8450 accelerometer sensor on imx53_loco board.
 

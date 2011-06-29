@@ -1,7 +1,7 @@
 From 2fa497bf9b92491d365c156359fffc1f331dcf96 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 4 Jan 2011 12:41:56 +0800
-Subject: [PATCH 594/902] ENGR00137554 GPMI : init the `chip_count` after the identifier has been found
+Subject: [PATCH 594/998] ENGR00137554 GPMI : init the `chip_count` after the identifier has been found
 
 The chip_count should be initialized after the identifier is found, and
 just before we scan the bbt.

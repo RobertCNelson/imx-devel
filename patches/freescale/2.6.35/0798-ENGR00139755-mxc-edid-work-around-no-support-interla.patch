@@ -1,7 +1,7 @@
 From 079a6024a7369117b8f2ca8f3a905702a0175394 Mon Sep 17 00:00:00 2001
 From: Jason Chen <b02280@freescale.com>
 Date: Fri, 25 Feb 2011 16:00:17 +0800
-Subject: [PATCH 798/902] ENGR00139755 mxc edid: work around no support interlaced mode
+Subject: [PATCH 798/998] ENGR00139755 mxc edid: work around no support interlaced mode
 
 Remove interlaced mode from fb modelist before it can be supported.
 Should revert this patch after interlaced mode support on normal display port.

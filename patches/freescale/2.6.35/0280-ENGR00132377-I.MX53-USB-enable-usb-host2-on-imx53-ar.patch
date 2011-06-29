@@ -1,7 +1,7 @@
 From c885c13754ed958d1b2042d933d2b5c5868f7e88 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Fri, 8 Oct 2010 11:08:40 +0800
-Subject: [PATCH 280/902] ENGR00132377 I.MX53 USB: enable usb host2 on imx53 ard board
+Subject: [PATCH 280/998] ENGR00132377 I.MX53 USB: enable usb host2 on imx53 ard board
 
 enable usb host2 on imx53 ard board, external ULPI phy is used
 on this board.

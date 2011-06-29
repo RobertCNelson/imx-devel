@@ -1,7 +1,7 @@
 From 446ac31604f7e873966d184fad933403bdbab164 Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Wed, 29 Dec 2010 19:44:12 +0800
-Subject: [PATCH 580/902] ENGR00137458 MX53 SMD: Add MSL support
+Subject: [PATCH 580/998] ENGR00137458 MX53 SMD: Add MSL support
 
 Add MSL support for MX53 SMD.
 The following functions are tested on MX53 SMD boards:

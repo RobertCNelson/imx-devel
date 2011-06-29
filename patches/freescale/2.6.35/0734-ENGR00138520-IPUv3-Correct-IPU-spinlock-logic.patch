@@ -1,7 +1,7 @@
 From c9437846e5a472bf25841ec09fe9c744e9a1abb3 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Wed, 26 Jan 2011 11:17:19 +0800
-Subject: [PATCH 734/902] ENGR00138520 IPUv3:Correct IPU spinlock logic
+Subject: [PATCH 734/998] ENGR00138520 IPUv3:Correct IPU spinlock logic
 
 1) Fix the double locking IPU spinlock issue.
 2) Protect g_channel_enable_mask with IPU spinlock.

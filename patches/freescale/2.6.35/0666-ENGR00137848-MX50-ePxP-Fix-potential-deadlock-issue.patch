@@ -1,7 +1,7 @@
 From ff12d13b45b4d02d7e095c3b7ef7ab6f79eeb018 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 11 Jan 2011 17:09:40 +0800
-Subject: [PATCH 666/902] ENGR00137848 MX50 ePxP: Fix potential deadlock issue
+Subject: [PATCH 666/998] ENGR00137848 MX50 ePxP: Fix potential deadlock issue
 
 Remove spin lock within pxpdma_desc_put(),
 because the caller has held the lock already.

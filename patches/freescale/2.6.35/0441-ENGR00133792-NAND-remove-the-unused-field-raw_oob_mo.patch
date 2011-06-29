@@ -1,7 +1,7 @@
 From d01b20b3c9eaab254a080bca4a08784cc66d3b3a Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Wed, 17 Nov 2010 11:16:35 +0800
-Subject: [PATCH 441/902] ENGR00133792 NAND : remove the unused field : raw_oob_mode
+Subject: [PATCH 441/998] ENGR00133792 NAND : remove the unused field : raw_oob_mode
 
 The field raw_oob_mode is useless now.
 So remove it to make the code tidy and clean.

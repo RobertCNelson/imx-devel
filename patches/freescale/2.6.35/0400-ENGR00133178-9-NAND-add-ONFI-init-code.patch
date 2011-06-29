@@ -1,7 +1,7 @@
 From b2347cb5c2555a0a62092e72dc2c973e0da4ab6c Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Nov 2010 15:56:21 +0800
-Subject: [PATCH 400/902] ENGR00133178-9 NAND : add ONFI init code
+Subject: [PATCH 400/998] ENGR00133178-9 NAND : add ONFI init code
 
 Add the ONFI nand init code.
 

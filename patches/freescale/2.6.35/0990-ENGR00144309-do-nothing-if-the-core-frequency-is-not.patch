@@ -1,0 +1,64 @@
+From 0a50055e007756e11c743daece804050e6088b6c Mon Sep 17 00:00:00 2001
+From: Lily Zhang <r58066@freescale.com>
+Date: Tue, 31 May 2011 17:18:51 +0800
+Subject: [PATCH 990/998] ENGR00144309 do nothing if the core frequency is not changed
+
+When the system enters low bus frequency mode by executing the
+following operations, the system enters dead loop to check
+arm_podf_busy bit:
+1. Store the rootfs on SD card.
+2. type "echo 8 > /proc/sys/kernel/printk"
+3. type "echo 1 > /sys/devices/platform/mxc_dvfs_core.0/enable"
+4. type "ifconfig eth0 down"
+5. type "echo 1 > /sys/class/graphics/fb0/blank"
+6. The system enters low bus frequency mode. And it keeps
+to print "ARM_PODF still in busy!!!!"
+
+This patch is to do nothing if the core frequency is not changed
+
+Signed-off-by: Ranjani Vaidyanathan <ra5478@freescale.com>
+Signed-off-by: Lily Zhang <r58066@freescale.com>
+(cherry picked from commit 8b4f2c07598a9a2bec83b47aca65175b9dab5e66)
+---
+ arch/arm/plat-mxc/dvfs_core.c |   18 +++++++++---------
+ 1 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/arch/arm/plat-mxc/dvfs_core.c b/arch/arm/plat-mxc/dvfs_core.c
+index a134cae..e10abb2 100644
+--- a/arch/arm/plat-mxc/dvfs_core.c
++++ b/arch/arm/plat-mxc/dvfs_core.c
+@@ -255,6 +255,15 @@ static int set_cpu_freq(int wp)
+ 		podf = cpu_wp_tbl[wp].cpu_podf;
+ 		gp_volt = cpu_wp_tbl[wp].cpu_voltage;
+ 
++		/* Get ARM_PODF */
++		reg = __raw_readl(ccm_base + dvfs_data->ccm_cacrr_offset);
++		arm_podf = reg & 0x07;
++		if (podf == arm_podf) {
++			printk(KERN_DEBUG
++			       "No need to change freq and voltage!!!!\n");
++			return 0;
++		}
++
+ 		/* Change arm_podf only */
+ 		/* set ARM_FREQ_SHIFT_DIVIDER */
+ 		reg = __raw_readl(ccm_base + dvfs_data->ccm_cdcr_offset);
+@@ -269,15 +278,6 @@ static int set_cpu_freq(int wp)
+ 		reg |= CCM_CDCR_ARM_FREQ_SHIFT_DIVIDER;
+ 		__raw_writel(reg, ccm_base + dvfs_data->ccm_cdcr_offset);
+ 
+-		/* Get ARM_PODF */
+-		reg = __raw_readl(ccm_base + dvfs_data->ccm_cacrr_offset);
+-		arm_podf = reg & 0x07;
+-		if (podf == arm_podf) {
+-			printk(KERN_DEBUG
+-			       "No need to change freq and voltage!!!!\n");
+-			return 0;
+-		}
+-
+ 		/* Check if FSVAI indicate freq up */
+ 		if (podf < arm_podf) {
+ 			ret = regulator_set_voltage(core_regulator,
+-- 
+1.7.4.1
+

@@ -1,7 +1,7 @@
 From e3a29a237413a1bc7921c612995a971faade07a5 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Fri, 16 Jul 2010 18:01:56 +0800
-Subject: [PATCH 172/902] ENGR00117738 MX28: Support eMMC44 and DDR mode
+Subject: [PATCH 172/998] ENGR00117738 MX28: Support eMMC44 and DDR mode
 
 Support the eMMC44 cards, and enable ddr mode
 on MX28 EVK board.

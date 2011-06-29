@@ -1,7 +1,7 @@
 From ce37115c96f9a6adf95ed4f5fa74a72798fc1bad Mon Sep 17 00:00:00 2001
 From: Lily Zhang <r58066@freescale.com>
 Date: Thu, 13 Jan 2011 19:10:40 +0800
-Subject: [PATCH 674/902] ENGR00137946 mx53 smd: add power off support
+Subject: [PATCH 674/998] ENGR00137946 mx53 smd: add power off support
 
 Clear SYS_ON_OFF_CTRL(GPIO7) as 0 to power down
 the system.

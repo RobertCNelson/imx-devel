@@ -1,7 +1,7 @@
 From 8af2715e805290814dafd3515ee0f28d6915fdb1 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Mon, 21 Mar 2011 11:34:44 +0800
-Subject: [PATCH 840/902] ENGR00140864-1 OV5640:Support QSXGA(2592x1944) at 7.5fps
+Subject: [PATCH 840/998] ENGR00140864-1 OV5640:Support QSXGA(2592x1944) at 7.5fps
 
 This patch supports OV5640 camera to work at QSXGA(2592x1944)
 at 7.5fps. Tested on MX53 SMD board.

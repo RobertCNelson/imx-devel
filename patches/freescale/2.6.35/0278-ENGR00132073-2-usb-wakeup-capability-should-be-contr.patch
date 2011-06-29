@@ -1,7 +1,7 @@
 From ffd4c24b9d66147c0960b687817b5535166672ef Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Wed, 29 Sep 2010 14:05:11 +0800
-Subject: [PATCH 278/902] ENGR00132073-2 usb: wakeup capability should be controlled by user
+Subject: [PATCH 278/998] ENGR00132073-2 usb: wakeup capability should be controlled by user
 
 Driver part
 

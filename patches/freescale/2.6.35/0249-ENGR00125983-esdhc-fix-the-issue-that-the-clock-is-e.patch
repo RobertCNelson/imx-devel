@@ -1,7 +1,7 @@
 From 572671697d964c6de0488a299f617a24f469cb61 Mon Sep 17 00:00:00 2001
 From: Aisheng.Dong <b29396@freescale.com>
 Date: Thu, 5 Aug 2010 11:30:19 +0800
-Subject: [PATCH 249/902] ENGR00125983 esdhc: fix the issue that the clock is enabled one more time
+Subject: [PATCH 249/998] ENGR00125983 esdhc: fix the issue that the clock is enabled one more time
 
 This will cause the esdhc clock registerd in the kernel clock tree
 to be always enabled which will block the sysem to disable PLL2 in

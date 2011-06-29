@@ -1,7 +1,7 @@
 From 1c52e6aa3073881c7f40c3d05f7c0ab7b9704fca Mon Sep 17 00:00:00 2001
 From: Dinh Nguyen <Dinh.Nguyen@freescale.com>
 Date: Mon, 17 Jan 2011 11:45:58 -0600
-Subject: [PATCH 741/902] ENGR00138024-2 Update mx5x board file to use u64-bit iomux
+Subject: [PATCH 741/998] ENGR00138024-2 Update mx5x board file to use u64-bit iomux
 
 This patch contains updates to the board files to use the update
 iomux bitmap along with the completed mx51 and mx53 iomux maps.

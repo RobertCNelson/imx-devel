@@ -1,7 +1,7 @@
 From 86c82e487066b04ff934453242e78ea901d16cc0 Mon Sep 17 00:00:00 2001
 From: Hu hui <b29976@freescale.com>
 Date: Mon, 18 Oct 2010 10:43:19 +0800
-Subject: [PATCH 339/902] ENGR00132608 I.MX USB:crashed with cable unpluged during data transfer
+Subject: [PATCH 339/998] ENGR00132608 I.MX USB:crashed with cable unpluged during data transfer
 
 During data transfer between pc and imx board, if unplug the cable, the
 udc will enter low power mode and the gadget class driver is
