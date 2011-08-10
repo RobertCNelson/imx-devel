@@ -4,6 +4,7 @@ unset KERNEL_REL
 unset STABLE_PATCH
 unset RC_PATCH
 unset PRE_RC
+unset PRE_SNAP
 unset BUILD
 unset CC
 unset LINUX_GIT
@@ -12,7 +13,17 @@ unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
 
+ARCH=$(uname -m)
+CCACHE=ccache
+
 DIR=$PWD
+
+CORES=1
+if test "-$ARCH-" = "-x86_64-" || test "-$ARCH-" = "-i686-"
+then
+ CORES=$(cat /proc/cpuinfo | grep processor | wc -l)
+ let CORES=$CORES+1
+fi
 
 mkdir -p ${DIR}/deploy/
 
@@ -44,7 +55,7 @@ function git_kernel {
   if [ "${PRE_RC}" ]; then
     git branch -D v${PRE_RC}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
-      wget -c --directory-prefix=${DIR}/patches/ http://www.kernel.org/pub/linux/kernel/v2.6/snapshots/patch-${PRE_RC}.bz2
+      wget -c --directory-prefix=${DIR}/patches/ http://www.kernel.org/pub/linux/kernel/${PRE_SNAP}/snapshots/patch-${PRE_RC}.bz2
       git checkout v${KERNEL_REL} -b v${PRE_RC}-${BUILD}
     else
       git checkout origin/master -b v${PRE_RC}-${BUILD}
@@ -142,8 +153,8 @@ function make_menuconfig {
 
 function make_deb {
 	cd ${DIR}/KERNEL/
-	echo "make ARCH=arm KBUILD_DEBARCH=armel LOCALVERSION=-${BUILD} CROSS_COMPILE=${CC} KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg"
-	fakeroot make ARCH=arm KBUILD_DEBARCH=armel LOCALVERSION=-${BUILD} CROSS_COMPILE=${CC} KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg
+	echo "make -j${CORES} ARCH=arm KBUILD_DEBARCH=armel LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg"
+	time fakeroot make -j${CORES} ARCH=arm KBUILD_DEBARCH=armel LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg
 	mv ${DIR}/*.deb ${DIR}/deploy/
 	cd ${DIR}
 }
@@ -161,7 +172,7 @@ if [ "${LATEST_GIT}" ] ; then
 fi
 
 	echo ""
-	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04"
+	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
 	echo ""
 
 	git_kernel

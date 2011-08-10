@@ -3,6 +3,9 @@
 
 ARCH=$(uname -m)
 
+#Ubuntu Natty
+#sudo apt-get install gcc-arm-linux-gnueabi
+
 #Ubuntu Maverick:
 #gcc-4.4
 #sudo apt-get install gcc-4.4-arm-linux-gnueabi
@@ -27,7 +30,7 @@ else
   echo ""
   echo "Error: You haven't setup the Cross Compiler (CC variable) in system.sh"
   echo ""
-  echo "with a (sane editor) open system.sh and modify the commented Line 22: #CC=arm-linux-gnueabi-"
+  echo "with a (sane editor) open system.sh and modify the commented Line 25: #CC=arm-linux-gnueabi-"
   exit
  fi
 fi
@@ -49,3 +52,12 @@ fi
 #local patches
 #LOCAL_PATCH_DIR=/full/path/to/dir/
 
+#zImage to uImage
+#OMAP3-4
+#ZRELADDR=0x80008000
+
+#mx51
+#ZRELADDR=0x90008000
+
+#mx53
+#ZRELADDR=0x70008000
