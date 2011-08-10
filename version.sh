@@ -3,10 +3,18 @@
 unset BUILD
 
 KERNEL_REL=2.6.39
+
+#for x.x.X
 #STABLE_PATCH=3
+
+#for x.x-gitX
+#PRE_SNAP=v2.9
 #PRE_RC=2.6.38-git20
+
+#for x.x-rcX
 RC_KERNEL=3.0
 RC_PATCH=-rc7
+
 ABI=1
 
 BUILD=d${ABI}

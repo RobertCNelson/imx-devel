@@ -4,6 +4,7 @@ unset KERNEL_REL
 unset STABLE_PATCH
 unset RC_PATCH
 unset PRE_RC
+unset PRE_SNAP
 unset BUILD
 unset CC
 unset LINUX_GIT
@@ -14,6 +15,7 @@ unset LOCAL_PATCH_DIR
 
 ARCH=$(uname -m)
 CCACHE=ccache
+
 DIR=$PWD
 
 CORES=1
@@ -53,7 +55,7 @@ function git_kernel {
   if [ "${PRE_RC}" ]; then
     git branch -D v${PRE_RC}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
-      wget -c --directory-prefix=${DIR}/patches/ http://www.kernel.org/pub/linux/kernel/v2.6/snapshots/patch-${PRE_RC}.bz2
+      wget -c --directory-prefix=${DIR}/patches/ http://www.kernel.org/pub/linux/kernel/${PRE_SNAP}/snapshots/patch-${PRE_RC}.bz2
       git checkout v${KERNEL_REL} -b v${PRE_RC}-${BUILD}
     else
       git checkout origin/master -b v${PRE_RC}-${BUILD}
@@ -149,6 +151,15 @@ function make_menuconfig {
 	cd ${DIR}/
 }
 
+function make_zImage {
+        cd ${DIR}/KERNEL/
+        echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y zImage"
+        time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y zImage
+        KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
+        cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
+        cd ${DIR}
+}
+
 function make_uImage {
 	cd ${DIR}/KERNEL/
 	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y uImage"
@@ -212,7 +223,8 @@ fi
 	patch_kernel
 	copy_defconfig
 	make_menuconfig
-	make_uImage
+	make_zImage
+	#make_uImage
 	make_modules
 	make_headers
 else
