@@ -9,6 +9,7 @@ unset BUILD
 unset CC
 unset LINUX_GIT
 unset BISECT
+unset IMX51
 unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
@@ -139,15 +140,23 @@ function patch_kernel {
 
 function copy_defconfig {
 	cd ${DIR}/KERNEL/
-#	make ARCH=arm CROSS_COMPILE=${CC} distclean
+	make ARCH=arm CROSS_COMPILE=${CC} distclean
+if [ "${IMX51}" ] ; then
+	cp ${DIR}/patches/imx51-defconfig .config
+else
 	cp ${DIR}/patches/defconfig .config
+fi
 	cd ${DIR}/
 }
 
 function make_menuconfig {
 	cd ${DIR}/KERNEL/
 	make ARCH=arm CROSS_COMPILE=${CC} menuconfig
+if [ "${IMX51}" ] ; then
+	cp .config ${DIR}/patches/imx51-defconfig
+else
 	cp .config ${DIR}/patches/defconfig
+fi
 	cd ${DIR}/
 }
 
@@ -158,15 +167,6 @@ function make_zImage {
         KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
         cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
         cd ${DIR}
-}
-
-function make_uImage {
-	cd ${DIR}/KERNEL/
-	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y uImage"
-	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y uImage
-	KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
-	cp arch/arm/boot/uImage ${DIR}/deploy/${KERNEL_UTS}.uImage
-	cd ${DIR}
 }
 
 function make_modules {
@@ -224,7 +224,6 @@ fi
 	copy_defconfig
 	make_menuconfig
 	make_zImage
-	#make_uImage
 	make_modules
 	make_headers
 else

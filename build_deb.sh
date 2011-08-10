@@ -9,6 +9,7 @@ unset BUILD
 unset CC
 unset LINUX_GIT
 unset BISECT
+unset IMX51
 unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
@@ -140,14 +141,22 @@ function patch_kernel {
 function copy_defconfig {
 	cd ${DIR}/KERNEL/
 	make ARCH=arm CROSS_COMPILE=${CC} distclean
+if [ "${IMX51}" ] ; then
+	cp ${DIR}/patches/imx51-defconfig .config
+else
 	cp ${DIR}/patches/defconfig .config
+fi
 	cd ${DIR}/
 }
 
 function make_menuconfig {
 	cd ${DIR}/KERNEL/
 	make ARCH=arm CROSS_COMPILE=${CC} menuconfig
+if [ "${IMX51}" ] ; then
+	cp .config ${DIR}/patches/imx51-defconfig
+else
 	cp .config ${DIR}/patches/defconfig
+fi
 	cd ${DIR}/
 }
 
