@@ -117,13 +117,13 @@ function patch_kernel {
 
         git add .
         if [ "${PRE_RC}" ]; then
-                git commit -a -m ''$PRE_RC'-'$BUILD' patchset'
+                git commit -a -m ''$PRE_RC'-'$BUILD' patchset' || true
         else if [ "${RC_PATCH}" ]; then
-                git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
+                git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset' || true
         else if [ "${STABLE_PATCH}" ] ; then
-                git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
+                git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset' || true
         else
-                git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset'
+                git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset' || true
         fi
         fi
         fi

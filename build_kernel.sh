@@ -117,13 +117,13 @@ function patch_kernel {
 
         git add .
         if [ "${PRE_RC}" ]; then
-                git commit -a -m ''$PRE_RC'-'$BUILD' patchset'
+                git commit -a -m ''$PRE_RC'-'$BUILD' patchset' || true
         else if [ "${RC_PATCH}" ]; then
-                git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
+                git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset' || true
         else if [ "${STABLE_PATCH}" ] ; then
-                git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
+                git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset' || true
         else
-                git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset'
+                git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset' || true
         fi
         fi
         fi
@@ -215,7 +215,7 @@ if [ "${LATEST_GIT}" ] ; then
 fi
 
 	echo ""
-echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
+	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
 	echo ""
 
 	git_kernel
