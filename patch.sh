@@ -15,6 +15,9 @@ echo "bugs and trivial stuff"
 function freescale {
 echo "from freescale dump..."
 
+#other options: http://opensource.freescale.com/git?p=imx/linux-2.6-imx.git;a=summary
+#git pull http://opensource.freescale.com/pub/scm/imx/linux-2.6-imx.git imx_2.6.35_11.05.01
+
 git pull git://github.com/RobertCNelson/linux-2.6.git imx_2.6.35_11.05.01
 
 #Causes Serial Corruption Loco Board
