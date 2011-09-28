@@ -141,7 +141,7 @@ function patch_kernel {
 
 function copy_defconfig {
 	cd ${DIR}/KERNEL/
-	make ARCH=arm CROSS_COMPILE=${CC} distclean
+	#make ARCH=arm CROSS_COMPILE=${CC} distclean
 if [ "${IMX51}" ] ; then
 	cp ${DIR}/patches/imx51-defconfig .config
 else
@@ -219,14 +219,14 @@ fi
 	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
 	echo ""
 
-	git_kernel
+#	git_kernel
 	#git_bisect
-	patch_kernel
+#	patch_kernel
 	copy_defconfig
 	make_menuconfig
 	make_zImage
 	make_modules
-	make_headers
+#	make_headers
 else
 	echo "The LINUX_GIT variable is not definted in system.sh"
 	echo "Follow the git clone directions in system.sh.sample"

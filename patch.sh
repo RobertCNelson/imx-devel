@@ -19,8 +19,14 @@ patch -p1 -s < "${DIR}/patches/freescale/0001-arm-imx-freescale-2.6.35.3-imx_11.
 
 }
 
+function imx_sata {
+echo "sata support"
+git pull git://github.com/RobertCNelson/linux.git imx_mx53_sata_v3.1-rc8
+}
+
 bugs_trivial
 #freescale
+imx_sata
 
 echo "patch.sh ran successful"
 
