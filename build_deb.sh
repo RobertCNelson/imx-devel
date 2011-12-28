@@ -1,16 +1,35 @@
 #!/bin/bash -e
+#
+# Copyright (c) 2009-2011 Robert Nelson <robertcnelson@gmail.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
 
 unset KERNEL_REL
 unset STABLE_PATCH
+unset RC_KERNEL
 unset RC_PATCH
 unset PRE_RC
-unset PRE_SNAP
 unset BUILD
 unset CC
 unset LINUX_GIT
-unset BISECT
-unset IMX51
 unset LATEST_GIT
+unset DEBARCH
 
 unset LOCAL_PATCH_DIR
 
@@ -28,25 +47,35 @@ fi
 
 mkdir -p ${DIR}/deploy/
 
-function git_mirror {
-  #Encase linux-2.6-stable or linus tree's are behind on kernel.org
-  echo "Pulling from github.com mirror of linux.git tree"
-  git pull git://github.com/torvalds/linux.git master --tags
-  echo "Pulling from kernel.org linux.git tree"
-  git pull git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master --tags
+function git_kernel_torvalds {
+  echo "pulling from torvalds kernel.org tree"
+  git pull git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master --tags || true
+}
+
+function git_kernel_stable {
+  echo "fetching from stable kernel.org tree"
+  git pull git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git master --tags || true
 }
 
 function git_kernel {
+if [ "-${LINUX_GIT}-" != "--" ]; then
+
+  if [[ ! -a ${LINUX_GIT}/.git/config ]]; then
+    echo "Double check: LINUX_GIT variable in system.sh, i'm not finding a git tree"
+    exit
+  fi
 
   cd ${LINUX_GIT}/
-  git fetch
+    echo "Updating LINUX_GIT tree via: git fetch"
+    git fetch
   cd -
 
-  if [[ ! -a ${DIR}/KERNEL ]]; then
+  if [[ ! -a ${DIR}/KERNEL/.git/config ]]; then
+	rm -rf ${DIR}/KERNEL/ || true
     git clone --shared ${LINUX_GIT} ${DIR}/KERNEL
   fi
 
-  cd ${DIR}/KERNEL
+  cd ${DIR}/KERNEL/
 
   git reset --hard
   git checkout master -f
@@ -61,7 +90,7 @@ function git_kernel {
       git checkout origin/master -b v${PRE_RC}-${BUILD}
     fi
   elif [ "${RC_PATCH}" ]; then
-    git tag | grep v${RC_KERNEL}${RC_PATCH} || git_mirror
+    git tag | grep v${RC_KERNEL}${RC_PATCH} || git_kernel_torvalds
     git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
       git checkout v${RC_KERNEL}${RC_PATCH} -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
@@ -69,7 +98,7 @@ function git_kernel {
       git checkout origin/master -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
     fi
   elif [ "${STABLE_PATCH}" ] ; then
-    git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_mirror
+    git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_kernel_stable
     git branch -D v${KERNEL_REL}.${STABLE_PATCH}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
       git checkout v${KERNEL_REL}.${STABLE_PATCH} -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
@@ -77,7 +106,7 @@ function git_kernel {
       git checkout origin/master -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
     fi
   else
-    git tag | grep v${KERNEL_REL} || git_mirror
+    git tag | grep v${KERNEL_REL} || git_kernel_torvalds
     git branch -D v${KERNEL_REL}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
       git checkout v${KERNEL_REL} -b v${KERNEL_REL}-${BUILD}
@@ -89,117 +118,96 @@ function git_kernel {
   git describe
 
   cd ${DIR}/
-}
 
-function git_bisect {
-        cd ${DIR}/KERNEL
-
-        git bisect start
-        git bisect bad v2.6.35-rc2
-        git bisect good v2.6.35-rc1
-#        git bisect good <>
-
-read -p "bisect look good... (y/n)? "
-[ "$REPLY" == "y" ] || exit
-
-        cd ${DIR}/
+else
+  echo "The LINUX_GIT variable is not definted in system.sh"
+  echo "Follow the git clone directions in system.sh.sample"
+  echo "and make sure to remove the comment # from LINUX_GIT"
+  echo "gedit system.sh"
+  exit
+fi
 }
 
 function patch_kernel {
-        cd ${DIR}/KERNEL
-    if [ ! "${LATEST_GIT}" ] ; then
-        if [ "${PRE_RC}" ]; then
-                bzip2 -dc ${DIR}/patches/patch-${PRE_RC}.bz2 | patch -p1 -s
-                git add .
-                git commit -a -m ''$PRE_RC' patchset'
-        fi
-    fi
-        export DIR BISECT
-        /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
+  cd ${DIR}/KERNEL
 
-        git add .
-        if [ "${PRE_RC}" ]; then
-                git commit -a -m ''$PRE_RC'-'$BUILD' patchset'
-        else if [ "${RC_PATCH}" ]; then
-                git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
-        else if [ "${STABLE_PATCH}" ] ; then
-                git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
-        else
-                git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset'
-        fi
-        fi
-        fi
-#Testing patch.sh patches
+  if [ ! "${LATEST_GIT}" ] ; then
+    if [ "${PRE_RC}" ]; then
+      bzip2 -dc ${DIR}/patches/patch-${PRE_RC}.bz2 | patch -p1 -s
+      git add .
+      git commit -a -m ''$PRE_RC' patchset'
+    fi
+  fi
+
+  export DIR BISECT
+  /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
+
+  git add .
+  if [ "${PRE_RC}" ]; then
+    git commit -a -m ''$PRE_RC'-'$BUILD' patchset'
+  elif [ "${RC_PATCH}" ]; then
+    git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
+  elif [ "${STABLE_PATCH}" ] ; then
+    git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
+  else
+    git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset'
+  fi
+
+#Test Patches:
 #exit
-        if [ "${LOCAL_PATCH_DIR}" ]; then
-                for i in ${LOCAL_PATCH_DIR}/*.patch ; do patch  -s -p1 < $i ; done
-                BUILD+='+'
-        fi
-#exit
-        cd ${DIR}/
+
+  if [ "${LOCAL_PATCH_DIR}" ]; then
+    for i in ${LOCAL_PATCH_DIR}/*.patch ; do patch  -s -p1 < $i ; done
+    BUILD+='+'
+  fi
+
+  cd ${DIR}/
 }
 
 function copy_defconfig {
-	cd ${DIR}/KERNEL/
-	make ARCH=arm CROSS_COMPILE=${CC} distclean
+  cd ${DIR}/KERNEL/
+  make ARCH=arm CROSS_COMPILE=${CC} distclean
 if [ "${IMX51}" ] ; then
 	cp ${DIR}/patches/imx51-defconfig .config
 else
-	cp ${DIR}/patches/defconfig .config
+  cp -v ${DIR}/patches/defconfig .config
 fi
-	cd ${DIR}/
+  cd ${DIR}/
 }
 
 function make_menuconfig {
-	cd ${DIR}/KERNEL/
-	make ARCH=arm CROSS_COMPILE=${CC} menuconfig
+  cd ${DIR}/KERNEL/
+  make ARCH=arm CROSS_COMPILE=${CC} menuconfig
 if [ "${IMX51}" ] ; then
 	cp .config ${DIR}/patches/imx51-defconfig
 else
-	cp .config ${DIR}/patches/defconfig
+  cp -v .config ${DIR}/patches/defconfig
 fi
-	cd ${DIR}/
+  cd ${DIR}/
 }
 
 function make_deb {
-	cd ${DIR}/KERNEL/
-	echo "make -j${CORES} ARCH=arm KBUILD_DEBARCH=armel LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg"
-	time fakeroot make -j${CORES} ARCH=arm KBUILD_DEBARCH=armel LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg
-	mv ${DIR}/*.deb ${DIR}/deploy/
-	cd ${DIR}
+  cd ${DIR}/KERNEL/
+  echo "make -j${CORES} ARCH=arm KBUILD_DEBARCH=${DEBARCH} LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg"
+  time fakeroot make -j${CORES} ARCH=arm KBUILD_DEBARCH=${DEBARCH} LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg
+  mv ${DIR}/*.deb ${DIR}/deploy/
+  cd ${DIR}/
 }
 
-	/bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
+  /bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
+
 if [ -e ${DIR}/system.sh ]; then
-	. system.sh
-	. version.sh
-if [ "-${LINUX_GIT}-" != "--" ]; then
+  . system.sh
+  . version.sh
 
-if [ "${LATEST_GIT}" ] ; then
-	echo ""
-	echo "Warning LATEST_GIT is enabled from system.sh i hope you know what your doing.."
-	echo ""
-fi
-
-	echo ""
-	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
-	echo ""
-
-	git_kernel
-	#git_bisect
-	patch_kernel
-	copy_defconfig
-	#make_menuconfig
-	make_deb
+  git_kernel
+  patch_kernel
+  copy_defconfig
+  #make_menuconfig
+  make_deb
 else
-	echo "The LINUX_GIT variable is not definted in system.sh"
-	echo "Follow the git clone directions in system.sh.sample"
-	echo "and make sure to remove the comment # from LINUX_GIT"
-	echo "gedit system.sh"
-fi
-else
-	echo "Missing system.sh, please copy system.sh.sample to system.sh and edit as needed"
-	echo "cp system.sh.sample system.sh"
-	echo "gedit system.sh"
+  echo "Missing system.sh, please copy system.sh.sample to system.sh and edit as needed"
+  echo "cp system.sh.sample system.sh"
+  echo "gedit system.sh"
 fi
 
