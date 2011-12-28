@@ -32,6 +32,8 @@ unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
 
+config="mx5_defconfig"
+
 ARCH=$(uname -m)
 CCACHE=ccache
 
@@ -166,22 +168,16 @@ function patch_kernel {
 function copy_defconfig {
   cd ${DIR}/KERNEL/
   make ARCH=arm CROSS_COMPILE=${CC} distclean
-if [ "${IMX51}" ] ; then
-	cp ${DIR}/patches/imx51-defconfig .config
-else
+  make ARCH=arm CROSS_COMPILE=${CC} ${config}
+  cp -v .config ${DIR}/patches/ref_${config}
   cp -v ${DIR}/patches/defconfig .config
-fi
   cd ${DIR}/
 }
 
 function make_menuconfig {
   cd ${DIR}/KERNEL/
   make ARCH=arm CROSS_COMPILE=${CC} menuconfig
-if [ "${IMX51}" ] ; then
-	cp -v .config ${DIR}/patches/imx51-defconfig
-else
   cp -v .config ${DIR}/patches/defconfig
-fi
   cd ${DIR}/
 }
 

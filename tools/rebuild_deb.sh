@@ -196,9 +196,9 @@ if [ -e ${DIR}/system.sh ]; then
   . system.sh
   . version.sh
 
-  git_kernel
-  patch_kernel
-  copy_defconfig
+#  git_kernel
+#  patch_kernel
+#  copy_defconfig
   make_menuconfig
   make_deb
 else

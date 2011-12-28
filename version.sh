@@ -2,7 +2,7 @@
 
 unset BUILD
 
-KERNEL_REL=3.0
+KERNEL_REL=3.1
 
 #for x.x.X
 #STABLE_PATCH=1
@@ -12,10 +12,10 @@ KERNEL_REL=3.0
 #PRE_RC=2.6.38-git20
 
 #for x.x-rcX
-RC_KERNEL=3.1
-RC_PATCH=-rc9
+RC_KERNEL=3.2
+RC_PATCH=-rc7
 
-ABI=1
+ABI=0
 
 BUILD=d${ABI}
 

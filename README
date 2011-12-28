@@ -1,0 +1,29 @@
+This just a simple set of scripts to rebuild a known working kernel for omap devices..
+
+Script Bugs: "bugs@rcn-ee.com"
+
+Supported Boards:
+mx53loco
+
+Weakly Support Boards:
+
+Build: zImage/Modules:
+
+"./build_kernel.sh"
+
+Install to SD card: zImage/Modules:
+
+"./tools/load_uImage.sh"
+
+Build: Debian deb package:
+
+"./build_deb.sh"
+
+Hacking: Made some some changes but don't want to rebuild the whole tree:
+
+zImage/Modules:
+"./tools/rebuild.sh"
+
+Deb:
+"./tools/rebuild_deb.sh"
+

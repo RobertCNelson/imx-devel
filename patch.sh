@@ -48,7 +48,7 @@ git pull git://github.com/RobertCNelson/linux.git imx_mx53_sata_v3.1-rc8
 
 bugs_trivial
 #freescale
-imx_sata
+#imx_sata
 
 echo "patch.sh ran successful"
 
