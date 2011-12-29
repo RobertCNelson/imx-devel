@@ -17,7 +17,7 @@ RC_PATCH=-rc7
 
 ABI=0
 
-BUILD=d${ABI}
+BUILD=imx${ABI}
 
 BUILDREV=1.0
 DISTRO=cross
