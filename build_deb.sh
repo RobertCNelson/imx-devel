@@ -29,7 +29,7 @@ mkdir -p ${DIR}/deploy/
 
 function git_remote_add {
         #For some reason after 2.6.36-rc3 linux-2.6-stable hasn't been updated...
-        git remote add -t torvalds torvalds_remote git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux-2.6.git
+        git remote add -t torvalds torvalds_remote git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
         git fetch --tags torvalds_remote master
 }
 
