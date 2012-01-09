@@ -116,28 +116,28 @@ fi
 }
 
 function patch_kernel {
-        cd ${DIR}/KERNEL
-        export DIR BISECT
-        /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
+  cd ${DIR}/KERNEL
+  export DIR BISECT
+  /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 
-        git add .
-        if [ "${RC_PATCH}" ]; then
-                git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset' || true
-        else if [ "${STABLE_PATCH}" ] ; then
-                git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset' || true
-        else
-                git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset' || true
-        fi
-        fi
-        fi
-#Testing patch.sh patches
+  git add .
+  if [ "${RC_PATCH}" ]; then
+    git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
+  elif [ "${STABLE_PATCH}" ] ; then
+    git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
+  else
+    git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset'
+  fi
+
+#Test Patches:
 #exit
-        if [ "${LOCAL_PATCH_DIR}" ]; then
-                for i in ${LOCAL_PATCH_DIR}/*.patch ; do patch  -s -p1 < $i ; done
-                BUILD+='+'
-        fi
-#exit
-        cd ${DIR}/
+
+  if [ "${LOCAL_PATCH_DIR}" ]; then
+    for i in ${LOCAL_PATCH_DIR}/*.patch ; do patch  -s -p1 < $i ; done
+    BUILD+='+'
+  fi
+
+  cd ${DIR}/
 }
 
 function copy_defconfig {
