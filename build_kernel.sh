@@ -22,6 +22,7 @@
 
 unset KERNEL_REL
 unset STABLE_PATCH
+unset RC_KERNEL
 unset RC_PATCH
 unset BUILD
 unset CC
@@ -44,33 +45,36 @@ fi
 
 mkdir -p ${DIR}/deploy/
 
-function git_remote_add {
-        #For some reason after 2.6.36-rc3 linux-2.6-stable hasn't been updated...
-        git remote add -t torvalds torvalds_remote git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
-        git fetch --tags torvalds_remote master
+function git_kernel_torvalds {
+  echo "pulling from torvalds kernel.org tree"
+  git pull git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master --tags || true
+}
+
+function git_kernel_stable {
+  echo "fetching from stable kernel.org tree"
+  git pull git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git master --tags || true
 }
 
 function git_kernel {
 if [[ -a ${LINUX_GIT}/.git/config ]]; then
   cd ${LINUX_GIT}/
-  git fetch
+    echo "Updating LINUX_GIT tree via: git fetch"
+    git fetch
   cd -
 
-  if [[ ! -a ${DIR}/KERNEL ]]; then
+  if [[ ! -a ${DIR}/KERNEL/.git/config ]]; then
+	rm -rf ${DIR}/KERNEL/ || true
     git clone --shared ${LINUX_GIT} ${DIR}/KERNEL
   fi
 
-  cd ${DIR}/KERNEL
+  cd ${DIR}/KERNEL/
 
   git reset --hard
-  git fetch
-  git checkout master
+  git checkout master -f
   git pull
 
-  git remote | grep torvalds_remote && git fetch --tags torvalds_remote master
-
   if [ "${RC_PATCH}" ]; then
-    git tag | grep v${RC_KERNEL}${RC_PATCH} || git_remote_add
+    git tag | grep v${RC_KERNEL}${RC_PATCH} || git_kernel_torvalds
     git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
       git checkout v${RC_KERNEL}${RC_PATCH} -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
@@ -78,6 +82,7 @@ if [[ -a ${LINUX_GIT}/.git/config ]]; then
       git checkout origin/master -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
     fi
   elif [ "${STABLE_PATCH}" ] ; then
+    git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_kernel_stable
     git branch -D v${KERNEL_REL}.${STABLE_PATCH}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
       git checkout v${KERNEL_REL}.${STABLE_PATCH} -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
@@ -85,6 +90,7 @@ if [[ -a ${LINUX_GIT}/.git/config ]]; then
       git checkout origin/master -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
     fi
   else
+    git tag | grep v${KERNEL_REL} | grep -v rc || git_kernel_torvalds
     git branch -D v${KERNEL_REL}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
       git checkout v${KERNEL_REL} -b v${KERNEL_REL}-${BUILD}
