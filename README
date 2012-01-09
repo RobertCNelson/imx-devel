@@ -7,6 +7,17 @@ mx53loco
 
 Weakly Support Boards:
 
+Dependencies: GCC ARM Cross ToolChain
+
+Ubuntu:
+sudo apt-get install gcc-arm-linux-gnueabi
+
+Linaro:
+http://www.linaro.org/downloads/
+
+Angstrom:
+http://www.angstrom-distribution.org/simplified-development-setup
+
 Build: zImage/Modules:
 
 "./build_kernel.sh"
