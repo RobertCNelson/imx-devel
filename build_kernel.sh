@@ -115,9 +115,7 @@ function patch_kernel {
         /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 
         git add .
-        if [ "${PRE_RC}" ]; then
-                git commit -a -m ''$PRE_RC'-'$BUILD' patchset' || true
-        else if [ "${RC_PATCH}" ]; then
+        if [ "${RC_PATCH}" ]; then
                 git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset' || true
         else if [ "${STABLE_PATCH}" ] ; then
                 git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset' || true
