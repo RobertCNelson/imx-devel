@@ -1,4 +1,24 @@
 #!/bin/bash -e
+#
+# Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
 
 unset KERNEL_REL
 unset STABLE_PATCH
@@ -34,7 +54,7 @@ function git_remote_add {
 }
 
 function git_kernel {
-
+if [[ -a ${LINUX_GIT}/.git/config ]]; then
   cd ${LINUX_GIT}/
   git fetch
   cd -
@@ -87,6 +107,17 @@ function git_kernel {
   git describe
 
   cd ${DIR}/
+else
+  echo ""
+  echo "ERROR: LINUX_GIT variable in system.sh seems invalid, i'm not finding a valid git tree..."
+  echo ""
+  echo "Quick Fix:"
+  echo "example: cd ~/"
+  echo "example: git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
+  echo "example: Set: LINUX_GIT=~/linux-stable/ in system.sh"
+  echo ""
+  exit
+fi
 }
 
 function git_bisect {
@@ -206,7 +237,6 @@ function make_headers {
 if [ -e ${DIR}/system.sh ]; then
 	. system.sh
 	. version.sh
-if [ "-${LINUX_GIT}-" != "--" ]; then
 
 if [ "${LATEST_GIT}" ] ; then
 	echo ""
@@ -227,12 +257,6 @@ fi
 	make_uImage
 	make_modules
 	make_headers
-else
-	echo "The LINUX_GIT variable is not definted in system.sh"
-	echo "Follow the git clone directions in system.sh.sample"
-	echo "and make sure to remove the comment # from LINUX_GIT"
-	echo "gedit system.sh"
-fi
 else
 	echo "Missing system.sh, please copy system.sh.sample to system.sh and edit as needed"
 	echo "cp system.sh.sample system.sh"

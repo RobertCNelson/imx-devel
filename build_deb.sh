@@ -34,7 +34,7 @@ function git_remote_add {
 }
 
 function git_kernel {
-
+if [[ -a ${LINUX_GIT}/.git/config ]]; then
   cd ${LINUX_GIT}/
   git fetch
   cd -
@@ -87,6 +87,17 @@ function git_kernel {
   git describe
 
   cd ${DIR}/
+else
+  echo ""
+  echo "ERROR: LINUX_GIT variable in system.sh seems invalid, i'm not finding a valid git tree..."
+  echo ""
+  echo "Quick Fix:"
+  echo "example: cd ~/"
+  echo "example: git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
+  echo "example: Set: LINUX_GIT=~/linux-stable/ in system.sh"
+  echo ""
+  exit
+fi
 }
 
 function git_bisect {
@@ -163,8 +174,6 @@ function make_deb {
 if [ -e ${DIR}/system.sh ]; then
 	. system.sh
 	. version.sh
-if [ "-${LINUX_GIT}-" != "--" ]; then
-
 if [ "${LATEST_GIT}" ] ; then
 	echo ""
 	echo "Warning LATEST_GIT is enabled from system.sh i hope you know what your doing.."
@@ -181,12 +190,6 @@ fi
 	copy_defconfig
 	#make_menuconfig
 	make_deb
-else
-	echo "The LINUX_GIT variable is not definted in system.sh"
-	echo "Follow the git clone directions in system.sh.sample"
-	echo "and make sure to remove the comment # from LINUX_GIT"
-	echo "gedit system.sh"
-fi
 else
 	echo "Missing system.sh, please copy system.sh.sample to system.sh and edit as needed"
 	echo "cp system.sh.sample system.sh"
