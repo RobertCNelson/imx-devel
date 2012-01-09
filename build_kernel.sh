@@ -185,46 +185,40 @@ function make_modules {
 }
 
 function make_headers {
-	cd ${DIR}/KERNEL/
+  cd ${DIR}/KERNEL/
 
-	echo ""
-	echo "Building Header Archive"
-	echo ""
+  echo ""
+  echo "Building Header Archive"
+  echo ""
 
-	rm -rfd ${DIR}/deploy/headers &> /dev/null || true
-	mkdir -p ${DIR}/deploy/headers/usr
-	make ARCH=arm CROSS_COMPILE=${CC} headers_install INSTALL_HDR_PATH=${DIR}/deploy/headers/usr
-	cd ${DIR}/deploy/headers
-	echo "Building ${KERNEL_UTS}-headers.tar.gz"
-	tar czf ../${KERNEL_UTS}-headers.tar.gz *
-	cd ${DIR}
+  rm -rf ${DIR}/deploy/headers &> /dev/null || true
+  mkdir -p ${DIR}/deploy/headers/usr
+  make ARCH=arm CROSS_COMPILE=${CC} headers_install INSTALL_HDR_PATH=${DIR}/deploy/headers/usr
+  cd ${DIR}/deploy/headers
+  echo "Building ${KERNEL_UTS}-headers.tar.gz"
+  tar czf ../${KERNEL_UTS}-headers.tar.gz *
+  cd ${DIR}/
 }
 
-	/bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
+  /bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
+
 if [ -e ${DIR}/system.sh ]; then
-	. system.sh
-	. version.sh
+  . system.sh
+  . version.sh
 
-if [ "${LATEST_GIT}" ] ; then
-	echo ""
-	echo "Warning LATEST_GIT is enabled from system.sh i hope you know what your doing.."
-	echo ""
-fi
-
-	echo ""
-	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
-	echo ""
-
-	git_kernel
-	patch_kernel
-	copy_defconfig
-	make_menuconfig
-	make_zImage
-	make_modules
-	make_headers
+  git_kernel
+  patch_kernel
+  copy_defconfig
+  make_menuconfig
+  make_zImage
+  make_modules
+  make_headers
 else
-	echo "Missing system.sh, please copy system.sh.sample to system.sh and edit as needed"
-	echo "cp system.sh.sample system.sh"
-	echo "gedit system.sh"
+  echo ""
+  echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."
+  echo ""
+  echo "example: cp system.sh.sample system.sh"
+  echo "example: gedit system.sh"
+  echo ""
 fi
 

@@ -167,28 +167,23 @@ function make_deb {
   cd ${DIR}/
 }
 
-	/bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
+  /bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
+
 if [ -e ${DIR}/system.sh ]; then
-	. system.sh
-	. version.sh
-if [ "${LATEST_GIT}" ] ; then
-	echo ""
-	echo "Warning LATEST_GIT is enabled from system.sh i hope you know what your doing.."
-	echo ""
-fi
+  . system.sh
+  . version.sh
 
-	echo ""
-	echo "Building for Debian Squeeze/Wheezy/Sid & Ubuntu 10.04/10.10/11.04/11.10"
-	echo ""
-
-	git_kernel
-	patch_kernel
-	copy_defconfig
-	#make_menuconfig
-	make_deb
+  git_kernel
+  patch_kernel
+  copy_defconfig
+  #make_menuconfig
+  make_deb
 else
-	echo "Missing system.sh, please copy system.sh.sample to system.sh and edit as needed"
-	echo "cp system.sh.sample system.sh"
-	echo "gedit system.sh"
+  echo ""
+  echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."
+  echo ""
+  echo "example: cp system.sh.sample system.sh"
+  echo "example: gedit system.sh"
+  echo ""
 fi
 
