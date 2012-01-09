@@ -31,6 +31,8 @@ unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
 
+config="xx_defconfig"
+
 ARCH=$(uname -m)
 CCACHE=ccache
 
@@ -141,10 +143,12 @@ function patch_kernel {
 }
 
 function copy_defconfig {
-	cd ${DIR}/KERNEL/
-	make ARCH=arm CROSS_COMPILE=${CC} distclean
-	cp ${DIR}/patches/defconfig .config
-	cd ${DIR}/
+  cd ${DIR}/KERNEL/
+  make ARCH=arm CROSS_COMPILE=${CC} distclean
+#  make ARCH=arm CROSS_COMPILE=${CC} ${config}
+#  cp -v .config ${DIR}/patches/ref_${config}
+  cp -v ${DIR}/patches/defconfig .config
+  cd ${DIR}/
 }
 
 function make_menuconfig {
