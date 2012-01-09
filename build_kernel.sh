@@ -152,45 +152,36 @@ function copy_defconfig {
 }
 
 function make_menuconfig {
-	cd ${DIR}/KERNEL/
-	make ARCH=arm CROSS_COMPILE=${CC} menuconfig
-	cp .config ${DIR}/patches/defconfig
-	cd ${DIR}/
+  cd ${DIR}/KERNEL/
+  make ARCH=arm CROSS_COMPILE=${CC} menuconfig
+  cp -v .config ${DIR}/patches/defconfig
+  cd ${DIR}/
 }
 
 function make_zImage {
-        cd ${DIR}/KERNEL/
-        echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y zImage"
-        time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y zImage
-        KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
-        cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
-        cd ${DIR}
-}
-
-function make_uImage {
-	cd ${DIR}/KERNEL/
-	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y uImage"
-	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y uImage
-	KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
-	cp arch/arm/boot/uImage ${DIR}/deploy/${KERNEL_UTS}.uImage
-	cd ${DIR}
+  cd ${DIR}/KERNEL/
+  echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y zImage"
+  time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y zImage
+  KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
+  cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
+  cd ${DIR}/
 }
 
 function make_modules {
-	cd ${DIR}/KERNEL/
-	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y modules
+  cd ${DIR}/KERNEL/
+  time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y modules
 
-	echo ""
-	echo "Building Module Archive"
-	echo ""
+  echo ""
+  echo "Building Module Archive"
+  echo ""
 
-	rm -rfd ${DIR}/deploy/mod &> /dev/null || true
-	mkdir -p ${DIR}/deploy/mod
-	make ARCH=arm CROSS_COMPILE=${CC} modules_install INSTALL_MOD_PATH=${DIR}/deploy/mod
-	echo "Building ${KERNEL_UTS}-modules.tar.gz"
-	cd ${DIR}/deploy/mod
-	tar czf ../${KERNEL_UTS}-modules.tar.gz *
-	cd ${DIR}
+  rm -rf ${DIR}/deploy/mod &> /dev/null || true
+  mkdir -p ${DIR}/deploy/mod
+  make ARCH=arm CROSS_COMPILE=${CC} modules_install INSTALL_MOD_PATH=${DIR}/deploy/mod
+  echo "Building ${KERNEL_UTS}-modules.tar.gz"
+  cd ${DIR}/deploy/mod
+  tar czf ../${KERNEL_UTS}-modules.tar.gz *
+  cd ${DIR}/
 }
 
 function make_headers {
@@ -229,7 +220,6 @@ fi
 	copy_defconfig
 	make_menuconfig
 	make_zImage
-	make_uImage
 	make_modules
 	make_headers
 else
