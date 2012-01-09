@@ -26,7 +26,6 @@ unset RC_PATCH
 unset BUILD
 unset CC
 unset LINUX_GIT
-unset BISECT
 unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
@@ -110,20 +109,6 @@ else
 fi
 }
 
-function git_bisect {
-        cd ${DIR}/KERNEL
-
-        git bisect start
-        git bisect bad v2.6.35-rc2
-        git bisect good v2.6.35-rc1
-#        git bisect good <>
-
-read -p "bisect look good... (y/n)? "
-[ "$REPLY" == "y" ] || exit
-
-        cd ${DIR}/
-}
-
 function patch_kernel {
         cd ${DIR}/KERNEL
         export DIR BISECT
@@ -186,7 +171,6 @@ fi
 	echo ""
 
 	git_kernel
-	#git_bisect
 	patch_kernel
 	copy_defconfig
 	#make_menuconfig
