@@ -23,8 +23,6 @@
 unset KERNEL_REL
 unset STABLE_PATCH
 unset RC_PATCH
-unset PRE_RC
-unset PRE_SNAP
 unset BUILD
 unset CC
 unset LINUX_GIT
@@ -72,15 +70,7 @@ if [[ -a ${LINUX_GIT}/.git/config ]]; then
 
   git remote | grep torvalds_remote && git fetch --tags torvalds_remote master
 
-  if [ "${PRE_RC}" ]; then
-    git branch -D v${PRE_RC}-${BUILD} || true
-    if [ ! "${LATEST_GIT}" ] ; then
-      wget -c --directory-prefix=${DIR}/patches/ http://www.kernel.org/pub/linux/kernel/${PRE_SNAP}/snapshots/patch-${PRE_RC}.bz2
-      git checkout v${KERNEL_REL} -b v${PRE_RC}-${BUILD}
-    else
-      git checkout origin/master -b v${PRE_RC}-${BUILD}
-    fi
-  elif [ "${RC_PATCH}" ]; then
+  if [ "${RC_PATCH}" ]; then
     git tag | grep v${RC_KERNEL}${RC_PATCH} || git_remote_add
     git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
@@ -136,13 +126,6 @@ read -p "bisect look good... (y/n)? "
 
 function patch_kernel {
         cd ${DIR}/KERNEL
-    if [ ! "${LATEST_GIT}" ] ; then
-        if [ "${PRE_RC}" ]; then
-                bzip2 -dc ${DIR}/patches/patch-${PRE_RC}.bz2 | patch -p1 -s
-                git add .
-                git commit -a -m ''$PRE_RC' patchset'
-        fi
-    fi
         export DIR BISECT
         /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 

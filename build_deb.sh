@@ -1,10 +1,28 @@
 #!/bin/bash -e
+#
+# Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
 
 unset KERNEL_REL
 unset STABLE_PATCH
 unset RC_PATCH
-unset PRE_RC
-unset PRE_SNAP
 unset BUILD
 unset CC
 unset LINUX_GIT
@@ -52,15 +70,7 @@ if [[ -a ${LINUX_GIT}/.git/config ]]; then
 
   git remote | grep torvalds_remote && git fetch --tags torvalds_remote master
 
-  if [ "${PRE_RC}" ]; then
-    git branch -D v${PRE_RC}-${BUILD} || true
-    if [ ! "${LATEST_GIT}" ] ; then
-      wget -c --directory-prefix=${DIR}/patches/ http://www.kernel.org/pub/linux/kernel/${PRE_SNAP}/snapshots/patch-${PRE_RC}.bz2
-      git checkout v${KERNEL_REL} -b v${PRE_RC}-${BUILD}
-    else
-      git checkout origin/master -b v${PRE_RC}-${BUILD}
-    fi
-  elif [ "${RC_PATCH}" ]; then
+  if [ "${RC_PATCH}" ]; then
     git tag | grep v${RC_KERNEL}${RC_PATCH} || git_remote_add
     git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
     if [ ! "${LATEST_GIT}" ] ; then
@@ -116,20 +126,11 @@ read -p "bisect look good... (y/n)? "
 
 function patch_kernel {
         cd ${DIR}/KERNEL
-    if [ ! "${LATEST_GIT}" ] ; then
-        if [ "${PRE_RC}" ]; then
-                bzip2 -dc ${DIR}/patches/patch-${PRE_RC}.bz2 | patch -p1 -s
-                git add .
-                git commit -a -m ''$PRE_RC' patchset'
-        fi
-    fi
         export DIR BISECT
         /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 
         git add .
-        if [ "${PRE_RC}" ]; then
-                git commit -a -m ''$PRE_RC'-'$BUILD' patchset' || true
-        else if [ "${RC_PATCH}" ]; then
+        if [ "${RC_PATCH}" ]; then
                 git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset' || true
         else if [ "${STABLE_PATCH}" ] ; then
                 git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset' || true
