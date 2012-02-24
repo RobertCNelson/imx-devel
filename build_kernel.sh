@@ -31,7 +31,7 @@ unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
 
-config="xx_defconfig"
+config="imx5_defconfig"
 
 ARCH=$(uname -m)
 CCACHE=ccache
@@ -75,30 +75,24 @@ if [[ -a ${LINUX_GIT}/.git/config ]]; then
   git checkout master -f
   git pull
 
-  if [ "${RC_PATCH}" ]; then
-    git tag | grep v${RC_KERNEL}${RC_PATCH} || git_kernel_torvalds
-    git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
-    if [ ! "${LATEST_GIT}" ] ; then
+  if [ ! "${LATEST_GIT}" ] ; then
+    if [ "${RC_PATCH}" ]; then
+      git tag | grep v${RC_KERNEL}${RC_PATCH} || git_kernel_torvalds
+      git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
       git checkout v${RC_KERNEL}${RC_PATCH} -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
-    else
-      git checkout origin/master -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
-    fi
-  elif [ "${STABLE_PATCH}" ] ; then
-    git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_kernel_stable
-    git branch -D v${KERNEL_REL}.${STABLE_PATCH}-${BUILD} || true
-    if [ ! "${LATEST_GIT}" ] ; then
+    elif [ "${STABLE_PATCH}" ] ; then
+      git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_kernel_stable
+      git branch -D v${KERNEL_REL}.${STABLE_PATCH}-${BUILD} || true
       git checkout v${KERNEL_REL}.${STABLE_PATCH} -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
     else
-      git checkout origin/master -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
+      git tag | grep v${KERNEL_REL} | grep -v rc || git_kernel_torvalds
+      git branch -D v${KERNEL_REL}-${BUILD} || true
+      git checkout v${KERNEL_REL} -b v${KERNEL_REL}-${BUILD}
     fi
   else
-    git tag | grep v${KERNEL_REL} | grep -v rc || git_kernel_torvalds
-    git branch -D v${KERNEL_REL}-${BUILD} || true
-    if [ ! "${LATEST_GIT}" ] ; then
-      git checkout v${KERNEL_REL} -b v${KERNEL_REL}-${BUILD}
-    else
-      git checkout origin/master -b v${KERNEL_REL}-${BUILD}
-    fi
+    git branch -D top-of-tree || true
+    git checkout origin/master -b top-of-tree
+    git_kernel_torvalds
   fi
 
   git describe
@@ -142,11 +136,21 @@ function patch_kernel {
   cd ${DIR}/
 }
 
+function bisect_kernel {
+ cd ${DIR}/KERNEL
+ #usb works on omap4 panda, but broken on omap3 beagle..
+ git bisect start
+ git bisect good v3.2
+ git bisect bad  v3.3-rc1
+
+ cd ${DIR}/
+}
+
 function copy_defconfig {
   cd ${DIR}/KERNEL/
   make ARCH=arm CROSS_COMPILE=${CC} distclean
-#  make ARCH=arm CROSS_COMPILE=${CC} ${config}
-#  cp -v .config ${DIR}/patches/ref_${config}
+  make ARCH=arm CROSS_COMPILE=${CC} ${config}
+  cp -v .config ${DIR}/patches/ref_${config}
   cp -v ${DIR}/patches/defconfig .config
   cd ${DIR}/
 }
@@ -164,6 +168,15 @@ function make_zImage {
   time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y zImage
   KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
   cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
+  cd ${DIR}/
+}
+
+function make_uImage {
+  cd ${DIR}/KERNEL/
+  echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y uImage"
+  time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y uImage
+  KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
+  cp arch/arm/boot/uImage ${DIR}/deploy/${KERNEL_UTS}.uImage
   cd ${DIR}/
 }
 
@@ -205,12 +218,30 @@ function make_headers {
 if [ -e ${DIR}/system.sh ]; then
   . system.sh
   . version.sh
+  echo ""
+  echo "Using : $(LC_ALL=C ${CC}gcc --version)"
+  echo ""
+
+if [ "${LATEST_GIT}" ] ; then
+	echo ""
+	echo "Warning LATEST_GIT is enabled from system.sh I hope you know what your doing.."
+	echo ""
+fi
 
   git_kernel
   patch_kernel
+#  bisect_kernel
   copy_defconfig
   make_menuconfig
   make_zImage
+if [ "${BUILD_UIMAGE}" ] ; then
+  make_uImage
+else
+  echo ""
+  echo "NOTE: If you'd like to build a uImage, make sure to enable BUILD_UIMAGE variables in system.sh"
+  echo "Currently Safe for current TI devices."
+  echo ""
+fi
   make_modules
   make_headers
 else
