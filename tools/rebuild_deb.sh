@@ -28,10 +28,11 @@ unset BUILD
 unset CC
 unset LINUX_GIT
 unset LATEST_GIT
+unset DEBARCH
 
 unset LOCAL_PATCH_DIR
 
-config="imx5_defconfig"
+config="omap2plus_defconfig"
 
 ARCH=$(uname -m)
 CCACHE=ccache
@@ -136,16 +137,6 @@ function patch_kernel {
   cd ${DIR}/
 }
 
-function bisect_kernel {
- cd ${DIR}/KERNEL
- #usb works on omap4 panda, but broken on omap3 beagle..
- git bisect start
- git bisect good v3.2
- git bisect bad  v3.3-rc1
-
- cd ${DIR}/
-}
-
 function copy_defconfig {
   cd ${DIR}/KERNEL/
   make ARCH=arm CROSS_COMPILE=${CC} distclean
@@ -162,53 +153,11 @@ function make_menuconfig {
   cd ${DIR}/
 }
 
-function make_zImage_modules {
-	cd ${DIR}/KERNEL/
-	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y zImage modules"
-	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y zImage modules
-	KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
-	cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
-	cd ${DIR}/
-}
-
-function make_uImage {
+function make_deb {
   cd ${DIR}/KERNEL/
-  echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" CONFIG_DEBUG_SECTION_MISMATCH=y uImage"
-  time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" CONFIG_DEBUG_SECTION_MISMATCH=y uImage
-  KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
-  cp arch/arm/boot/uImage ${DIR}/deploy/${KERNEL_UTS}.uImage
-  cd ${DIR}/
-}
-
-function make_modules_pkg {
-  cd ${DIR}/KERNEL/
-
-  echo ""
-  echo "Building Module Archive"
-  echo ""
-
-  rm -rf ${DIR}/deploy/mod &> /dev/null || true
-  mkdir -p ${DIR}/deploy/mod
-  make ARCH=arm CROSS_COMPILE=${CC} modules_install INSTALL_MOD_PATH=${DIR}/deploy/mod
-  echo "Building ${KERNEL_UTS}-modules.tar.gz"
-  cd ${DIR}/deploy/mod
-  tar czf ../${KERNEL_UTS}-modules.tar.gz *
-  cd ${DIR}/
-}
-
-function make_header_pkg {
-  cd ${DIR}/KERNEL/
-
-  echo ""
-  echo "Building Header Archive"
-  echo ""
-
-  rm -rf ${DIR}/deploy/headers &> /dev/null || true
-  mkdir -p ${DIR}/deploy/headers/usr
-  make ARCH=arm CROSS_COMPILE=${CC} headers_install INSTALL_HDR_PATH=${DIR}/deploy/headers/usr
-  cd ${DIR}/deploy/headers
-  echo "Building ${KERNEL_UTS}-headers.tar.gz"
-  tar czf ../${KERNEL_UTS}-headers.tar.gz *
+  echo "make -j${CORES} ARCH=arm KBUILD_DEBARCH=${DEBARCH} LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg"
+  time fakeroot make -j${CORES} ARCH=arm KBUILD_DEBARCH=${DEBARCH} LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" KDEB_PKGVERSION=${BUILDREV}${DISTRO} deb-pkg
+  mv ${DIR}/*.deb ${DIR}/deploy/
   cd ${DIR}/
 }
 
@@ -227,22 +176,11 @@ if [ "${LATEST_GIT}" ] ; then
 	echo ""
 fi
 
-  git_kernel
-  patch_kernel
-#  bisect_kernel
-  copy_defconfig
+#  git_kernel
+#  patch_kernel
+#  copy_defconfig
   make_menuconfig
-	make_zImage_modules
-if [ "${BUILD_UIMAGE}" ] ; then
-  make_uImage
-else
-  echo ""
-  echo "NOTE: If you'd like to build a uImage, make sure to enable BUILD_UIMAGE variables in system.sh"
-  echo "Currently Safe for current TI devices."
-  echo ""
-fi
-	make_modules_pkg
-	make_headers_pkg
+  make_deb
 else
   echo ""
   echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."

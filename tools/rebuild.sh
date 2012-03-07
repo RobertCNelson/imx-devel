@@ -31,7 +31,7 @@ unset LATEST_GIT
 
 unset LOCAL_PATCH_DIR
 
-config="imx5_defconfig"
+config="omap2plus_defconfig"
 
 ARCH=$(uname -m)
 CCACHE=ccache
@@ -136,16 +136,6 @@ function patch_kernel {
   cd ${DIR}/
 }
 
-function bisect_kernel {
- cd ${DIR}/KERNEL
- #usb works on omap4 panda, but broken on omap3 beagle..
- git bisect start
- git bisect good v3.2
- git bisect bad  v3.3-rc1
-
- cd ${DIR}/
-}
-
 function copy_defconfig {
   cd ${DIR}/KERNEL/
   make ARCH=arm CROSS_COMPILE=${CC} distclean
@@ -227,10 +217,9 @@ if [ "${LATEST_GIT}" ] ; then
 	echo ""
 fi
 
-  git_kernel
-  patch_kernel
-#  bisect_kernel
-  copy_defconfig
+#  git_kernel
+#  patch_kernel
+#  copy_defconfig
   make_menuconfig
 	make_zImage_modules
 if [ "${BUILD_UIMAGE}" ] ; then
@@ -242,7 +231,7 @@ else
   echo ""
 fi
 	make_modules_pkg
-	make_headers_pkg
+#	make_headers_pkg
 else
   echo ""
   echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."
