@@ -59,92 +59,83 @@ function git_kernel_stable {
 }
 
 function git_kernel {
-if [[ -a ${LINUX_GIT}/.git/config ]]; then
-  cd ${LINUX_GIT}/
-    echo "Updating LINUX_GIT tree via: git fetch"
-    git fetch
-  cd -
+	if [ -f ${LINUX_GIT}/.git/config ] ; then
+		cd ${LINUX_GIT}/
+		echo "Updating LINUX_GIT tree via: git fetch"
+		git fetch
+		cd -
 
-  if [[ ! -a ${DIR}/KERNEL/.git/config ]]; then
-	rm -rf ${DIR}/KERNEL/ || true
-    git clone --shared ${LINUX_GIT} ${DIR}/KERNEL
-  fi
+		if [ ! -f ${DIR}/KERNEL/.git/config ] ; then
+			rm -rf ${DIR}/KERNEL/ || true
+			git clone --shared ${LINUX_GIT} ${DIR}/KERNEL
+		fi
 
-  cd ${DIR}/KERNEL/
+		cd ${DIR}/KERNEL/
 
-  git reset --hard
-  git checkout master -f
-  git pull
+		git reset --hard
+		git checkout master -f
+		git pull
 
-  if [ ! "${LATEST_GIT}" ] ; then
-    if [ "${RC_PATCH}" ]; then
-      git tag | grep v${RC_KERNEL}${RC_PATCH} || git_kernel_torvalds
-      git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
-      git checkout v${RC_KERNEL}${RC_PATCH} -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
-    elif [ "${STABLE_PATCH}" ] ; then
-      git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_kernel_stable
-      git branch -D v${KERNEL_REL}.${STABLE_PATCH}-${BUILD} || true
-      git checkout v${KERNEL_REL}.${STABLE_PATCH} -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
-    else
-      git tag | grep v${KERNEL_REL} | grep -v rc || git_kernel_torvalds
-      git branch -D v${KERNEL_REL}-${BUILD} || true
-      git checkout v${KERNEL_REL} -b v${KERNEL_REL}-${BUILD}
-    fi
-  else
-    git branch -D top-of-tree || true
-    git checkout origin/master -b top-of-tree
-    git_kernel_torvalds
-  fi
+		if [ ! "${LATEST_GIT}" ] ; then
+			if [ "${RC_PATCH}" ] ; then
+				git tag | grep v${RC_KERNEL}${RC_PATCH} || git_kernel_torvalds
+				git branch -D v${RC_KERNEL}${RC_PATCH}-${BUILD} || true
+				git checkout v${RC_KERNEL}${RC_PATCH} -b v${RC_KERNEL}${RC_PATCH}-${BUILD}
+			elif [ "${STABLE_PATCH}" ] ; then
+				git tag | grep v${KERNEL_REL}.${STABLE_PATCH} || git_kernel_stable
+				git branch -D v${KERNEL_REL}.${STABLE_PATCH}-${BUILD} || true
+				git checkout v${KERNEL_REL}.${STABLE_PATCH} -b v${KERNEL_REL}.${STABLE_PATCH}-${BUILD}
+			else
+				git tag | grep v${KERNEL_REL} | grep -v rc || git_kernel_torvalds
+				git branch -D v${KERNEL_REL}-${BUILD} || true
+				git checkout v${KERNEL_REL} -b v${KERNEL_REL}-${BUILD}
+			fi
+		else
+			git branch -D top-of-tree || true
+			git checkout v${KERNEL_REL} -b top-of-tree
+			git describe
+			git pull git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git master || true
+		fi
 
-  git describe
+		git describe
 
-  cd ${DIR}/
-else
-  echo ""
-  echo "ERROR: LINUX_GIT variable in system.sh seems invalid, i'm not finding a valid git tree..."
-  echo ""
-  echo "Quick Fix:"
-  echo "example: cd ~/"
-  echo "example: git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-  echo "example: Set: LINUX_GIT=~/linux-stable/ in system.sh"
-  echo ""
-  exit
-fi
+		cd ${DIR}/
+	else
+		echo ""
+		echo "ERROR: LINUX_GIT variable in system.sh seems invalid, i'm not finding a valid git tree..."
+		echo ""
+		echo "Quick Fix:"
+		echo "example: cd ~/"
+		echo "example: git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
+		echo "example: Set: LINUX_GIT=~/linux-stable/ in system.sh"
+		echo ""
+		exit
+	fi
 }
 
 function patch_kernel {
-  cd ${DIR}/KERNEL
-  export DIR BISECT
-  /bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
+	cd ${DIR}/KERNEL
+	export DIR
+	/bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 
-  git add .
-  if [ "${RC_PATCH}" ]; then
-    git commit -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
-  elif [ "${STABLE_PATCH}" ] ; then
-    git commit -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
-  else
-    git commit -a -m ''$KERNEL_REL'-'$BUILD' patchset'
-  fi
+	git add .
+	if [ "${RC_PATCH}" ] ; then
+		git commit --allow-empty -a -m ''$RC_KERNEL''$RC_PATCH'-'$BUILD' patchset'
+	elif [ "${STABLE_PATCH}" ] ; then
+		git commit --allow-empty -a -m ''$KERNEL_REL'.'$STABLE_PATCH'-'$BUILD' patchset'
+	else
+		git commit --allow-empty -a -m ''$KERNEL_REL'-'$BUILD' patchset'
+	fi
 
 #Test Patches:
 #exit
 
-  if [ "${LOCAL_PATCH_DIR}" ]; then
-    for i in ${LOCAL_PATCH_DIR}/*.patch ; do patch  -s -p1 < $i ; done
-    BUILD+='+'
-  fi
+	if [ "${LOCAL_PATCH_DIR}" ] ; then
+		for i in ${LOCAL_PATCH_DIR}/*.patch ; do patch  -s -p1 < $i ; done
+		BUILD+='+'
+	fi
 
-  cd ${DIR}/
-}
-
-function bisect_kernel {
- cd ${DIR}/KERNEL
- #usb works on omap4 panda, but broken on omap3 beagle..
- git bisect start
- git bisect good v3.2
- git bisect bad  v3.3-rc1
-
- cd ${DIR}/
+	cd ${DIR}/
 }
 
 function copy_defconfig {
@@ -185,7 +176,7 @@ function make_uImage {
 	if [ -f ./arch/arm/boot/uImage ] ; then
 		cp arch/arm/boot/uImage ${DIR}/deploy/${KERNEL_UTS}.uImage
 	else
-		echo "Error: make zImage modules failed"
+		echo "Error: make uImage failed"
 		exit
 	fi
 	cd ${DIR}/
@@ -228,9 +219,13 @@ function make_headers_pkg {
 if [ -e ${DIR}/system.sh ]; then
   . system.sh
   . version.sh
-  echo ""
-  echo "Using : $(LC_ALL=C ${CC}gcc --version)"
-  echo ""
+	GCC="gcc"
+	if [ "x${GCC_OVERRIDE}" != "x" ] ; then
+		GCC="${GCC_OVERRIDE}"
+	fi
+	echo ""
+	echo "Using : $(LC_ALL=C ${CC}${GCC} --version)"
+	echo ""
 
 if [ "${LATEST_GIT}" ] ; then
 	echo ""
@@ -245,9 +240,11 @@ fi
 
   git_kernel
   patch_kernel
-#  bisect_kernel
   copy_defconfig
   make_menuconfig
+	if [ "x${GCC_OVERRIDE}" != "x" ] ; then
+		sed -i -e 's:CROSS_COMPILE)gcc:CROSS_COMPILE)'$GCC_OVERRIDE':g' ${DIR}/KERNEL/Makefile
+	fi
 	make_zImage_modules
 if [ "${BUILD_UIMAGE}" ] ; then
 	make_uImage
@@ -259,6 +256,9 @@ else
 fi
 	make_modules_pkg
 	make_headers_pkg
+	if [ "x${GCC_OVERRIDE}" != "x" ] ; then
+		sed -i -e 's:CROSS_COMPILE)'$GCC_OVERRIDE':CROSS_COMPILE)gcc:g' ${DIR}/KERNEL/Makefile
+	fi
 else
   echo ""
   echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."
