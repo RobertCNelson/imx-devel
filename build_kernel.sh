@@ -47,8 +47,11 @@ then
 fi
 
 unset GIT_OPTS
-GIT_VERSION=$(git --version | awk '{print $3}')
-if [ "x${GIT_VERSION}" == "x1.7.10" ] ; then
+unset GIT_NOEDIT
+LC_ALL=C git help pull | grep -m 1 -e "--no-edit" &>/dev/null && GIT_NOEDIT=1
+
+if [ "${GIT_NOEDIT}" ] ; then
+	echo "Detected git 1.7.10 or later, this script will pull via [git pull --no-edit]"
 	GIT_OPTS+="--no-edit"
 fi
 
@@ -79,8 +82,11 @@ function git_kernel {
 		fi
 
 		cd ${LINUX_GIT}/
+		echo "Debug: LINUX_GIT setup..."
+		pwd
+		cat .git/config
 		echo "Updating LINUX_GIT tree via: git fetch"
-		git fetch
+		git fetch || true
 		cd -
 
 		if [ ! -f ${DIR}/KERNEL/.git/config ] ; then
@@ -187,6 +193,7 @@ function make_zImage_modules {
 	KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
 	if [ -f ./arch/arm/boot/zImage ] ; then
 		cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
+		cp .config ${DIR}/deploy/${KERNEL_UTS}.config
 	else
 		echo "Error: make zImage modules failed"
 		exit

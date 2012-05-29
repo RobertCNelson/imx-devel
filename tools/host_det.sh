@@ -149,11 +149,13 @@ if [ "${APT}" ];then
 fi
 }
 
+LC_ALL=C git --version
 
 BUILD_HOST=${BUILD_HOST:="$( detect_host )"}
 info "Detected build host [$BUILD_HOST]"
 case "$BUILD_HOST" in
     redhat*)
+		
 	    redhat_reqs
         ;;
     debian*)
