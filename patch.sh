@@ -32,22 +32,10 @@ git commit -a -m 'testing patchset'
 function bugs_trivial {
 	echo "bugs and trivial stuff"
 	git am "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
-}
-
-function freescale {
-echo "from freescale dump..."
-patch -p1 -s < "${DIR}/patches/freescale/0001-arm-imx-freescale-2.6.35.3-imx_11.01.00.patch"
-
-}
-
-function imx_sata {
-echo "sata support"
-git pull git://github.com/RobertCNelson/linux.git imx_mx53_sata_v3.1-rc8
+	git am "${DIR}/patches/omap_fixes/0005-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
 }
 
 bugs_trivial
-#freescale
-#imx_sata
 
 echo "patch.sh ran successful"
 
