@@ -22,32 +22,32 @@
 
 # Split out, so build_kernel.sh and build_deb.sh can share..
 
+# DIR=`pwd`
+
 echo "Starting patch.sh"
 
-function git_add {
-git add .
-git commit -a -m 'testing patchset'
+git_add () {
+	git add .
+	git commit -a -m 'testing patchset'
 }
 
-function bugs_trivial {
+cleanup () {
+	git format-patch -9
+	exit
+}
+
+bugs_trivial () {
 	echo "bugs and trivial stuff"
 	git am "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
 }
 
-function freescale {
-echo "from freescale dump..."
-patch -p1 -s < "${DIR}/patches/freescale/0001-arm-imx-freescale-2.6.35.3-imx_11.01.00.patch"
-
-}
-
-function imx_sata {
-echo "sata support"
-git pull git://github.com/RobertCNelson/linux.git imx_mx53_sata_v3.1-rc8
+mainline_fixes () {
+	echo "mainline patches"
+	git am "${DIR}/patches/mainline-fixes/0001-arm-add-definition-of-strstr-to-decompress.c.patch"
 }
 
 bugs_trivial
-#freescale
-#imx_sata
+mainline_fixes
 
 echo "patch.sh ran successful"
 

@@ -8,8 +8,8 @@ unset BUILD
 #STABLE_PATCH=7
 
 #for x.x-rcX
-RC_KERNEL=3.4
-RC_PATCH=-rc6
+RC_KERNEL=3.5
+RC_PATCH=-rc1
 
 ABI=0
 
