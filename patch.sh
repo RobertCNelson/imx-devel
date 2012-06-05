@@ -44,6 +44,7 @@ bugs_trivial () {
 mainline_fixes () {
 	echo "mainline patches"
 	git am "${DIR}/patches/mainline-fixes/0001-arm-add-definition-of-strstr-to-decompress.c.patch"
+	git am "${DIR}/patches/omap_fixes/0004-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
 }
 
 bugs_trivial

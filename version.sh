@@ -11,7 +11,7 @@ unset BUILD
 RC_KERNEL=3.5
 RC_PATCH=-rc1
 
-ABI=0
+ABI=1
 
 BUILD=imx${ABI}
 
