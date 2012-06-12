@@ -42,7 +42,7 @@ if [ -e ${DIR}/version.sh ]; then
 		git tag -a "${KERNEL_REL}-${BUILD}" -m "${KERNEL_REL}-${BUILD}"
 	fi
 	fi
-		git push origin
-		git push origin --tags
+	git push origin
+	git push origin --tags
 fi
 
