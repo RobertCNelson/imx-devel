@@ -1,0 +1,32 @@
+From 9403623e6df5ece615abfde9183062f8bfce2339 Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Sat, 16 Jun 2012 16:36:29 -0300
+Subject: [PATCH 29/32] ARM: imx6q: ensure regulator is available
+
+During imx6q initialization the usb charger detector is disabled but
+for it, regulator symbols need to be available.
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+Cc: Richard Zhao <richard.zhao@freescale.com>
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ arch/arm/mach-imx/Kconfig |    3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/arch/arm/mach-imx/Kconfig b/arch/arm/mach-imx/Kconfig
+index 0021f72..6f29e3c 100644
+--- a/arch/arm/mach-imx/Kconfig
++++ b/arch/arm/mach-imx/Kconfig
+@@ -831,6 +831,9 @@ config SOC_IMX6Q
+ 	select HAVE_SMP
+ 	select PINCTRL
+ 	select PINCTRL_IMX6Q
++	select MFD_ANATOP
++	select REGULATOR
++	select REGULATOR_ANATOP
+ 	select USE_OF
+ 
+ 	help
+-- 
+1.7.10
+

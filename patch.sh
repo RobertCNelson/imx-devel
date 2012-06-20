@@ -47,8 +47,46 @@ mainline_fixes () {
 	git am "${DIR}/patches/omap_fixes/0004-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
 }
 
+freescale_patch_tree () {
+	echo "freescale patch tree"
+	#git pull git://github.com/Freescale/linux-mainline.git patches-3.5-rc3
+	git am "${DIR}/patches/freescale/0001-usb-chipidea-remove-unneeded-NULL-check.patch"
+	git am "${DIR}/patches/freescale/0002-usb-chipidea-drop-useless-arch-check.patch"
+	git am "${DIR}/patches/freescale/0003-usb-chipidea-msm-add-missing-section-annotation.patch"
+	git am "${DIR}/patches/freescale/0004-usb-chipidea-msm-add-remove-method.patch"
+	git am "${DIR}/patches/freescale/0005-USB-Chipidea-rename-struct-ci13xxx_udc_driver-to-str.patch"
+	git am "${DIR}/patches/freescale/0006-USB-Chipidea-rename-struct-ci13xxx-variables-from-ud.patch"
+	git am "${DIR}/patches/freescale/0007-USB-Chipidea-add-unified-ci13xxx_-add-remove-_device.patch"
+	git am "${DIR}/patches/freescale/0008-USB-Chipidea-add-ci13xxx-device-id-management.patch"
+	git am "${DIR}/patches/freescale/0009-usb-chipidea-select-USB_EHCI_ROOT_HUB_TT-in-USB_CHIP.patch"
+	git am "${DIR}/patches/freescale/0010-mfd-anatop-permit-adata-be-NULL-when-access-register.patch"
+	git am "${DIR}/patches/freescale/0011-ARM-imx6q-prepare-and-enable-init-on-clks-directly-i.patch"
+	git am "${DIR}/patches/freescale/0012-usb-otg-add-notify_connect-notify_disconnect-callbac.patch"
+	git am "${DIR}/patches/freescale/0013-USB-move-transceiver-from-ehci_hcd-and-ohci_hcd-to-h.patch"
+	git am "${DIR}/patches/freescale/0014-USB-notify-phy-when-root-hub-port-connect-change.patch"
+	git am "${DIR}/patches/freescale/0015-usb-chipidea-permit-driver-bindings-pass-phy-pointer.patch"
+	git am "${DIR}/patches/freescale/0016-usb-otg-add-basic-mxs-phy-driver-support.patch"
+	git am "${DIR}/patches/freescale/0017-usb-chipidea-add-imx-platform-driver.patch"
+	git am "${DIR}/patches/freescale/0018-ARM-imx6q-correct-device-name-of-usbphy-and-usb-cont.patch"
+	git am "${DIR}/patches/freescale/0019-ARM-imx6q-add-config-on-boot-gpios.patch"
+	git am "${DIR}/patches/freescale/0020-ARM-imx6q-add-usbphy-clocks.patch"
+	git am "${DIR}/patches/freescale/0021-ARM-imx6q-disable-usb-charger-detector.patch"
+	git am "${DIR}/patches/freescale/0022-ARM-dts-imx6q-sabrelite-add-usb-devices.patch"
+	git am "${DIR}/patches/freescale/0023-ARM-mxs-clk_register_clkdev-mx28-usb-clocks.patch"
+	git am "${DIR}/patches/freescale/0024-ARM-dts-imx28-evk-add-usb-devices.patch"
+	git am "${DIR}/patches/freescale/0025-pinctrl-mxs-Use-kfree-to-fix-build-error.patch"
+	git am "${DIR}/patches/freescale/0026-ARM-mx23-Add-initial-support-for-olinuxino-board.patch"
+	git am "${DIR}/patches/freescale/0027-ARM-mxs_defconfig-Let-USB-driver-be-built-by-default.patch"
+	git am "${DIR}/patches/freescale/0028-ARM-imx23-olinuxino.dts-Add-USB-support.patch"
+	git am "${DIR}/patches/freescale/0029-ARM-imx6q-ensure-regulator-is-available.patch"
+	git am "${DIR}/patches/freescale/0030-clk-mxs-Register-USB-clocks-for-mx23.patch"
+	git am "${DIR}/patches/freescale/0031-ARM-imx23-olinuxino.dts-Fix-the-GPIO-for-LAN9215-res.patch"
+	git am "${DIR}/patches/freescale/0032-ARM-imx23-olinuxino.dts-Allow-configuring-a-gpio-on-.patch"
+}
+
 bugs_trivial
 mainline_fixes
+freescale_patch_tree
 
 echo "patch.sh ran successful"
 

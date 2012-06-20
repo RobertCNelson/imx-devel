@@ -1,0 +1,192 @@
+From 5699be419977ca62a3267a6c9ec8bb584ce13c51 Mon Sep 17 00:00:00 2001
+From: Richard Zhao <richard.zhao@freescale.com>
+Date: Fri, 8 Jun 2012 12:31:33 +0800
+Subject: [PATCH 13/32] USB: move transceiver from ehci_hcd and ohci_hcd to
+ hcd and rename it as phy
+
+ - to decrease redundant since both ehci_hcd and ohci_hcd have the same variable
+ - it helps access phy in usb core code
+ - phy is more meaningful than transceiver
+
+Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
+---
+ drivers/usb/host/ehci-fsl.c  |   21 ++++++++++-----------
+ drivers/usb/host/ehci-hub.c  |    2 +-
+ drivers/usb/host/ehci.h      |    4 ----
+ drivers/usb/host/ohci-omap.c |   27 ++++++++++++++-------------
+ drivers/usb/host/ohci.h      |    5 -----
+ include/linux/usb/hcd.h      |    6 ++++++
+ 6 files changed, 31 insertions(+), 34 deletions(-)
+
+diff --git a/drivers/usb/host/ehci-fsl.c b/drivers/usb/host/ehci-fsl.c
+index 4336257..3379945 100644
+--- a/drivers/usb/host/ehci-fsl.c
++++ b/drivers/usb/host/ehci-fsl.c
+@@ -142,19 +142,19 @@ static int usb_hcd_fsl_probe(const struct hc_driver *driver,
+ 	if (pdata->operating_mode == FSL_USB2_DR_OTG) {
+ 		struct ehci_hcd *ehci = hcd_to_ehci(hcd);
+ 
+-		ehci->transceiver = usb_get_transceiver();
+-		dev_dbg(&pdev->dev, "hcd=0x%p  ehci=0x%p, transceiver=0x%p\n",
+-			hcd, ehci, ehci->transceiver);
++		hcd->phy = usb_get_transceiver();
++		dev_dbg(&pdev->dev, "hcd=0x%p  ehci=0x%p, phy=0x%p\n",
++			hcd, ehci, hcd->phy);
+ 
+-		if (ehci->transceiver) {
+-			retval = otg_set_host(ehci->transceiver->otg,
++		if (hcd->phy) {
++			retval = otg_set_host(hcd->phy->otg,
+ 					      &ehci_to_hcd(ehci)->self);
+ 			if (retval) {
+-				usb_put_transceiver(ehci->transceiver);
++				usb_put_transceiver(hcd->phy);
+ 				goto err4;
+ 			}
+ 		} else {
+-			dev_err(&pdev->dev, "can't find transceiver\n");
++			dev_err(&pdev->dev, "can't find phy\n");
+ 			retval = -ENODEV;
+ 			goto err4;
+ 		}
+@@ -190,11 +190,10 @@ static void usb_hcd_fsl_remove(struct usb_hcd *hcd,
+ 			       struct platform_device *pdev)
+ {
+ 	struct fsl_usb2_platform_data *pdata = pdev->dev.platform_data;
+-	struct ehci_hcd *ehci = hcd_to_ehci(hcd);
+ 
+-	if (ehci->transceiver) {
+-		otg_set_host(ehci->transceiver->otg, NULL);
+-		usb_put_transceiver(ehci->transceiver);
++	if (hcd->phy) {
++		otg_set_host(hcd->phy->otg, NULL);
++		usb_put_transceiver(hcd->phy);
+ 	}
+ 
+ 	usb_remove_hcd(hcd);
+diff --git a/drivers/usb/host/ehci-hub.c b/drivers/usb/host/ehci-hub.c
+index fc9e7cc..dd5eef6 100644
+--- a/drivers/usb/host/ehci-hub.c
++++ b/drivers/usb/host/ehci-hub.c
+@@ -724,7 +724,7 @@ static int ehci_hub_control (
+ #ifdef CONFIG_USB_OTG
+ 			if ((hcd->self.otg_port == (wIndex + 1))
+ 			    && hcd->self.b_hnp_enable) {
+-				otg_start_hnp(ehci->transceiver->otg);
++				otg_start_hnp(hcd->phy->otg);
+ 				break;
+ 			}
+ #endif
+diff --git a/drivers/usb/host/ehci.h b/drivers/usb/host/ehci.h
+index 2694ed6..85c3572 100644
+--- a/drivers/usb/host/ehci.h
++++ b/drivers/usb/host/ehci.h
+@@ -175,10 +175,6 @@ struct ehci_hcd {			/* one per controller */
+ #ifdef DEBUG
+ 	struct dentry		*debug_dir;
+ #endif
+-	/*
+-	 * OTG controllers and transceivers need software interaction
+-	 */
+-	struct usb_phy	*transceiver;
+ };
+ 
+ /* convert between an HCD pointer and the corresponding EHCI_HCD */
+diff --git a/drivers/usb/host/ohci-omap.c b/drivers/usb/host/ohci-omap.c
+index 9ce35d0..eccddb4 100644
+--- a/drivers/usb/host/ohci-omap.c
++++ b/drivers/usb/host/ohci-omap.c
+@@ -167,14 +167,15 @@ static int omap_1510_local_bus_init(void)
+ 
+ static void start_hnp(struct ohci_hcd *ohci)
+ {
+-	const unsigned	port = ohci_to_hcd(ohci)->self.otg_port - 1;
++	struct usb_hcd *hcd = ohci_to_hcd(ohci);
++	const unsigned	port = hcd->self.otg_port - 1;
+ 	unsigned long	flags;
+ 	u32 l;
+ 
+-	otg_start_hnp(ohci->transceiver->otg);
++	otg_start_hnp(hcd->phy->otg);
+ 
+ 	local_irq_save(flags);
+-	ohci->transceiver->state = OTG_STATE_A_SUSPEND;
++	hcd->phy->state = OTG_STATE_A_SUSPEND;
+ 	writel (RH_PS_PSS, &ohci->regs->roothub.portstatus [port]);
+ 	l = omap_readl(OTG_CTRL);
+ 	l &= ~OTG_A_BUSREQ;
+@@ -211,18 +212,18 @@ static int ohci_omap_init(struct usb_hcd *hcd)
+ 
+ #ifdef	CONFIG_USB_OTG
+ 	if (need_transceiver) {
+-		ohci->transceiver = usb_get_transceiver();
+-		if (ohci->transceiver) {
+-			int	status = otg_set_host(ohci->transceiver->otg,
++		hcd->phy = usb_get_transceiver();
++		if (hcd->phy) {
++			int	status = otg_set_host(hcd->phy->otg,
+ 						&ohci_to_hcd(ohci)->self);
+-			dev_dbg(hcd->self.controller, "init %s transceiver, status %d\n",
+-					ohci->transceiver->label, status);
++			dev_dbg(hcd->self.controller, "init %s phy, status %d\n",
++					hcd->phy->label, status);
+ 			if (status) {
+-				usb_put_transceiver(ohci->transceiver);
++				usb_put_transceiver(hcd->phy);
+ 				return status;
+ 			}
+ 		} else {
+-			dev_err(hcd->self.controller, "can't find transceiver\n");
++			dev_err(hcd->self.controller, "can't find phy\n");
+ 			return -ENODEV;
+ 		}
+ 		ohci->start_hnp = start_hnp;
+@@ -403,9 +404,9 @@ usb_hcd_omap_remove (struct usb_hcd *hcd, struct platform_device *pdev)
+ 	struct ohci_hcd		*ohci = hcd_to_ohci (hcd);
+ 
+ 	usb_remove_hcd(hcd);
+-	if (ohci->transceiver) {
+-		(void) otg_set_host(ohci->transceiver->otg, 0);
+-		usb_put_transceiver(ohci->transceiver);
++	if (hcd->phy) {
++		(void) otg_set_host(hcd->phy->otg, 0);
++		usb_put_transceiver(hcd->phy);
+ 	}
+ 	if (machine_is_omap_osk())
+ 		gpio_free(9);
+diff --git a/drivers/usb/host/ohci.h b/drivers/usb/host/ohci.h
+index 1b19aea..d329914 100644
+--- a/drivers/usb/host/ohci.h
++++ b/drivers/usb/host/ohci.h
+@@ -372,11 +372,6 @@ struct ohci_hcd {
+ 	struct ed		*ed_controltail;	/* last in ctrl list */
+ 	struct ed		*periodic [NUM_INTS];	/* shadow int_table */
+ 
+-	/*
+-	 * OTG controllers and transceivers need software interaction;
+-	 * other external transceivers should be software-transparent
+-	 */
+-	struct usb_phy	*transceiver;
+ 	void (*start_hnp)(struct ohci_hcd *ohci);
+ 
+ 	/*
+diff --git a/include/linux/usb/hcd.h b/include/linux/usb/hcd.h
+index 49b3ac2..c5fdb14 100644
+--- a/include/linux/usb/hcd.h
++++ b/include/linux/usb/hcd.h
+@@ -93,6 +93,12 @@ struct usb_hcd {
+ 	 */
+ 	const struct hc_driver	*driver;	/* hw-specific hooks */
+ 
++	/*
++	 * OTG and some Host controllers need software interaction with phys;
++	 * other external phys should be software-transparent
++	 */
++	struct usb_phy	*phy;
++
+ 	/* Flags that need to be manipulated atomically because they can
+ 	 * change while the host controller is running.  Always use
+ 	 * set_bit() or clear_bit() to change their values.
+-- 
+1.7.10
+

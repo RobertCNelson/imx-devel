@@ -1,0 +1,303 @@
+From ae7ae4187dcc6a8dc6510263d28dafb53b80ed1e Mon Sep 17 00:00:00 2001
+From: Richard Zhao <richard.zhao@freescale.com>
+Date: Wed, 23 May 2012 23:45:15 +0800
+Subject: [PATCH 05/32] USB: Chipidea: rename struct ci13xxx_udc_driver to
+ struct ci13xxx_platform_data
+
+This patch rename struct ci13xxx_udc_driver and var with the type.
+
+ci13xxx_platform_data reflect it's passed from platfrom driver.
+
+Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
+Reviewed-by: Felipe Balbi <balbi@ti.com>
+Signed-off-by: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+---
+ drivers/usb/chipidea/ci.h          |    4 ++--
+ drivers/usb/chipidea/ci13xxx_msm.c |    6 +++---
+ drivers/usb/chipidea/ci13xxx_pci.c |   20 ++++++++++----------
+ drivers/usb/chipidea/core.c        |   12 ++++++------
+ drivers/usb/chipidea/host.c        |    2 +-
+ drivers/usb/chipidea/udc.c         |   24 ++++++++++++------------
+ include/linux/usb/chipidea.h       |    2 +-
+ 7 files changed, 35 insertions(+), 35 deletions(-)
+
+diff --git a/drivers/usb/chipidea/ci.h b/drivers/usb/chipidea/ci.h
+index 50911f8..0b09330 100644
+--- a/drivers/usb/chipidea/ci.h
++++ b/drivers/usb/chipidea/ci.h
+@@ -125,7 +125,7 @@ struct hw_bank {
+  * @remote_wakeup: host-enabled remote wakeup
+  * @suspended: suspended by host
+  * @test_mode: the selected test mode
+- * @udc_driver: platform specific information supplied by parent device
++ * @platdata: platform specific information supplied by parent device
+  * @vbus_active: is VBUS active
+  * @transceiver: pointer to USB PHY, if any
+  * @hcd: pointer to usb_hcd for ehci host driver
+@@ -158,7 +158,7 @@ struct ci13xxx {
+ 	u8				suspended;
+ 	u8				test_mode;
+ 
+-	struct ci13xxx_udc_driver	*udc_driver;
++	struct ci13xxx_platform_data	*platdata;
+ 	int				vbus_active;
+ 	struct usb_phy			*transceiver;
+ 	struct usb_hcd			*hcd;
+diff --git a/drivers/usb/chipidea/ci13xxx_msm.c b/drivers/usb/chipidea/ci13xxx_msm.c
+index 68512d4..21a7c2e 100644
+--- a/drivers/usb/chipidea/ci13xxx_msm.c
++++ b/drivers/usb/chipidea/ci13xxx_msm.c
+@@ -45,7 +45,7 @@ static void ci13xxx_msm_notify_event(struct ci13xxx *udc, unsigned event)
+ 	}
+ }
+ 
+-static struct ci13xxx_udc_driver ci13xxx_msm_udc_driver = {
++static struct ci13xxx_platform_data ci13xxx_msm_platdata = {
+ 	.name			= "ci13xxx_msm",
+ 	.flags			= CI13XXX_REGS_SHARED |
+ 				  CI13XXX_REQUIRE_TRANSCEIVER |
+@@ -75,8 +75,8 @@ static int __devinit ci13xxx_msm_probe(struct platform_device *pdev)
+ 		goto put_platform;
+ 	}
+ 
+-	ret = platform_device_add_data(plat_ci, &ci13xxx_msm_udc_driver,
+-				       sizeof(ci13xxx_msm_udc_driver));
++	ret = platform_device_add_data(plat_ci, &ci13xxx_msm_platdata,
++				       sizeof(ci13xxx_msm_platdata));
+ 	if (ret)
+ 		goto put_platform;
+ 
+diff --git a/drivers/usb/chipidea/ci13xxx_pci.c b/drivers/usb/chipidea/ci13xxx_pci.c
+index e3dab27..cdcac3a 100644
+--- a/drivers/usb/chipidea/ci13xxx_pci.c
++++ b/drivers/usb/chipidea/ci13xxx_pci.c
+@@ -23,17 +23,17 @@
+ /******************************************************************************
+  * PCI block
+  *****************************************************************************/
+-struct ci13xxx_udc_driver pci_driver = {
++struct ci13xxx_platform_data pci_platdata = {
+ 	.name		= UDC_DRIVER_NAME,
+ 	.capoffset	= DEF_CAPOFFSET,
+ };
+ 
+-struct ci13xxx_udc_driver langwell_pci_driver = {
++struct ci13xxx_platform_data langwell_pci_platdata = {
+ 	.name		= UDC_DRIVER_NAME,
+ 	.capoffset	= 0,
+ };
+ 
+-struct ci13xxx_udc_driver penwell_pci_driver = {
++struct ci13xxx_platform_data penwell_pci_platdata = {
+ 	.name		= UDC_DRIVER_NAME,
+ 	.capoffset	= 0,
+ 	.power_budget	= 200,
+@@ -51,12 +51,12 @@ struct ci13xxx_udc_driver penwell_pci_driver = {
+ static int __devinit ci13xxx_pci_probe(struct pci_dev *pdev,
+ 				       const struct pci_device_id *id)
+ {
+-	struct ci13xxx_udc_driver *driver = (void *)id->driver_data;
++	struct ci13xxx_platform_data *platdata = (void *)id->driver_data;
+ 	struct platform_device *plat_ci;
+ 	struct resource res[3];
+ 	int retval = 0, nres = 2;
+ 
+-	if (!driver) {
++	if (!platdata) {
+ 		dev_err(&pdev->dev, "device doesn't provide driver data\n");
+ 		return -ENODEV;
+ 	}
+@@ -95,7 +95,7 @@ static int __devinit ci13xxx_pci_probe(struct pci_dev *pdev,
+ 		goto put_platform;
+ 	}
+ 
+-	retval = platform_device_add_data(plat_ci, driver, sizeof(*driver));
++	retval = platform_device_add_data(plat_ci, platdata, sizeof(*platdata));
+ 	if (retval)
+ 		goto put_platform;
+ 
+@@ -147,19 +147,19 @@ static void __devexit ci13xxx_pci_remove(struct pci_dev *pdev)
+ static DEFINE_PCI_DEVICE_TABLE(ci13xxx_pci_id_table) = {
+ 	{
+ 		PCI_DEVICE(0x153F, 0x1004),
+-		.driver_data = (kernel_ulong_t)&pci_driver,
++		.driver_data = (kernel_ulong_t)&pci_platdata,
+ 	},
+ 	{
+ 		PCI_DEVICE(0x153F, 0x1006),
+-		.driver_data = (kernel_ulong_t)&pci_driver,
++		.driver_data = (kernel_ulong_t)&pci_platdata,
+ 	},
+ 	{
+ 		PCI_DEVICE(PCI_VENDOR_ID_INTEL, 0x0811),
+-		.driver_data = (kernel_ulong_t)&langwell_pci_driver,
++		.driver_data = (kernel_ulong_t)&langwell_pci_platdata,
+ 	},
+ 	{
+ 		PCI_DEVICE(PCI_VENDOR_ID_INTEL, 0x0829),
+-		.driver_data = (kernel_ulong_t)&penwell_pci_driver,
++		.driver_data = (kernel_ulong_t)&penwell_pci_platdata,
+ 	},
+ 	{ 0, 0, 0, 0, 0, 0, 0 /* end: all zeroes */ }
+ };
+diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
+index 15e03b3..9a883bd 100644
+--- a/drivers/usb/chipidea/core.c
++++ b/drivers/usb/chipidea/core.c
+@@ -179,7 +179,7 @@ static int hw_device_init(struct ci13xxx *ci, void __iomem *base)
+ 	ci->hw_bank.abs = base;
+ 
+ 	ci->hw_bank.cap = ci->hw_bank.abs;
+-	ci->hw_bank.cap += ci->udc_driver->capoffset;
++	ci->hw_bank.cap += ci->platdata->capoffset;
+ 	ci->hw_bank.op = ci->hw_bank.cap + ioread8(ci->hw_bank.cap);
+ 
+ 	hw_alloc_regmap(ci, false);
+@@ -227,11 +227,11 @@ int hw_device_reset(struct ci13xxx *ci, u32 mode)
+ 		udelay(10);		/* not RTOS friendly */
+ 
+ 
+-	if (ci->udc_driver->notify_event)
+-		ci->udc_driver->notify_event(ci,
++	if (ci->platdata->notify_event)
++		ci->platdata->notify_event(ci,
+ 			CI13XXX_CONTROLLER_RESET_EVENT);
+ 
+-	if (ci->udc_driver->flags & CI13XXX_DISABLE_STREAMING)
++	if (ci->platdata->flags & CI13XXX_DISABLE_STREAMING)
+ 		hw_write(ci, OP_USBMODE, USBMODE_CI_SDIS, USBMODE_CI_SDIS);
+ 
+ 	/* USBMODE should be configured step by step */
+@@ -364,7 +364,7 @@ static int __devinit ci_hdrc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	ci->dev = dev;
+-	ci->udc_driver = dev->platform_data;
++	ci->platdata = dev->platform_data;
+ 
+ 	ret = hw_device_init(ci, base);
+ 	if (ret < 0) {
+@@ -419,7 +419,7 @@ static int __devinit ci_hdrc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	platform_set_drvdata(pdev, ci);
+-	ret = request_irq(ci->irq, ci_irq, IRQF_SHARED, ci->udc_driver->name,
++	ret = request_irq(ci->irq, ci_irq, IRQF_SHARED, ci->platdata->name,
+ 			  ci);
+ 	if (ret)
+ 		goto stop;
+diff --git a/drivers/usb/chipidea/host.c b/drivers/usb/chipidea/host.c
+index 9eacd21..4a4fdb8 100644
+--- a/drivers/usb/chipidea/host.c
++++ b/drivers/usb/chipidea/host.c
+@@ -116,7 +116,7 @@ static int host_start(struct ci13xxx *ci)
+ 	hcd->regs = ci->hw_bank.abs;
+ 	hcd->has_tt = 1;
+ 
+-	hcd->power_budget = ci->udc_driver->power_budget;
++	hcd->power_budget = ci->platdata->power_budget;
+ 
+ 	ehci = hcd_to_ehci(hcd);
+ 	ehci->caps = ci->hw_bank.cap;
+diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
+index cdb9212..68584bb 100644
+--- a/drivers/usb/chipidea/udc.c
++++ b/drivers/usb/chipidea/udc.c
+@@ -1362,7 +1362,7 @@ static int ci13xxx_vbus_session(struct usb_gadget *_gadget, int is_active)
+ 	unsigned long flags;
+ 	int gadget_ready = 0;
+ 
+-	if (!(udc->udc_driver->flags & CI13XXX_PULLUP_ON_VBUS))
++	if (!(udc->platdata->flags & CI13XXX_PULLUP_ON_VBUS))
+ 		return -EOPNOTSUPP;
+ 
+ 	spin_lock_irqsave(&udc->lock, flags);
+@@ -1378,8 +1378,8 @@ static int ci13xxx_vbus_session(struct usb_gadget *_gadget, int is_active)
+ 			hw_device_state(udc, udc->ep0out->qh.dma);
+ 		} else {
+ 			hw_device_state(udc, 0);
+-			if (udc->udc_driver->notify_event)
+-				udc->udc_driver->notify_event(udc,
++			if (udc->platdata->notify_event)
++				udc->platdata->notify_event(udc,
+ 				CI13XXX_CONTROLLER_STOPPED_EVENT);
+ 			_gadget_stop_activity(&udc->gadget);
+ 			pm_runtime_put_sync(&_gadget->dev);
+@@ -1514,9 +1514,9 @@ static int ci13xxx_start(struct usb_gadget *gadget,
+ 
+ 	udc->driver = driver;
+ 	pm_runtime_get_sync(&udc->gadget.dev);
+-	if (udc->udc_driver->flags & CI13XXX_PULLUP_ON_VBUS) {
++	if (udc->platdata->flags & CI13XXX_PULLUP_ON_VBUS) {
+ 		if (udc->vbus_active) {
+-			if (udc->udc_driver->flags & CI13XXX_REGS_SHARED)
++			if (udc->platdata->flags & CI13XXX_REGS_SHARED)
+ 				hw_device_reset(udc, USBMODE_CM_DC);
+ 		} else {
+ 			pm_runtime_put_sync(&udc->gadget.dev);
+@@ -1544,11 +1544,11 @@ static int ci13xxx_stop(struct usb_gadget *gadget,
+ 
+ 	spin_lock_irqsave(&udc->lock, flags);
+ 
+-	if (!(udc->udc_driver->flags & CI13XXX_PULLUP_ON_VBUS) ||
++	if (!(udc->platdata->flags & CI13XXX_PULLUP_ON_VBUS) ||
+ 			udc->vbus_active) {
+ 		hw_device_state(udc, 0);
+-		if (udc->udc_driver->notify_event)
+-			udc->udc_driver->notify_event(udc,
++		if (udc->platdata->notify_event)
++			udc->platdata->notify_event(udc,
+ 			CI13XXX_CONTROLLER_STOPPED_EVENT);
+ 		udc->driver = NULL;
+ 		spin_unlock_irqrestore(&udc->lock, flags);
+@@ -1581,7 +1581,7 @@ static irqreturn_t udc_irq(struct ci13xxx *udc)
+ 
+ 	spin_lock(&udc->lock);
+ 
+-	if (udc->udc_driver->flags & CI13XXX_REGS_SHARED) {
++	if (udc->platdata->flags & CI13XXX_REGS_SHARED) {
+ 		if (hw_read(udc, OP_USBMODE, USBMODE_CM) !=
+ 				USBMODE_CM_DC) {
+ 			spin_unlock(&udc->lock);
+@@ -1653,7 +1653,7 @@ static int udc_start(struct ci13xxx *udc)
+ 	udc->gadget.speed        = USB_SPEED_UNKNOWN;
+ 	udc->gadget.max_speed    = USB_SPEED_HIGH;
+ 	udc->gadget.is_otg       = 0;
+-	udc->gadget.name         = udc->udc_driver->name;
++	udc->gadget.name         = udc->platdata->name;
+ 
+ 	INIT_LIST_HEAD(&udc->gadget.ep_list);
+ 
+@@ -1686,14 +1686,14 @@ static int udc_start(struct ci13xxx *udc)
+ 
+ 	udc->transceiver = usb_get_transceiver();
+ 
+-	if (udc->udc_driver->flags & CI13XXX_REQUIRE_TRANSCEIVER) {
++	if (udc->platdata->flags & CI13XXX_REQUIRE_TRANSCEIVER) {
+ 		if (udc->transceiver == NULL) {
+ 			retval = -ENODEV;
+ 			goto free_pools;
+ 		}
+ 	}
+ 
+-	if (!(udc->udc_driver->flags & CI13XXX_REGS_SHARED)) {
++	if (!(udc->platdata->flags & CI13XXX_REGS_SHARED)) {
+ 		retval = hw_device_reset(udc, USBMODE_CM_DC);
+ 		if (retval)
+ 			goto put_transceiver;
+diff --git a/include/linux/usb/chipidea.h b/include/linux/usb/chipidea.h
+index edb90d6..d4cf9706 100644
+--- a/include/linux/usb/chipidea.h
++++ b/include/linux/usb/chipidea.h
+@@ -6,7 +6,7 @@
+ #define __LINUX_USB_CHIPIDEA_H
+ 
+ struct ci13xxx;
+-struct ci13xxx_udc_driver {
++struct ci13xxx_platform_data {
+ 	const char	*name;
+ 	/* offset of the capability registers */
+ 	uintptr_t	 capoffset;
+-- 
+1.7.10
+
