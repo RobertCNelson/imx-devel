@@ -1,7 +1,7 @@
-From f4e05c48fc63d9b15443faad4038ea87142eca7b Mon Sep 17 00:00:00 2001
+From f7889322d5ef453647edeedecd8c7f8fbba541f0 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Wed, 23 May 2012 23:45:16 +0800
-Subject: [PATCH 06/32] USB: Chipidea: rename struct ci13xxx variables from
+Subject: [PATCH 06/29] USB: Chipidea: rename struct ci13xxx variables from
  udc to ci
 
 struct ci13xxx represent the controller, which may be device or host,
@@ -1961,5 +1961,5 @@ index d4cf9706..d2f7e49 100644
  
  /* Default offset of capability registers */
 -- 
-1.7.10
+1.7.10.4
 

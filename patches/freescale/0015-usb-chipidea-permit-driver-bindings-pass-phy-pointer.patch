@@ -1,7 +1,7 @@
-From 6a9e7e0fa0bc806d5ace98a6a8b290d1a0276dcc Mon Sep 17 00:00:00 2001
+From 47f123a9ce91a7d45b58d0419fb68629cd62ae57 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Sun, 20 May 2012 17:07:38 +0800
-Subject: [PATCH 15/32] usb: chipidea: permit driver bindings pass phy pointer
+Subject: [PATCH 15/29] usb: chipidea: permit driver bindings pass phy pointer
 
 Sometimes, the driver bindings may know what phy they use.
 For example, when using device tree, the usb controller may have a
@@ -122,5 +122,5 @@ index be078f0..544825d 100644
  #define CI13XXX_REGS_SHARED		BIT(0)
  #define CI13XXX_REQUIRE_TRANSCEIVER	BIT(1)
 -- 
-1.7.10
+1.7.10.4
 

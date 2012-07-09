@@ -1,7 +1,7 @@
-From bd25aa0322352d74b81a1623e518c753d4ea7e5f Mon Sep 17 00:00:00 2001
+From 673cda3979ff923c458e81bf11095e2d2d89681c Mon Sep 17 00:00:00 2001
 From: Felipe Balbi <balbi@ti.com>
 Date: Tue, 22 May 2012 12:53:28 +0300
-Subject: [PATCH 04/32] usb: chipidea: msm: add remove method
+Subject: [PATCH 04/29] usb: chipidea: msm: add remove method
 
 allow this driver to be removed too.
 
@@ -54,5 +54,5 @@ index 8d438b8..68512d4 100644
 +MODULE_ALIAS("platform:msm_hsusb");
  MODULE_LICENSE("GPL v2");
 -- 
-1.7.10
+1.7.10.4
 

@@ -1,7 +1,7 @@
-From eed78f46ded2c528466aeaae6c2d143b9e6a40b4 Mon Sep 17 00:00:00 2001
+From 4d1e5be1647fd5a308c332b93fa9ad6c7970c0d8 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Thu, 24 May 2012 19:48:58 +0800
-Subject: [PATCH 08/32] USB: Chipidea: add ci13xxx device id management
+Subject: [PATCH 08/29] USB: Chipidea: add ci13xxx device id management
 
 We use ida_simple_get and ida_simple_remove to manage the ids.
 
@@ -71,5 +71,5 @@ index 8eccd1b..c14ce2b 100644
  }
  EXPORT_SYMBOL_GPL(ci13xxx_remove_device);
 -- 
-1.7.10
+1.7.10.4
 

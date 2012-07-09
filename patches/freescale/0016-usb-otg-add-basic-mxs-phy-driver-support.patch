@@ -1,7 +1,7 @@
-From 49fa12669810021a5d553f4f26dbad13cfb40baa Mon Sep 17 00:00:00 2001
+From 66152c6f05ee8f0c0d20aab043db35e17755b010 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Tue, 15 May 2012 21:20:06 +0800
-Subject: [PATCH 16/32] usb: otg: add basic mxs phy driver support
+Subject: [PATCH 16/29] usb: otg: add basic mxs phy driver support
 
 mxs phy is used in Freescale i.MX SoCs, for example
 imx23, imx28, imx6Q. This patch adds the basic host
@@ -279,5 +279,5 @@ index 0000000..a55aaed
 +MODULE_DESCRIPTION("Freescale MXS USB PHY driver");
 +MODULE_LICENSE("GPL");
 -- 
-1.7.10
+1.7.10.4
 

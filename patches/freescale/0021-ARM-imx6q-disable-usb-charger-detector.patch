@@ -1,7 +1,7 @@
-From e3a9de0cbecbee5268cd7fec31a27d4a3ee790f4 Mon Sep 17 00:00:00 2001
+From 177c9d47b88caec0b15e16304feb81e843e7c9d1 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Sun, 13 May 2012 21:27:54 +0800
-Subject: [PATCH 21/32] ARM: imx6q: disable usb charger detector
+Subject: [PATCH 21/29] ARM: imx6q: disable usb charger detector
 
 The external charger detector needs to be disabled,
 or the signal at DP will be poor
@@ -57,5 +57,5 @@ index 577cf19..c4f9b82 100644
  
  static void __init imx6q_init_machine(void)
 -- 
-1.7.10
+1.7.10.4
 

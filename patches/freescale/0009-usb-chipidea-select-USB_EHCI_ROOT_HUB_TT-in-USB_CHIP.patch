@@ -1,7 +1,7 @@
-From 9f4cc4567a2ae48b6de61cf4abce2ae13501d002 Mon Sep 17 00:00:00 2001
+From 6d10b724a12183a963427ef6fa169171dd1d358c Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Fri, 25 May 2012 10:44:47 +0800
-Subject: [PATCH 09/32] usb: chipidea: select USB_EHCI_ROOT_HUB_TT in
+Subject: [PATCH 09/29] usb: chipidea: select USB_EHCI_ROOT_HUB_TT in
  USB_CHIPIDEA_HOST of Kconfig
 
 ci13xxx host needs Root Hub Transaction Translators.
@@ -27,5 +27,5 @@ index fd36dc8..8337fb5 100644
  	  Say Y here to enable host controller functionality of the
  	  ChipIdea driver.
 -- 
-1.7.10
+1.7.10.4
 

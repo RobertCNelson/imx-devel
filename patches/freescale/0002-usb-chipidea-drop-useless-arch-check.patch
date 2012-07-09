@@ -1,7 +1,7 @@
-From a4325c150399b0e6066f8a802521ae7e31abc668 Mon Sep 17 00:00:00 2001
+From 5453701d79dd429c13a3cd8d1951a2a7853c3b5c Mon Sep 17 00:00:00 2001
 From: Felipe Balbi <balbi@ti.com>
 Date: Tue, 22 May 2012 12:53:26 +0300
-Subject: [PATCH 02/32] usb: chipidea: drop useless arch-check
+Subject: [PATCH 02/29] usb: chipidea: drop useless arch-check
 
 msm glue layer compiles on all arches just
 fine. Let's drop the unnecessary ARCH check
@@ -34,5 +34,5 @@ index cc34937..b69900a 100644
 -	obj-$(CONFIG_USB_CHIPIDEA)	+= ci13xxx_msm.o
 -endif
 -- 
-1.7.10
+1.7.10.4
 

@@ -1,7 +1,7 @@
-From 747a9807a362a171c52755b39e3df5a75222ece8 Mon Sep 17 00:00:00 2001
+From 802540e2eb200bb2da8f766920b6c830f5f78f0b Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Thu, 24 May 2012 17:34:43 +0800
-Subject: [PATCH 07/32] USB: Chipidea: add unified ci13xxx_{add,remove}_device
+Subject: [PATCH 07/29] USB: Chipidea: add unified ci13xxx_{add,remove}_device
  for platform drivers
 
 Platform drivers do the similar things to add/remove ci13xxx device, so
@@ -215,5 +215,5 @@ index d2f7e49..be078f0 100644
 +
  #endif
 -- 
-1.7.10
+1.7.10.4
 

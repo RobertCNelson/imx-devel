@@ -1,7 +1,7 @@
-From ae7ae4187dcc6a8dc6510263d28dafb53b80ed1e Mon Sep 17 00:00:00 2001
+From f11bcf82fb998227c21068dc969c00cdeb01c548 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Wed, 23 May 2012 23:45:15 +0800
-Subject: [PATCH 05/32] USB: Chipidea: rename struct ci13xxx_udc_driver to
+Subject: [PATCH 05/29] USB: Chipidea: rename struct ci13xxx_udc_driver to
  struct ci13xxx_platform_data
 
 This patch rename struct ci13xxx_udc_driver and var with the type.
@@ -299,5 +299,5 @@ index edb90d6..d4cf9706 100644
  	/* offset of the capability registers */
  	uintptr_t	 capoffset;
 -- 
-1.7.10
+1.7.10.4
 

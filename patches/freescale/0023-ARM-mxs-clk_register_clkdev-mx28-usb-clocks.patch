@@ -1,7 +1,7 @@
-From 9fdbab9749f521f6e3e05b69f90b6d4453a19c78 Mon Sep 17 00:00:00 2001
+From f8a9b657b8bdb0f363ba92a67472d536981b0ecd Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Fri, 18 May 2012 11:36:58 +0800
-Subject: [PATCH 23/32] ARM: mxs: clk_register_clkdev mx28 usb clocks
+Subject: [PATCH 23/29] ARM: mxs: clk_register_clkdev mx28 usb clocks
 
 Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
 ---
@@ -9,7 +9,7 @@ Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
  1 file changed, 4 insertions(+)
 
 diff --git a/drivers/clk/mxs/clk-imx28.c b/drivers/clk/mxs/clk-imx28.c
-index 2826a26..0201a0f 100644
+index 7fad6c8..a3bb644 100644
 --- a/drivers/clk/mxs/clk-imx28.c
 +++ b/drivers/clk/mxs/clk-imx28.c
 @@ -328,6 +328,10 @@ int __init mx28_clocks_init(void)
@@ -24,5 +24,5 @@ index 2826a26..0201a0f 100644
  	for (i = 0; i < ARRAY_SIZE(clks_init_on); i++)
  		clk_prepare_enable(clks[clks_init_on[i]]);
 -- 
-1.7.10
+1.7.10.4
 

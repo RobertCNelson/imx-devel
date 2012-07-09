@@ -1,7 +1,7 @@
-From ad23815bec040c9c14a56730e8fea9a4f82a7cf3 Mon Sep 17 00:00:00 2001
+From 512907fd0edbeb039e8fdb8b2d94fe52bb9f0301 Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Fri, 8 Jun 2012 17:26:27 +0800
-Subject: [PATCH 14/32] USB: notify phy when root hub port connect change
+Subject: [PATCH 14/29] USB: notify phy when root hub port connect change
 
 Phy may need to change settings when port connect change.
 
@@ -37,5 +37,5 @@ index 25a7422..8a77c8a 100644
  	 * the device was "removed".
  	 */
 -- 
-1.7.10
+1.7.10.4
 

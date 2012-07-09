@@ -1,7 +1,7 @@
-From 032733001cc4fb8c5a3ad31ec658c0d9fb0aec0b Mon Sep 17 00:00:00 2001
+From 0f4cb17d5e279878d08d9b9dfaa180be7e7f524d Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Sat, 12 May 2012 20:32:39 +0800
-Subject: [PATCH 18/32] ARM: imx6q: correct device name of usbphy and usb
+Subject: [PATCH 18/29] ARM: imx6q: correct device name of usbphy and usb
  controller clock export
 
 Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
@@ -10,10 +10,10 @@ Signed-off-by: Richard Zhao <richard.zhao@freescale.com>
  1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm/mach-imx/clk-imx6q.c b/arch/arm/mach-imx/clk-imx6q.c
-index 96e9edd..f99509a 100644
+index 26608e2..79beb02 100644
 --- a/arch/arm/mach-imx/clk-imx6q.c
 +++ b/arch/arm/mach-imx/clk-imx6q.c
-@@ -391,7 +391,10 @@ int __init mx6q_clocks_init(void)
+@@ -393,7 +393,10 @@ int __init mx6q_clocks_init(void)
  	clk_register_clkdev(clk[gpt_ipg], "ipg", "imx-gpt.0");
  	clk_register_clkdev(clk[gpt_ipg_per], "per", "imx-gpt.0");
  	clk_register_clkdev(clk[twd], NULL, "smp_twd");
@@ -26,5 +26,5 @@ index 96e9edd..f99509a 100644
  	clk_register_clkdev(clk[uart_ipg], "ipg", "2020000.serial");
  	clk_register_clkdev(clk[uart_serial], "per", "21e8000.serial");
 -- 
-1.7.10
+1.7.10.4
 

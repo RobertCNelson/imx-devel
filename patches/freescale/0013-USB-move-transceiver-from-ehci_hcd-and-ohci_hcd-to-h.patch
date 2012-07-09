@@ -1,7 +1,7 @@
-From 5699be419977ca62a3267a6c9ec8bb584ce13c51 Mon Sep 17 00:00:00 2001
+From d287ea7871ddea3093415e732f60e6629c685d8c Mon Sep 17 00:00:00 2001
 From: Richard Zhao <richard.zhao@freescale.com>
 Date: Fri, 8 Jun 2012 12:31:33 +0800
-Subject: [PATCH 13/32] USB: move transceiver from ehci_hcd and ohci_hcd to
+Subject: [PATCH 13/29] USB: move transceiver from ehci_hcd and ohci_hcd to
  hcd and rename it as phy
 
  - to decrease redundant since both ehci_hcd and ohci_hcd have the same variable
@@ -188,5 +188,5 @@ index 49b3ac2..c5fdb14 100644
  	 * change while the host controller is running.  Always use
  	 * set_bit() or clear_bit() to change their values.
 -- 
-1.7.10
+1.7.10.4
 
