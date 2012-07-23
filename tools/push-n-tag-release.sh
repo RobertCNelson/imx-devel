@@ -25,6 +25,7 @@
 unset NO_DEVTMPS
 
 DIR=$PWD
+BRANCH="v3.5.x-imx"
 
 if [ -e ${DIR}/version.sh ]; then
 	unset RC_PATCH
@@ -42,7 +43,7 @@ if [ -e ${DIR}/version.sh ]; then
 		git tag -a "${KERNEL_REL}-${BUILD}" -m "${KERNEL_REL}-${BUILD}"
 	fi
 	fi
-	git push origin
-	git push origin --tags
+	git push origin ${BRANCH}
+	git push origin ${BRANCH} --tags
 fi
 
