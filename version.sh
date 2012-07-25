@@ -11,7 +11,7 @@ KERNEL_REL=3.5
 #RC_KERNEL=3.5
 #RC_PATCH=-rc7
 
-ABI=0
+ABI=1
 
 BUILD=imx${ABI}
 
