@@ -90,6 +90,44 @@ mmc_find_rootfs () {
 	backup_config
 }
 
+mmc_write_boot_actual () {
+	if [ -f "${DIR}/deploy/disk/SOC.sh" ] ; then
+		source "${DIR}/deploy/disk/SOC.sh"
+		ZRELADDR=${load_addr}
+		if [ "x${dtb_file}" != "x" ] ; then
+			if [ -f "${DIR}/KERNEL/arch/arm/boot/${dtb_file}" ] ; then
+				sudo cp -v "${DIR}/KERNEL/arch/arm/boot/${dtb_file}" "${DIR}/deploy/disk/"
+			fi
+		fi
+	fi
+
+	if [ -f "${DIR}/deploy/disk/uImage_bak" ] ; then
+		sudo rm -f "${DIR}/deploy/disk/uImage_bak" || true
+	fi
+
+	if [ -f "${DIR}/deploy/disk/uImage" ] ; then
+		sudo mv "${DIR}/deploy/disk/uImage" "${DIR}/deploy/disk/uImage_bak"
+		sudo mkimage -A arm -O linux -T kernel -C none -a ${ZRELADDR} -e ${ZRELADDR} -n ${KERNEL_UTS} -d "${DIR}/deploy/${KERNEL_UTS}.zImage" "${DIR}/deploy/disk/uImage"
+	fi
+
+	if [ -f "${DIR}/deploy/disk/zImage_bak" ] ; then
+		sudo rm -f "${DIR}/deploy/disk/zImage_bak" || true
+	fi
+
+	if [ -f "${DIR}/deploy/disk/zImage" ] ; then
+		sudo mv "${DIR}/deploy/disk/zImage" "${DIR}/deploy/disk/zImage_bak"
+	fi
+
+	sudo cp -v "${DIR}/deploy/${KERNEL_UTS}.zImage" "${DIR}/deploy/disk/zImage"
+
+	cd "${DIR}/deploy/disk"
+	sync
+	sync
+	cd -
+	sudo umount "${DIR}/deploy/disk" || true
+	mmc_find_rootfs
+}
+
 mmc_write_boot () {
 	echo "Installing ${KERNEL_UTS} to boot partition"
 	echo "-----------------------------"
@@ -99,42 +137,9 @@ mmc_write_boot () {
 	fi
 
 	if sudo mount -t vfat ${MMC}${PARTITION_PREFIX}${BOOT_PARITION} "${DIR}/deploy/disk/" ; then
-
-		if [ -f "${DIR}/deploy/disk/SOC.sh" ] ; then
-			source "${DIR}/deploy/disk/SOC.sh"
-			ZRELADDR=${load_addr}
-			if [ "x${dtb_file}" != "x" ] ; then
-				if [ -f "${DIR}/KERNEL/arch/arm/boot/${dtb_file}" ] ; then
-					sudo cp -v "${DIR}/KERNEL/arch/arm/boot/${dtb_file}" "${DIR}/deploy/disk/"
-				fi
-			fi
-		fi
-
-		if [ -f "${DIR}/deploy/disk/uImage_bak" ] ; then
-			sudo rm -f "${DIR}/deploy/disk/uImage_bak" || true
-		fi
-
-		if [ -f "${DIR}/deploy/disk/uImage" ] ; then
-			sudo mv "${DIR}/deploy/disk/uImage" "${DIR}/deploy/disk/uImage_bak"
-			sudo mkimage -A arm -O linux -T kernel -C none -a ${ZRELADDR} -e ${ZRELADDR} -n ${KERNEL_UTS} -d "${DIR}/deploy/${KERNEL_UTS}.zImage" "${DIR}/deploy/disk/uImage"
-		fi
-
-		if [ -f "${DIR}/deploy/disk/zImage_bak" ] ; then
-			sudo rm -f "${DIR}/deploy/disk/zImage_bak" || true
-		fi
-
-		if [ -f "${DIR}/deploy/disk/zImage" ] ; then
-			sudo mv "${DIR}/deploy/disk/zImage" "${DIR}/deploy/disk/zImage_bak"
-		fi
-
-		sudo cp -v "${DIR}/deploy/${KERNEL_UTS}.zImage" "${DIR}/deploy/disk/zImage"
-
-		cd "${DIR}/deploy/disk"
-		sync
-		sync
-		cd -
-		sudo umount "${DIR}/deploy/disk" || true
-		mmc_find_rootfs
+		mmc_write_boot_actual
+	elif sudo mount -t ext2 ${MMC}${PARTITION_PREFIX}${BOOT_PARITION} "${DIR}/deploy/disk/" ; then
+		mmc_write_boot_actual
 	else
 		echo "-----------------------------"
 		echo "ERROR: Unable to mount ${MMC}${PARTITION_PREFIX}${BOOT_PARITION} at "${DIR}/deploy/disk/" to copy uImage..."
