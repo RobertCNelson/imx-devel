@@ -84,7 +84,7 @@ function git_kernel {
 	check_and_or_clone
 
 	#In the past some users set LINUX_GIT = DIR, fix that...
-	if [ -f ${LINUX_GIT}/version.sh ] ; then
+	if [ -f "${LINUX_GIT}/version.sh" ] ; then
 		unset LINUX_GIT
 		check_and_or_clone
 	fi
