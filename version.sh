@@ -10,11 +10,9 @@ fi
 
 unset GIT_OPTS
 unset GIT_NOEDIT
-echo "Debug: `LC_ALL=C git --version`"
 LC_ALL=C git help pull | grep -m 1 -e "--no-edit" &>/dev/null && GIT_NOEDIT=1
 
 if [ "${GIT_NOEDIT}" ] ; then
-	echo "Debug: detected git 1.7.10 or later, this script will pull via [git pull --no-edit]"
 	GIT_OPTS+="--no-edit"
 fi
 
@@ -22,18 +20,13 @@ CCACHE=ccache
 
 config="imx5_defconfig"
 
-KERNEL_REL=2.6.35
+#Kernel/Build
+KERNEL_REL=2.6
+KERNEL_TAG=${KERNEL_REL}.35
+BUILD=imx3.2
 
-#for x.x.X
-STABLE_PATCH=3
-
-#for x.x-rcX
-#RC_KERNEL=2.6.39
-#RC_PATCH=-rc1
-
-ABI=3.2
-
-BUILD=imx${ABI}
+#git branch
+BRANCH="imx-bsp"
 
 BUILDREV=1.0
 DISTRO=cross
