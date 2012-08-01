@@ -32,28 +32,7 @@ unset DEBUG_SECTION
 
 unset LOCAL_PATCH_DIR
 
-config="imx5_defconfig"
-
-ARCH=$(uname -m)
-CCACHE=ccache
-
 DIR=$PWD
-
-CORES=1
-if test "-$ARCH-" = "-x86_64-" || test "-$ARCH-" = "-i686-"
-then
- CORES=$(cat /proc/cpuinfo | grep processor | wc -l)
- let CORES=$CORES+1
-fi
-
-unset GIT_OPTS
-unset GIT_NOEDIT
-LC_ALL=C git help pull | grep -m 1 -e "--no-edit" &>/dev/null && GIT_NOEDIT=1
-
-if [ "${GIT_NOEDIT}" ] ; then
-	echo "Detected git 1.7.10 or later, this script will pull via [git pull --no-edit]"
-	GIT_OPTS+="--no-edit"
-fi
 
 mkdir -p ${DIR}/deploy/
 
@@ -67,20 +46,29 @@ function git_kernel_stable {
 	git fetch git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git master --tags || true
 }
 
-function git_kernel {
-	if [ -f ${LINUX_GIT}/.git/config ] ; then
-		if [ -f ${LINUX_GIT}/version.sh ] ; then
-			echo ""
-			echo "Error, LINUX_GIT in system.sh is improperly set, do not clone a git tree on top of another.."
-			echo ""
-			echo "Quick Fix:"
-			echo "example: cd ~/"
-			echo "example: git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-			echo "example: Set: LINUX_GIT=~/linux-stable/ in system.sh"
-			echo ""
-			exit
+function check_and_or_clone {
+	if [ ! "${LINUX_GIT}" ] ; then
+		if [ -f "${HOME}/linux-src/.git/config" ] ; then
+			echo "Warning: LINUX_GIT not defined in system.sh, using default location: ${HOME}/linux-src"
+		else
+			echo "Warning: LINUX_GIT not defined in system.sh, cloning torvalds git tree to default location: ${HOME}/linux-src"
+			git clone git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git ${HOME}/linux-src
 		fi
+		LINUX_GIT="${HOME}/linux-src"
+	fi
+}
 
+function git_kernel {
+
+	check_and_or_clone
+
+	#In the past some users set LINUX_GIT = DIR, fix that...
+	if [ -f "${LINUX_GIT}/version.sh" ] ; then
+		unset LINUX_GIT
+		check_and_or_clone
+	fi
+
+	if [ -f "${LINUX_GIT}/.git/config" ] ; then
 		cd ${LINUX_GIT}/
 		echo "Debug: LINUX_GIT setup..."
 		pwd
@@ -134,12 +122,8 @@ function git_kernel {
 		cd ${DIR}/
 	else
 		echo ""
-		echo "ERROR: LINUX_GIT variable in system.sh seems invalid, i'm not finding a valid git tree..."
-		echo ""
-		echo "Quick Fix:"
-		echo "example: cd ~/"
-		echo "example: git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-		echo "example: Set: LINUX_GIT=~/linux-stable/ in system.sh"
+		echo "error: failure in git_kernel"
+		echo "debug: LINUX_GIT = ${LINUX_GIT}"
 		echo ""
 		exit
 	fi
@@ -186,7 +170,7 @@ function make_menuconfig {
   cd ${DIR}/
 }
 
-function make_zImage_modules {
+function make_kernel {
 	cd ${DIR}/KERNEL/
 	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" ${CONFIG_DEBUG_SECTION} zImage modules"
 	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" ${CONFIG_DEBUG_SECTION} zImage modules
@@ -249,55 +233,54 @@ function make_headers_pkg {
 
   /bin/bash -e ${DIR}/tools/host_det.sh || { exit 1 ; }
 
-if [ -e ${DIR}/system.sh ]; then
-  . system.sh
-  . version.sh
+if [ -e ${DIR}/system.sh ] ; then
+	source ${DIR}/system.sh
+	source ${DIR}/version.sh
+
 	GCC="gcc"
 	if [ "x${GCC_OVERRIDE}" != "x" ] ; then
 		GCC="${GCC_OVERRIDE}"
 	fi
 	echo ""
-	echo "Using : $(LC_ALL=C ${CC}${GCC} --version)"
+	echo "Debug: using $(LC_ALL=C ${CC}${GCC} --version)"
 	echo ""
 
-if [ "${LATEST_GIT}" ] ; then
-	echo ""
-	echo "Warning LATEST_GIT is enabled from system.sh I hope you know what your doing.."
-	echo ""
-fi
+	if [ "${LATEST_GIT}" ] ; then
+		echo ""
+		echo "Warning LATEST_GIT is enabled from system.sh I hope you know what your doing.."
+		echo ""
+	fi
 
 	unset CONFIG_DEBUG_SECTION
 	if [ "${DEBUG_SECTION}" ] ; then
 		CONFIG_DEBUG_SECTION="CONFIG_DEBUG_SECTION_MISMATCH=y"
 	fi
 
-#  git_kernel
-#  patch_kernel
-#  copy_defconfig
-  make_menuconfig
+#	git_kernel
+#	patch_kernel
+#	copy_defconfig
+	make_menuconfig
 	if [ "x${GCC_OVERRIDE}" != "x" ] ; then
 		sed -i -e 's:CROSS_COMPILE)gcc:CROSS_COMPILE)'$GCC_OVERRIDE':g' ${DIR}/KERNEL/Makefile
 	fi
-	make_zImage_modules
-if [ "${BUILD_UIMAGE}" ] ; then
-	make_uImage
-else
-  echo ""
-  echo "NOTE: If you'd like to build a uImage, make sure to enable BUILD_UIMAGE variables in system.sh"
-  echo "Currently Safe for current TI devices."
-  echo ""
-fi
+	make_kernel
+	if [ "${BUILD_UIMAGE}" ] ; then
+		make_uImage
+	else
+		echo ""
+		echo "NOTE: enable BUILD_UIMAGE variables in system.sh to build uImage's"
+		echo ""
+	fi
 	make_modules_pkg
 #	make_headers_pkg
 	if [ "x${GCC_OVERRIDE}" != "x" ] ; then
 		sed -i -e 's:CROSS_COMPILE)'$GCC_OVERRIDE':CROSS_COMPILE)gcc:g' ${DIR}/KERNEL/Makefile
 	fi
 else
-  echo ""
-  echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."
-  echo ""
-  echo "example: cp system.sh.sample system.sh"
-  echo "example: gedit system.sh"
-  echo ""
+	echo ""
+	echo "ERROR: Missing (your system) specific system.sh, please copy system.sh.sample to system.sh and edit as needed."
+	echo ""
+	echo "example: cp system.sh.sample system.sh"
+	echo "example: gedit system.sh"
+	echo ""
 fi
-
