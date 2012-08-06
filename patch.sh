@@ -32,7 +32,7 @@ git_add () {
 }
 
 cleanup () {
-	git format-patch -9
+	git format-patch -1 -o ${DIR}/patches/
 	exit
 }
 
@@ -44,7 +44,7 @@ bugs_trivial () {
 mainline_fixes () {
 	echo "mainline patches"
 	git am "${DIR}/patches/mainline-fixes/0001-arm-add-definition-of-strstr-to-decompress.c.patch"
-	git am "${DIR}/patches/omap_fixes/0004-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
+	git am "${DIR}/patches/omap_fixes/0004-only-call-smp_send_stop-on-SMP.patch"
 }
 
 freescale_patch_tree () {
