@@ -22,7 +22,7 @@ config="imx_v6_v7_defconfig"
 
 #Kernel/Build
 KERNEL_REL=3.4
-KERNEL_TAG=${KERNEL_REL}.7
+KERNEL_TAG=${KERNEL_REL}.8
 BUILD=imx2
 
 #git branch
