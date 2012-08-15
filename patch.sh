@@ -32,7 +32,8 @@ git commit -a -m 'testing patchset'
 function bugs_trivial {
 	echo "bugs and trivial stuff"
 	git am "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
-	git am "${DIR}/patches/omap_fixes/0005-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
+	#in 3.4.9
+	#git am "${DIR}/patches/omap_fixes/0005-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
 }
 
 bugs_trivial
