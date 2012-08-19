@@ -21,9 +21,9 @@ CCACHE=ccache
 config="imx_v6_v7_defconfig"
 
 #Kernel/Build
-KERNEL_REL=3.5
-KERNEL_TAG=${KERNEL_REL}-rc7
-BUILD=imx2
+KERNEL_REL=3.6
+KERNEL_TAG=${KERNEL_REL}-rc2
+BUILD=imx0
 
 #git branch
 #BRANCH="v3.5.x-imx"
