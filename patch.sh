@@ -32,7 +32,7 @@ git_add () {
 }
 
 cleanup () {
-	git format-patch -1 -o ${DIR}/patches/
+	git format-patch -27 -o ${DIR}/patches/
 	exit
 }
 
@@ -83,9 +83,42 @@ freescale_patch_tree () {
 	git am "${DIR}/patches/freescale/0029-clk-mxs-Register-USB-clocks-for-mx23.patch"
 }
 
+drm () {
+	echo "drm patchset"
+	#from: http://git.pengutronix.de/?p=imx/linux-2.6.git;a=shortlog;h=refs/heads/work/gpu/imx-drm-ipu-complete
+	git am "${DIR}/patches/drm/0001-DRM-Add-i.MX-drm-core-support.patch"
+	git am "${DIR}/patches/drm/0002-DRM-i.MX-Add-parallel-display-support.patch"
+	git am "${DIR}/patches/drm/0003-DRM-i.MX-Add-LCDC-support.patch"
+	git am "${DIR}/patches/drm/0004-DRM-add-i.MX-IPUv3-base-driver.patch"
+	git am "${DIR}/patches/drm/0005-DRM-Add-i.MX-IPUv3-crtc-support.patch"
+	git am "${DIR}/patches/drm/0006-DRM-i.MX-Add-devicetree-binding-documentation.patch"
+	git am "${DIR}/patches/drm/0007-ARM-i.MX27-pcm038-Add-lcdc-support.patch"
+	git am "${DIR}/patches/drm/0008-ARM-i.MX51-babbage-Add-IPU-support.patch"
+	git am "${DIR}/patches/drm/0009-ARM-i.MX53-LOCO-Add-IPU-support.patch"
+	git am "${DIR}/patches/drm/0010-ARM-i.MX51-setup-mipi.patch"
+	git am "${DIR}/patches/drm/0011-ARM-i.MX5-initialize-m4if-interface.patch"
+	git am "${DIR}/patches/drm/0012-ARM-i.MX5-Hard-reset-the-IPU-during-startup.patch"
+	git am "${DIR}/patches/drm/0013-clk-add-a-__clk_set_flags-function.patch"
+	git am "${DIR}/patches/drm/0014-ARM-i.MX53-clk-Fix-ldb-parent-clocks.patch"
+	git am "${DIR}/patches/drm/0015-DRM-add-drm-gem-cma-helper.patch"
+	git am "${DIR}/patches/drm/0016-DRM-Add-DRM-kms-fb-cma-helper.patch"
+	git am "${DIR}/patches/drm/0017-ARM-i.MX5-IPU-clk-support.patch"
+	git am "${DIR}/patches/drm/0018-DRM-i.MX-WIP-add-ldb-support.patch"
+	git am "${DIR}/patches/drm/0019-ARM-i.MX6-Add-IPU-device-support.patch"
+	git am "${DIR}/patches/drm/0020-ARM-i.MX6-clk-initialize-some-video-clocks.patch"
+	git am "${DIR}/patches/drm/0021-ARM-i.MX5-6-Increase-NR_IRQS-for-IPUv3-interrupts.patch"
+	git am "${DIR}/patches/drm/0022-DRM-allow-create-map-destroy-dumb-buffer-ioctls-for-.patch"
+	git am "${DIR}/patches/drm/0023-WIP-DRM-i.MX6-HDMI-TX-encoder-connector-driver.patch"
+	git am "${DIR}/patches/drm/0024-HACK-imx-hdmi-set-up-hdmi-input-mux.patch"
+	git am "${DIR}/patches/drm/0025-ARM-imx_v6_v7_defconfig-Update-for-graphics-support.patch"
+	git am "${DIR}/patches/drm/0026-ARM-i.MX53-Fix-IPU-clk.patch"
+	git am "${DIR}/patches/drm/0027-of-Add-videomode-helper.patch"
+}
+
 bugs_trivial
 mainline_fixes
 freescale_patch_tree
+drm
 
 echo "patch.sh ran successful"
 

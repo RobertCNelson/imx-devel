@@ -1,0 +1,47 @@
+From 9e44b9f7b56e51735b8f89540b7bff71ec6fd73d Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Mon, 4 Jun 2012 14:56:27 +0200
+Subject: [PATCH 13/27] clk: add a __clk_set_flags function
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ drivers/clk/clk.c            |   10 ++++++++++
+ include/linux/clk-provider.h |    1 +
+ 2 files changed, 11 insertions(+)
+
+diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+index 9a1eb0c..50fc2cc 100644
+--- a/drivers/clk/clk.c
++++ b/drivers/clk/clk.c
+@@ -304,6 +304,16 @@ inline unsigned long __clk_get_flags(struct clk *clk)
+ 	return !clk ? -EINVAL : clk->flags;
+ }
+ 
++inline int __clk_set_flags(struct clk *clk, unsigned long flags)
++{
++	if (!clk)
++		return -ENODEV;
++
++	clk->flags = flags;
++
++	return 0;
++}
++
+ int __clk_is_enabled(struct clk *clk)
+ {
+ 	int ret;
+diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+index 4a0b483..58a6ae0 100644
+--- a/include/linux/clk-provider.h
++++ b/include/linux/clk-provider.h
+@@ -323,6 +323,7 @@ inline int __clk_get_enable_count(struct clk *clk);
+ inline int __clk_get_prepare_count(struct clk *clk);
+ unsigned long __clk_get_rate(struct clk *clk);
+ unsigned long __clk_get_flags(struct clk *clk);
++int __clk_set_flags(struct clk *clk, unsigned long flags);
+ int __clk_is_enabled(struct clk *clk);
+ struct clk *__clk_lookup(const char *name);
+ 
+-- 
+1.7.10.4
+

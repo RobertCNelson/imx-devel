@@ -1,0 +1,26 @@
+From f30ae730b69f70c1d88122ea529906593233e0fe Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Fri, 22 Jun 2012 15:07:09 +0200
+Subject: [PATCH 26/27] ARM i.MX53: Fix IPU clk
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ arch/arm/mach-imx/clk-imx51-imx53.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/mach-imx/clk-imx51-imx53.c b/arch/arm/mach-imx/clk-imx51-imx53.c
+index 4af353e..1b74938 100644
+--- a/arch/arm/mach-imx/clk-imx51-imx53.c
++++ b/arch/arm/mach-imx/clk-imx51-imx53.c
+@@ -435,7 +435,7 @@ int __init mx53_clocks_init(unsigned long rate_ckil, unsigned long rate_osc,
+ 	clk_register_clkdev(clk[vpu_gate], NULL, "imx53-vpu.0");
+ 	clk_register_clkdev(clk[i2c3_gate], NULL, "imx-i2c.2");
+ 	clk_register_clkdev(clk[fec_gate], NULL, "imx25-fec.0");
+-	clk_register_clkdev(clk[ipu_gate], "bus", "1e000000.ipu");
++	clk_register_clkdev(clk[ipu_gate], "bus", "18000000.ipu");
+ 	clk_register_clkdev(clk[ipu_di0_gate], "di0", "18000000.ipu");
+ 	clk_register_clkdev(clk[ipu_di1_gate], "di1", "18000000.ipu");
+ 	clk_register_clkdev(clk[ipu_gate], "hsp", "18000000.ipu");
+-- 
+1.7.10.4
+

@@ -1,0 +1,41 @@
+From e2bd345468e3e67064d9b839c90881bbfc1b2ac2 Mon Sep 17 00:00:00 2001
+From: Philipp Zabel <p.zabel@pengutronix.de>
+Date: Thu, 14 Jun 2012 13:19:19 +0200
+Subject: [PATCH 21/27] ARM i.MX5/6: Increase NR_IRQS for IPUv3 interrupts
+
+i.MX6 has two IPUv3H units.
+
+Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ arch/arm/plat-mxc/include/mach/irqs.h |   13 +++++++++++--
+ 1 file changed, 11 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/plat-mxc/include/mach/irqs.h b/arch/arm/plat-mxc/include/mach/irqs.h
+index fd9efb0..81c51ce 100644
+--- a/arch/arm/plat-mxc/include/mach/irqs.h
++++ b/arch/arm/plat-mxc/include/mach/irqs.h
+@@ -51,9 +51,18 @@
+ #else
+ #define MX3_IPU_IRQS 0
+ #endif
+-/* REVISIT: Add IPU irqs on IMX51 */
+ 
+-#define NR_IRQS			(MXC_IPU_IRQ_START + MX3_IPU_IRQS)
++#if defined(CONFIG_DRM_IMX_IPUV3) || defined(CONFIG_DRM_IMX_IPUV3_MODULE)
++#if defined(CONFIG_SOC_IMX6Q)
++#define IMX_IPUV3_IRQS (32 * 5 * 2)
++#else
++#define IMX_IPUV3_IRQS (32 * 5)
++#endif
++#else
++#define IMX_IPUV3_IRQS 0
++#endif
++
++#define NR_IRQS			(MXC_IPU_IRQ_START + MX3_IPU_IRQS + IMX_IPUV3_IRQS)
+ 
+ extern int imx_irq_set_priority(unsigned char irq, unsigned char prio);
+ 
+-- 
+1.7.10.4
+

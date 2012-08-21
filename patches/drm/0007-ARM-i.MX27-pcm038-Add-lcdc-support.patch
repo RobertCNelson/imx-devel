@@ -1,0 +1,92 @@
+From 5ea05d7d285ee7d6a8c2977182cbbeabcfd4d287 Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Fri, 11 May 2012 16:24:09 +0200
+Subject: [PATCH 07/27] ARM i.MX27 pcm038: Add lcdc support
+
+Currently just a usage example, do not commit
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ arch/arm/boot/dts/imx27-phytec-phycore.dts |   39 ++++++++++++++++++++++++++++
+ arch/arm/boot/dts/imx27.dtsi               |    8 ++++++
+ 2 files changed, 47 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx27-phytec-phycore.dts b/arch/arm/boot/dts/imx27-phytec-phycore.dts
+index 2b0ff60..614dd9f 100644
+--- a/arch/arm/boot/dts/imx27-phytec-phycore.dts
++++ b/arch/arm/boot/dts/imx27-phytec-phycore.dts
+@@ -20,6 +20,41 @@
+ 		reg = <0x0 0x0>;
+ 	};
+ 
++	baseboard {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++                #size-cells = <1>;
++
++		display {
++			compatible = "fsl,imx-parallel-display";
++			edid = [00 ff ff ff ff ff ff 00 4c 2d 6c 03 36 32 49 4b
++				0f 13 01 03 80 37 22 a0 2a fe 21 a8 53 37 ae 24
++				11 50 54
++
++				/* est timings */
++				00 00 00
++
++				/* std timings */
++				00 00
++				00 00
++				00 00
++				00 00
++				00 00
++				00 00
++				00 00
++				00 00
++
++				/* detailed timings */
++				05 0D 20 A0 30 58 1C 20 28 20 14 00 26 57 21 00 00 1E
++				00 00 00 fd 00 32 4b 1b	51 11 00 0a 20 20 20 20 20 20
++				00 00 00 fc 00 53 79 6e 63 4d 61 73 74 65 72 0a 20 20
++				00 00 00 ff 00 48 39 58 53 34 30 30 34 34 32 0a 20 20
++				00 20];
++
++			crtc = <&lcdc 0>;
++		};
++	};
++
+ 	soc {
+ 		aipi@10000000 { /* aipi */
+ 
+@@ -46,6 +81,10 @@
+ 				status = "okay";
+ 			};
+ 
++			lcdc@10021000 {
++				status = "okay";
++			};
++
+ 			i2c@1001d000 {
+ 				clock-frequency = <400000>;
+ 				status = "okay";
+diff --git a/arch/arm/boot/dts/imx27.dtsi b/arch/arm/boot/dts/imx27.dtsi
+index 386c769..16a0098 100644
+--- a/arch/arm/boot/dts/imx27.dtsi
++++ b/arch/arm/boot/dts/imx27.dtsi
+@@ -206,6 +206,14 @@
+ 				status = "disabled";
+ 			};
+ 
++			lcdc: lcdc@10021000 {
++				#crtc-cells = <0>;
++				compatible = "fsl,imx27-lcdc", "fsl,imx21-lcdc";
++				reg = <0x10021000 0x4000>;
++				interrupts = <61>;
++				status = "disabled";
++			};
++
+ 			fec: ethernet@1002b000 {
+ 				compatible = "fsl,imx27-fec";
+ 				reg = <0x1002b000 0x4000>;
+-- 
+1.7.10.4
+
