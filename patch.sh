@@ -118,7 +118,7 @@ drm () {
 bugs_trivial
 mainline_fixes
 freescale_patch_tree
-drm
+#drm
 
 echo "patch.sh ran successful"
 
