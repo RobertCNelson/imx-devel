@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 #
 # Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
 #
@@ -20,44 +20,41 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# Split out, so build_kernel.sh and build_deb.sh can share..
+DIR=$PWD
 
-# DIR=`pwd`
+source ${DIR}/system.sh
 
-git="git am"
-#git="git am --whitespace=fix"
+#Test that user actually modified the CC line:
+if [ "x${CC}" == "x" ] ; then
+	echo "-----------------------------"
+	echo "Error: You haven't setup the Cross Compiler (CC variable) in system.sh"
+	echo ""
+	echo "with a (sane editor) open system.sh and modify the commented Line 18: #CC=arm-linux-gnueabi-"
+	echo ""
+	echo "If you need hints on installing an ARM GCC Cross ToolChain, view README file"
+	echo "-----------------------------"
+	exit 1
+fi
 
-echo "Starting patch.sh"
+GCC="gcc"
+if [ "x${GCC_OVERRIDE}" != "x" ] ; then
+	GCC="${GCC_OVERRIDE}"
+fi
 
-git_add () {
-	git add .
-	git commit -a -m 'testing patchset'
-}
+GCC_TEST=$(LC_ALL=C ${CC}${GCC} -v 2>&1 | grep "Target:" | grep arm || true)
+GCC_REPORT=$(LC_ALL=C ${CC}${GCC} -v 2>&1 || true)
 
-cleanup () {
-	git format-patch -1 -o ${DIR}/patches/
-	exit
-}
-
-bugs_trivial () {
-	echo "bugs and trivial stuff"
-	${git} "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
-}
-
-mainline_fixes () {
-	echo "mainline patches"
-	${git} "${DIR}/patches/mainline-fixes/0001-arm-add-definition-of-strstr-to-decompress.c.patch"
-}
-
-freescale_patch_tree () {
-	echo "freescale patch tree"
-	#git pull git://github.com/Freescale/linux-mainline.git patches-3.5-rc5
-
-}
-
-bugs_trivial
-mainline_fixes
-#freescale_patch_tree
-
-echo "patch.sh ran successful"
+if [ "x${GCC_TEST}" == "x" ] ; then
+	echo ""
+	echo "Error: The GCC ARM Cross Compiler you setup in system.sh (CC variable)."
+	echo "Doesn't seem to be valid for ARM, double check it's location, or that"
+	echo "you chose the correct GCC Cross Compiler."
+	echo ""
+	echo "Output of: LC_ALL=C ${CC}${GCC} --version"
+	echo "${GCC_REPORT}"
+	echo ""
+	exit 1
+else
+	echo "Debug Using: `LC_ALL=C ${CC}${GCC} --version`"
+fi
 
