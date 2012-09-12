@@ -1,0 +1,42 @@
+From 2e12892c4550537bdbde06edb098e2f3d576ee39 Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Wed, 12 Sep 2012 12:31:14 +0200
+Subject: [PATCH 7/7] staging: drm/imx: Add TODO
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ drivers/staging/imx-drm/TODO |   22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+ create mode 100644 drivers/staging/imx-drm/TODO
+
+diff --git a/drivers/staging/imx-drm/TODO b/drivers/staging/imx-drm/TODO
+new file mode 100644
+index 0000000..2075646
+--- /dev/null
++++ b/drivers/staging/imx-drm/TODO
+@@ -0,0 +1,22 @@
++TODO:
++- get DRM Maintainer review for this code
++- Factor out more code to common helper functions
++- decide where to put the base driver. It is not specific to a subsystem
++  and would be used by DRM/KMS and media/V4L2
++- convert irq driver to irq_domain_add_linear
++
++Missing features (not necessarily for moving out out staging):
++
++- Add KMS plane support for CRTC driver
++- Add LDB (LVDS Display Bridge) support
++- Add i.MX6 HDMI support
++- Add support for IC (Image converter)
++- Add support for CSI (CMOS Sensor interface)
++- Add support for VDIC (Video Deinterlacer)
++
++Many work-in-progress patches for the above features exist. Contact
++Sascha Hauer <kernel@pengutronix.de> if you are interested in working
++on a specific feature.
++
++Please send any patches to Greg Kroah-Hartman <greg@kroah.com> and
++Sascha Hauer <kernel@pengutronix.de>
+-- 
+1.7.10.4
+

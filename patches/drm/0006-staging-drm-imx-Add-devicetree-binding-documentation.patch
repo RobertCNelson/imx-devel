@@ -1,0 +1,62 @@
+From 19a65b86fc4a5bfeb6ae46d317bfbe5a26caf83e Mon Sep 17 00:00:00 2001
+From: Philipp Zabel <p.zabel@pengutronix.de>
+Date: Wed, 12 Sep 2012 12:31:13 +0200
+Subject: [PATCH 6/7] staging: drm/imx: Add devicetree binding documentation
+
+Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ .../bindings/staging/imx-drm/fsl-imx-drm.txt       |   41 ++++++++++++++++++++
+ 1 file changed, 41 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/staging/imx-drm/fsl-imx-drm.txt
+
+diff --git a/Documentation/devicetree/bindings/staging/imx-drm/fsl-imx-drm.txt b/Documentation/devicetree/bindings/staging/imx-drm/fsl-imx-drm.txt
+new file mode 100644
+index 0000000..07654f0
+--- /dev/null
++++ b/Documentation/devicetree/bindings/staging/imx-drm/fsl-imx-drm.txt
+@@ -0,0 +1,41 @@
++Freescale i.MX IPUv3
++====================
++
++Required properties:
++- compatible: Should be "fsl,<chip>-ipu"
++- reg: should be register base and length as documented in the
++  datasheet
++- interrupts: Should contain sync interrupt and error interrupt,
++  in this order.
++- #crtc-cells: 1, See below
++
++example:
++
++ipu: ipu@18000000 {
++	#crtc-cells = <1>;
++	compatible = "fsl,imx53-ipu";
++	reg = <0x18000000 0x080000000>;
++	interrupts = <11 10>;
++};
++
++Parallel display support
++========================
++
++Required properties:
++- compatible: Should be "fsl,imx-parallel-display"
++- crtc: the crtc this display is connected to, see below
++Optional properties:
++- interface_pix_fmt: How this display is connected to the
++  crtc. Currently supported types: "rgb24", "rgb565"
++- edid: verbatim EDID data block describing attached display.
++- ddc: phandle describing the i2c bus handling the display data
++  channel
++
++example:
++
++display@di0 {
++	compatible = "fsl,imx-parallel-display";
++	edid = [edid-data];
++	crtc = <&ipu 0>;
++	interface-pix-fmt = "rgb24";
++};
+-- 
+1.7.10.4
+
