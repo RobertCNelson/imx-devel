@@ -41,7 +41,7 @@ git_add () {
 }
 
 cleanup () {
-	git format-patch -7 -o ${DIR}/patches/
+	git format-patch -8 -o ${DIR}/patches/
 	exit
 }
 
@@ -62,19 +62,24 @@ freescale_patch_tree () {
 
 drm () {
 	echo "drm"
-	${git} "${DIR}/patches/drm/0001-DRM-Add-DRM-kms-fb-cma-helper.patch"
-	${git} "${DIR}/patches/drm/0002-staging-drm-imx-Add-i.MX-drm-core-support.patch"
-	${git} "${DIR}/patches/drm/0003-staging-drm-imx-Add-parallel-display-support.patch"
-	${git} "${DIR}/patches/drm/0004-staging-drm-imx-add-i.MX-IPUv3-base-driver.patch"
-	${git} "${DIR}/patches/drm/0005-staging-drm-imx-Add-i.MX-IPUv3-crtc-support.patch"
-	${git} "${DIR}/patches/drm/0006-staging-drm-imx-Add-devicetree-binding-documentation.patch"
-	${git} "${DIR}/patches/drm/0007-staging-drm-imx-Add-TODO.patch"
+	#Status: should hit v3.7-rc:
+	#From: http://git.pengutronix.de/?p=imx/linux-2.6.git;a=summary drm-cma-helpers
+	${git} "${DIR}/patches/drm/0001-DRM-add-drm-gem-CMA-helper.patch"
+	${git} "${DIR}/patches/drm/0002-DRM-Add-DRM-kms-fb-cma-helper.patch"
+	#Status: should hit v3.7-rc:
+	#From: http://git.pengutronix.de/?p=imx/linux-2.6.git;a=summary staging-drm-imx
+	${git} "${DIR}/patches/drm/0003-staging-drm-imx-Add-i.MX-drm-core-support.patch"
+	${git} "${DIR}/patches/drm/0004-staging-drm-imx-Add-parallel-display-support.patch"
+	${git} "${DIR}/patches/drm/0005-staging-drm-imx-add-i.MX-IPUv3-base-driver.patch"
+	${git} "${DIR}/patches/drm/0006-staging-drm-imx-Add-i.MX-IPUv3-crtc-support.patch"
+	${git} "${DIR}/patches/drm/0007-staging-drm-imx-Add-devicetree-binding-documentation.patch"
+	${git} "${DIR}/patches/drm/0008-staging-drm-imx-Add-TODO.patch"
 }
 
 bugs_trivial
 mainline_fixes
 #freescale_patch_tree
-drm
+#drm
 
 echo "patch.sh ran successful"
 

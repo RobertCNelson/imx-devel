@@ -1,7 +1,7 @@
-From e5c2b11d8d91fcc0f464d6b5239217d65265a6fc Mon Sep 17 00:00:00 2001
+From cd14e5b69e1651b74056b147813d0b98a2e4d116 Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 12 Sep 2012 12:31:10 +0200
-Subject: [PATCH 3/7] staging: drm/imx: Add parallel display support
+Date: Tue, 12 Jun 2012 17:27:46 +0200
+Subject: [PATCH 4/8] staging: drm/imx: Add parallel display support
 
 This adds support for parallel displays for i.MX. It consists
 of a drm encoder/connector pair which eventually passes EDID

@@ -1,7 +1,7 @@
-From 56b277b9107f8fd0bec0d77980c0f1f4ecc42963 Mon Sep 17 00:00:00 2001
+From a4359d0727ba8b426b35c67b273be16f5232ce5d Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 12 Sep 2012 12:31:12 +0200
-Subject: [PATCH 5/7] staging: drm/imx: Add i.MX IPUv3 crtc support
+Date: Wed, 1 Jun 2011 14:07:12 +0200
+Subject: [PATCH 6/8] staging: drm/imx: Add i.MX IPUv3 crtc support
 
 This adds a i.MX51/53/6 IPU (Image Processing Unit) KMS driver. The
 driver has been tested on the i.MX51 babbage board, the i.MX53 LOCO

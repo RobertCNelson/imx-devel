@@ -1,7 +1,7 @@
-From d006bf929d05a5997ef122b51f7ef0036ebee5dc Mon Sep 17 00:00:00 2001
+From 3575b9a0f6ef7ef05353813b9163c8cb72f79012 Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 12 Sep 2012 12:31:11 +0200
-Subject: [PATCH 4/7] staging: drm/imx: add i.MX IPUv3 base driver
+Date: Wed, 1 Jun 2011 13:58:51 +0200
+Subject: [PATCH 5/8] staging: drm/imx: add i.MX IPUv3 base driver
 
 The IPU is the Image Processing Unit found on i.MX51/53/6 SoCs. It
 features several units for image processing, this patch adds support

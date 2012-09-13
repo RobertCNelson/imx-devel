@@ -1,7 +1,7 @@
-From 2e12892c4550537bdbde06edb098e2f3d576ee39 Mon Sep 17 00:00:00 2001
+From dd6d64412d53a50c09e0b0d63a482aac31da642f Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 12 Sep 2012 12:31:14 +0200
-Subject: [PATCH 7/7] staging: drm/imx: Add TODO
+Date: Tue, 11 Sep 2012 16:28:16 +0200
+Subject: [PATCH 8/8] staging: drm/imx: Add TODO
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 ---

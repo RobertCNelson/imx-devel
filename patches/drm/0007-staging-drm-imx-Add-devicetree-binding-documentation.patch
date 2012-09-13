@@ -1,7 +1,7 @@
-From 19a65b86fc4a5bfeb6ae46d317bfbe5a26caf83e Mon Sep 17 00:00:00 2001
+From 22660b11ab9a8c2069aef4ef4510acf6234dbd4e Mon Sep 17 00:00:00 2001
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Wed, 12 Sep 2012 12:31:13 +0200
-Subject: [PATCH 6/7] staging: drm/imx: Add devicetree binding documentation
+Date: Wed, 13 Jun 2012 18:09:13 +0200
+Subject: [PATCH 7/8] staging: drm/imx: Add devicetree binding documentation
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
