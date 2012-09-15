@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
 #
-# Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2012 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,39 +20,19 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# Split out, so build_kernel.sh and build_deb.sh can share..
+DIR=$PWD
 
-git="git am"
-#git="git am --whitespace=fix"
-
-if [ -f ${DIR}/system.sh ] ; then
-	source ${DIR}/system.sh
+if [ ! -f ${DIR}/patches/bisect_defconfig ] ; then
+	cp ${DIR}/patches/defconfig ${DIR}/patches/bisect_defconfig
 fi
 
-if [ "${RUN_BISECT}" ] ; then
-	git="git apply"
-fi
+cp -v ${DIR}/patches/bisect_defconfig ${DIR}/patches/defconfig
 
-echo "Starting patch.sh"
+cd ${DIR}/KERNEL/
+git bisect start
+#git bisect good v3.4
+#git bisect bad v3.5-rc1
 
-git_add () {
-	git add .
-	git commit -a -m 'testing patchset'
-}
 
-cleanup () {
-	git format-patch -6 -o ${DIR}/patches/
-	exit
-}
-
-function bugs_trivial {
-	echo "bugs and trivial stuff"
-	${git} "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
-	#in 3.4.9
-	#git am "${DIR}/patches/omap_fixes/0005-Unconditional-call-to-smp_cross_call-on-UP-crashes.patch"
-}
-
-bugs_trivial
-
-echo "patch.sh ran successful"
-
+git describe
+cd ${DIR}/
