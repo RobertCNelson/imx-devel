@@ -41,7 +41,7 @@ git_add () {
 }
 
 cleanup () {
-	git format-patch -8 -o ${DIR}/patches/
+	git format-patch -${number} -o ${DIR}/patches/
 	exit
 }
 
@@ -62,18 +62,23 @@ freescale_patch_tree () {
 
 drm () {
 	echo "drm"
-	#Status: should hit v3.7-rc:
-	#From: http://git.pengutronix.de/?p=imx/linux-2.6.git;a=summary drm-cma-helpers
-	${git} "${DIR}/patches/drm/0001-DRM-add-drm-gem-CMA-helper.patch"
-	${git} "${DIR}/patches/drm/0002-DRM-Add-DRM-kms-fb-cma-helper.patch"
-	#Status: should hit v3.7-rc:
-	#From: http://git.pengutronix.de/?p=imx/linux-2.6.git;a=summary staging-drm-imx
-	${git} "${DIR}/patches/drm/0003-staging-drm-imx-Add-i.MX-drm-core-support.patch"
-	${git} "${DIR}/patches/drm/0004-staging-drm-imx-Add-parallel-display-support.patch"
-	${git} "${DIR}/patches/drm/0005-staging-drm-imx-add-i.MX-IPUv3-base-driver.patch"
-	${git} "${DIR}/patches/drm/0006-staging-drm-imx-Add-i.MX-IPUv3-crtc-support.patch"
-	${git} "${DIR}/patches/drm/0007-staging-drm-imx-Add-devicetree-binding-documentation.patch"
-	${git} "${DIR}/patches/drm/0008-staging-drm-imx-Add-TODO.patch"
+	#Status: pulled from next v3.7-rc:
+	#From: http://cgit.freedesktop.org/~airlied/linux/log/?h=drm-next
+	${git} "${DIR}/patches/drm/0001-DRM-Add-DRM-GEM-CMA-helper.patch"
+	${git} "${DIR}/patches/drm/0002-DRM-Add-DRM-KMS-FB-CMA-helper.patch"
+
+	#Status: maybe for v3.7-rc?
+	#From: https://patchwork.kernel.org/patch/1361511/
+	${git} "${DIR}/patches/drm/0003-ARM-export-set_irq_flags-irq_set_chip_and_handler.patch"
+
+	#Status: in staging for v3.7-rc
+	#From: http://git.kernel.org/?p=linux/kernel/git/gregkh/staging.git;a=summary
+	${git} "${DIR}/patches/drm_imx/0001-staging-drm-imx-Add-i.MX-drm-core-support.patch"
+	${git} "${DIR}/patches/drm_imx/0002-staging-drm-imx-Add-parallel-display-support.patch"
+	${git} "${DIR}/patches/drm_imx/0003-staging-drm-imx-add-i.MX-IPUv3-base-driver.patch"
+	${git} "${DIR}/patches/drm_imx/0004-staging-drm-imx-Add-i.MX-IPUv3-crtc-support.patch"
+	${git} "${DIR}/patches/drm_imx/0005-staging-drm-imx-Add-devicetree-binding-documentation.patch"
+	${git} "${DIR}/patches/drm_imx/0006-staging-drm-imx-Add-TODO.patch"
 }
 
 bugs_trivial

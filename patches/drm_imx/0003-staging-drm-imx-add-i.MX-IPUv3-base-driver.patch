@@ -1,7 +1,7 @@
-From 3575b9a0f6ef7ef05353813b9163c8cb72f79012 Mon Sep 17 00:00:00 2001
+From aecfbdb1803b60bc26616ada7e432c8f9a58ba42 Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 1 Jun 2011 13:58:51 +0200
-Subject: [PATCH 5/8] staging: drm/imx: add i.MX IPUv3 base driver
+Date: Fri, 21 Sep 2012 10:07:49 +0200
+Subject: [PATCH 3/6] staging: drm/imx: add i.MX IPUv3 base driver
 
 The IPU is the Image Processing Unit found on i.MX51/53/6 SoCs. It
 features several units for image processing, this patch adds support
@@ -30,18 +30,20 @@ The IPU has other units missing in this patch:
 - Image Rotator (irt)
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
  drivers/staging/imx-drm/Kconfig             |    8 +
  drivers/staging/imx-drm/Makefile            |    1 +
+ drivers/staging/imx-drm/imx-drm-core.c      |    2 +
  drivers/staging/imx-drm/ipu-v3/Makefile     |    3 +
  drivers/staging/imx-drm/ipu-v3/imx-ipu-v3.h |  318 ++++++++
  drivers/staging/imx-drm/ipu-v3/ipu-common.c | 1143 +++++++++++++++++++++++++++
- drivers/staging/imx-drm/ipu-v3/ipu-dc.c     |  379 +++++++++
+ drivers/staging/imx-drm/ipu-v3/ipu-dc.c     |  372 +++++++++
  drivers/staging/imx-drm/ipu-v3/ipu-di.c     |  700 ++++++++++++++++
  drivers/staging/imx-drm/ipu-v3/ipu-dmfc.c   |  408 ++++++++++
  drivers/staging/imx-drm/ipu-v3/ipu-dp.c     |  336 ++++++++
  drivers/staging/imx-drm/ipu-v3/ipu-prv.h    |  206 +++++
- 10 files changed, 3502 insertions(+)
+ 11 files changed, 3497 insertions(+)
  create mode 100644 drivers/staging/imx-drm/ipu-v3/Makefile
  create mode 100644 drivers/staging/imx-drm/ipu-v3/imx-ipu-v3.h
  create mode 100644 drivers/staging/imx-drm/ipu-v3/ipu-common.c
@@ -76,6 +78,26 @@ index c8f582e..e3a5b6f 100644
  obj-$(CONFIG_DRM_IMX_PARALLEL_DISPLAY) += parallel-display.o
  obj-$(CONFIG_DRM_IMX_FB_HELPER) += imx-fbdev.o
 +obj-$(CONFIG_DRM_IMX_IPUV3_CORE) += ipu-v3/
+diff --git a/drivers/staging/imx-drm/imx-drm-core.c b/drivers/staging/imx-drm/imx-drm-core.c
+index 225e835..1913199 100644
+--- a/drivers/staging/imx-drm/imx-drm-core.c
++++ b/drivers/staging/imx-drm/imx-drm-core.c
+@@ -137,6 +137,7 @@ found:
+ 				encoder_type, interface_pix_fmt);
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(imx_drm_crtc_panel_format);
+ 
+ int imx_drm_crtc_vblank_get(struct imx_drm_crtc *imx_drm_crtc)
+ {
+@@ -647,6 +648,7 @@ int imx_drm_encoder_add_possible_crtcs(
+ 
+ 	return 0;
+ }
++EXPORT_SYMBOL_GPL(imx_drm_encoder_add_possible_crtcs);
+ 
+ int imx_drm_encoder_get_mux_id(struct imx_drm_encoder *imx_drm_encoder,
+ 		struct drm_crtc *crtc)
 diff --git a/drivers/staging/imx-drm/ipu-v3/Makefile b/drivers/staging/imx-drm/ipu-v3/Makefile
 new file mode 100644
 index 0000000..28ed72e
@@ -411,7 +433,7 @@ index 0000000..74158dd
 +#endif /* __DRM_IPU_H__ */
 diff --git a/drivers/staging/imx-drm/ipu-v3/ipu-common.c b/drivers/staging/imx-drm/ipu-v3/ipu-common.c
 new file mode 100644
-index 0000000..5a46b85
+index 0000000..f381960
 --- /dev/null
 +++ b/drivers/staging/imx-drm/ipu-v3/ipu-common.c
 @@ -0,0 +1,1143 @@
@@ -1135,7 +1157,7 @@ index 0000000..5a46b85
 +	char *unit;
 +	int ret;
 +	struct device *dev = &pdev->dev;
-+	struct ipu_devtype *devtype = ipu->devtype;
++	const struct ipu_devtype *devtype = ipu->devtype;
 +
 +	ret = ipu_di_init(ipu, dev, 0, ipu_base + devtype->disp0_ofs,
 +			IPU_CONF_DI0_EN, ipu_clk);
@@ -1413,7 +1435,7 @@ index 0000000..5a46b85
 +	struct resource *res;
 +	unsigned long ipu_base;
 +	int i, ret, irq_sync, irq_err;
-+	struct ipu_devtype *devtype;
++	const struct ipu_devtype *devtype;
 +
 +	devtype = of_id->data;
 +
@@ -1560,10 +1582,10 @@ index 0000000..5a46b85
 +MODULE_LICENSE("GPL");
 diff --git a/drivers/staging/imx-drm/ipu-v3/ipu-dc.c b/drivers/staging/imx-drm/ipu-v3/ipu-dc.c
 new file mode 100644
-index 0000000..c1000ee
+index 0000000..93c7579
 --- /dev/null
 +++ b/drivers/staging/imx-drm/ipu-v3/ipu-dc.c
-@@ -0,0 +1,379 @@
+@@ -0,0 +1,372 @@
 +/*
 + * Copyright (c) 2010 Sascha Hauer <s.hauer@pengutronix.de>
 + * Copyright (C) 2005-2009 Freescale Semiconductor, Inc.
@@ -1689,17 +1711,10 @@ index 0000000..c1000ee
 +	u32 reg;
 +	int stop = 1;
 +
-+	if (opcode == WRG) {
-+		reg = sync | glue << 4 | ++wave << 11 | (operand & 0x1ffff) << 15;
-+		writel(reg, priv->dc_tmpl_reg + word * 8);
-+		reg = operand >> 17 | opcode << 7 | stop << 9;
-+		writel(reg, priv->dc_tmpl_reg + word * 8 + 4);
-+	} else {
-+		reg = sync | glue << 4 | ++wave << 11 | ++map << 15 | ((operand << 20) & 0xfff00000);
-+		writel(reg, priv->dc_tmpl_reg + word * 8);
-+		reg = operand >> 12 | opcode << 4 | stop << 9;
-+		writel(reg, priv->dc_tmpl_reg + word * 8 + 4);
-+	}
++	reg = sync | glue << 4 | ++wave << 11 | ++map << 15 | ((operand << 20) & 0xfff00000);
++	writel(reg, priv->dc_tmpl_reg + word * 8);
++	reg = operand >> 12 | opcode << 4 | stop << 9;
++	writel(reg, priv->dc_tmpl_reg + word * 8 + 4);
 +}
 +
 +static int ipu_pixfmt_to_map(u32 fmt)
@@ -1742,7 +1757,7 @@ index 0000000..c1000ee
 +			dc_link_event(dc, DC_EVT_NEW_DATA, 4, 1);
 +			/* Init template microcode */
 +			dc_write_tmpl(dc, 2, WROD(0), 0, map, SYNC_WAVE, 8, 5);
-+			dc_write_tmpl(dc, 3, WRG, 0, map, SYNC_WAVE, 4, 5);
++			dc_write_tmpl(dc, 3, WROD(0), 0, map, SYNC_WAVE, 4, 5);
 +			dc_write_tmpl(dc, 4, WROD(0), 0, map, SYNC_WAVE, 0, 5);
 +		} else {
 +			dc_link_event(dc, DC_EVT_NL, 5, 3);
@@ -1750,7 +1765,7 @@ index 0000000..c1000ee
 +			dc_link_event(dc, DC_EVT_NEW_DATA, 7, 1);
 +			/* Init template microcode */
 +			dc_write_tmpl(dc, 5, WROD(0), 0, map, SYNC_WAVE, 8, 5);
-+			dc_write_tmpl(dc, 6, WRG, 0, map, SYNC_WAVE, 4, 5);
++			dc_write_tmpl(dc, 6, WROD(0), 0, map, SYNC_WAVE, 4, 5);
 +			dc_write_tmpl(dc, 7, WROD(0), 0, map, SYNC_WAVE, 0, 5);
 +		}
 +	}
@@ -3407,7 +3422,7 @@ index 0000000..26aecaf
 +}
 diff --git a/drivers/staging/imx-drm/ipu-v3/ipu-prv.h b/drivers/staging/imx-drm/ipu-v3/ipu-prv.h
 new file mode 100644
-index 0000000..e524c8f
+index 0000000..5518028
 --- /dev/null
 +++ b/drivers/staging/imx-drm/ipu-v3/ipu-prv.h
 @@ -0,0 +1,206 @@
@@ -3568,7 +3583,7 @@ index 0000000..e524c8f
 +
 +struct ipu_soc {
 +	struct device		*dev;
-+	struct ipu_devtype	*devtype;
++	const struct ipu_devtype	*devtype;
 +	enum ipuv3_type		ipu_type;
 +	spinlock_t		lock;
 +	struct mutex		channel_lock;

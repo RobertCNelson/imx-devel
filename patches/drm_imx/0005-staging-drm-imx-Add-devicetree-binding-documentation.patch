@@ -1,10 +1,11 @@
-From 22660b11ab9a8c2069aef4ef4510acf6234dbd4e Mon Sep 17 00:00:00 2001
+From 2d62da8ebd323ee65e4fb952e73dcb10d8114bda Mon Sep 17 00:00:00 2001
 From: Philipp Zabel <p.zabel@pengutronix.de>
-Date: Wed, 13 Jun 2012 18:09:13 +0200
-Subject: [PATCH 7/8] staging: drm/imx: Add devicetree binding documentation
+Date: Fri, 21 Sep 2012 10:07:51 +0200
+Subject: [PATCH 5/6] staging: drm/imx: Add devicetree binding documentation
 
 Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
  .../bindings/staging/imx-drm/fsl-imx-drm.txt       |   41 ++++++++++++++++++++
  1 file changed, 41 insertions(+)

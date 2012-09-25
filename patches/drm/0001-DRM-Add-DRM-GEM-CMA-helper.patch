@@ -1,19 +1,20 @@
-From 1965da36c466d78e12b63b5aa7ad585949d45ea2 Mon Sep 17 00:00:00 2001
+From 89c86e271b9497352b13a71f8d9347d2f4e2a37b Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Wed, 8 Aug 2012 17:21:05 +0200
-Subject: [PATCH 1/8] DRM: add drm gem CMA helper
+Date: Wed, 27 Jun 2012 15:30:18 +0200
+Subject: [PATCH 1/2] DRM: Add DRM GEM CMA helper
 
 Many embedded drm devices do not have a IOMMU and no dedicated
 memory for graphics. These devices use CMA (Contiguous Memory
 Allocator) backed graphics memory. This patch provides helper
 functions to be able to share the code. The code technically does
 not depend on CMA as the backend allocator, the name has been chosen
-because cma makes for a nice, short but still descriptive function
+because CMA makes for a nice, short but still descriptive function
 prefix.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Tested-by: Lars-Peter Clausen <lars@metafoo.de>
-Acked-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+[Make DRM_GEM_CMA_HELPER a boolean Kconfig option]
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
  drivers/gpu/drm/Kconfig              |    6 +
  drivers/gpu/drm/Makefile             |    1 +

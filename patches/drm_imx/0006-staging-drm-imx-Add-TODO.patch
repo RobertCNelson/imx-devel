@@ -1,9 +1,10 @@
-From dd6d64412d53a50c09e0b0d63a482aac31da642f Mon Sep 17 00:00:00 2001
+From effef787a9e7c95b58a70951ec934a4474fa73bf Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Tue, 11 Sep 2012 16:28:16 +0200
-Subject: [PATCH 8/8] staging: drm/imx: Add TODO
+Date: Fri, 21 Sep 2012 10:07:52 +0200
+Subject: [PATCH 6/6] staging: drm/imx: Add TODO
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
  drivers/staging/imx-drm/TODO |   22 ++++++++++++++++++++++
  1 file changed, 22 insertions(+)
@@ -11,7 +12,7 @@ Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 
 diff --git a/drivers/staging/imx-drm/TODO b/drivers/staging/imx-drm/TODO
 new file mode 100644
-index 0000000..2075646
+index 0000000..e52adc4
 --- /dev/null
 +++ b/drivers/staging/imx-drm/TODO
 @@ -0,0 +1,22 @@
@@ -22,7 +23,7 @@ index 0000000..2075646
 +  and would be used by DRM/KMS and media/V4L2
 +- convert irq driver to irq_domain_add_linear
 +
-+Missing features (not necessarily for moving out out staging):
++Missing features (not necessarily for moving out of staging):
 +
 +- Add KMS plane support for CRTC driver
 +- Add LDB (LVDS Display Bridge) support
@@ -35,7 +36,7 @@ index 0000000..2075646
 +Sascha Hauer <kernel@pengutronix.de> if you are interested in working
 +on a specific feature.
 +
-+Please send any patches to Greg Kroah-Hartman <greg@kroah.com> and
++Please send any patches to Greg Kroah-Hartman <gregkh@linuxfoundation.org> and
 +Sascha Hauer <kernel@pengutronix.de>
 -- 
 1.7.10.4

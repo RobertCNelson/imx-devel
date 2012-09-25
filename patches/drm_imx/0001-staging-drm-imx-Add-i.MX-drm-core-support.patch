@@ -1,11 +1,12 @@
-From 56adb970f71c41b09aa816fb21b185879ca5dc1b Mon Sep 17 00:00:00 2001
+From e692da4d0e587f549ba101015e5f89903ba20b67 Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Tue, 12 Jun 2012 17:25:47 +0200
-Subject: [PATCH 3/8] staging: drm/imx: Add i.MX drm core support
+Date: Fri, 21 Sep 2012 10:07:47 +0200
+Subject: [PATCH 1/6] staging: drm/imx: Add i.MX drm core support
 
 This patch adds the i.MX glue stuff between i.MX and drm.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
  drivers/staging/Kconfig                |    2 +
  drivers/staging/Makefile               |    1 +

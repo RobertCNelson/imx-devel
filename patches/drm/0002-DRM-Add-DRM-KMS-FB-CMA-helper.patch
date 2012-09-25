@@ -1,40 +1,41 @@
-From 2442eedb7d62c0e63f23f6f444b0ef73a9f47727 Mon Sep 17 00:00:00 2001
+From 0d5cf01d042fd11e432d3ee93c37bf83c3859361 Mon Sep 17 00:00:00 2001
 From: Lars-Peter Clausen <lars@metafoo.de>
-Date: Wed, 8 Aug 2012 17:21:06 +0200
-Subject: [PATCH 2/8] DRM: Add DRM kms/fb cma helper
+Date: Mon, 2 Jul 2012 16:37:47 +0200
+Subject: [PATCH 2/2] DRM: Add DRM KMS/FB CMA helper
 
 This patchset introduces a set of helper function for implementing the KMS
-framebuffer layer for drivers which use the drm gem CMA helper function.
+framebuffer layer for drivers which use the DRM GEM CMA helper function.
 
 Signed-off-by: Lars-Peter Clausen <lars@metafoo.de>
 Tested-by: Sascha Hauer <s.hauer@pengutronix.de>
-Acked-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Acked-by: Sascha Hauer <s.hauer@pengutronix.de>
+[Make DRM_KMS_CMA_HELPER a boolean Kconfig option]
+Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 ---
- drivers/gpu/drm/Kconfig             |   10 +
+ drivers/gpu/drm/Kconfig             |    9 +
  drivers/gpu/drm/Makefile            |    1 +
  drivers/gpu/drm/drm_fb_cma_helper.c |  406 +++++++++++++++++++++++++++++++++++
  include/drm/drm_fb_cma_helper.h     |   26 +++
- 4 files changed, 443 insertions(+)
+ 4 files changed, 442 insertions(+)
  create mode 100644 drivers/gpu/drm/drm_fb_cma_helper.c
  create mode 100644 include/drm/drm_fb_cma_helper.h
 
 diff --git a/drivers/gpu/drm/Kconfig b/drivers/gpu/drm/Kconfig
-index ccd10ae..9738504 100644
+index ccd10ae..99b5ff9 100644
 --- a/drivers/gpu/drm/Kconfig
 +++ b/drivers/gpu/drm/Kconfig
-@@ -60,6 +60,16 @@ config DRM_GEM_CMA_HELPER
+@@ -60,6 +60,15 @@ config DRM_GEM_CMA_HELPER
  	help
  	  Choose this if you need the GEM CMA helper functions
  
 +config DRM_KMS_CMA_HELPER
 +	bool
 +	select DRM_GEM_CMA_HELPER
-+	select DRM_KMS_HELPER
 +	select FB_SYS_FILLRECT
 +	select FB_SYS_COPYAREA
 +	select FB_SYS_IMAGEBLIT
 +	help
-+	  Choose this if you need the KMS cma helper functions
++	  Choose this if you need the KMS CMA helper functions
 +
  config DRM_TDFX
  	tristate "3dfx Banshee/Voodoo3+"

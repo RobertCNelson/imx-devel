@@ -1,18 +1,19 @@
-From cd14e5b69e1651b74056b147813d0b98a2e4d116 Mon Sep 17 00:00:00 2001
+From 19022aaae677dfa171a719e9d1ff04823ce65a65 Mon Sep 17 00:00:00 2001
 From: Sascha Hauer <s.hauer@pengutronix.de>
-Date: Tue, 12 Jun 2012 17:27:46 +0200
-Subject: [PATCH 4/8] staging: drm/imx: Add parallel display support
+Date: Fri, 21 Sep 2012 10:07:48 +0200
+Subject: [PATCH 2/6] staging: drm/imx: Add parallel display support
 
 This adds support for parallel displays for i.MX. It consists
 of a drm encoder/connector pair which eventually passes EDID
 data from the devicetree to the drm core.
 
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 ---
  drivers/staging/imx-drm/Kconfig            |    4 +
  drivers/staging/imx-drm/Makefile           |    1 +
- drivers/staging/imx-drm/parallel-display.c |  262 ++++++++++++++++++++++++++++
- 3 files changed, 267 insertions(+)
+ drivers/staging/imx-drm/parallel-display.c |  261 ++++++++++++++++++++++++++++
+ 3 files changed, 266 insertions(+)
  create mode 100644 drivers/staging/imx-drm/parallel-display.c
 
 diff --git a/drivers/staging/imx-drm/Kconfig b/drivers/staging/imx-drm/Kconfig
@@ -39,10 +40,10 @@ index ff825f7..c8f582e 100644
  obj-$(CONFIG_DRM_IMX_FB_HELPER) += imx-fbdev.o
 diff --git a/drivers/staging/imx-drm/parallel-display.c b/drivers/staging/imx-drm/parallel-display.c
 new file mode 100644
-index 0000000..e757d42
+index 0000000..9b51d73
 --- /dev/null
 +++ b/drivers/staging/imx-drm/parallel-display.c
-@@ -0,0 +1,262 @@
+@@ -0,0 +1,261 @@
 +/*
 + * i.MX drm driver - parallel display implementation
 + *
@@ -106,7 +107,6 @@ index 0000000..e757d42
 +	if (imxpd->edid) {
 +		drm_mode_connector_update_edid_property(connector, imxpd->edid);
 +		num_modes = drm_add_edid_modes(connector, imxpd->edid);
-+		connector->display_info.raw_edid = NULL;
 +	}
 +
 +	if (imxpd->mode_valid) {
