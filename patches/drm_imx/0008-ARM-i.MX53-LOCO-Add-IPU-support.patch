@@ -1,0 +1,44 @@
+From e7bac164ec5528e44ba6cda6cd47b9c7c60a2827 Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Tue, 5 Jun 2012 13:52:10 +0200
+Subject: [PATCH 08/19] ARM i.MX53 LOCO: Add IPU support
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ arch/arm/boot/dts/imx53.dtsi |   13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx53.dtsi b/arch/arm/boot/dts/imx53.dtsi
+index cd37165..9b985c8 100644
+--- a/arch/arm/boot/dts/imx53.dtsi
++++ b/arch/arm/boot/dts/imx53.dtsi
+@@ -67,6 +67,13 @@
+ 		interrupt-parent = <&tzic>;
+ 		ranges;
+ 
++		ipu: ipu@18000000 {
++			#crtc-cells = <1>;
++			compatible = "fsl,imx53-ipu";
++			reg = <0x18000000 0x080000000>;
++			interrupts = <11 10>;
++		};
++
+ 		aips@50000000 { /* AIPS1 */
+ 			compatible = "fsl,aips-bus", "simple-bus";
+ 			#address-cells = <1>;
+@@ -189,6 +196,12 @@
+ 				status = "disabled";
+ 			};
+ 
++			lvds@53fa8008 {
++				compatible = "fsl,imx-ldb";
++				reg = <0x53fa8008 0x4>;
++				status = "disabled";
++			};
++
+ 			uart1: serial@53fbc000 {
+ 				compatible = "fsl,imx53-uart", "fsl,imx21-uart";
+ 				reg = <0x53fbc000 0x4000>;
+-- 
+1.7.10.4
+

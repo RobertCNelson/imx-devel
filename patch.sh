@@ -79,6 +79,22 @@ drm () {
 	${git} "${DIR}/patches/drm_imx/0004-staging-drm-imx-Add-i.MX-IPUv3-crtc-support.patch"
 	${git} "${DIR}/patches/drm_imx/0005-staging-drm-imx-Add-devicetree-binding-documentation.patch"
 	${git} "${DIR}/patches/drm_imx/0006-staging-drm-imx-Add-TODO.patch"
+
+	#Status: Cherry Picked from:
+	#http://git.pengutronix.de/?p=imx/linux-2.6.git;a=shortlog;h=refs/heads/work/gpu/imx-drm-ipu-complete-rebase
+	${git} "${DIR}/patches/drm_imx/0007-ARM-i.MX51-babbage-Add-IPU-support.patch"
+	${git} "${DIR}/patches/drm_imx/0008-ARM-i.MX53-LOCO-Add-IPU-support.patch"
+	${git} "${DIR}/patches/drm_imx/0009-ARM-i.MX51-setup-mipi.patch"
+	${git} "${DIR}/patches/drm_imx/0010-ARM-i.MX5-initialize-m4if-interface.patch"
+	${git} "${DIR}/patches/drm_imx/0011-ARM-i.MX5-Hard-reset-the-IPU-during-startup.patch"
+	${git} "${DIR}/patches/drm_imx/0012-clk-add-a-__clk_set_flags-function.patch"
+	${git} "${DIR}/patches/drm_imx/0013-ARM-i.MX53-clk-Fix-ldb-parent-clocks.patch"
+	${git} "${DIR}/patches/drm_imx/0014-ARM-i.MX5-IPU-clk-support.patch"
+	${git} "${DIR}/patches/drm_imx/0015-ARM-i.MX6-Add-IPU-device-support.patch"
+	${git} "${DIR}/patches/drm_imx/0016-ARM-i.MX6-clk-initialize-some-video-clocks.patch"
+	${git} "${DIR}/patches/drm_imx/0017-DRM-allow-create-map-destroy-dumb-buffer-ioctls-for-.patch"
+	${git} "${DIR}/patches/drm_imx/0018-ARM-i.MX53-Fix-IPU-clk.patch"
+	${git} "${DIR}/patches/drm_imx/0019-of-Add-videomode-helper.patch"
 }
 
 bugs_trivial
