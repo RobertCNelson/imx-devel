@@ -55,9 +55,10 @@ mainline_fixes () {
 	${git} "${DIR}/patches/mainline-fixes/0001-arm-add-definition-of-strstr-to-decompress.c.patch"
 }
 
-freescale_patch_tree () {
-	echo "freescale patch tree"
-	#git pull git://github.com/Freescale/linux-mainline.git patches-3.5-rc5
+imx () {
+	echo "imx patches"
+	${git} "${DIR}/patches/imx/0001-ARM-dts-imx6q-enable-snvs-lp-rtc.patch"
+	${git} "${DIR}/patches/imx/0002-ARM-imx-enable-cpufreq-for-imx6q.patch"
 }
 
 drm () {
@@ -99,6 +100,8 @@ drm () {
 
 bugs_trivial
 mainline_fixes
+imx
+
 #freescale_patch_tree
 #drm
 

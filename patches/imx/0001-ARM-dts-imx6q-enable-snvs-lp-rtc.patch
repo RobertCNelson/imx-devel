@@ -1,0 +1,36 @@
+From ab2ef74f0f70c767c068e1723246130f238272a3 Mon Sep 17 00:00:00 2001
+From: Shawn Guo <shawn.guo@linaro.org>
+Date: Mon, 15 Oct 2012 10:57:11 +0800
+Subject: [PATCH 1/2] ARM: dts: imx6q: enable snvs lp rtc
+
+Signed-off-by: Shawn Guo <shawn.guo@linaro.org>
+---
+ arch/arm/boot/dts/imx6q.dtsi |   12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/boot/dts/imx6q.dtsi b/arch/arm/boot/dts/imx6q.dtsi
+index f3990b0..8f0ec58 100644
+--- a/arch/arm/boot/dts/imx6q.dtsi
++++ b/arch/arm/boot/dts/imx6q.dtsi
+@@ -505,8 +505,16 @@
+ 			};
+ 
+ 			snvs@020cc000 {
+-				reg = <0x020cc000 0x4000>;
+-				interrupts = <0 19 0x04 0 20 0x04>;
++				compatible = "fsl,sec-v4.0-mon", "simple-bus";
++				#address-cells = <1>;
++				#size-cells = <1>;
++				ranges = <0 0x020cc000 0x4000>;
++
++				snvs-rtc-lp@34 {
++					compatible = "fsl,sec-v4.0-mon-rtc-lp";
++					reg = <0x34 0x58>;
++					interrupts = <0 19 0x04 0 20 0x04>;
++				};
+ 			};
+ 
+ 			epit@020d0000 { /* EPIT1 */
+-- 
+1.7.10.4
+
