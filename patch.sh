@@ -50,8 +50,9 @@ function bugs_trivial {
 }
 
 function freescale {
-echo "from freescale dump..."
-	git pull ${GIT_OPTS} git://github.com/RobertCNelson/linux.git imx_2.6.35_11.09.01
+	echo "from freescale dump..."
+	#Based on: https://github.com/Freescale/linux-imx/commits/patches-imx-2.6.35_11.09.01/
+	git pull ${GIT_OPTS} git://github.com/RobertCNelson/linux.git imx_2.6.35_11.09.01.1
 
 	#Causes Serial Corruption Loco Board
 #	git am "${DIR}/patches/0001-Revert-ENGR00141363-ARM-imx53-clock-change-di0-clock.patch"
