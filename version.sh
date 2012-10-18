@@ -21,9 +21,9 @@ CCACHE=ccache
 config="imx5_defconfig"
 
 #Kernel/Build
-KERNEL_REL=2.6
-KERNEL_TAG=${KERNEL_REL}.35
-BUILD=imx3.2
+KERNEL_REL=2.6.35
+KERNEL_TAG=${KERNEL_REL}.3
+BUILD=imx3.3
 
 #git branch
 BRANCH="imx-bsp"
