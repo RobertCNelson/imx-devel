@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.35.3
-# Thu Oct 18 14:00:31 2012
+# Thu Oct 18 16:39:09 2012
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
@@ -1552,7 +1552,7 @@ CONFIG_INPUT_MOUSEDEV_SCREEN_X=1024
 CONFIG_INPUT_MOUSEDEV_SCREEN_Y=768
 CONFIG_INPUT_JOYDEV=m
 CONFIG_INPUT_EVDEV=y
-CONFIG_INPUT_EVBUG=m
+# CONFIG_INPUT_EVBUG is not set
 # CONFIG_INPUT_APMPOWER is not set
 
 #

@@ -23,7 +23,7 @@ config="imx5_defconfig"
 #Kernel/Build
 KERNEL_REL=2.6.35
 KERNEL_TAG=${KERNEL_REL}.3
-BUILD=imx3.5
+BUILD=imx3.6
 
 #git branch
 BRANCH="imx-bsp"
