@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm 3.7.0-rc1 Kernel Configuration
+# Linux/arm 3.7.0-rc3 Kernel Configuration
 #
 CONFIG_ARM=y
 CONFIG_SYS_SUPPORTS_APM_EMULATION=y
@@ -1730,6 +1730,7 @@ CONFIG_PHYLIB=y
 #
 # MII PHY device drivers
 #
+# CONFIG_AT803X_PHY is not set
 # CONFIG_AMD_PHY is not set
 CONFIG_MARVELL_PHY=y
 CONFIG_DAVICOM_PHY=y
@@ -3177,6 +3178,7 @@ CONFIG_LCD_CLASS_DEVICE=y
 CONFIG_LCD_L4F00242T03=y
 # CONFIG_LCD_LMS283GF05 is not set
 # CONFIG_LCD_LTV350QV is not set
+# CONFIG_LCD_ILI9320 is not set
 # CONFIG_LCD_TDO24M is not set
 # CONFIG_LCD_VGG2432A4 is not set
 CONFIG_LCD_PLATFORM=y
@@ -4177,10 +4179,6 @@ CONFIG_HID_SENSOR_ENUM_BASE_QUIRKS=m
 # Digital gyroscope sensors
 #
 CONFIG_HID_SENSOR_GYRO_3D=m
-
-#
-# Light sensors
-#
 
 #
 # Magnetometer sensors

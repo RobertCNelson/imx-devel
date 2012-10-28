@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm 3.7.0-rc2 Kernel Configuration
+# Linux/arm 3.7.0-rc3 Kernel Configuration
 #
 CONFIG_ARM=y
 CONFIG_SYS_SUPPORTS_APM_EMULATION=y
@@ -475,7 +475,6 @@ CONFIG_ALIGNMENT_TRAP=y
 # CONFIG_UACCESS_WITH_MEMCPY is not set
 # CONFIG_SECCOMP is not set
 # CONFIG_CC_STACKPROTECTOR is not set
-# CONFIG_XEN is not set
 
 #
 # Boot options
@@ -1006,6 +1005,7 @@ CONFIG_PHYLIB=y
 #
 # MII PHY device drivers
 #
+# CONFIG_AT803X_PHY is not set
 # CONFIG_AMD_PHY is not set
 # CONFIG_MARVELL_PHY is not set
 # CONFIG_DAVICOM_PHY is not set
@@ -1354,7 +1354,7 @@ CONFIG_GPIO_MXC=y
 #
 # CONFIG_GPIO_MAX7300 is not set
 # CONFIG_GPIO_MAX732X is not set
-# CONFIG_GPIO_MC9S08DZ60 is not set
+CONFIG_GPIO_MC9S08DZ60=y
 # CONFIG_GPIO_PCF857X is not set
 # CONFIG_GPIO_SX150X is not set
 # CONFIG_GPIO_ADP5588 is not set
@@ -1586,9 +1586,10 @@ CONFIG_LCD_CLASS_DEVICE=y
 CONFIG_LCD_L4F00242T03=y
 # CONFIG_LCD_LMS283GF05 is not set
 # CONFIG_LCD_LTV350QV is not set
+# CONFIG_LCD_ILI9320 is not set
 # CONFIG_LCD_TDO24M is not set
 # CONFIG_LCD_VGG2432A4 is not set
-# CONFIG_LCD_PLATFORM is not set
+CONFIG_LCD_PLATFORM=y
 # CONFIG_LCD_S6E63M0 is not set
 # CONFIG_LCD_LD9040 is not set
 # CONFIG_LCD_AMS369FG06 is not set
