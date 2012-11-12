@@ -107,6 +107,16 @@ imx_video () {
 	${git} "${DIR}/patches/imx_video/drm/0004-staging-drm-imx-Add-ipu_cpmem_set_yuv_interleaved.patch"
 	${git} "${DIR}/patches/imx_video/drm/0005-staging-drm-imx-Add-pinctrl-support-to-parallel-disp.patch"
 	${git} "${DIR}/patches/imx_video/drm/0006-staging-drm-imx-Remove-300ms-delay-after-memory-rese.patch"
+
+	#Disabled (hard crash on mx51-baggage)
+	#echo "dir: imx_video"
+	#${git} "${DIR}/patches/imx_video/0001-ARM-i.MX51-setup-MIPI-during-startup.patch"
+	#${git} "${DIR}/patches/imx_video/0002-ARM-i.MX6-fix-ldb_di_sel-mux.patch"
+	#${git} "${DIR}/patches/imx_video/0003-ARM-i.MX5-switch-IPU-clk-support-to-devicetree-bindi.patch"
+	#${git} "${DIR}/patches/imx_video/0004-ARM-i.MX53-Add-IPU-support.patch"
+	#${git} "${DIR}/patches/imx_video/0005-ARM-i.MX51-Add-IPU-support.patch"
+	#${git} "${DIR}/patches/imx_video/0006-ARM-i.MX6-Add-IPU-support.patch"
+	#${git} "${DIR}/patches/imx_video/0007-ARM-i.MX51-babbage-Add-display-support.patch"
 }
 
 bugs_trivial

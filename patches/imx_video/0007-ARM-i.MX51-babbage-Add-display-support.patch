@@ -1,0 +1,45 @@
+From 39a9a816a38919da772d41533c4b73c63cd60488 Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Mon, 12 Nov 2012 16:23:29 +0100
+Subject: [PATCH 7/7] ARM i.MX51 babbage: Add display support
+
+The babbage board has a DVI-I output which allows to output analog
+and digital signals simultaneously. This patch adds support for it
+to the devicetree. The DDC signals are not wired up on the board, so
+DRM will fall back on default VESA modes.
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ arch/arm/boot/dts/imx51-babbage.dts |   16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx51-babbage.dts b/arch/arm/boot/dts/imx51-babbage.dts
+index cbd2b1c..567e7ee 100644
+--- a/arch/arm/boot/dts/imx51-babbage.dts
++++ b/arch/arm/boot/dts/imx51-babbage.dts
+@@ -22,6 +22,22 @@
+ 	};
+ 
+ 	soc {
++		display@di0 {
++			compatible = "fsl,imx-parallel-display";
++			crtcs = <&ipu 0>;
++			interface-pix-fmt = "rgb24";
++			pinctrl-names = "default";
++			pinctrl-0 = <&pinctrl_ipu_disp1_1>;
++		};
++
++		display@di1 {
++			compatible = "fsl,imx-parallel-display";
++			crtcs = <&ipu 1>;
++			interface-pix-fmt = "rgb565";
++			pinctrl-names = "default";
++			pinctrl-0 = <&pinctrl_ipu_disp2_1>;
++		};
++
+ 		aips@70000000 { /* aips-1 */
+ 			spba@70000000 {
+ 				esdhc@70004000 { /* ESDHC1 */
+-- 
+1.7.10.4
+
