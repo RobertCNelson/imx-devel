@@ -98,12 +98,21 @@ drm () {
 	${git} "${DIR}/patches/drm_imx/0019-of-Add-videomode-helper.patch"
 }
 
+imx_video () {
+	echo "dir: imx_video/drm"
+	#Status: http://www.spinics.net/lists/arm-kernel/msg206468.html
+	${git} "${DIR}/patches/imx_video/drm/0001-staging-drm-imx-Fix-YUYV-support-in-i.MX-IPUv3-base-.patch"
+	${git} "${DIR}/patches/imx_video/drm/0002-staging-drm-imx-Add-YVU420-support-to-i.MX-IPUv3-bas.patch"
+	${git} "${DIR}/patches/imx_video/drm/0003-staging-drm-imx-silence-ipu_crtc_dpms-debug-message.patch"
+	${git} "${DIR}/patches/imx_video/drm/0004-staging-drm-imx-Add-ipu_cpmem_set_yuv_interleaved.patch"
+	${git} "${DIR}/patches/imx_video/drm/0005-staging-drm-imx-Add-pinctrl-support-to-parallel-disp.patch"
+	${git} "${DIR}/patches/imx_video/drm/0006-staging-drm-imx-Remove-300ms-delay-after-memory-rese.patch"
+}
+
 bugs_trivial
 mainline_fixes
-imx
 
-#freescale_patch_tree
-#drm
+imx
+imx_video
 
 echo "patch.sh ran successful"
-
