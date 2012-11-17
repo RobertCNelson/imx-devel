@@ -23,12 +23,14 @@
 DIR=$PWD
 
 git_kernel_stable () {
-	echo "fetching from stable kernel.org tree"
+	echo "-----------------------------"
+	echo "scripts/git: fetching from: ${linux_stable}"
 	git fetch ${linux_stable} master --tags || true
 }
 
 git_kernel_torvalds () {
-	echo "pulling from torvalds kernel.org tree"
+	echo "-----------------------------"
+	echo "scripts/git: pulling from: ${torvalds_linux}"
 	git pull ${GIT_OPTS} ${torvalds_linux} master --tags || true
 	git tag | grep v${KERNEL_TAG} &>/dev/null || git_kernel_stable
 }
@@ -36,9 +38,13 @@ git_kernel_torvalds () {
 check_and_or_clone () {
 	if [ ! "${LINUX_GIT}" ] ; then
 		if [ -f "${HOME}/linux-src/.git/config" ] ; then
-			echo "Warning: LINUX_GIT not defined in system.sh, using default location: ${HOME}/linux-src"
+			echo "-----------------------------"
+			echo "scripts/git: Warning: LINUX_GIT not defined in system.sh"
+			echo "using default location: ${HOME}/linux-src"
 		else
-			echo "Warning: LINUX_GIT not defined in system.sh, cloning torvalds git tree to default location: ${HOME}/linux-src"
+			echo "-----------------------------"
+			echo "scripts/git: Warning: LINUX_GIT not defined in system.sh"
+			echo "cloning ${torvalds_linux} to default location: ${HOME}/linux-src"
 			git clone ${torvalds_linux} ${HOME}/linux-src
 		fi
 		LINUX_GIT="${HOME}/linux-src"
@@ -51,23 +57,45 @@ git_kernel () {
 	#In the past some users set LINUX_GIT = DIR, fix that...
 	if [ -f "${LINUX_GIT}/version.sh" ] ; then
 		unset LINUX_GIT
+		echo "-----------------------------"
+		echo "scripts/git: Warning: LINUX_GIT is set as DIR:"
 		check_and_or_clone
 	fi
 
+	#is the git directory user writable?
+	if [ ! -w "${LINUX_GIT}" ] ; then
+		unset LINUX_GIT
+		echo "-----------------------------"
+		echo "scripts/git: Warning: LINUX_GIT is not writable:"
+		check_and_or_clone
+	fi
+
+	#is it actually a git repo?
 	if [ ! -f "${LINUX_GIT}/.git/config" ] ; then
 		unset LINUX_GIT
+		echo "-----------------------------"
+		echo "scripts/git: Warning: LINUX_GIT is an invalid tree:"
 		check_and_or_clone
 	fi
 
 	cd ${LINUX_GIT}/
-	echo "Debug: LINUX_GIT setup..."
+	echo "-----------------------------"
+	echo "scripts/git: Debug: LINUX_GIT is setup as..."
 	pwd
+	echo "-----------------------------"
 	cat .git/config
-	echo "Updating LINUX_GIT tree via: git fetch"
+	echo "-----------------------------"
+	echo "scripts/git: Updating LINUX_GIT tree via: git fetch"
 	git fetch || true
 	cd -
 
-	if [ ! -f ${DIR}/KERNEL/.git/config ] ; then
+	if [ ! -f "${DIR}/KERNEL/.git/config" ] ; then
+		rm -rf ${DIR}/KERNEL/ || true
+		git clone --shared ${LINUX_GIT} ${DIR}/KERNEL
+	fi
+
+	#Automaticly, just recover the git repo from a git crash
+	if [ -f "${DIR}/KERNEL/.git/index.lock" ] ; then
 		rm -rf ${DIR}/KERNEL/ || true
 		git clone --shared ${LINUX_GIT} ${DIR}/KERNEL
 	fi
@@ -118,5 +146,19 @@ else
 	torvalds_linux="git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
 	linux_stable="git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
 fi
-git_kernel
 
+unset ON_MASTER
+if [ "${DISABLE_MASTER_BRANCH}" ] ; then
+	git branch | grep "*" | grep master &>/dev/null && ON_MASTER=1
+fi
+
+if [ ! "${ON_MASTER}" ] ; then
+	git_kernel
+else
+	echo "-----------------------------"
+	echo "Please checkout one of the active branches, building from the master branch has been disabled..."
+	echo "-----------------------------"
+	cat ${DIR}/branches.list | grep -v INACTIVE
+	echo "-----------------------------"
+	exit 1
+fi
