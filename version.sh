@@ -24,7 +24,7 @@ config="imx_v6_v7_defconfig"
 #Kernel/Build
 KERNEL_REL=3.7
 KERNEL_TAG=${KERNEL_REL}-rc6
-BUILD=imx1
+BUILD=imx1.1
 
 #git branch
 #BRANCH="v3.7.x-imx"
