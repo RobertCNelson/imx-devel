@@ -60,6 +60,7 @@ imx () {
 	${git} "${DIR}/patches/imx/0001-ARM-dts-imx6q-enable-snvs-lp-rtc.patch"
 	${git} "${DIR}/patches/imx/0002-ARM-imx-enable-cpufreq-for-imx6q.patch"
 	${git} "${DIR}/patches/imx/0003-ARM-imx-Enable-UART1-for-Sabrelite.patch"
+	${git} "${DIR}/patches/imx/0004-Add-IMX6Q-AHCI-support.patch"
 }
 
 drm () {
