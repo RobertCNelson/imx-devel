@@ -1,0 +1,108 @@
+From a3f6b6251e5c6a1c035afb2bf2093af3963e326b Mon Sep 17 00:00:00 2001
+From: Fabio Estevam <fabio.estevam@freescale.com>
+Date: Fri, 21 Dec 2012 10:27:30 -0200
+Subject: [PATCH 5/5] usb: chipidea: Allow disabling streaming not only in udc
+ mode
+
+When running a scp transfer using a USB/Ethernet adapter the following crash
+happens:
+
+$ scp test.tar.gz fabio@192.168.1.100:/home/fabio
+fabio@192.168.1.100's password:
+test.tar.gz                                      0%    0     0.0KB/s   --:-- ETA
+------------[ cut here ]------------
+WARNING: at net/sched/sch_generic.c:255 dev_watchdog+0x2cc/0x2f0()
+NETDEV WATCHDOG: eth0 (asix): transmit queue 0 timed out
+Modules linked in:
+Backtrace:
+[<80011c94>] (dump_backtrace+0x0/0x10c) from [<804d3a5c>] (dump_stack+0x18/0x1c)
+ r6:000000ff r5:80412388 r4:80685dc0 r3:80696cc0
+[<804d3a44>] (dump_stack+0x0/0x1c) from [<80021868>]
+(warn_slowpath_common+0x54/0x6c)
+[<80021814>] (warn_slowpath_common+0x0/0x6c) from [<80021924>]
+(warn_slowpath_fmt+0x38/0x40)
+...
+
+Setting SDIS (Stream Disable Mode- bit 4 of USBMODE register) fixes the problem.
+
+However, in current code CI13XXX_DISABLE_STREAMING flag is only set in udc mode,
+so allow disabling streaming also in host mode.
+
+Also, in order to make the compiler happy, ci_role_start() was moved after
+hw_write().
+
+Tested on a mx6qsabrelite board.
+
+Suggested-by: Peter Chen <peter.chen@freescale.com>
+Signed-off-by: Fabio Estevam <fabio.estevam@freescale.com>
+---
+ drivers/usb/chipidea/ci.h |   39 +++++++++++++++++++++++----------------
+ 1 file changed, 23 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/usb/chipidea/ci.h b/drivers/usb/chipidea/ci.h
+index e25d126..7fe652a 100644
+--- a/drivers/usb/chipidea/ci.h
++++ b/drivers/usb/chipidea/ci.h
+@@ -18,6 +18,8 @@
+ #include <linux/usb.h>
+ #include <linux/usb/gadget.h>
+ 
++#define USBMODE_CI_SDIS       BIT(4)
++
+ /******************************************************************************
+  * DEFINE
+  *****************************************************************************/
+@@ -173,22 +175,6 @@ static inline struct ci_role_driver *ci_role(struct ci13xxx *ci)
+ 	return ci->roles[ci->role];
+ }
+ 
+-static inline int ci_role_start(struct ci13xxx *ci, enum ci_role role)
+-{
+-	int ret;
+-
+-	if (role >= CI_ROLE_END)
+-		return -EINVAL;
+-
+-	if (!ci->roles[role])
+-		return -ENXIO;
+-
+-	ret = ci->roles[role]->start(ci);
+-	if (!ret)
+-		ci->role = role;
+-	return ret;
+-}
+-
+ static inline void ci_role_stop(struct ci13xxx *ci)
+ {
+ 	enum ci_role role = ci->role;
+@@ -307,6 +293,27 @@ static inline u32 hw_test_and_write(struct ci13xxx *ci, enum ci13xxx_regs reg,
+ 	return (val & mask) >> ffs_nr(mask);
+ }
+ 
++
++static inline int ci_role_start(struct ci13xxx *ci, enum ci_role role)
++{
++	int ret;
++
++	if (role >= CI_ROLE_END)
++		return -EINVAL;
++
++	if (!ci->roles[role])
++		return -ENXIO;
++
++	ret = ci->roles[role]->start(ci);
++	if (!ret)
++		ci->role = role;
++
++	if (ci->platdata->flags & CI13XXX_DISABLE_STREAMING)
++		hw_write(ci, OP_USBMODE, USBMODE_CI_SDIS, USBMODE_CI_SDIS);
++
++	return ret;
++}
++
+ int hw_device_reset(struct ci13xxx *ci, u32 mode);
+ 
+ int hw_port_test_set(struct ci13xxx *ci, u8 mode);
+-- 
+1.7.10.4
+
