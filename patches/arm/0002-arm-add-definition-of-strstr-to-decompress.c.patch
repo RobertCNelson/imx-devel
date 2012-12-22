@@ -1,7 +1,7 @@
-From 55f4a3b9794564f4b3e3999f2b850f08e78baa2d Mon Sep 17 00:00:00 2001
+From df5dd27751e257a4445a6cd930c5db233955d033 Mon Sep 17 00:00:00 2001
 From: Shawn Landden <shawnlandden@gmail.com>
 Date: Wed, 30 May 2012 13:45:08 -0700
-Subject: [PATCH] arm: add definition of strstr() to decompress.c
+Subject: [PATCH 2/2] arm: add definition of strstr() to decompress.c
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -21,13 +21,13 @@ subset of <linux/string.h>.
 Signed-off-by: Shawn Landden <shawnlandden@gmail.com>
 ---
  arch/arm/boot/compressed/decompress.c |    1 +
- 1 file changed, 1 insertion(+)
+ 1 files changed, 1 insertions(+), 0 deletions(-)
 
 diff --git a/arch/arm/boot/compressed/decompress.c b/arch/arm/boot/compressed/decompress.c
-index f41b38c..cdc3cd4 100644
+index 9deb56a..0f96125 100644
 --- a/arch/arm/boot/compressed/decompress.c
 +++ b/arch/arm/boot/compressed/decompress.c
-@@ -47,6 +47,7 @@ extern void error(char *);
+@@ -50,6 +50,7 @@ extern char * strstr(const char * s1, const char *s2);
  #ifdef CONFIG_KERNEL_XZ
  #define memmove memmove
  #define memcpy memcpy
@@ -36,5 +36,5 @@ index f41b38c..cdc3cd4 100644
  #endif
  
 -- 
-1.7.10
+1.7.7.6
 

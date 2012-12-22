@@ -45,85 +45,23 @@ cleanup () {
 	exit
 }
 
-bugs_trivial () {
-	echo "bugs and trivial stuff"
-	${git} "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
-}
+arm () {
+	echo "dir: arm"
+	${git} "${DIR}/patches/arm/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
 
-mainline_fixes () {
-	echo "mainline patches"
-	${git} "${DIR}/patches/mainline-fixes/0001-arm-add-definition-of-strstr-to-decompress.c.patch"
+	#Status: v2 Review:
+	#http://lists.infradead.org/pipermail/linux-arm-kernel/2012-August/112440.html
+	${git} "${DIR}/patches/arm/0002-arm-add-definition-of-strstr-to-decompress.c.patch"
 }
 
 imx () {
 	echo "imx patches"
-	${git} "${DIR}/patches/imx/0001-ARM-dts-imx6q-enable-snvs-lp-rtc.patch"
-	${git} "${DIR}/patches/imx/0002-ARM-imx-enable-cpufreq-for-imx6q.patch"
-	${git} "${DIR}/patches/imx/0003-ARM-imx-Enable-UART1-for-Sabrelite.patch"
+	${git} "${DIR}/patches/imx/0001-ARM-imx-Enable-UART1-for-Sabrelite.patch"
+	${git} "${DIR}/patches/imx/0002-Add-IMX6Q-AHCI-support.patch"
+	${git} "${DIR}/patches/imx/0003-usb-chipidea-Allow-disabling-streaming-not-only-in-u.patch"
 }
 
-drm () {
-	echo "drm"
-	#Status: pulled from next v3.7-rc:
-	#From: http://cgit.freedesktop.org/~airlied/linux/log/?h=drm-next
-	${git} "${DIR}/patches/drm/0001-DRM-Add-DRM-GEM-CMA-helper.patch"
-	${git} "${DIR}/patches/drm/0002-DRM-Add-DRM-KMS-FB-CMA-helper.patch"
-
-	#Status: maybe for v3.7-rc?
-	#From: https://patchwork.kernel.org/patch/1361511/
-	${git} "${DIR}/patches/drm/0003-ARM-export-set_irq_flags-irq_set_chip_and_handler.patch"
-
-	#Status: in staging for v3.7-rc
-	#From: http://git.kernel.org/?p=linux/kernel/git/gregkh/staging.git;a=summary
-	${git} "${DIR}/patches/drm_imx/0001-staging-drm-imx-Add-i.MX-drm-core-support.patch"
-	${git} "${DIR}/patches/drm_imx/0002-staging-drm-imx-Add-parallel-display-support.patch"
-	${git} "${DIR}/patches/drm_imx/0003-staging-drm-imx-add-i.MX-IPUv3-base-driver.patch"
-	${git} "${DIR}/patches/drm_imx/0004-staging-drm-imx-Add-i.MX-IPUv3-crtc-support.patch"
-	${git} "${DIR}/patches/drm_imx/0005-staging-drm-imx-Add-devicetree-binding-documentation.patch"
-	${git} "${DIR}/patches/drm_imx/0006-staging-drm-imx-Add-TODO.patch"
-
-	#Status: Cherry Picked from:
-	#http://git.pengutronix.de/?p=imx/linux-2.6.git;a=shortlog;h=refs/heads/work/gpu/imx-drm-ipu-complete-rebase
-	${git} "${DIR}/patches/drm_imx/0007-ARM-i.MX51-babbage-Add-IPU-support.patch"
-	${git} "${DIR}/patches/drm_imx/0008-ARM-i.MX53-LOCO-Add-IPU-support.patch"
-	${git} "${DIR}/patches/drm_imx/0009-ARM-i.MX51-setup-mipi.patch"
-	${git} "${DIR}/patches/drm_imx/0010-ARM-i.MX5-initialize-m4if-interface.patch"
-	${git} "${DIR}/patches/drm_imx/0011-ARM-i.MX5-Hard-reset-the-IPU-during-startup.patch"
-	${git} "${DIR}/patches/drm_imx/0012-clk-add-a-__clk_set_flags-function.patch"
-	${git} "${DIR}/patches/drm_imx/0013-ARM-i.MX53-clk-Fix-ldb-parent-clocks.patch"
-	${git} "${DIR}/patches/drm_imx/0014-ARM-i.MX5-IPU-clk-support.patch"
-	${git} "${DIR}/patches/drm_imx/0015-ARM-i.MX6-Add-IPU-device-support.patch"
-	${git} "${DIR}/patches/drm_imx/0016-ARM-i.MX6-clk-initialize-some-video-clocks.patch"
-	${git} "${DIR}/patches/drm_imx/0017-DRM-allow-create-map-destroy-dumb-buffer-ioctls-for-.patch"
-	${git} "${DIR}/patches/drm_imx/0018-ARM-i.MX53-Fix-IPU-clk.patch"
-	${git} "${DIR}/patches/drm_imx/0019-of-Add-videomode-helper.patch"
-}
-
-imx_video () {
-	echo "dir: imx_video/drm"
-	#Status: http://www.spinics.net/lists/arm-kernel/msg206468.html
-	${git} "${DIR}/patches/imx_video/drm/0001-staging-drm-imx-Fix-YUYV-support-in-i.MX-IPUv3-base-.patch"
-	${git} "${DIR}/patches/imx_video/drm/0002-staging-drm-imx-Add-YVU420-support-to-i.MX-IPUv3-bas.patch"
-	${git} "${DIR}/patches/imx_video/drm/0003-staging-drm-imx-silence-ipu_crtc_dpms-debug-message.patch"
-	${git} "${DIR}/patches/imx_video/drm/0004-staging-drm-imx-Add-ipu_cpmem_set_yuv_interleaved.patch"
-	${git} "${DIR}/patches/imx_video/drm/0005-staging-drm-imx-Add-pinctrl-support-to-parallel-disp.patch"
-	${git} "${DIR}/patches/imx_video/drm/0006-staging-drm-imx-Remove-300ms-delay-after-memory-rese.patch"
-
-	#Disabled (hard crash on mx51-baggage)
-	#echo "dir: imx_video"
-	#${git} "${DIR}/patches/imx_video/0001-ARM-i.MX51-setup-MIPI-during-startup.patch"
-	#${git} "${DIR}/patches/imx_video/0002-ARM-i.MX6-fix-ldb_di_sel-mux.patch"
-	#${git} "${DIR}/patches/imx_video/0003-ARM-i.MX5-switch-IPU-clk-support-to-devicetree-bindi.patch"
-	#${git} "${DIR}/patches/imx_video/0004-ARM-i.MX53-Add-IPU-support.patch"
-	#${git} "${DIR}/patches/imx_video/0005-ARM-i.MX51-Add-IPU-support.patch"
-	#${git} "${DIR}/patches/imx_video/0006-ARM-i.MX6-Add-IPU-support.patch"
-	#${git} "${DIR}/patches/imx_video/0007-ARM-i.MX51-babbage-Add-display-support.patch"
-}
-
-bugs_trivial
-mainline_fixes
-
+arm
 imx
-imx_video
 
 echo "patch.sh ran successful"
