@@ -2,10 +2,6 @@ This just a simple set of scripts to rebuild a known working kernel for ARM devi
 
 Script Bugs: "bugs@rcn-ee.com"
 
-Supported Boards:
-mx53loco
-mx51evk
-
 Dependencies: GCC ARM Cross ToolChain
 
 Ubuntu (for target "armel", prior to 12.04):
