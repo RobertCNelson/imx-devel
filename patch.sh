@@ -58,6 +58,7 @@ imx () {
 	echo "imx patches"
 	${git} "${DIR}/patches/imx/0001-ARM-imx-Enable-UART1-for-Sabrelite.patch"
 	${git} "${DIR}/patches/imx/0002-Add-IMX6Q-AHCI-support.patch"
+	${git} "${DIR}/patches/imx/0003-imx-Add-IMX53-AHCI-support.patch"
 }
 
 arm
