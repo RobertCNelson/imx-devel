@@ -51,19 +51,17 @@ mmc_write_modules () {
 	fi
 
 	sudo tar xf "${DIR}/deploy/${KERNEL_UTS}-modules.tar.gz" -C "${DIR}/deploy/disk"
+	sync
 
 	echo "Installing ${KERNEL_UTS}-firmware.tar.gz to rootfs partition"
 	echo "-----------------------------"
+
 	sudo mkdir -p "${DIR}/deploy/disk/tmp/fir"
 	sudo tar xf "${DIR}/deploy/${KERNEL_UTS}-firmware.tar.gz" -C "${DIR}/deploy/disk/tmp/fir/"
+	sync
 
-	if [ -d "${DIR}/deploy/disk/tmp/fir/lib/firmware/capes/" ] ; then
-		if [ ! -d "${DIR}/deploy/disk/lib/firmware/capes/" ] ; then
-			sudo mkdir -p "${DIR}/deploy/disk/lib/firmware/capes/"
-		fi
-
-		sudo cp -v "${DIR}"/deploy/disk/tmp/fir/capes/* "${DIR}/deploy/disk/lib/firmware/capes/"
-	fi
+	sudo cp -v "${DIR}"/deploy/disk/tmp/fir/cape-*.dtbo "${DIR}/deploy/disk/lib/firmware/"
+	sync
 }
 
 mmc_write_image () {
@@ -184,18 +182,6 @@ mmc_write_boot () {
 	mmc_find_rootfs
 }
 
-mmc_write_imx_bootlets () {
-	echo "Installing ${KERNEL_UTS}.sd_mmc_bootstream.raw to boot partition"
-	echo "-----------------------------"
-
-	if [ -f "${DIR}/deploy/${KERNEL_UTS}.sd_mmc_bootstream.raw" ] ; then
-		sudo dd if="${DIR}/deploy/${KERNEL_UTS}.sd_mmc_bootstream.raw" of=${MMC}${PARTITION_PREFIX}${BOOT_PARITION}
-	fi
-	sync
-	sync
-	mmc_find_rootfs
-}
-
 mmc_mount_boot () {
 	if [ ! -d "${DIR}/deploy/disk/" ] ; then
 		mkdir -p "${DIR}/deploy/disk/"
@@ -232,11 +218,7 @@ unmount_partitions () {
 	done
 
 	mkdir -p "${DIR}/deploy/disk/"
-	if [ "${imx_bootlets_target}" ] ; then
-		mmc_write_imx_bootlets
-	else
-		mmc_mount_boot
-	fi
+	mmc_mount_boot
 }
 
 debug_display_partitions () {
