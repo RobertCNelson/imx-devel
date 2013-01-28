@@ -83,28 +83,6 @@ function make_deb {
 	cd ${DIR}/
 }
 
-function make_bootlets {
-	cd ${DIR}/ignore/imx-bootlets/
-
-	echo "-----------------------------"
-	echo "Building IMX BOOTLETS"
-	echo "-----------------------------"
-
-	make CROSS_COMPILE=${ARM_NONE_CC} clean 2>/dev/null
-	cat ${DIR}/KERNEL/arch/arm/boot/zImage ${DIR}/KERNEL/arch/arm/boot/${imx_bootlets_target}.dtb > ${DIR}/ignore/imx-bootlets/zImage
-	make CROSS_COMPILE=${ARM_NONE_CC} 2>/dev/null
-
-	if [ -f ${DIR}/ignore/imx-bootlets/sd_mmc_bootstream.raw ] ; then
-		cp ${DIR}/ignore/imx-bootlets/sd_mmc_bootstream.raw ${DIR}/deploy/${KERNEL_UTS}.sd_mmc_bootstream.raw
-	else
-		echo "-----------------------------"
-		echo "Error: make_bootlets failed"
-		exit
-	fi
-
-	cd ${DIR}/
-}
-
 function make_firmware_pkg {
 	cd ${DIR}/KERNEL/
 
@@ -180,9 +158,6 @@ if [ ! ${AUTO_BUILD} ] ; then
 	make_menuconfig
 fi
 make_deb
-if [ "${IMX_BOOTLETS}" ] ; then
-	make_bootlets
-fi
 make_firmware_pkg
 if [ "x${DTBS}" != "x" ] ; then
 	make_dtbs_pkg
