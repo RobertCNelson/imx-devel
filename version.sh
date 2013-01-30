@@ -30,7 +30,7 @@ BUILD=imx1
 #KERNEL_SHA=""
 
 #git branch
-#BRANCH="v3.8.x-imx"
+BRANCH="v3.8.x-imx"
 
 BUILDREV=1.0
 DISTRO=cross
