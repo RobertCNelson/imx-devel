@@ -1,6 +1,6 @@
-From bd45b3b6ae9f1f780b9e78ce27cc97d8bbe406b7 Mon Sep 17 00:00:00 2001
+From 03cb027b90d9b10dfd6ff45ea5f552bdc82897ca Mon Sep 17 00:00:00 2001
 From: Shawn Guo <shawn.guo@linaro.org>
-Date: Sat, 26 Jan 2013 23:31:43 +0800
+Date: Mon, 4 Feb 2013 13:46:29 +0800
 Subject: [PATCH 4/4] cpufreq: add imx6q-cpufreq driver
 
 Add an imx6q-cpufreq driver for Freescale i.MX6Q SoC to handle the
@@ -12,12 +12,11 @@ platforms, as IMX is built with multiplatform support.
 
 Signed-off-by: Shawn Guo <shawn.guo@linaro.org>
 Reviewed-by: Viresh Kumar <viresh.kumar@linaro.org>
-Acked-by: Rafael J. Wysocki <rjw@sisk.pl>
 ---
  drivers/cpufreq/Kconfig.arm     |    9 ++
  drivers/cpufreq/Makefile        |    1 +
- drivers/cpufreq/imx6q-cpufreq.c |  308 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 318 insertions(+)
+ drivers/cpufreq/imx6q-cpufreq.c |  336 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 346 insertions(+)
  create mode 100644 drivers/cpufreq/imx6q-cpufreq.c
 
 diff --git a/drivers/cpufreq/Kconfig.arm b/drivers/cpufreq/Kconfig.arm
@@ -41,23 +40,23 @@ index a0b3661..9e628ba 100644
  	bool "SPEAr CPUFreq support"
  	depends on PLAT_SPEAR
 diff --git a/drivers/cpufreq/Makefile b/drivers/cpufreq/Makefile
-index fadc4d4..b2bc9c7 100644
+index fadc4d4..f71fef9 100644
 --- a/drivers/cpufreq/Makefile
 +++ b/drivers/cpufreq/Makefile
-@@ -50,6 +50,7 @@ obj-$(CONFIG_ARM_EXYNOS_CPUFREQ)	+= exynos-cpufreq.o
- obj-$(CONFIG_ARM_EXYNOS4210_CPUFREQ)	+= exynos4210-cpufreq.o
- obj-$(CONFIG_ARM_EXYNOS4X12_CPUFREQ)	+= exynos4x12-cpufreq.o
+@@ -52,6 +52,7 @@ obj-$(CONFIG_ARM_EXYNOS4X12_CPUFREQ)	+= exynos4x12-cpufreq.o
  obj-$(CONFIG_ARM_EXYNOS5250_CPUFREQ)	+= exynos5250-cpufreq.o
-+obj-$(CONFIG_ARM_IMX6Q_CPUFREQ)		+= imx6q-cpufreq.o
  obj-$(CONFIG_ARM_OMAP2PLUS_CPUFREQ)     += omap-cpufreq.o
  obj-$(CONFIG_ARM_SPEAR_CPUFREQ)		+= spear-cpufreq.o
++obj-$(CONFIG_ARM_IMX6Q_CPUFREQ)		+= imx6q-cpufreq.o
  
+ ##################################################################################
+ # PowerPC platform drivers
 diff --git a/drivers/cpufreq/imx6q-cpufreq.c b/drivers/cpufreq/imx6q-cpufreq.c
 new file mode 100644
-index 0000000..368b6e7
+index 0000000..d6b6ef3
 --- /dev/null
 +++ b/drivers/cpufreq/imx6q-cpufreq.c
-@@ -0,0 +1,308 @@
+@@ -0,0 +1,336 @@
 +/*
 + * Copyright (C) 2013 Freescale Semiconductor, Inc.
 + *
@@ -80,13 +79,6 @@ index 0000000..368b6e7
 +#define PU_SOC_VOLTAGE_HIGH	1275000
 +#define FREQ_1P2_GHZ		1200000000
 +
-+/*
-+ * 1275000 mV - 950000 mV = 325 mV, 325 mV / 25 mV = 13 steps
-+ * 512 clock cycles at 24 MHz for one step = 21.33 uS
-+ * 21.33 us * 13 = ~280 uS
-+ */
-+#define MAX_REG_LATENCY		280
-+
 +static struct regulator *arm_reg;
 +static struct regulator *pu_reg;
 +static struct regulator *soc_reg;
@@ -99,7 +91,7 @@ index 0000000..368b6e7
 +
 +static struct device *cpu_dev;
 +static struct cpufreq_frequency_table *freq_table;
-+static unsigned int transition_latency = MAX_REG_LATENCY;
++static unsigned int transition_latency;
 +
 +static int imx6q_verify_speed(struct cpufreq_policy *policy)
 +{
@@ -160,7 +152,8 @@ index 0000000..368b6e7
 +	if (freqs.new > freqs.old) {
 +		ret = regulator_set_voltage_tol(arm_reg, volt, 0);
 +		if (ret) {
-+			dev_err(cpu_dev, "failed to scale voltage up: %d\n", ret);
++			dev_err(cpu_dev,
++				"failed to scale vddarm up: %d\n", ret);
 +			return ret;
 +		}
 +
@@ -174,9 +167,6 @@ index 0000000..368b6e7
 +			regulator_set_voltage_tol(soc_reg,
 +					PU_SOC_VOLTAGE_HIGH, 0);
 +		}
-+
-+		/* Wait for LDOs to ramp up */
-+		udelay(MAX_REG_LATENCY);
 +	}
 +
 +	/*
@@ -185,18 +175,23 @@ index 0000000..368b6e7
 +	 * PLL1 is as below.
 +	 *
 +	 *  - Enable pll2_pfd2_396m_clk and reparent pll1_sw_clk to it
-+	 *  - Disable pll1_sys_clk and reprogram it
-+	 *  - Enable pll1_sys_clk and reparent pll1_sw_clk back to it
++	 *  - Reprogram pll1_sys_clk and reparent pll1_sw_clk back to it
 +	 *  - Disable pll2_pfd2_396m_clk
 +	 */
 +	clk_prepare_enable(pll2_pfd2_396m_clk);
 +	clk_set_parent(step_clk, pll2_pfd2_396m_clk);
 +	clk_set_parent(pll1_sw_clk, step_clk);
-+	clk_prepare_enable(pll1_sys_clk);
 +	if (freq_hz > clk_get_rate(pll2_pfd2_396m_clk)) {
-+		clk_disable_unprepare(pll1_sys_clk);
 +		clk_set_rate(pll1_sys_clk, freqs.new * 1000);
-+		clk_prepare_enable(pll1_sys_clk);
++		/*
++		 * If we are leaving 396 MHz set-point, we need to enable
++		 * pll1_sys_clk and disable pll2_pfd2_396m_clk to keep
++		 * their use count correct.
++		 */
++		if (freqs.old * 1000 <= clk_get_rate(pll2_pfd2_396m_clk)) {
++			clk_prepare_enable(pll1_sys_clk);
++			clk_disable_unprepare(pll2_pfd2_396m_clk);
++		}
 +		clk_set_parent(pll1_sw_clk, pll1_sys_clk);
 +		clk_disable_unprepare(pll2_pfd2_396m_clk);
 +	} else {
@@ -219,7 +214,8 @@ index 0000000..368b6e7
 +	if (freqs.new < freqs.old) {
 +		ret = regulator_set_voltage_tol(arm_reg, volt, 0);
 +		if (ret)
-+			dev_warn(cpu_dev, "failed to scale voltage down: %d\n", ret);
++			dev_warn(cpu_dev,
++				 "failed to scale vddarm down: %d\n", ret);
 +
 +		if (freqs.old == FREQ_1P2_GHZ / 1000) {
 +			regulator_set_voltage_tol(pu_reg,
@@ -249,7 +245,6 @@ index 0000000..368b6e7
 +
 +	policy->cpuinfo.transition_latency = transition_latency;
 +	policy->cur = clk_get_rate(arm_clk) / 1000;
-+	policy->shared_type = CPUFREQ_SHARED_TYPE_ANY;
 +	cpumask_setall(policy->cpus);
 +	cpufreq_frequency_table_get_attr(freq_table, policy->cpu);
 +
@@ -280,7 +275,9 @@ index 0000000..368b6e7
 +static int imx6q_cpufreq_probe(struct platform_device *pdev)
 +{
 +	struct device_node *np;
-+	int ret;
++	struct opp *opp;
++	unsigned long min_volt, max_volt;
++	int num, ret;
 +
 +	cpu_dev = &pdev->dev;
 +
@@ -314,8 +311,9 @@ index 0000000..368b6e7
 +	}
 +
 +	/* We expect an OPP table supplied by platform */
-+	ret = opp_get_opp_count(cpu_dev);
-+	if (ret < 0) {
++	num = opp_get_opp_count(cpu_dev);
++	if (num < 0) {
++		ret = num;
 +		dev_err(cpu_dev, "no OPP table is found: %d\n", ret);
 +		goto put_node;
 +	}
@@ -328,6 +326,35 @@ index 0000000..368b6e7
 +
 +	if (of_property_read_u32(np, "clock-latency", &transition_latency))
 +		transition_latency = CPUFREQ_ETERNAL;
++
++	/*
++	 * OPP is maintained in order of increasing frequency, and
++	 * freq_table initialised from OPP is therefore sorted in the
++	 * same order.
++	 */
++	rcu_read_lock();
++	opp = opp_find_freq_exact(cpu_dev,
++				  freq_table[0].frequency * 1000, true);
++	min_volt = opp_get_voltage(opp);
++	opp = opp_find_freq_exact(cpu_dev,
++				  freq_table[--num].frequency * 1000, true);
++	max_volt = opp_get_voltage(opp);
++	rcu_read_unlock();
++	ret = regulator_set_voltage_time(arm_reg, min_volt, max_volt);
++	if (ret > 0)
++		transition_latency += ret * 1000;
++
++	/* Count vddpu and vddsoc latency in for 1.2 GHz support */
++	if (freq_table[num].frequency == FREQ_1P2_GHZ / 1000) {
++		ret = regulator_set_voltage_time(pu_reg, PU_SOC_VOLTAGE_NORMAL,
++						 PU_SOC_VOLTAGE_HIGH);
++		if (ret > 0)
++			transition_latency += ret * 1000;
++		ret = regulator_set_voltage_time(soc_reg, PU_SOC_VOLTAGE_NORMAL,
++						 PU_SOC_VOLTAGE_HIGH);
++		if (ret > 0)
++			transition_latency += ret * 1000;
++	}
 +
 +	ret = cpufreq_register_driver(&imx6q_cpufreq_driver);
 +	if (ret) {
