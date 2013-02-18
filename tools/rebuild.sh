@@ -1,6 +1,6 @@
 #!/bin/bash -e
 #
-# Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2009-2013 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -30,8 +30,10 @@ function patch_kernel {
 	export DIR GIT_OPTS
 	/bin/bash -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 
-	git add .
-	git commit --allow-empty -a -m "${KERNEL_TAG}-${BUILD} patchset"
+	if [ ! "${RUN_BISECT}" ] ; then
+		git add .
+		git commit --allow-empty -a -m "${KERNEL_TAG}-${BUILD} patchset"
+	fi
 
 #Test Patches:
 #exit
@@ -62,7 +64,9 @@ function make_menuconfig {
 
 function make_kernel {
 	cd ${DIR}/KERNEL/
+	echo "-----------------------------"
 	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" ${CONFIG_DEBUG_SECTION} zImage modules"
+	echo "-----------------------------"
 	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" ${CONFIG_DEBUG_SECTION} zImage modules
 
 	unset DTBS
@@ -78,21 +82,8 @@ function make_kernel {
 		cp arch/arm/boot/zImage ${DIR}/deploy/${KERNEL_UTS}.zImage
 		cp .config ${DIR}/deploy/${KERNEL_UTS}.config
 	else
+		echo "-----------------------------"
 		echo "Error: make zImage modules failed"
-		exit
-	fi
-	cd ${DIR}/
-}
-
-function make_uImage {
-	cd ${DIR}/KERNEL/
-	echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=\"${CCACHE} ${CC}\" ${CONFIG_DEBUG_SECTION} uImage"
-	time make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE="${CCACHE} ${CC}" ${CONFIG_DEBUG_SECTION} uImage
-	KERNEL_UTS=$(cat ${DIR}/KERNEL/include/generated/utsrelease.h | awk '{print $3}' | sed 's/\"//g' )
-	if [ -f ./arch/arm/boot/uImage ] ; then
-		cp arch/arm/boot/uImage ${DIR}/deploy/${KERNEL_UTS}.uImage
-	else
-		echo "Error: make uImage failed"
 		exit
 	fi
 	cd ${DIR}/
@@ -101,49 +92,54 @@ function make_uImage {
 function make_modules_pkg {
 	cd ${DIR}/KERNEL/
 
-	echo ""
+	echo "-----------------------------"
 	echo "Building Module Archive"
-	echo ""
+	echo "-----------------------------"
 
 	rm -rf ${DIR}/deploy/mod &> /dev/null || true
 	mkdir -p ${DIR}/deploy/mod
 	make ARCH=arm CROSS_COMPILE=${CC} modules_install INSTALL_MOD_PATH=${DIR}/deploy/mod
+	echo "-----------------------------"
 	echo "Building ${KERNEL_UTS}-modules.tar.gz"
 	cd ${DIR}/deploy/mod
 	tar czf ../${KERNEL_UTS}-modules.tar.gz *
+	echo "-----------------------------"
+	cd ${DIR}/
+}
+
+function make_firmware_pkg {
+	cd ${DIR}/KERNEL/
+
+	echo "-----------------------------"
+	echo "Building Firmware Archive"
+	echo "-----------------------------"
+
+	rm -rf ${DIR}/deploy/fir &> /dev/null || true
+	mkdir -p ${DIR}/deploy/fir
+	make ARCH=arm CROSS_COMPILE=${CC} firmware_install INSTALL_FW_PATH=${DIR}/deploy/fir
+	echo "-----------------------------"
+	echo "Building ${KERNEL_UTS}-firmware.tar.gz"
+	cd ${DIR}/deploy/fir
+	tar czf ../${KERNEL_UTS}-firmware.tar.gz *
+	echo "-----------------------------"
 	cd ${DIR}/
 }
 
 function make_dtbs_pkg {
 	cd ${DIR}/KERNEL/
 
-	echo ""
+	echo "-----------------------------"
 	echo "Building DTBS Archive"
-	echo ""
+	echo "-----------------------------"
 
 	rm -rf ${DIR}/deploy/dtbs &> /dev/null || true
 	mkdir -p ${DIR}/deploy/dtbs
-	cp -v arch/arm/boot/*.dtb ${DIR}/deploy/dtbs
+	find ./arch/arm/boot/ -iname "*.dtb" -exec cp -v '{}' ${DIR}/deploy/dtbs/ \;
 	cd ${DIR}/deploy/dtbs
+	echo "-----------------------------"
 	echo "Building ${KERNEL_UTS}-dtbs.tar.gz"
 	tar czf ../${KERNEL_UTS}-dtbs.tar.gz *
-
-	cd ${DIR}/
-}
-
-function make_headers_pkg {
-	cd ${DIR}/KERNEL/
-
-	echo ""
-	echo "Building Header Archive"
-	echo ""
-
-	rm -rf ${DIR}/deploy/headers &> /dev/null || true
-	mkdir -p ${DIR}/deploy/headers/usr
-	make ARCH=arm CROSS_COMPILE=${CC} headers_install INSTALL_HDR_PATH=${DIR}/deploy/headers/usr
-	cd ${DIR}/deploy/headers
-	echo "Building ${KERNEL_UTS}-headers.tar.gz"
-	tar czf ../${KERNEL_UTS}-headers.tar.gz *
+	echo "-----------------------------"
 	cd ${DIR}/
 }
 
@@ -155,45 +151,39 @@ fi
 
 unset CC
 unset DEBUG_SECTION
-unset LATEST_GIT
 unset LINUX_GIT
 unset LOCAL_PATCH_DIR
 source ${DIR}/system.sh
 /bin/bash -e "${DIR}/scripts/gcc.sh" || { exit 1 ; }
+source ${DIR}/.CC
+echo "debug: CC=${CC}"
 
 source ${DIR}/version.sh
 export LINUX_GIT
-export LATEST_GIT
-
-if [ "${LATEST_GIT}" ] ; then
-	echo ""
-	echo "Warning LATEST_GIT is enabled from system.sh I hope you know what your doing.."
-	echo ""
-fi
 
 unset CONFIG_DEBUG_SECTION
 if [ "${DEBUG_SECTION}" ] ; then
 	CONFIG_DEBUG_SECTION="CONFIG_DEBUG_SECTION_MISMATCH=y"
 fi
 
-#/bin/bash -e "${DIR}/scripts/git.sh" || { exit 1 ; }
+unset FULL_REBUILD
+#FULL_REBUILD=1
+if [ "${FULL_REBUILD}" ] ; then
+	/bin/bash -e "${DIR}/scripts/git.sh" || { exit 1 ; }
 
-#patch_kernel
-#copy_defconfig
-make_menuconfig
-if [ "x${GCC_OVERRIDE}" != "x" ] ; then
-	sed -i -e 's:CROSS_COMPILE)gcc:CROSS_COMPILE)'$GCC_OVERRIDE':g' ${DIR}/KERNEL/Makefile
+	if [ "${RUN_BISECT}" ] ; then
+		/bin/bash -e "${DIR}/scripts/bisect.sh" || { exit 1 ; }
+	fi
+
+	patch_kernel
+	copy_defconfig
+fi
+if [ ! ${AUTO_BUILD} ] ; then
+	make_menuconfig
 fi
 make_kernel
-if [ "${BUILD_UIMAGE}" ] ; then
-	make_uImage
-fi
 make_modules_pkg
+make_firmware_pkg
 if [ "x${DTBS}" != "x" ] ; then
 	make_dtbs_pkg
 fi
-#make_headers_pkg
-if [ "x${GCC_OVERRIDE}" != "x" ] ; then
-	sed -i -e 's:CROSS_COMPILE)'$GCC_OVERRIDE':CROSS_COMPILE)gcc:g' ${DIR}/KERNEL/Makefile
-fi
-
