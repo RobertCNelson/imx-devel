@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm 3.8.0-rc7 Kernel Configuration
+# Linux/arm 3.8.0 Kernel Configuration
 #
 CONFIG_ARM=y
 CONFIG_SYS_SUPPORTS_APM_EMULATION=y
@@ -4125,7 +4125,6 @@ CONFIG_LIRC_SERIAL=m
 CONFIG_LIRC_SERIAL_TRANSMITTER=y
 CONFIG_LIRC_SIR=m
 CONFIG_LIRC_ZILOG=m
-# CONFIG_DRM_OMAP is not set
 
 #
 # Android
