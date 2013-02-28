@@ -80,27 +80,27 @@ ubuntu_arm_gcc_installed () {
 armv7_toolchain () {
 	WGET="wget -c --directory-prefix=${DIR}/dl/"
 	#https://launchpad.net/linaro-toolchain-binaries/+download
-	#https://launchpad.net/linaro-toolchain-binaries/trunk/2012.12/+download/gcc-linaro-arm-linux-gnueabihf-4.7-2012.12-20121214_linux.tar.bz2
+	#https://launchpad.net/linaro-toolchain-binaries/trunk/2012.04/+download/gcc-linaro-arm-linux-gnueabi-2012.04-20120426_linux.tar.bz2
 
-	armv7hf_ver="2012.12"
-	armv7hf_date="20121214"
-	armv7hf_gcc="gcc-linaro-arm-linux-gnueabihf-4.7-${armv7hf_ver}-${armv7hf_date}_linux.tar.bz2"
-	if [ ! -f ${DIR}/dl/${armv7hf_date} ] ; then
+	armv7_ver="2012.04"
+	armv7_date="20120426"
+	ARMV7_GCC="gcc-linaro-arm-linux-gnueabi-${armv7_ver}-${armv7_date}_linux.tar.bz2"
+	if [ ! -f ${DIR}/dl/${armv7_date} ] ; then
 		echo "Installing gcc-arm toolchain"
 		echo "-----------------------------"
-		${WGET} https://launchpad.net/linaro-toolchain-binaries/trunk/${armv7hf_ver}/+download/${armv7hf_gcc}
-		touch ${DIR}/dl/${armv7hf_date}
-		if [ -d ${DIR}/dl/gcc-linaro-arm-linux-gnueabihf-4.7-${armv7hf_ver}-${armv7hf_date}_linux/ ] ; then
-			rm -rf ${DIR}/dl/gcc-linaro-arm-linux-gnueabihf-4.7-${armv7hf_ver}-${armv7hf_date}_linux/ || true
+		${WGET} https://launchpad.net/linaro-toolchain-binaries/trunk/${armv7_ver}/+download/${ARMV7_GCC}
+		touch ${DIR}/dl/${armv7_date}
+		if [ -d ${DIR}/dl/gcc-linaro-arm-linux-gnueabi-${armv7_ver}-${armv7_date}_linux/ ] ; then
+			rm -rf ${DIR}/dl/gcc-linaro-arm-linux-gnueabi-${armv7_ver}-${armv7_date}_linux/ || true
 		fi
-		tar xjf ${DIR}/dl/${armv7hf_gcc} -C ${DIR}/dl/
+		tar xjf ${DIR}/dl/${ARMV7_GCC} -C ${DIR}/dl/
 	fi
 
 	if [ "x${ARCH}" == "xarmv7l" ] ; then
 		#using native gcc
 		CC=
 	else
-		CC="${DIR}/dl/gcc-linaro-arm-linux-gnueabihf-4.7-${armv7hf_ver}-${armv7hf_date}_linux/bin/arm-linux-gnueabihf-"
+		CC="${DIR}/dl/gcc-linaro-arm-linux-gnueabi-${armv7_ver}-${armv7_date}_linux/bin/arm-linux-gnueabi-"
 	fi
 }
 
