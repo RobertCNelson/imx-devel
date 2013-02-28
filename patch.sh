@@ -47,19 +47,10 @@ cleanup () {
 
 arm () {
 	echo "dir: arm"
-	${git} "${DIR}/patches/arm/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
-
-	#Status: v2 Review:
-	#http://lists.infradead.org/pipermail/linux-arm-kernel/2012-August/112440.html
-	${git} "${DIR}/patches/arm/0002-arm-add-definition-of-strstr-to-decompress.c.patch"
 }
 
 imx () {
 	echo "imx patches"
-	${git} "${DIR}/patches/imx/0001-ARM-imx-Enable-UART1-for-Sabrelite.patch"
-	${git} "${DIR}/patches/imx/0002-Add-IMX6Q-AHCI-support.patch"
-	${git} "${DIR}/patches/imx/0003-imx-Add-IMX53-AHCI-support.patch"
-	${git} "${DIR}/patches/imx/0004-cpufreq-add-imx6q-cpufreq-driver.patch"
 }
 
 arm
