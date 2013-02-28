@@ -63,8 +63,14 @@ imx () {
 	echo "dir: imx"
 }
 
+wandboard () {
+	echo "dir: wandboard"
+	${git} "${DIR}/patches/wandboard/0001-Wandboard-3.0.35-1.1.0-20130208.patch"
+}
+
 imx_git
 arm
 imx
+wandboard
 
 echo "patch.sh ran successful"

@@ -19,12 +19,12 @@ fi
 
 CCACHE=ccache
 
-config="imx6_defconfig"
+config="wandboard_defconfig"
 
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
-BUILD=wand0.1
+BUILD=wand0.2
 
 #v3.X-rcX + upto SHA
 #KERNEL_SHA=""
