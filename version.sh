@@ -24,7 +24,7 @@ config="wandboard_defconfig"
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
-BUILD=wand0.3
+BUILD=wand0.2
 
 #v3.X-rcX + upto SHA
 #KERNEL_SHA=""
@@ -34,4 +34,4 @@ BRANCH="v3.0.x-wand"
 
 BUILDREV=1.0
 DISTRO=cross
-DEBARCH=armel
+DEBARCH=armhf
