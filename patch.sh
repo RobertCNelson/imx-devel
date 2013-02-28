@@ -25,8 +25,12 @@
 git="git am"
 #git="git am --whitespace=fix"
 
+git_patchset="git://github.com/RobertCNelson/linux.git"
 if [ -f ${DIR}/system.sh ] ; then
 	source ${DIR}/system.sh
+	if [ "${GIT_OVER_HTTP}" ] ; then
+		git_patchset="https://github.com/RobertCNelson/linux.git"
+	fi
 fi
 
 if [ "${RUN_BISECT}" ] ; then
@@ -45,14 +49,21 @@ cleanup () {
 	exit
 }
 
+imx_git () {
+	tag="imx_3.0.35_1.1.0"
+	echo "pulling: ${tag}"
+	git pull ${GIT_OPTS} ${git_patchset} ${tag}
+}
+
 arm () {
 	echo "dir: arm"
 }
 
 imx () {
-	echo "imx patches"
+	echo "dir: imx"
 }
 
+imx_git
 arm
 imx
 

@@ -19,12 +19,12 @@ fi
 
 CCACHE=ccache
 
-config="mx51_defconfig"
+config="imx6_defconfig"
 
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
-BUILD=wand0
+BUILD=wand0.1
 
 #v3.X-rcX + upto SHA
 #KERNEL_SHA=""
