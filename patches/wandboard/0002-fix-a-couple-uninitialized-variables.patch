@@ -1,0 +1,40 @@
+From 046642b972c2697781f5c8e4d57c8a13ae109985 Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Thu, 28 Feb 2013 13:23:26 -0600
+Subject: [PATCH 2/2] fix: a couple uninitialized variables
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_command_vg.c   |    2 +-
+ drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_video_memory.c |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_command_vg.c b/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_command_vg.c
+index b3e28ec..31dce52 100644
+--- a/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_command_vg.c
++++ b/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_command_vg.c
+@@ -1108,7 +1108,7 @@ _AllocateCommandBuffer(
+         gctUINT requestedSize;
+         gctUINT allocationSize;
+         gctUINT32 address = 0;
+-        gcsCMDBUFFER_PTR commandBuffer;
++        gcsCMDBUFFER_PTR commandBuffer = gcvNULL;
+         gctUINT8_PTR endCommand;
+ 
+         /* Determine the aligned header size. */
+diff --git a/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_video_memory.c b/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_video_memory.c
+index dc39b39..b681a65 100644
+--- a/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_video_memory.c
++++ b/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel_video_memory.c
+@@ -1662,7 +1662,7 @@ gckVIDMEM_Lock(
+     gctBOOL acquired = gcvFALSE;
+     gctBOOL locked = gcvFALSE;
+     gckOS os = gcvNULL;
+-    gctBOOL needMapping;
++    gctBOOL needMapping = gcvFALSE;
+     gctUINT32 baseAddress;
+ 
+     gcmkHEADER_ARG("Node=0x%x", Node);
+-- 
+1.7.10.4
+
