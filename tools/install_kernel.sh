@@ -185,12 +185,6 @@ unmount_partitions () {
 		sudo umount ${DRIVE} &> /dev/null || true
 	done
 
-	if [ -f "${DIR}/deploy/${KERNEL_UTS}.uImage" ] ; then
-		rm -rf "${DIR}/deploy/${KERNEL_UTS}.uImage" || true
-	fi
-	mkimage -A arm -O linux -T kernel -C none -a 0x10008000 -e 0x10008000 -n ${KERNEL_UTS} -d "${DIR}/deploy/${KERNEL_UTS}.zImage" "${DIR}/deploy/${KERNEL_UTS}.uImage"
-	sudo dd if="${DIR}/deploy/${KERNEL_UTS}.uImage" of=${MMC} bs=1M seek=1
-
 	mkdir -p "${DIR}/deploy/disk/"
 	mmc_detect_n_mount
 }
