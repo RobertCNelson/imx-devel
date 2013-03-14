@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 ARCH=$(uname -m)
-#DISABLE_MASTER_BRANCH=1
+DISABLE_MASTER_BRANCH=1
 
 CORES=1
 if [ "x${ARCH}" == "xx86_64" ] || [ "x${ARCH}" == "xi686" ] ; then
@@ -16,8 +16,6 @@ LC_ALL=C git help pull | grep -m 1 -e "--no-edit" &>/dev/null && GIT_NOEDIT=1
 if [ "${GIT_NOEDIT}" ] ; then
 	GIT_OPTS+="--no-edit"
 fi
-
-CCACHE=ccache
 
 config="imx_v6_v7_defconfig"
 
