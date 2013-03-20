@@ -50,7 +50,7 @@ cleanup () {
 }
 
 imx_git () {
-	tag="imx_3.0.35_1.1.0"
+	tag="imx_3.0.35_jb4.1.2_1.0.0-beta_wandboard"
 	echo "pulling: ${tag}"
 	git pull ${GIT_OPTS} ${git_patchset} ${tag}
 }
@@ -65,13 +65,23 @@ imx () {
 
 wandboard () {
 	echo "dir: wandboard"
-	${git} "${DIR}/patches/wandboard/0001-Wandboard-3.0.35-1.1.0-20130208.patch"
-	${git} "${DIR}/patches/wandboard/0002-fix-a-couple-uninitialized-variables.patch"
+	#http://repo.or.cz/w/wandboard.git/shortlog/refs/heads/wandboard
+
+	#git checkout origin/imx_3.0.35_jb4.1.2_1.0.0-beta -b tmp
+	#git pull --no-edit git://repo.or.cz/wandboard.git wandboard
+	#git rebase 699cd64427e41c9331e074fd51b651e548e87de0
+	#git format-patch -1 | grep 'Add support for PCI Express'
+}
+
+fixes () {
+	echo "dir: fixes"
+	${git} "${DIR}/patches/fixes/0001-fix-a-couple-uninitialized-variables.patch"
 }
 
 imx_git
 arm
 imx
 wandboard
+fixes
 
 echo "patch.sh ran successful"
