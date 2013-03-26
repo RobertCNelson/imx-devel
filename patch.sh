@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2009-2013 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -51,29 +51,15 @@ arm () {
 }
 
 imx () {
-	echo "imx patches"
+	echo "dir: imx"
 	${git} "${DIR}/patches/imx/0001-ARM-imx-Enable-UART1-for-Sabrelite.patch"
 	${git} "${DIR}/patches/imx/0002-Add-IMX6Q-AHCI-support.patch"
 	${git} "${DIR}/patches/imx/0003-imx-Add-IMX53-AHCI-support.patch"
-	${git} "${DIR}/patches/imx/0004-cpufreq-add-imx6q-cpufreq-driver.patch"
 	${git} "${DIR}/patches/imx/0005-SAUCE-imx6-enable-sata-clk-if-SATA_AHCI_PLATFORM.patch"
-}
-
-imx_cpuidle () {
-	echo "dir: imx_cpuidle"
-	${git} "${DIR}/patches/imx_cpuidle/0001-ARM-mach-imx-Kconfig-Do-not-select-Babbage-for-MACH_.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0002-ARM-imx-remove-unused-imx6q_clock_map_io.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0003-ARM-imx-use-debug_ll_io_init-for-imx6q.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0004-ARM-imx-Remove-mach-mx51_3ds-board.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0005-ARM-imx-Remove-mx508-support.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0006-ARM-imx-return-zero-in-case-next-event-gets-a-large-.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0007-ARM-imx-mask-gpc-interrupts-initially.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0008-ARM-imx-move-imx6q_cpuidle_driver-into-a-separate-fi.patch"
-	${git} "${DIR}/patches/imx_cpuidle/0009-ARM-imx6q-support-WAIT-mode-using-cpuidle.patch"
+#	${git} "${DIR}/patches/imx/0005-staging-imx-drm-request-irq-only-after-adding-the-cr.patch"
 }
 
 arm
 imx
-imx_cpuidle
 
 echo "patch.sh ran successful"
