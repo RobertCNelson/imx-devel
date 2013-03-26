@@ -59,7 +59,37 @@ imx () {
 #	${git} "${DIR}/patches/imx/0005-staging-imx-drm-request-irq-only-after-adding-the-cr.patch"
 }
 
+chipidea () {
+	echo "dir: chipidea"
+	${git} "${DIR}/patches/chipidea/0001-USB-move-bulk-of-otg-otg.c-to-phy-phy.c.patch"
+	${git} "${DIR}/patches/chipidea/0002-USB-add-devicetree-helpers-for-determining-dr_mode-a.patch"
+	${git} "${DIR}/patches/chipidea/0003-USB-chipidea-ci13xxx-imx-create-dynamic-platformdata.patch"
+	${git} "${DIR}/patches/chipidea/0004-USB-chipidea-add-PTW-and-PTS-handling.patch"
+	${git} "${DIR}/patches/chipidea/0005-USB-chipidea-introduce-dual-role-mode-pdata-flags.patch"
+	${git} "${DIR}/patches/chipidea/0006-USB-chipidea-i.MX-introduce-dr_mode-property.patch"
+	${git} "${DIR}/patches/chipidea/0007-USB-mxs-phy-Register-phy-with-framework.patch"
+	${git} "${DIR}/patches/chipidea/0008-USB-chipidea-i.MX-use-devm_usb_get_phy_by_phandle-to.patch"
+	${git} "${DIR}/patches/chipidea/0009-Revert-USB-chipidea-add-vbus-detect-for-udc.patch"
+	${git} "${DIR}/patches/chipidea/0010-usb-chipidea-add-otg-file.patch"
+	${git} "${DIR}/patches/chipidea/0011-usb-chipidea-add-otg-id-switch-and-vbus-connect-disc.patch"
+	${git} "${DIR}/patches/chipidea/0012-usb-chipidea-udc-add-pullup-pulldown-dp-at-hw_device.patch"
+	${git} "${DIR}/patches/chipidea/0013-usb-chipidea-udc-retire-the-flag-CI13_PULLUP_ON_VBUS.patch"
+	${git} "${DIR}/patches/chipidea/0014-usb-chipidea-add-vbus-regulator-control.patch"
+	${git} "${DIR}/patches/chipidea/0015-usb-chipidea-delete-the-delayed-work.patch"
+	${git} "${DIR}/patches/chipidea/0016-usb-chipidea-imx-add-getting-vbus-regulator-code.patch"
+	${git} "${DIR}/patches/chipidea/0017-usb-chipidea-udc-fix-the-oops-when-plugs-in-usb-cabl.patch"
+	${git} "${DIR}/patches/chipidea/0018-usb-chipidea-imx-select-usb-id-pin-using-syscon-inte.patch"
+	${git} "${DIR}/patches/chipidea/0019-usb-chipidea-usbmisc-rename-file-struct-and-function.patch"
+	${git} "${DIR}/patches/chipidea/0020-usb-chipidea-usbmisc-unset-global-varibale-usbmisc-o.patch"
+	${git} "${DIR}/patches/chipidea/0021-usb-chipidea-usbmisc-fix-a-potential-race-condition.patch"
+	${git} "${DIR}/patches/chipidea/0022-usb-chipidea-usbmisc-prepare-driver-to-handle-more-t.patch"
+	${git} "${DIR}/patches/chipidea/0023-usb-chipidea-usbmisc-add-mx53-support.patch"
+	${git} "${DIR}/patches/chipidea/0024-usb-chipidea-usbmisc-add-post-handling-and-errata-fi.patch"
+	${git} "${DIR}/patches/chipidea/0025-usb-chipidea-imx-Add-system-suspend-resume-API.patch"
+}
+
 arm
 imx
+chipidea
 
 echo "patch.sh ran successful"

@@ -22,7 +22,7 @@ config="imx_v6_v7_defconfig"
 #Kernel/Build
 KERNEL_REL=3.9
 KERNEL_TAG=${KERNEL_REL}-rc4
-BUILD=imx0
+BUILD=imx0.1
 
 #v3.X-rcX + upto SHA
 KERNEL_SHA="a12183c62717ac4579319189a00f5883a18dff08"
