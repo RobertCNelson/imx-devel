@@ -22,10 +22,10 @@ config="imx_v6_v7_defconfig"
 #Kernel/Build
 KERNEL_REL=3.9
 KERNEL_TAG=${KERNEL_REL}-rc4
-BUILD=imx0.1
+BUILD=imx0.2
 
 #v3.X-rcX + upto SHA
-KERNEL_SHA="a12183c62717ac4579319189a00f5883a18dff08"
+KERNEL_SHA="de55eb1d60d2ed0f1ba5e13226d91b3bfbe1c108"
 
 #git branch
 BRANCH="v3.9.x-imx"

@@ -662,7 +662,6 @@ CONFIG_NETFILTER_ADVANCED=y
 # IP: Netfilter Configuration
 #
 # CONFIG_NF_DEFRAG_IPV4 is not set
-# CONFIG_IP_NF_QUEUE is not set
 # CONFIG_IP_NF_IPTABLES is not set
 # CONFIG_IP_NF_ARPTABLES is not set
 
