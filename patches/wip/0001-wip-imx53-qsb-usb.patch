@@ -1,0 +1,42 @@
+From 3dac34d05834744e87d920fdb74609ee88217f60 Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Wed, 27 Mar 2013 11:26:40 -0500
+Subject: [PATCH] wip: imx53-qsb usb
+
+[    2.278570] imx_usb 53f80000.usb: pinctrl get/select failed, err=-19
+[    2.285121] imx_usb 53f80000.usb: Failed to get clock, err=-2
+[    2.290928] imx_usb: probe of 53f80000.usb failed with error -2
+[    2.297061] imx_usb 53f80200.usb: pinctrl get/select failed, err=-19
+[    2.303566] imx_usb 53f80200.usb: Failed to get clock, err=-2
+[    2.309369] imx_usb: probe of 53f80200.usb failed with error -2
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ arch/arm/boot/dts/imx53-qsb.dts |   11 +++++++++++
+ 1 file changed, 11 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx53-qsb.dts b/arch/arm/boot/dts/imx53-qsb.dts
+index eb03dae..169082b 100644
+--- a/arch/arm/boot/dts/imx53-qsb.dts
++++ b/arch/arm/boot/dts/imx53-qsb.dts
+@@ -259,6 +259,17 @@
+ 	status = "okay";
+ };
+ 
++&usbotg {
++	phy_type = "utmi";
++	dr_mode = "host";
++	status = "okay";
++};
++
++&usbh1 {
++	phy_type = "utmi";
++	status = "okay";
++};
++
+ &audmux {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_audmux_1>;
+-- 
+1.7.10.4
+
