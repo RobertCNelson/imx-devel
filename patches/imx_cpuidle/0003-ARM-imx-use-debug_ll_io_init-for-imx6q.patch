@@ -28,13 +28,13 @@ index 0634b31..f35eb39 100644
  obj-$(CONFIG_HAVE_IMX_MMDC) += mmdc.o
  obj-$(CONFIG_HAVE_IMX_SRC) += src.o
 diff --git a/arch/arm/mach-imx/common.h b/arch/arm/mach-imx/common.h
-index 073062e..f4f7bc5 100644
+index 0c7d8b1..33a2294 100644
 --- a/arch/arm/mach-imx/common.h
 +++ b/arch/arm/mach-imx/common.h
-@@ -116,11 +116,6 @@ void tzic_handle_irq(struct pt_regs *);
- 
- extern void imx_enable_cpu(int cpu, bool enable);
+@@ -118,11 +118,6 @@ extern void imx_enable_cpu(int cpu, bool enable);
  extern void imx_set_cpu_jump(int cpu, void *jump_addr);
+ extern u32 imx_get_cpu_arg(int cpu);
+ extern void imx_set_cpu_arg(int cpu, u32 arg);
 -#ifdef CONFIG_DEBUG_LL
 -extern void imx_lluart_map_io(void);
 -#else
