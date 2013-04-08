@@ -1,0 +1,53 @@
+From af99e4af340208cd533e4bdbc89855859acd0dd4 Mon Sep 17 00:00:00 2001
+From: Zhang Jiejing <jiejing.zhang@freescale.com>
+Date: Fri, 21 Sep 2012 09:52:36 +0800
+Subject: [PATCH 43/53] ENGR00240112-2 crypto: caam: add ecb(aes) crypto
+ algorithm to caam.
+
+add ecb(aes) support for caam algorithm, the caam H/W
+support both ecb and cbc, add the algorithm into template.
+
+Signed-off-by: Zhang Jiejing <jiejing.zhang@freescale.com>
+---
+ drivers/crypto/caam/caamalg.c |   18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/crypto/caam/caamalg.c b/drivers/crypto/caam/caamalg.c
+index 87b365f..5929950 100644
+--- a/drivers/crypto/caam/caamalg.c
++++ b/drivers/crypto/caam/caamalg.c
+@@ -1,7 +1,7 @@
+ /*
+  * caam - Freescale FSL CAAM support for crypto API
+  *
+- * Copyright (C) 2008-2012 Freescale Semiconductor, Inc.
++ * Copyright (C) 2008-2013 Freescale Semiconductor, Inc.
+  *
+  * Based on talitos crypto API driver.
+  *
+@@ -2051,6 +2051,22 @@ static struct caam_alg_template driver_algs[] = {
+ 		.class1_alg_type = OP_ALG_ALGSEL_AES | OP_ALG_AAI_CBC,
+ 	},
+ 	{
++		.name = "ecb(aes)",
++		.driver_name = "ecb-aes-caam",
++		.blocksize = AES_BLOCK_SIZE,
++		.type = CRYPTO_ALG_TYPE_ABLKCIPHER,
++		.template_ablkcipher = {
++			.setkey = ablkcipher_setkey,
++			.encrypt = ablkcipher_encrypt,
++			.decrypt = ablkcipher_decrypt,
++			.geniv = "eseqiv",
++			.min_keysize = AES_MIN_KEY_SIZE,
++			.max_keysize = AES_MAX_KEY_SIZE,
++			.ivsize = AES_BLOCK_SIZE,
++			},
++		.class1_alg_type = OP_ALG_ALGSEL_AES | OP_ALG_AAI_ECB,
++	},
++	{
+ 		.name = "cbc(des3_ede)",
+ 		.driver_name = "cbc-3des-caam",
+ 		.blocksize = DES3_EDE_BLOCK_SIZE,
+-- 
+1.7.10.4
+

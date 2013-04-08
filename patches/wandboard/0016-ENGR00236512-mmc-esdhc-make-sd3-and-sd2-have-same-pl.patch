@@ -1,0 +1,29 @@
+From b19d6f8c4579e05eb80b6972dfb2b8c0308696ea Mon Sep 17 00:00:00 2001
+From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
+Date: Thu, 13 Dec 2012 16:34:37 +0800
+Subject: [PATCH 16/53] ENGR00236512 mmc: esdhc: make sd3 and sd2 have same
+ platform config
+
+Let sd2 and sd3 slot to have the same platform config. It will remove the
+restriction that wifi dongle must be inserted into the certain slot.
+
+Signed-off-by: Jianzheng Zhou <jianzheng.zhou@freescale.com>
+---
+ arch/arm/mach-mx6/board-mx6q_sabresd.c |    1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/arch/arm/mach-mx6/board-mx6q_sabresd.c b/arch/arm/mach-mx6/board-mx6q_sabresd.c
+index aee782f..7e6ae6a 100644
+--- a/arch/arm/mach-mx6/board-mx6q_sabresd.c
++++ b/arch/arm/mach-mx6/board-mx6q_sabresd.c
+@@ -231,6 +231,7 @@ static const struct esdhc_platform_data mx6q_sabresd_sd3_data __initconst = {
+ 	.support_8bit = 1,
+ 	.delay_line = 0,
+ 	.cd_type = ESDHC_CD_CONTROLLER,
++	.runtime_pm = 1,
+ };
+ 
+ static const struct esdhc_platform_data mx6q_sabresd_sd4_data __initconst = {
+-- 
+1.7.10.4
+

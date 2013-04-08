@@ -1,0 +1,227 @@
+From 4c423440b9f2920b8cb0f453eed18deb7c39652b Mon Sep 17 00:00:00 2001
+From: Nitin Garg <nitin.garg@freescale.com>
+Date: Fri, 21 Dec 2012 12:55:09 -0600
+Subject: [PATCH 26/53] ENGR00238052: Add support for Android RAM console for
+ iMX53
+
+Add Android RAM console cupport for iMX53 SMD and align the
+imx5_android_defconfig with google's defconfig.
+
+Signed-off-by: Nitin Garg <nitin.garg@freescale.com>
+---
+ arch/arm/configs/imx5_android_defconfig |   57 +++++++++++++++++--------------
+ arch/arm/mach-mx5/board-mx53_smd.c      |   28 +++++++++++++++
+ 2 files changed, 60 insertions(+), 25 deletions(-)
+
+diff --git a/arch/arm/configs/imx5_android_defconfig b/arch/arm/configs/imx5_android_defconfig
+index f74b706..4c891f8 100644
+--- a/arch/arm/configs/imx5_android_defconfig
++++ b/arch/arm/configs/imx5_android_defconfig
+@@ -401,7 +401,8 @@ CONFIG_FLAT_NODE_MEM_MAP=y
+ CONFIG_HAVE_MEMBLOCK=y
+ CONFIG_PAGEFLAGS_EXTENDED=y
+ CONFIG_SPLIT_PTLOCK_CPUS=4
+-# CONFIG_COMPACTION is not set
++CONFIG_COMPACTION=y
++CONFIG_MIGRATION=y
+ # CONFIG_PHYS_ADDR_T_64BIT is not set
+ CONFIG_ZONE_DMA_FLAG=0
+ CONFIG_BOUNCE=y
+@@ -1042,7 +1043,7 @@ CONFIG_MISC_DEVICES=y
+ # CONFIG_SENSORS_BH1780 is not set
+ # CONFIG_SENSORS_BH1770 is not set
+ # CONFIG_SENSORS_APDS990X is not set
+-# CONFIG_SUSPEND_COUNTER is not set
++CONFIG_SUSPEND_COUNTER=y
+ # CONFIG_HMC6352 is not set
+ # CONFIG_SENSORS_AK8975 is not set
+ # CONFIG_DS1682 is not set
+@@ -2042,8 +2043,8 @@ CONFIG_SND_SOC_SGTL5000=y
+ CONFIG_AC97_BUS=y
+ CONFIG_HID_SUPPORT=y
+ CONFIG_HID=y
+-# CONFIG_HIDRAW is not set
+-# CONFIG_UHID is not set
++CONFIG_HIDRAW=y
++CONFIG_UHID=y
+ 
+ #
+ # USB Input Devices
+@@ -2365,7 +2366,7 @@ CONFIG_LEDS_CLASS=y
+ #
+ # CONFIG_NFC_DEVICES is not set
+ CONFIG_SWITCH=y
+-# CONFIG_SWITCH_GPIO is not set
++CONFIG_SWITCH_GPIO=y
+ # CONFIG_ACCESSIBILITY is not set
+ CONFIG_RTC_LIB=y
+ CONFIG_RTC_CLASS=y
+@@ -2481,8 +2482,9 @@ CONFIG_ANDROID=y
+ CONFIG_ANDROID_BINDER_IPC=y
+ CONFIG_ANDROID_LOGGER=y
+ # CONFIG_ANDROID_RAM_CONSOLE is not set
+-# CONFIG_ANDROID_TIMED_OUTPUT is not set
+-# CONFIG_ANDROID_RESERVED_MEMORY_ACCOUNT is not set
++CONFIG_ANDROID_TIMED_OUTPUT=y
++CONFIG_ANDROID_TIMED_GPIO=y
++CONFIG_ANDROID_RESERVED_MEMORY_ACCOUNT=y
+ CONFIG_ANDROID_LOW_MEMORY_KILLER=y
+ # CONFIG_POHMELFS is not set
+ # CONFIG_LINE6_USB is not set
+@@ -2635,14 +2637,21 @@ CONFIG_MXC_AMD_GPU=y
+ #
+ # File systems
+ #
+-# CONFIG_EXT2_FS is not set
+-# CONFIG_EXT3_FS is not set
++CONFIG_EXT2_FS=y
++# CONFIG_EXT2_FS_XATTR is not set
++# CONFIG_EXT2_FS_XIP is not set
++CONFIG_EXT3_FS=y
++# CONFIG_EXT3_DEFAULTS_TO_ORDERED is not set
++CONFIG_EXT3_FS_XATTR=y
++# CONFIG_EXT3_FS_POSIX_ACL is not set
++# CONFIG_EXT3_FS_SECURITY is not set
+ CONFIG_EXT4_FS=y
+-CONFIG_EXT4_USE_FOR_EXT23=y
+ CONFIG_EXT4_FS_XATTR=y
+-# CONFIG_EXT4_FS_POSIX_ACL is not set
++CONFIG_EXT4_FS_POSIX_ACL=y
+ # CONFIG_EXT4_FS_SECURITY is not set
+ # CONFIG_EXT4_DEBUG is not set
++CONFIG_JBD=y
++# CONFIG_JBD_DEBUG is not set
+ CONFIG_JBD2=y
+ # CONFIG_JBD2_DEBUG is not set
+ CONFIG_FS_MBCACHE=y
+@@ -2652,7 +2661,7 @@ CONFIG_FS_MBCACHE=y
+ # CONFIG_GFS2_FS is not set
+ # CONFIG_BTRFS_FS is not set
+ # CONFIG_NILFS2_FS is not set
+-# CONFIG_FS_POSIX_ACL is not set
++CONFIG_FS_POSIX_ACL=y
+ CONFIG_FILE_LOCKING=y
+ CONFIG_FSNOTIFY=y
+ CONFIG_DNOTIFY=y
+@@ -2660,8 +2669,9 @@ CONFIG_INOTIFY_USER=y
+ # CONFIG_FANOTIFY is not set
+ # CONFIG_QUOTA is not set
+ # CONFIG_QUOTACTL is not set
+-CONFIG_AUTOFS4_FS=m
+-# CONFIG_FUSE_FS is not set
++# CONFIG_AUTOFS4_FS is not set
++CONFIG_FUSE_FS=y
++# CONFIG_CUSE is not set
+ 
+ #
+ # Caches
+@@ -2678,11 +2688,13 @@ CONFIG_AUTOFS4_FS=m
+ # DOS/FAT/NT Filesystems
+ #
+ CONFIG_FAT_FS=y
+-CONFIG_MSDOS_FS=y
++# CONFIG_MSDOS_FS is not set
+ CONFIG_VFAT_FS=y
+ CONFIG_FAT_DEFAULT_CODEPAGE=437
+ CONFIG_FAT_DEFAULT_IOCHARSET="iso8859-1"
+-# CONFIG_NTFS_FS is not set
++CONFIG_NTFS_FS=y
++# CONFIG_NTFS_DEBUG is not set
++# CONFIG_NTFS_RW is not set
+ 
+ #
+ # Pseudo filesystems
+@@ -2807,7 +2819,7 @@ CONFIG_DEFAULT_MESSAGE_LOGLEVEL=4
+ CONFIG_ENABLE_WARN_DEPRECATED=y
+ CONFIG_ENABLE_MUST_CHECK=y
+ CONFIG_FRAME_WARN=1024
+-# CONFIG_MAGIC_SYSRQ is not set
++CONFIG_MAGIC_SYSRQ=y
+ # CONFIG_STRIP_ASM_SYMS is not set
+ # CONFIG_UNUSED_SYMBOLS is not set
+ CONFIG_DEBUG_FS=y
+@@ -2833,25 +2845,20 @@ CONFIG_EVENT_TRACING=y
+ CONFIG_EVENT_POWER_TRACING_DEPRECATED=y
+ CONFIG_CONTEXT_SWITCH_TRACER=y
+ CONFIG_TRACING=y
+-CONFIG_GENERIC_TRACER=y
+ CONFIG_TRACING_SUPPORT=y
+ CONFIG_FTRACE=y
+-CONFIG_FUNCTION_TRACER=y
+-# CONFIG_FUNCTION_GRAPH_TRACER is not set
++# CONFIG_FUNCTION_TRACER is not set
+ # CONFIG_IRQSOFF_TRACER is not set
+ # CONFIG_PREEMPT_TRACER is not set
+ # CONFIG_SCHED_TRACER is not set
++CONFIG_ENABLE_DEFAULT_TRACERS=y
+ CONFIG_BRANCH_PROFILE_NONE=y
+ # CONFIG_PROFILE_ANNOTATED_BRANCHES is not set
+ # CONFIG_PROFILE_ALL_BRANCHES is not set
+ # CONFIG_STACK_TRACER is not set
+ # CONFIG_BLK_DEV_IO_TRACE is not set
+-CONFIG_DYNAMIC_FTRACE=y
+-# CONFIG_FUNCTION_PROFILER is not set
+-CONFIG_FTRACE_MCOUNT_RECORD=y
+-# CONFIG_FTRACE_STARTUP_TEST is not set
+ # CONFIG_RING_BUFFER_BENCHMARK is not set
+-# CONFIG_DYNAMIC_DEBUG is not set
++CONFIG_DYNAMIC_DEBUG=y
+ # CONFIG_DMA_API_DEBUG is not set
+ # CONFIG_ATOMIC64_SELFTEST is not set
+ # CONFIG_SAMPLES is not set
+diff --git a/arch/arm/mach-mx5/board-mx53_smd.c b/arch/arm/mach-mx5/board-mx53_smd.c
+index 0d3de15..8d341e5 100755
+--- a/arch/arm/mach-mx5/board-mx53_smd.c
++++ b/arch/arm/mach-mx5/board-mx53_smd.c
+@@ -1250,6 +1250,26 @@ static int __init mx53_smd_power_init(void)
+ }
+ late_initcall(mx53_smd_power_init);
+ 
++#ifdef CONFIG_ANDROID_RAM_CONSOLE
++static struct resource ram_console_resource = {
++	.name = "android ram console",
++	.flags = IORESOURCE_MEM,
++};
++
++static struct platform_device android_ram_console = {
++	.name = "ram_console",
++	.num_resources = 1,
++	.resource = &ram_console_resource,
++};
++
++static int __init imx5x_add_ram_console(void)
++{
++	return platform_device_register(&android_ram_console);
++}
++#else
++#define imx5x_add_ram_console() do {} while (0)
++#endif
++
+ static void __init mx53_smd_board_init(void)
+ {
+ 	int i;
+@@ -1315,6 +1335,7 @@ static void __init mx53_smd_board_init(void)
+ 	lp_reg_id = smd_regulator_data.vcc_reg_id;
+ 
+ 	mx53_smd_init_uart();
++	imx5x_add_ram_console();
+ 	mx53_smd_fec_reset();
+ 	mxc_register_device(&mxc_pm_device, &smd_pm_data);
+ 	imx53_add_fec(&mx53_smd_fec_data);
+@@ -1443,6 +1464,13 @@ static void __init mx53_smd_reserve(void)
+ 	phys_addr_t phys;
+ 	int i;
+ 
++#ifdef CONFIG_ANDROID_RAM_CONSOLE
++	phys = memblock_alloc(SZ_128K, SZ_4K);
++	memblock_remove(phys, SZ_128K);
++	ram_console_resource.start = phys;
++	ram_console_resource.end   = phys + SZ_128K - 1;
++#endif
++
+ 	if (imx53_gpu_data.gmem_reserved_size) {
+ 		phys = memblock_alloc(imx53_gpu_data.gmem_reserved_size,
+ 					   SZ_4K);
+-- 
+1.7.10.4
+

@@ -1,0 +1,53 @@
+From 730c12b7f6fa1493aaf51b47ee4d6ada8ee3b500 Mon Sep 17 00:00:00 2001
+From: Zhang Jiejing <jiejing.zhang@freescale.com>
+Date: Thu, 13 Dec 2012 17:08:21 +0800
+Subject: [PATCH 15/53] ENGR00236052 add keychord driver in android config.
+
+android use keychord to archive start function in init.rc
+with some key combo press.
+
+eg:
+service bugreport /system/bin/bugmailer.sh
+    class main
+    disabled
+    oneshot
+    keycodes 115 114
+
+This service will start if VOL-UP and VOL-DOWN press same time.
+it will start collect bug log, and snapshot and start
+a mail activity to send the bug report to a mail address.
+
+Signed-off-by: Zhang Jiejing <jiejing.zhang@freescale.com>
+---
+ arch/arm/configs/android_common_defconfig |    1 +
+ arch/arm/configs/imx6_android_defconfig   |    2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/android_common_defconfig b/arch/arm/configs/android_common_defconfig
+index fabb4c1..3c19ccc 100644
+--- a/arch/arm/configs/android_common_defconfig
++++ b/arch/arm/configs/android_common_defconfig
+@@ -234,6 +234,7 @@ CONFIG_MXC_GPU_VIV=y
+ CONFIG_MAGIC_SYSRQ=y
+ CONFIG_KEYS=y
+ 
++CONFIG_INPUT_KEYCHORD=y
+ 
+ CONFIG_DEBUG_KERNEL=y
+ CONFIG_LOCKUP_DETECTOR=y
+diff --git a/arch/arm/configs/imx6_android_defconfig b/arch/arm/configs/imx6_android_defconfig
+index 0d0e0a3..6049c0f 100644
+--- a/arch/arm/configs/imx6_android_defconfig
++++ b/arch/arm/configs/imx6_android_defconfig
+@@ -1401,7 +1401,7 @@ CONFIG_INPUT_MISC=y
+ # CONFIG_INPUT_AD714X is not set
+ # CONFIG_INPUT_ATI_REMOTE is not set
+ # CONFIG_INPUT_ATI_REMOTE2 is not set
+-# CONFIG_INPUT_KEYCHORD is not set
++CONFIG_INPUT_KEYCHORD=y
+ # CONFIG_INPUT_KEYSPAN_REMOTE is not set
+ # CONFIG_INPUT_POWERMATE is not set
+ # CONFIG_INPUT_YEALINK is not set
+-- 
+1.7.10.4
+

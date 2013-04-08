@@ -1,0 +1,72 @@
+From da6931cfd63b19e47cac3af00a8b859188963b83 Mon Sep 17 00:00:00 2001
+From: Sandor Yu <R01008@freescale.com>
+Date: Thu, 27 Dec 2012 16:49:37 +0800
+Subject: [PATCH 36/53] ENGR00238382 MX6 HDMI: Change VGA mode flag, adjust
+ default modelist sequency
+
+- Change VGA mode the flag from unknow to VESA.
+- Adjust default modelist order, put the VESA to the end of modelist.
+- Fix a build warning.
+
+Signed-off-by: Sandor Yu <R01008@freescale.com>
+---
+ drivers/video/mxc_hdmi.c |   15 ++++++++-------
+ 1 file changed, 8 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/video/mxc_hdmi.c b/drivers/video/mxc_hdmi.c
+index def4f99..7bed134 100644
+--- a/drivers/video/mxc_hdmi.c
++++ b/drivers/video/mxc_hdmi.c
+@@ -95,7 +95,7 @@
+ static const struct fb_videomode vga_mode = {
+ 	/* 640x480 @ 60 Hz, 31.5 kHz hsync */
+ 	NULL, 60, 640, 480, 39721, 48, 16, 33, 10, 96, 2, 0,
+-	FB_VMODE_NONINTERLACED | FB_VMODE_ASPECT_4_3, 0,
++	FB_VMODE_NONINTERLACED | FB_VMODE_ASPECT_4_3, FB_MODE_IS_VESA,
+ };
+ 
+ static const struct fb_videomode xga_mode = {
+@@ -1375,7 +1375,7 @@ static int mxc_hdmi_read_edid(struct mxc_hdmi *hdmi)
+ 	memcpy(edid_old, hdmi->edid, HDMI_EDID_LEN);
+ 
+ 	ret = mxc_edid_read(hdmi_i2c->adapter, hdmi_i2c->addr, hdmi->edid,
+-			    &hdmi->edid_cfg, hdmi->fbi);
++				&hdmi->edid_cfg, hdmi->fbi);
+ 
+ 	if (ret < 0)
+ 		return HDMI_EDID_FAIL;
+@@ -1574,6 +1574,11 @@ static void  mxc_hdmi_default_modelist(struct mxc_hdmi *hdmi)
+ 
+ 	fb_destroy_modelist(&hdmi->fbi->modelist);
+ 
++	/*Add XGA and SXGA to default modelist */
++	fb_add_videomode(&vga_mode, &hdmi->fbi->modelist);
++	fb_add_videomode(&xga_mode, &hdmi->fbi->modelist);
++	fb_add_videomode(&sxga_mode, &hdmi->fbi->modelist);
++
+ 	/*Add all no interlaced CEA mode to default modelist */
+ 	for (i = 0; i < ARRAY_SIZE(mxc_cea_mode); i++) {
+ 		mode = &mxc_cea_mode[i];
+@@ -1581,10 +1586,6 @@ static void  mxc_hdmi_default_modelist(struct mxc_hdmi *hdmi)
+ 			fb_add_videomode(mode, &hdmi->fbi->modelist);
+ 	}
+ 
+-	/*Add XGA and SXGA to default modelist */
+-	fb_add_videomode(&xga_mode, &hdmi->fbi->modelist);
+-	fb_add_videomode(&sxga_mode, &hdmi->fbi->modelist);
+-
+ 	console_unlock();
+ }
+ 
+@@ -2216,7 +2217,7 @@ static int mxc_hdmi_disp_init(struct mxc_dispdrv_handle *disp,
+ 	mode = fb_find_nearest_mode(&m, &hdmi->fbi->modelist);
+ 	if (!mode) {
+ 		pr_err("%s: could not find mode in modelist\n", __func__);
+-		return -EINVAL;
++		return -1;
+ 	}
+ 
+ 	fb_videomode_to_var(&hdmi->fbi->var, mode);
+-- 
+1.7.10.4
+

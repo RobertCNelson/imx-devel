@@ -1,0 +1,30 @@
+From df755ddf6eecb88f62afdb1d7449978a0312dfce Mon Sep 17 00:00:00 2001
+From: Nitin Garg <nitin.garg@freescale.com>
+Date: Thu, 13 Dec 2012 19:41:17 -0600
+Subject: [PATCH 17/53] ENGR00179636-07 - i.MX6 : Enable ethernet NAPI method
+ in default.
+
+- Enable ethernet NAPI method in default, which can reduce cpu
+  loading and RX FIFO overruns in busy system.
+
+Signed-off-by: Nitin Garg <nitin.garg@freescale.com>
+---
+ arch/arm/configs/imx6_android_defconfig |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/imx6_android_defconfig b/arch/arm/configs/imx6_android_defconfig
+index 6049c0f..44c709e 100644
+--- a/arch/arm/configs/imx6_android_defconfig
++++ b/arch/arm/configs/imx6_android_defconfig
+@@ -1258,7 +1258,7 @@ CONFIG_SMSC911X=y
+ # CONFIG_KS8851 is not set
+ # CONFIG_KS8851_MLL is not set
+ CONFIG_FEC=y
+-# CONFIG_FEC_NAPI is not set
++CONFIG_FEC_NAPI=y
+ # CONFIG_FEC_1588 is not set
+ # CONFIG_FTMAC100 is not set
+ # CONFIG_NETDEV_1000 is not set
+-- 
+1.7.10.4
+
