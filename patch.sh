@@ -50,6 +50,26 @@ arm () {
 	${git} "${DIR}/patches/arm/0001-deb-pkg-Simplify-architecture-matching-for-cross-bui.patch"
 }
 
+gpu () {
+	echo "dir: gpu"
+	${git} "${DIR}/patches/gpu/0001-ARM-i.MX5-Move-IPU-clock-lookups-into-device-tree.patch"
+	${git} "${DIR}/patches/gpu/0002-ARM-i.MX-Add-imx_clk_divider_flags-and-imx_clk_mux_f.patch"
+	${git} "${DIR}/patches/gpu/0003-ARM-i.MX5-Remove-tve_sel-clock-from-i.MX53-clock-tre.patch"
+	${git} "${DIR}/patches/gpu/0004-ARM-i.MX53-Remove-unused-tve_gate-clkdev-entry.patch"
+	${git} "${DIR}/patches/gpu/0005-ARM-i.MX53-make-tve_ext_sel-propagate-rate-change-to.patch"
+	${git} "${DIR}/patches/gpu/0006-ARM-i.MX53-tve_di-clock-is-not-part-of-the-CCM-but-o.patch"
+	${git} "${DIR}/patches/gpu/0007-ARM-i.MX53-set-CLK_SET_RATE_PARENT-flag-on-the-tve_e.patch"
+	${git} "${DIR}/patches/gpu/0008-ARM-i.MX53-Add-TVE-entry-to-i.MX53-dtsi.patch"
+	${git} "${DIR}/patches/gpu/0009-ARM-i.MX53-dts-Add-TVE-to-i.MX53-QSB-device-tree.patch"
+	${git} "${DIR}/patches/gpu/0010-staging-drm-imx-ipu-dc-add-24-bit-GBR-support-to-DC.patch"
+	${git} "${DIR}/patches/gpu/0011-staging-drm-imx-ipuv3-crtc-use-external-clock-for-TV.patch"
+	${git} "${DIR}/patches/gpu/0012-staging-drm-imx-ipu-di-add-comments-explaining-signa.patch"
+	${git} "${DIR}/patches/gpu/0013-staging-drm-imx-Add-support-for-VGA-via-TVE-on-i.MX5.patch"
+	${git} "${DIR}/patches/gpu/0014-staging-drm-imx-ipu-dc-add-WCLK-WRG-opcodes.patch"
+	${git} "${DIR}/patches/gpu/0015-staging-drm-imx-ipu-dc-force-black-output-during-bla.patch"
+	${git} "${DIR}/patches/gpu/0016-staging-drm-imx-Add-support-for-Television-Encoder-T.patch"
+}
+
 imx () {
 	echo "dir: imx"
 	${git} "${DIR}/patches/imx/0001-ARM-imx-Enable-UART1-for-Sabrelite.patch"
@@ -89,6 +109,7 @@ chipidea () {
 }
 
 arm
+#gpu
 imx
 chipidea
 
