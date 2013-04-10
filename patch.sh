@@ -55,14 +55,6 @@ imx_git () {
 	git pull ${GIT_OPTS} ${git_patchset} ${tag}
 }
 
-arm () {
-	echo "dir: arm"
-}
-
-imx () {
-	echo "dir: imx"
-}
-
 wandboard () {
 	echo "dir: wandboard"
 	#http://repo.or.cz/w/wandboard.git/shortlog/refs/heads/wandboard
@@ -128,14 +120,23 @@ wandboard () {
 	${git} "${DIR}/patches/wandboard/0053-Wandboard-Fix-SDHC-platform-data.patch"
 }
 
+arm () {
+	echo "dir: arm"
+	${git} "${DIR}/patches/arm/0001-deb-disable-header-generation.patch"
+}
+
+imx () {
+	echo "dir: imx"
+}
+
 fixes () {
 	echo "dir: fixes"
 }
 
 imx_git
+wandboard
 arm
 imx
-wandboard
 fixes
 
 echo "patch.sh ran successful"

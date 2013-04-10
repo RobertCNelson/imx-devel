@@ -1,0 +1,77 @@
+From 9a258fc29c7a1119cfb9e03900da5c9605553572 Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Wed, 10 Apr 2013 07:55:35 -0500
+Subject: [PATCH] deb: disable header generation
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ scripts/package/builddeb |   41 -----------------------------------------
+ 1 file changed, 41 deletions(-)
+
+diff --git a/scripts/package/builddeb b/scripts/package/builddeb
+index 3c6c0b1..9cf2a05 100644
+--- a/scripts/package/builddeb
++++ b/scripts/package/builddeb
+@@ -127,9 +127,6 @@ if grep -q '^CONFIG_MODULES=y' .config ; then
+ 	fi
+ fi
+ 
+-make headers_check
+-make headers_install INSTALL_HDR_PATH="$libc_headers_dir/usr"
+-
+ # Install the maintainer scripts
+ # Note: hook scripts under /etc/kernel are also executed by official Debian
+ # kernel packages, as well as kernel packages built using make-kpkg
+@@ -237,30 +234,6 @@ EOF
+ 
+ fi
+ 
+-# Build header package
+-(cd $srctree; find . -name Makefile -o -name Kconfig\* -o -name \*.pl > "$objtree/debian/hdrsrcfiles")
+-(cd $srctree; find arch/$SRCARCH/include include scripts -type f >> "$objtree/debian/hdrsrcfiles")
+-(cd $objtree; find .config Module.symvers include scripts -type f >> "$objtree/debian/hdrobjfiles")
+-destdir=$kernel_headers_dir/usr/src/linux-headers-$version
+-mkdir -p "$destdir"
+-(cd $srctree; tar -c -f - -T "$objtree/debian/hdrsrcfiles") | (cd $destdir; tar -xf -)
+-(cd $objtree; tar -c -f - -T "$objtree/debian/hdrobjfiles") | (cd $destdir; tar -xf -)
+-rm -f "$objtree/debian/hdrsrcfiles" "$objtree/debian/hdrobjfiles"
+-arch=$(dpkg --print-architecture)
+-
+-cat <<EOF >> debian/control
+-
+-Package: $kernel_headers_packagename
+-Provides: linux-headers, linux-headers-2.6
+-Architecture: $arch
+-Description: Linux kernel headers for $KERNELRELEASE on $arch
+- This package provides kernel header files for $KERNELRELEASE on $arch
+- .
+- This is useful for people who need to build external modules
+-EOF
+-
+-create_package "$kernel_headers_packagename" "$kernel_headers_dir"
+-
+ # Do we have firmware? Move it out of the way and build it into a package.
+ if [ -e "$tmpdir/lib/firmware" ]; then
+ 	mv "$tmpdir/lib/firmware" "$fwdir/lib/"
+@@ -276,18 +249,4 @@ EOF
+ 	create_package "$fwpackagename" "$fwdir"
+ fi
+ 
+-cat <<EOF >> debian/control
+-
+-Package: $libc_headers_packagename
+-Section: devel
+-Provides: linux-kernel-headers
+-Architecture: any
+-Description: Linux support headers for userspace development
+- This package provides userspaces headers from the Linux kernel.  These headers
+- are used by the installed headers for GNU glibc and other system libraries.
+-EOF
+-
+-create_package "$libc_headers_packagename" "$libc_headers_dir"
+-create_package "$packagename" "$tmpdir"
+-
+ exit 0
+-- 
+1.7.10.4
+
