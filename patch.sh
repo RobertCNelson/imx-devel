@@ -106,6 +106,10 @@ chipidea () {
 	${git} "${DIR}/patches/chipidea/0023-usb-chipidea-usbmisc-add-mx53-support.patch"
 	${git} "${DIR}/patches/chipidea/0024-usb-chipidea-usbmisc-add-post-handling-and-errata-fi.patch"
 	${git} "${DIR}/patches/chipidea/0025-usb-chipidea-imx-Add-system-suspend-resume-API.patch"
+	${git} "${DIR}/patches/chipidea/0026-ARM-dts-imx-add-imx5x-usbmisc-entries.patch"
+	${git} "${DIR}/patches/chipidea/0027-ARM-dts-imx-add-imx5x-usb-clock-DT-lookups.patch"
+	${git} "${DIR}/patches/chipidea/0028-ARM-dts-imx-use-usb-nop-xceiv-usbphy-entries-for-imx.patch"
+	${git} "${DIR}/patches/chipidea/0029-ARM-dts-imx-imx53-qsb.dts-enable-usbotg-and-usbh1.patch"
 }
 
 arm
