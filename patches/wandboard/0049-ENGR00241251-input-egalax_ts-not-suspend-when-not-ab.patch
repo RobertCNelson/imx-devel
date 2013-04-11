@@ -1,7 +1,7 @@
 From 7371548ce86709d06d7e2f3b958b5f73d7a1609b Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Tue, 22 Jan 2013 18:41:16 +0800
-Subject: [PATCH 49/53] ENGR00241251 input: egalax_ts: not suspend when not
+Subject: [PATCH 49/54] ENGR00241251 input: egalax_ts: not suspend when not
  able to wakeup.
 
 This patch check whether can wake up the device, if not able to

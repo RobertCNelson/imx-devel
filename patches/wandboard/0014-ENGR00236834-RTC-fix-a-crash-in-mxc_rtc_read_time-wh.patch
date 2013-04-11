@@ -1,7 +1,7 @@
 From f9a9502e0ae9da2805f64d11e9d3569e95a0d5c9 Mon Sep 17 00:00:00 2001
 From: Nitin Garg <nitin.garg@freescale.com>
 Date: Wed, 12 Dec 2012 14:40:19 -0600
-Subject: [PATCH 14/53] ENGR00236834: RTC fix a crash in mxc_rtc_read_time
+Subject: [PATCH 14/54] ENGR00236834: RTC fix a crash in mxc_rtc_read_time
  while registering rtc
 
 Set pdata (before calling rtc_device_register) as its required by

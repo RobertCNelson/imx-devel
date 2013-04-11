@@ -1,7 +1,7 @@
 From 64fee2d5ee42688a813a33b0d2f047f3dcc6b56f Mon Sep 17 00:00:00 2001
 From: John Weber <rjohn...@gmail.com>
 Date: Thu, 28 Feb 2013 13:23:26 -0600
-Subject: [PATCH 53/53] Wandboard : Fix SDHC platform data
+Subject: [PATCH 53/54] Wandboard : Fix SDHC platform data
 
 Add 'always_present = 1' setting to the platform data for the ESDHC
 controller which is dedicated to the Broadcom wifi device (BCM4329).

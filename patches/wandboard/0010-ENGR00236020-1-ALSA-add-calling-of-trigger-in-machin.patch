@@ -1,7 +1,7 @@
 From 5d2da41b861d6d30e005b4bb8050e202c8fff614 Mon Sep 17 00:00:00 2001
 From: Gary Zhang <b13634@freescale.com>
 Date: Tue, 11 Dec 2012 12:42:42 +0800
-Subject: [PATCH 10/53] ENGR00236020-1 ALSA: add calling of trigger in machine
+Subject: [PATCH 10/54] ENGR00236020-1 ALSA: add calling of trigger in machine
  driver
 
 soc_pcm_trigger() calls trigger functions of cpu_dai, codec_dai

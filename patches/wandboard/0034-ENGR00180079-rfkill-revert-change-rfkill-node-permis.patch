@@ -1,7 +1,7 @@
 From a9265e86ddbaa96f8ea1ee03f66197ab2e5a6674 Mon Sep 17 00:00:00 2001
 From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
 Date: Sun, 6 Jan 2013 09:52:35 +0800
-Subject: [PATCH 34/53] ENGR00180079 rfkill:revert "change rfkill node
+Subject: [PATCH 34/54] ENGR00180079 rfkill:revert "change rfkill node
  permission"
 
 This reverts commit 60daab290bbab00c73cc057ff868f658ec73d304.

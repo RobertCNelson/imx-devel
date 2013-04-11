@@ -1,7 +1,7 @@
 From 982c3846a5cce75f3e20af2abe6d87a2b880c0d2 Mon Sep 17 00:00:00 2001
 From: Xianzhong <b07117@freescale.com>
 Date: Sat, 26 Jan 2013 02:20:55 +0800
-Subject: [PATCH 50/53] ENGR00241777 fix rare kernel panic by gpu lowmem
+Subject: [PATCH 50/54] ENGR00241777 fix rare kernel panic by gpu lowmem
  killer
 
 task_free notification procedure cannot be registered/unregistered

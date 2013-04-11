@@ -22,7 +22,7 @@ config="wandboard_defconfig"
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
-BUILD=wand2
+BUILD=wand2.1
 
 #v3.X-rcX + upto SHA
 #KERNEL_SHA=""

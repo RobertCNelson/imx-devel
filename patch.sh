@@ -63,7 +63,7 @@ wandboard () {
 	#git checkout origin/imx_3.0.35_jb4.1.2_1.0.0-beta_wandboard -b tmp
 	#git pull --no-edit git://repo.or.cz/wandboard.git wandboard
 	#git rebase 699cd64427e41c9331e074fd51b651e548e87de0
-	#git format-patch -53 | grep 'Wandboard-Add-support-for-PCI-Express.patch'
+	#git format-patch -54 | grep 'Wandboard-Add-support-for-PCI-Express.patch'
 
 	${git} "${DIR}/patches/wandboard/0001-Wandboard-Add-author-s-names-to-the-board-file.patch"
 	${git} "${DIR}/patches/wandboard/0002-ENGR00235626-FEC-Enable-phy-pause-frame-feature.patch"
@@ -118,6 +118,7 @@ wandboard () {
 	${git} "${DIR}/patches/wandboard/0051-ENGR00241962-Add-another-hdmi-switch-for-hdmi-driver.patch"
 	${git} "${DIR}/patches/wandboard/0052-fix-a-couple-uninitialized-variables.patch"
 	${git} "${DIR}/patches/wandboard/0053-Wandboard-Fix-SDHC-platform-data.patch"
+	${git} "${DIR}/patches/wandboard/0054-kernel-header-missing-during-installation.patch"
 }
 
 deb_pkg () {

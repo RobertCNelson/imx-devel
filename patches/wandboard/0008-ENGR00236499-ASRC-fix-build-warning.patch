@@ -1,7 +1,7 @@
 From 5393d4e48bbf63039a118da73079284e1a825f0a Mon Sep 17 00:00:00 2001
 From: Chen Liangjun <b36089@freescale.com>
 Date: Tue, 11 Dec 2012 14:47:09 +0800
-Subject: [PATCH 08/53] ENGR00236499 ASRC: fix build warning
+Subject: [PATCH 08/54] ENGR00236499 ASRC: fix build warning
 
 Remove unused function "asrc_get_output_buffer_size()" to fix build
 warning.
