@@ -77,6 +77,7 @@ imx () {
 	${git} "${DIR}/patches/imx/0003-imx-Add-IMX53-AHCI-support.patch"
 	${git} "${DIR}/patches/imx/0005-SAUCE-imx6-enable-sata-clk-if-SATA_AHCI_PLATFORM.patch"
 #	${git} "${DIR}/patches/imx/0005-staging-imx-drm-request-irq-only-after-adding-the-cr.patch"
+	${git} "${DIR}/patches/imx/0006-arm-fec-use-random-mac-when-everything-else-fails.patch"
 }
 
 chipidea () {
