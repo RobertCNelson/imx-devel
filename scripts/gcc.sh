@@ -79,15 +79,17 @@ ubuntu_arm_gcc_installed () {
 
 dl_gcc_generic () {
 	WGET="wget -c --directory-prefix=${DIR}/dl/"
-	if [ ! -f ${DIR}/dl/${datestamp} ] ; then
+	if [ ! -f ${DIR}/dl/${directory}/${datestamp} ] ; then
 		echo "Installing: ${toolchain_name}"
 		echo "-----------------------------"
 		${WGET} ${site}/${version}/+download/${filename}
-		touch ${DIR}/dl/${datestamp}
 		if [ -d ${DIR}/dl/${directory} ] ; then
 			rm -rf ${DIR}/dl/${directory} || true
 		fi
 		tar xjf ${DIR}/dl/${filename} -C ${DIR}/dl/
+		if [ -f ${DIR}/dl/${directory}/${binary}gcc ] ; then
+			touch ${DIR}/dl/${directory}/${datestamp}
+		fi
 	fi
 
 	if [ "x${ARCH}" = "xarmv7l" ] ; then
@@ -109,8 +111,7 @@ armv7_toolchain () {
 #	version="trunk/2012.04"
 #	filename="gcc-linaro-arm-linux-gnueabi-2012.04-20120426_linux.tar.bz2"
 #	directory="gcc-linaro-arm-linux-gnueabi-2012.04-20120426_linux"
-#	datestamp="20120426"
-##	datestamp="20120426-gcc-linaro-arm-linux-gnueabi"
+#	datestamp="20120426-gcc-linaro-arm-linux-gnueabi"
 
 #	binary="bin/arm-linux-gnueabi-"
 
@@ -122,7 +123,6 @@ armv7_toolchain () {
 	version="trunk/2013.03"
 	filename="gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux.tar.bz2"
 	directory="gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux"
-	datestamp="20130313"
 	datestamp="20130313-gcc-linaro-arm-linux-gnueabihf"
 
 	binary="bin/arm-linux-gnueabihf-"
