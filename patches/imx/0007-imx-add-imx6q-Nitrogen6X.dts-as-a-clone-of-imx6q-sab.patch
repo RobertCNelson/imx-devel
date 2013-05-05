@@ -1,0 +1,220 @@
+From 5e98d322beeaa35ad7b40c9b9a272ba47a560db9 Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Sun, 5 May 2013 15:47:25 -0500
+Subject: [PATCH 7/7] imx: add imx6q-Nitrogen6X.dts as a clone of
+ imx6q-sabrelite.dts with the fec reset line change
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ arch/arm/boot/dts/Makefile             |    3 +-
+ arch/arm/boot/dts/imx6q-Nitrogen6X.dts |  184 ++++++++++++++++++++++++++++++++
+ 2 files changed, 186 insertions(+), 1 deletion(-)
+ create mode 100644 arch/arm/boot/dts/imx6q-Nitrogen6X.dts
+
+diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
+index 9c62558..32b1ac6 100644
+--- a/arch/arm/boot/dts/Makefile
++++ b/arch/arm/boot/dts/Makefile
+@@ -99,7 +99,8 @@ dtb-$(CONFIG_ARCH_MXC) += \
+ 	imx6q-arm2.dtb \
+ 	imx6q-sabreauto.dtb \
+ 	imx6q-sabrelite.dtb \
+-	imx6q-sabresd.dtb
++	imx6q-sabresd.dtb \
++	imx6q-Nitrogen6X.dtb
+ dtb-$(CONFIG_ARCH_MXS) += imx23-evk.dtb \
+ 	imx23-olinuxino.dtb \
+ 	imx23-stmp378x_devb.dtb \
+diff --git a/arch/arm/boot/dts/imx6q-Nitrogen6X.dts b/arch/arm/boot/dts/imx6q-Nitrogen6X.dts
+new file mode 100644
+index 0000000..7cd0869
+--- /dev/null
++++ b/arch/arm/boot/dts/imx6q-Nitrogen6X.dts
+@@ -0,0 +1,184 @@
++/*
++ * Copyright 2011 Freescale Semiconductor, Inc.
++ * Copyright 2011 Linaro Ltd.
++ *
++ * The code contained herein is licensed under the GNU General Public
++ * License. You may obtain a copy of the GNU General Public License
++ * Version 2 or later at the following locations:
++ *
++ * http://www.opensource.org/licenses/gpl-license.html
++ * http://www.gnu.org/copyleft/gpl.html
++ *
++ * Direct copy of imx6q-sabrelite.dts by Robert Nelson <robertcnelson@gmail.com>
++ * With modifications for the Nitrogen6X PHY rst
++ */
++
++/dts-v1/;
++/include/ "imx6q.dtsi"
++
++/ {
++	model = "Freescale i.MX6 Quad Nitrogen6X Board";
++	compatible = "fsl,imx6q-sabrelite", "fsl,imx6q";
++
++	memory {
++		reg = <0x10000000 0x40000000>;
++	};
++
++	regulators {
++		compatible = "simple-bus";
++
++		reg_2p5v: 2p5v {
++			compatible = "regulator-fixed";
++			regulator-name = "2P5V";
++			regulator-min-microvolt = <2500000>;
++			regulator-max-microvolt = <2500000>;
++			regulator-always-on;
++		};
++
++		reg_3p3v: 3p3v {
++			compatible = "regulator-fixed";
++			regulator-name = "3P3V";
++			regulator-min-microvolt = <3300000>;
++			regulator-max-microvolt = <3300000>;
++			regulator-always-on;
++		};
++
++		reg_usb_otg_vbus: usb_otg_vbus {
++			compatible = "regulator-fixed";
++			regulator-name = "usb_otg_vbus";
++			regulator-min-microvolt = <5000000>;
++			regulator-max-microvolt = <5000000>;
++			gpio = <&gpio3 22 0>;
++			enable-active-high;
++		};
++	};
++
++	sound {
++		compatible = "fsl,imx6q-sabrelite-sgtl5000",
++			     "fsl,imx-audio-sgtl5000";
++		model = "imx6q-sabrelite-sgtl5000";
++		ssi-controller = <&ssi1>;
++		audio-codec = <&codec>;
++		audio-routing =
++			"MIC_IN", "Mic Jack",
++			"Mic Jack", "Mic Bias",
++			"Headphone Jack", "HP_OUT";
++		mux-int-port = <1>;
++		mux-ext-port = <4>;
++	};
++};
++
++&ecspi1 {
++	fsl,spi-num-chipselects = <1>;
++	cs-gpios = <&gpio3 19 0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_ecspi1_1>;
++	status = "okay";
++
++	flash: m25p80@0 {
++		compatible = "sst,sst25vf016b";
++		spi-max-frequency = <20000000>;
++		reg = <0>;
++	};
++};
++
++&ssi1 {
++	fsl,mode = "i2s-slave";
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hog>;
++
++	hog {
++		pinctrl_hog: hoggrp {
++			fsl,pins = <
++				1450 0x80000000	/* MX6Q_PAD_NANDF_D6__GPIO_2_6 */
++				1458 0x80000000	/* MX6Q_PAD_NANDF_D7__GPIO_2_7 */
++				121  0x80000000	/* MX6Q_PAD_EIM_D19__GPIO_3_19 */
++				144  0x80000000	/* MX6Q_PAD_EIM_D22__GPIO_3_22 */
++				152  0x80000000	/* MX6Q_PAD_EIM_D23__GPIO_3_23 */
++				1262 0x80000000 /* MX6Q_PAD_SD3_DAT5__GPIO_7_0 */
++				1270 0x1f0b0	/* MX6Q_PAD_SD3_DAT4__GPIO_7_1 */
++				953  0x80000000	/* MX6Q_PAD_GPIO_0__CCM_CLKO */
++			>;
++		};
++	};
++};
++
++&ahci {
++	status = "okay";
++};
++
++&usbotg {
++	vbus-supply = <&reg_usb_otg_vbus>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usbotg_1>;
++	disable-over-current;
++	otg_id_pin_select_change;
++	status = "okay";
++};
++
++&usbh1 {
++	status = "okay";
++};
++
++&fec {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_enet_1>;
++	phy-mode = "rgmii";
++	phy-reset-gpios = <&gpio1 27 0>;
++	status = "okay";
++};
++
++&usdhc3 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usdhc3_2>;
++	cd-gpios = <&gpio7 0 0>;
++	wp-gpios = <&gpio7 1 0>;
++	vmmc-supply = <&reg_3p3v>;
++	status = "okay";
++};
++
++&usdhc4 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usdhc4_2>;
++	cd-gpios = <&gpio2 6 0>;
++	wp-gpios = <&gpio2 7 0>;
++	vmmc-supply = <&reg_3p3v>;
++	status = "okay";
++};
++
++&audmux {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_audmux_1>;
++};
++
++&uart1 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart1_2>;
++};
++
++&uart2 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart2_1>;
++};
++
++&i2c1 {
++	status = "okay";
++	clock-frequency = <100000>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_i2c1_1>;
++
++	codec: sgtl5000@0a {
++		compatible = "fsl,sgtl5000";
++		reg = <0x0a>;
++		clocks = <&clks 169>;
++		VDDA-supply = <&reg_2p5v>;
++		VDDIO-supply = <&reg_3p3v>;
++	};
++};
+-- 
+1.7.10.4
+
