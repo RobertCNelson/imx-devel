@@ -1,7 +1,7 @@
 From 8a4e845ae14c9070d4072e0fe8e48f3486393d96 Mon Sep 17 00:00:00 2001
 From: KyongHo Cho <pullip.cho@samsung.com>
 Date: Wed, 7 Sep 2011 11:27:07 +0900
-Subject: [PATCH 13/54] gpu: ion: several bugfixes and enhancements of ION
+Subject: [PATCH 013/223] gpu: ion: several bugfixes and enhancements of ION
 
 1. Verifying if the size of memory allocation in ion_alloc() is aligned
 by PAGE_SIZE at least. If it is not, this change makes the size to be

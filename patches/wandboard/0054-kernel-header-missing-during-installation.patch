@@ -1,7 +1,7 @@
 From c97d13e34c4f3d466cb3404e83a782ca11d3cf41 Mon Sep 17 00:00:00 2001
 From: jean charles mammana <x@x>
 Date: Thu, 11 Apr 2013 14:25:00 +0800
-Subject: [PATCH 54/54] kernel header missing during installation
+Subject: [PATCH 054/223] kernel header missing during installation
 
 Some video application require the "usb/video.h" header.
 So here the patch to add it during the kernel header installation :

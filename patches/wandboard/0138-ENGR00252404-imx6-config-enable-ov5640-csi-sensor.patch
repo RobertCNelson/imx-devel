@@ -1,0 +1,28 @@
+From 9e59c527e8066514d30eb4744cbcff5019fe9148 Mon Sep 17 00:00:00 2001
+From: "guoyin.chen" <guoyin.chen@freescale.com>
+Date: Wed, 6 Mar 2013 15:25:42 +0800
+Subject: [PATCH 138/223] ENGR00252404 imx6: config: enable ov5640 csi sensor
+
+add ov5640 config for imx6 android config
+
+Signed-off-by: guoyin.chen <guoyin.chen@freescale.com>
+---
+ arch/arm/configs/imx6_android_defconfig |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/imx6_android_defconfig b/arch/arm/configs/imx6_android_defconfig
+index ae58f39..ce7f147 100644
+--- a/arch/arm/configs/imx6_android_defconfig
++++ b/arch/arm/configs/imx6_android_defconfig
+@@ -1927,7 +1927,7 @@ CONFIG_VIDEO_MXC_IPU_CAMERA=y
+ # CONFIG_MXC_CAMERA_MICRON111 is not set
+ # CONFIG_MXC_CAMERA_OV2640 is not set
+ # CONFIG_MXC_CAMERA_OV3640 is not set
+-# CONFIG_MXC_CAMERA_OV5640 is not set
++CONFIG_MXC_CAMERA_OV5640=y
+ # CONFIG_MXC_CAMERA_OV8820_MIPI is not set
+ CONFIG_MXC_CAMERA_OV5642=y
+ CONFIG_MXC_TVIN_ADV7180=y
+-- 
+1.7.10.4
+

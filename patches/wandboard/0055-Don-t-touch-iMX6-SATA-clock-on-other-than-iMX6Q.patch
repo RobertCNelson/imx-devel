@@ -1,0 +1,30 @@
+From 2a118bb2c07da80ad8906387d75c0b083ec9e619 Mon Sep 17 00:00:00 2001
+From: Tapani <tapani@vmail.me>
+Date: Fri, 10 May 2013 15:52:29 +0800
+Subject: [PATCH 055/223] Don't touch iMX6 SATA clock on other than iMX6Q.
+
+The IOMUXC_GPR13 control register has different functionality on iMX6S/iMX6DL
+---
+ arch/arm/mach-mx6/clock.c |    6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/mach-mx6/clock.c b/arch/arm/mach-mx6/clock.c
+index b8b7b7b..69850bb 100644
+--- a/arch/arm/mach-mx6/clock.c
++++ b/arch/arm/mach-mx6/clock.c
+@@ -5623,8 +5623,10 @@ int __init mx6_clocks_init(unsigned long ckil, unsigned long osc,
+ 
+ 	base = ioremap(MX6Q_IOMUXC_BASE_ADDR, SZ_4K);
+ 	/* Close PLL inside SATA PHY. */
+-	reg = __raw_readl(base + 0x34);
+-	__raw_writel(reg | (1 << 1), base + 0x34);
++	if (cpu_is_mx6q()) {
++		reg = __raw_readl(base + 0x34);
++		__raw_writel(reg | (1 << 1), base + 0x34);
++        }
+ 
+ 	/* Close PCIE PHY. */
+ 	reg = __raw_readl(base + 0x04);
+-- 
+1.7.10.4
+

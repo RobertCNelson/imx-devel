@@ -1,7 +1,7 @@
 From da6931cfd63b19e47cac3af00a8b859188963b83 Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Thu, 27 Dec 2012 16:49:37 +0800
-Subject: [PATCH 36/54] ENGR00238382 MX6 HDMI: Change VGA mode flag, adjust
+Subject: [PATCH 036/223] ENGR00238382 MX6 HDMI: Change VGA mode flag, adjust
  default modelist sequency
 
 - Change VGA mode the flag from unknow to VESA.

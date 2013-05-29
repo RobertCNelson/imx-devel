@@ -1,0 +1,38 @@
+From 01b6aff4d3cf0eb691e61e411a1ce02150298bc8 Mon Sep 17 00:00:00 2001
+From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
+Date: Thu, 28 Mar 2013 16:18:19 +0800
+Subject: [PATCH 171/223] ENGR00255305 Sabreauto:refactor sd config
+
+Add "MMC_CAP_REMOVABLE" and "runtime_pm" to support hot-plug and
+trigger bus scan after resuming from suspend.Otherwise, sdio wifi won't
+work well.
+
+Signed-off-by: Jianzheng Zhou <jianzheng.zhou@freescale.com>
+---
+ arch/arm/mach-mx6/board-mx6q_sabreauto.c |    4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/mach-mx6/board-mx6q_sabreauto.c b/arch/arm/mach-mx6/board-mx6q_sabreauto.c
+index 94ec833..0650a34 100644
+--- a/arch/arm/mach-mx6/board-mx6q_sabreauto.c
++++ b/arch/arm/mach-mx6/board-mx6q_sabreauto.c
+@@ -290,12 +290,16 @@ static const struct esdhc_platform_data mx6q_sabreauto_sd3_data __initconst = {
+ 	.support_8bit		= 1,
+ 	.delay_line		= 0,
+ 	.platform_pad_change	= plt_sd_pad_change,
++	.cd_type = ESDHC_CD_CONTROLLER,
++	.runtime_pm = 1,
+ };
+ 
+ static const struct esdhc_platform_data mx6q_sabreauto_sd1_data __initconst = {
+ 	.cd_gpio = SABREAUTO_SD1_CD,
+ 	.wp_gpio = SABREAUTO_SD1_WP,
+ 	.keep_power_at_suspend = 1,
++	.cd_type = ESDHC_CD_CONTROLLER,
++	.runtime_pm = 1,
+ };
+ 
+ 
+-- 
+1.7.10.4
+

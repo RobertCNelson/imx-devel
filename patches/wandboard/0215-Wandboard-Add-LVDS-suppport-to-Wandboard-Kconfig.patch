@@ -1,0 +1,25 @@
+From c7ea81f51be658c15744eb856c2d02fa9f000eb3 Mon Sep 17 00:00:00 2001
+From: Tapani <tapani@vmail.me>
+Date: Fri, 17 May 2013 15:10:53 +0800
+Subject: [PATCH 215/223] Wandboard : Add LVDS suppport to Wandboard Kconfig
+
+---
+ arch/arm/mach-mx6/Kconfig |    2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/arch/arm/mach-mx6/Kconfig b/arch/arm/mach-mx6/Kconfig
+index 12adaf2..9d7f70e 100644
+--- a/arch/arm/mach-mx6/Kconfig
++++ b/arch/arm/mach-mx6/Kconfig
+@@ -311,6 +311,8 @@ config MACH_WANDBOARD
+ 	select IMX_HAVE_PLATFORM_IMX_MIPI_DSI if VIDEO_MXC_IPU_OUTPUT
+ 	select IMX_HAVE_PLATFORM_IMX_PCIE if IMX_PCIE
+ 	select ZONE_DMA if ION=n
++	select IMX_HAVE_PLATFORM_LDB if FB_MXC_LDB
++	select IMX_HAVE_PLATFORM_IMX_VDOA if MXC_IPU_V3
+ 	help
+ 	  Include support for the WandBoard SoM.
+ 
+-- 
+1.7.10.4
+

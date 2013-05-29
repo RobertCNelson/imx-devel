@@ -1,0 +1,63 @@
+From 01a2da5ae3b16ba1700ebcc6090da41113e112a1 Mon Sep 17 00:00:00 2001
+From: Nitin Garg <nitin.garg@freescale.com>
+Date: Mon, 11 Mar 2013 07:16:13 -0500
+Subject: [PATCH 139/223] ENGR00252418-1: Fix iMX53 build break due to Fuse
+ commit
+
+commit 2786868e5f56c95afd1642fe487203ac4fa523dc (ENGR00252418)
+breaks the iMX5x builds as the fuse.c contains iMX6 specific
+code in plat-mxc common devices.
+
+Signed-off-by: Nitin Garg <nitin.garg@freescale.com>
+---
+ arch/arm/plat-mxc/Makefile           |    4 ++--
+ arch/arm/plat-mxc/include/mach/mxc.h |    3 +++
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/plat-mxc/Makefile b/arch/arm/plat-mxc/Makefile
+index 1aa1780..cf0457c 100755
+--- a/arch/arm/plat-mxc/Makefile
++++ b/arch/arm/plat-mxc/Makefile
+@@ -3,7 +3,7 @@
+ #
+ 
+ # Common support
+-obj-y := clock.o gpio.o time.o devices.o cpu.o system.o irq-common.o usb_common.o usb_wakeup.o fuse.o
++obj-y := clock.o gpio.o time.o devices.o cpu.o system.o irq-common.o usb_common.o usb_wakeup.o
+ 
+ # MX51 uses the TZIC interrupt controller, older platforms use AVIC
+ obj-$(CONFIG_MXC_TZIC) += tzic.o
+@@ -28,7 +28,7 @@ endif
+ obj-y += devices/
+ 
+ obj-$(CONFIG_ARCH_MX5) += dvfs_core.o
+-obj-$(CONFIG_ARCH_MX6) += dvfs_core.o
++obj-$(CONFIG_ARCH_MX6) += dvfs_core.o fuse.o
+ 
+ # DVFS-PER support
+ obj-$(CONFIG_MXC_DVFS_PER) 	+= dvfs_per.o
+diff --git a/arch/arm/plat-mxc/include/mach/mxc.h b/arch/arm/plat-mxc/include/mach/mxc.h
+index ea60442..c7fa3d2 100755
+--- a/arch/arm/plat-mxc/include/mach/mxc.h
++++ b/arch/arm/plat-mxc/include/mach/mxc.h
+@@ -86,6 +86,7 @@ extern unsigned int system_rev;
+ #define board_is_mx53_arm2() (cpu_is_mx53() && board_is_rev(IMX_BOARD_REV_2))
+ #define board_is_mx53_evk_a()    (cpu_is_mx53() && board_is_rev(IMX_BOARD_REV_1))
+ #define board_is_mx53_evk_b()    (cpu_is_mx53() && board_is_rev(IMX_BOARD_REV_3))
++#define fuse_dev_is_available(int)  (1)
+ #endif
+ 
+ #ifdef CONFIG_SOC_IMX6Q
+@@ -298,7 +299,9 @@ enum mxc_dev_type {
+ 	MXC_DEV_RV,
+ 	MXC_DEV_SORENSEN,
+ };
++#ifdef CONFIG_ARCH_MX6
+ extern int fuse_dev_is_available(enum mxc_dev_type dev);
++#endif
+ 
+ #endif
+ 
+-- 
+1.7.10.4
+

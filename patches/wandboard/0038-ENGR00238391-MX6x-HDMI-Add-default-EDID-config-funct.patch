@@ -1,7 +1,7 @@
 From 9659f9aa206431a3bfd7bd377d564c107e792a0a Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Thu, 27 Dec 2012 18:14:52 +0800
-Subject: [PATCH 38/54] ENGR00238391 MX6x HDMI: Add default EDID config
+Subject: [PATCH 038/223] ENGR00238391 MX6x HDMI: Add default EDID config
  function when read EDID failed
 
 Add default EDID config function when read EDID failed.

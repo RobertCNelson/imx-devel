@@ -1,7 +1,7 @@
 From 75d9106342646ccad9080f9852a1ca22014ef910 Mon Sep 17 00:00:00 2001
 From: Fugang Duan <b38611@freescale.com>
 Date: Thu, 29 Nov 2012 08:55:12 +0000
-Subject: [PATCH 02/54] ENGR00235626 FEC: Enable phy pause frame feature
+Subject: [PATCH 002/223] ENGR00235626 FEC: Enable phy pause frame feature
 
 Since some ethernet MAC flow control is relied on phy pause
 status, both link partners exchange information via auto neg to

@@ -1,0 +1,142 @@
+From dc26b9aa4f327546a10245f233a324d1209682e7 Mon Sep 17 00:00:00 2001
+From: Tapani <tapani@vmail.me>
+Date: Fri, 17 May 2013 15:12:31 +0800
+Subject: [PATCH 216/223] Wandboard : Add and enable LVDS in Wandboard board
+ file
+
+---
+ arch/arm/mach-mx6/board-wand.c |  111 ++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 111 insertions(+)
+
+diff --git a/arch/arm/mach-mx6/board-wand.c b/arch/arm/mach-mx6/board-wand.c
+index 276c79d..7411445 100644
+--- a/arch/arm/mach-mx6/board-wand.c
++++ b/arch/arm/mach-mx6/board-wand.c
+@@ -619,6 +619,116 @@ static void wand_init_hdmi(void) {
+ 
+ /****************************************************************************
+  *                                                                          
++ * LCD/LVDS/TTL
++ *                                                                          
++ ****************************************************************************/
++
++static const __initdata iomux_v3_cfg_t wand_ttl_pads[] = {
++	MX6DL_PAD_DI0_DISP_CLK__IPU1_DI0_DISP_CLK,
++	MX6DL_PAD_DI0_PIN2__IPU1_DI0_PIN2,		/* HSync */
++	MX6DL_PAD_DI0_PIN3__IPU1_DI0_PIN3,		/* VSync */
++	MX6DL_PAD_DI0_PIN4__IPU1_DI0_PIN4,		/* Contrast */
++	MX6DL_PAD_DI0_PIN15__IPU1_DI0_PIN15,		/* DISP0_DRDY */
++	MX6DL_PAD_DISP0_DAT0__IPU1_DISP0_DAT_0,
++	MX6DL_PAD_DISP0_DAT1__IPU1_DISP0_DAT_1,
++	MX6DL_PAD_DISP0_DAT2__IPU1_DISP0_DAT_2,
++	MX6DL_PAD_DISP0_DAT3__IPU1_DISP0_DAT_3,
++	MX6DL_PAD_DISP0_DAT4__IPU1_DISP0_DAT_4,
++	MX6DL_PAD_DISP0_DAT5__IPU1_DISP0_DAT_5,
++	MX6DL_PAD_DISP0_DAT6__IPU1_DISP0_DAT_6,
++	MX6DL_PAD_DISP0_DAT7__IPU1_DISP0_DAT_7,
++	MX6DL_PAD_DISP0_DAT8__IPU1_DISP0_DAT_8,
++	MX6DL_PAD_DISP0_DAT9__IPU1_DISP0_DAT_9,
++	MX6DL_PAD_DISP0_DAT10__IPU1_DISP0_DAT_10,
++	MX6DL_PAD_DISP0_DAT11__IPU1_DISP0_DAT_11,
++	MX6DL_PAD_DISP0_DAT12__IPU1_DISP0_DAT_12,
++	MX6DL_PAD_DISP0_DAT13__IPU1_DISP0_DAT_13,
++	MX6DL_PAD_DISP0_DAT14__IPU1_DISP0_DAT_14,
++	MX6DL_PAD_DISP0_DAT15__IPU1_DISP0_DAT_15,
++	MX6DL_PAD_DISP0_DAT16__IPU1_DISP0_DAT_16,
++	MX6DL_PAD_DISP0_DAT17__IPU1_DISP0_DAT_17,
++	MX6DL_PAD_DISP0_DAT18__IPU1_DISP0_DAT_18,
++	MX6DL_PAD_DISP0_DAT19__IPU1_DISP0_DAT_19,
++	MX6DL_PAD_DISP0_DAT20__IPU1_DISP0_DAT_20,
++	MX6DL_PAD_DISP0_DAT21__IPU1_DISP0_DAT_21,
++	MX6DL_PAD_DISP0_DAT22__IPU1_DISP0_DAT_22,
++	MX6DL_PAD_DISP0_DAT23__IPU1_DISP0_DAT_23,
++};
++
++static const __initdata iomux_v3_cfg_t wand_lvds_pads[] = {
++	MX6DL_PAD_SD4_DAT0__GPIO_2_8,
++	MX6DL_PAD_SD4_DAT1__GPIO_2_9,
++	MX6DL_PAD_SD4_DAT2__GPIO_2_10,
++	MX6DL_PAD_SD4_DAT3__GPIO_2_11,
++        
++	MX6DL_PAD_LVDS0_CLK_P__LDB_LVDS0_CLK,
++	MX6DL_PAD_LVDS0_TX0_P__LDB_LVDS0_TX0,
++	MX6DL_PAD_LVDS0_TX1_P__LDB_LVDS0_TX1,
++	MX6DL_PAD_LVDS0_TX2_P__LDB_LVDS0_TX2,
++	MX6DL_PAD_LVDS0_TX3_P__LDB_LVDS0_TX3,
++};
++
++/* ------------------------------------------------------------------------ */
++
++static struct fsl_mxc_lcd_platform_data wand_lcdif_data = {
++	.ipu_id = 0,
++	.disp_id = 0,
++	.default_ifmt = IPU_PIX_FMT_RGB24
++};
++
++/* ------------------------------------------------------------------------ */
++
++static struct fsl_mxc_ldb_platform_data wand_ldb_data = {
++	.ipu_id = 0,
++	.disp_id = 0,
++	.ext_ref = 1,
++	.mode = LDB_SIN0,
++	.sec_ipu_id = 0,
++	.sec_disp_id = 0,
++};
++
++/* ------------------------------------------------------------------------ */
++
++static struct ipuv3_fb_platform_data wand_lvds_fb[] = {
++	{
++		.disp_dev = "ldb",
++		.interface_pix_fmt = IPU_PIX_FMT_RGB24,
++		.mode_str = "LDB-WVGA",
++		.default_bpp = 24,
++		.int_clk = false,
++	},
++};
++
++/* ------------------------------------------------------------------------ */
++
++
++static void __init wand_init_lcd(void) {
++	WAND_SETUP_PADS(wand_ttl_pads);
++	WAND_SETUP_PADS(wand_lvds_pads);
++
++	gpio_request(IMX_GPIO_NR(2, 8), "lvds0_en");
++	gpio_direction_output(IMX_GPIO_NR(2, 8), 1);
++        
++	gpio_request(IMX_GPIO_NR(2, 9), "lvds0_blt_ctrl");
++	gpio_direction_output(IMX_GPIO_NR(2, 9), 1);
++
++	gpio_request(IMX_GPIO_NR(2, 10), "disp0_bklen");
++	gpio_direction_output(IMX_GPIO_NR(2, 10), 1);
++
++	gpio_request(IMX_GPIO_NR(2, 11), "disp0_vdden");
++	gpio_direction_output(IMX_GPIO_NR(2, 11), 1);
++
++	imx6q_add_vdoa();
++
++	imx6q_add_ldb(&wand_ldb_data);
++	imx6q_add_lcdif(&wand_lcdif_data);
++
++	imx6q_add_ipuv3fb(1, &wand_lvds_fb[0]);
++}
++
++
++/****************************************************************************
++ *                                                                          
+  * WiFi
+  *                                                                          
+  ****************************************************************************/
+@@ -978,6 +1088,7 @@ static void __init wand_board_init(void) {
+ 	wand_init_usb();
+ 	wand_init_ipu();
+ 	wand_init_hdmi();
++	wand_init_lcd();
+ 	wand_init_wifi();
+ 	wand_init_bluetooth();
+ 	wand_init_pm();
+-- 
+1.7.10.4
+

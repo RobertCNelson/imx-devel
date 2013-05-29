@@ -1,7 +1,8 @@
 From 316089d18407586fba5a013680951d284b5e7eea Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Tue, 25 Dec 2012 10:59:54 +0800
-Subject: [PATCH 30/54] ENGR00238201-3 V4L2:ADV7180:enable adv7180 in Android
+Subject: [PATCH 030/223] ENGR00238201-3 V4L2:ADV7180:enable adv7180 in
+ Android
 
 Enable CONFIG_MXC_TVIN_ADV7180 for android
 

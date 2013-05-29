@@ -1,8 +1,8 @@
 From 90292a9949b8850151e159a9fec95ba1a64bfe11 Mon Sep 17 00:00:00 2001
 From: make shi <b15407@freescale.com>
 Date: Mon, 10 Dec 2012 16:40:05 +0800
-Subject: [PATCH 18/54] ENGR00236169 MX6 USB :kfree udc_controller when remove
- udc driver
+Subject: [PATCH 018/223] ENGR00236169 MX6 USB :kfree udc_controller when
+ remove udc driver
 
 Kree and reset udc_controller should be done when remove udc driver to avoid
 kernel dump during modprobe gadget driver after modprobe and rmmod udc driver.

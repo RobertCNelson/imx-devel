@@ -1,8 +1,8 @@
 From 9eb326ea795f49302d3675d83901b1467d58a6c2 Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Thu, 27 Dec 2012 17:13:28 +0800
-Subject: [PATCH 37/54] ENGR00238384 MX6x HDMI: Update HDMI setting when HDMI
- cable plugin
+Subject: [PATCH 037/223] ENGR00238384 MX6x HDMI: Update HDMI setting when
+ HDMI cable plugin
 
 Update HDMI setting when HDMI cable plugin,
 HDMI will catch capbility update with EDID data updated.
