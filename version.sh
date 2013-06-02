@@ -15,6 +15,11 @@ fi
 
 config="wandboard_defconfig"
 
+#linaro_toolchain="arm9_gcc_4_7"
+#linaro_toolchain="cortex_gcc_4_6"
+linaro_toolchain="cortex_gcc_4_7"
+#linaro_toolchain="cortex_gcc_4_8"
+
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
