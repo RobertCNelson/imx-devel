@@ -16,6 +16,7 @@ fi
 config="imx_v6_v7_defconfig"
 
 #linaro_toolchain="arm9_gcc_4_7"
+#linaro_toolchain="cortex_gcc_4_6"
 linaro_toolchain="cortex_gcc_4_7"
 #linaro_toolchain="cortex_gcc_4_8"
 
@@ -25,7 +26,7 @@ KERNEL_TAG=${KERNEL_REL}.4
 BUILD=imx4
 
 #v3.X-rcX + upto SHA
-#KERNEL_SHA="de55eb1d60d2ed0f1ba5e13226d91b3bfbe1c108"
+#KERNEL_SHA=""
 
 #git branch
 BRANCH="v3.9.x-imx"
