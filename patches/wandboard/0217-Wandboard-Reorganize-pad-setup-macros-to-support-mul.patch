@@ -1,7 +1,7 @@
 From 399fdcfdad9dde309a62f9977b294ca3d279599d Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Tue, 21 May 2013 11:21:50 +0800
-Subject: [PATCH 217/223] Wandboard : Reorganize pad setup macros to support
+Subject: [PATCH 217/225] Wandboard : Reorganize pad setup macros to support
  multiple cpu types.
 
 ---

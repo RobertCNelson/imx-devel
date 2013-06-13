@@ -1,7 +1,7 @@
 From 37d6fcb9f0dba0e26a57b371b9ca76efc8d7b9fb Mon Sep 17 00:00:00 2001
 From: Robin Gong <B38343@freescale.com>
 Date: Wed, 19 Dec 2012 18:48:45 +0800
-Subject: [PATCH 063/223] ENGR00237742 busfreq:fix IPG_PERCLK will be
+Subject: [PATCH 063/225] ENGR00237742 busfreq:fix IPG_PERCLK will be
  decreased to 6M once exit low bus
 
 on Sabresd board, IPG_PERCLK will be fixed on 6Mhz once system enter low bus,

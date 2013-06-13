@@ -1,7 +1,7 @@
 From ea19c4e535ecbf0e25b89c73dd2fe9d6949b17cd Mon Sep 17 00:00:00 2001
 From: Gerlando Falauto <gerlando.falauto@keymile.com>
 Date: Tue, 3 Jul 2012 09:09:47 +0200
-Subject: [PATCH 200/223] mtd: cfi_cmdset_0002: Micron M29EW bugfixes as per
+Subject: [PATCH 200/225] mtd: cfi_cmdset_0002: Micron M29EW bugfixes as per
  TN-13-07
 
 Fix the following issues with Micron's (formerly Numonyx)

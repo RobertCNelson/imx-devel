@@ -1,7 +1,7 @@
 From 352bf9fc558bdafa3e192c5e7387d42a54a39dd8 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Thu, 28 Feb 2013 18:26:38 +0800
-Subject: [PATCH 114/223] ENGR00252162: mxc_v4l2_capture: ov5640: some formats
+Subject: [PATCH 114/225] ENGR00252162: mxc_v4l2_capture: ov5640: some formats
  have quality issue
 
 The following formats have quality issue:

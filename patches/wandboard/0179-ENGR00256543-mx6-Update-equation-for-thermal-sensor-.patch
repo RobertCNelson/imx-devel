@@ -1,7 +1,7 @@
 From 38166fce272087f67ce56c097f27aafc2145960b Mon Sep 17 00:00:00 2001
 From: Anson Huang <b20788@freescale.com>
 Date: Fri, 29 Mar 2013 09:44:41 +0800
-Subject: [PATCH 179/223] ENGR00256543 mx6: Update equation for thermal sensor
+Subject: [PATCH 179/225] ENGR00256543 mx6: Update equation for thermal sensor
  on i.MX6DL
 
 Use universal equation and 25C's calibration data to

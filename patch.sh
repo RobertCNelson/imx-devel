@@ -67,9 +67,9 @@ wandboard () {
 	#git pull --no-edit git://github.com/RobertCNelson/linux.git imx_3.0.35_jb4.1.2_1.0.0-beta_wandboard
 	#git pull --no-edit git://repo.or.cz/wandboard.git wandboard
 	#git rebase 699cd64427e41c9331e074fd51b651e548e87de0
-	#git format-patch -224 | grep 'Wandboard-Add-support-for-PCI-Express.patch' ; rm -rf *.patch
+	#git format-patch -226 | grep 'Wandboard-Add-support-for-PCI-Express.patch' ; rm -rf *.patch
 	#0001-Wandboard-Add-support-for-PCI-Express.patch
-	#git format-patch -223 -o /opt/github/imx-devel/patches/wandboard/
+	#git format-patch -225 -o /opt/github/imx-devel/patches/wandboard/
 	#git checkout master -f ; git branch -D tmp
 
 	${git} "${DIR}/patches/wandboard/0001-Wandboard-Add-author-s-names-to-the-board-file.patch"
@@ -295,6 +295,8 @@ wandboard () {
 	${git} "${DIR}/patches/wandboard/0221-ENGR00257847-1-MX6Q-DL-Fix-Ethernet-performance-issu.patch"
 	${git} "${DIR}/patches/wandboard/0222-ENGR00257847-2-MX6Q-DL-Fix-Ethernet-performance-issu.patch"
 	${git} "${DIR}/patches/wandboard/0223-Wandboard-Update-default-config.patch"
+	${git} "${DIR}/patches/wandboard/0224-Set-iMX6DQ-DL-max-speed-back-to-1GHz.patch"
+	${git} "${DIR}/patches/wandboard/0225-Wandboard-Add-SATA-support.patch"
 }
 
 deb_pkg () {

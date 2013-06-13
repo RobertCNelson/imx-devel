@@ -1,7 +1,7 @@
 From c39d5aed749e02899ef70e246573001423d59f21 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Fri, 12 Apr 2013 15:44:46 +0800
-Subject: [PATCH 207/223] ENGR00258357-5: mlb: Use circle buf macros to
+Subject: [PATCH 207/225] ENGR00258357-5: mlb: Use circle buf macros to
  replace old ringbuf mechanism
 
 Use circle buf to replace old ringbuf mechanism.

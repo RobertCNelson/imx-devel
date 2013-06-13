@@ -1,7 +1,7 @@
 From 5e121025186d5c11bc376ab87268028b987a3bcc Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Fri, 18 Jan 2013 08:45:37 +0800
-Subject: [PATCH 084/223] ENGR00240650 pcie: imx: fix ep device no int when
+Subject: [PATCH 084/225] ENGR00240650 pcie: imx: fix ep device no int when
  pcie switch is used
 
 The pcie ep device inserted into the downstream port of the

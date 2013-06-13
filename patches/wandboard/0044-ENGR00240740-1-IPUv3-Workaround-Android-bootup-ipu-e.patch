@@ -1,7 +1,7 @@
 From d93447a42ee90cdb9af5de5c9d513e67c24eecda Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.liu@freescale.com>
 Date: Fri, 18 Jan 2013 16:20:22 +0800
-Subject: [PATCH 044/223] ENGR00240740-1 IPUv3:Workaround Android bootup ipu
+Subject: [PATCH 044/225] ENGR00240740-1 IPUv3:Workaround Android bootup ipu
  error
 
 Enabling IPU hsp clock in mxcfb_probe() context by calling

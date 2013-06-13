@@ -1,7 +1,7 @@
 From 1cef8fe481de393c94e4709a28ea03d6dc9d7c2f Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 4 Mar 2013 17:19:20 +0800
-Subject: [PATCH 130/223] ENGR00251209-4 msl-mx6: usb: Fix system hang when
+Subject: [PATCH 130/225] ENGR00251209-4 msl-mx6: usb: Fix system hang when
  unload gadget module
 
 At gadget module remove function, it closes the clock, but

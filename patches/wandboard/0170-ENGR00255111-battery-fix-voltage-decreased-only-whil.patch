@@ -1,7 +1,7 @@
 From b1fb913330320a8e8c5a9371cd3cb5e74c463d27 Mon Sep 17 00:00:00 2001
 From: Robin Gong <b38343@freescale.com>
 Date: Mon, 25 Mar 2013 14:27:42 +0800
-Subject: [PATCH 170/223] ENGR00255111 battery: fix voltage decreased only
+Subject: [PATCH 170/225] ENGR00255111 battery: fix voltage decreased only
  while discharging
 
 If system run higher cpu loading with bigger current, such as GPU or VPU,

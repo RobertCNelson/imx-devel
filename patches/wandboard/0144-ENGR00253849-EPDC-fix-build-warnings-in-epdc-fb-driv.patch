@@ -1,7 +1,7 @@
 From 80c6f925e868687a796b151c15eec84c181e5160 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 12 Mar 2013 14:59:49 +0800
-Subject: [PATCH 144/223] ENGR00253849 EPDC: fix build warnings in epdc fb
+Subject: [PATCH 144/225] ENGR00253849 EPDC: fix build warnings in epdc fb
  driver
 
 This patch is to fix the following warnings:

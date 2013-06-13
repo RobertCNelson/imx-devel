@@ -1,7 +1,7 @@
 From 436cc7e5ac95afe0c6914c851ed1d77caece4299 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Apr 2013 17:32:00 +0800
-Subject: [PATCH 185/223] ENGR00256315-5 mtd: cfi_cmdset_0002: print @adr when
+Subject: [PATCH 185/225] ENGR00256315-5 mtd: cfi_cmdset_0002: print @adr when
  write timeout occurs
 
 Print out the @adr when the write timeout occurs.

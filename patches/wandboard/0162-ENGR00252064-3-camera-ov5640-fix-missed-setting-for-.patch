@@ -1,7 +1,7 @@
 From c6c19fb9aef732b9ba1d1de8e14396188a0a25f1 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 14 Mar 2013 17:58:01 +0800
-Subject: [PATCH 162/223] ENGR00252064-3 camera: ov5640: fix missed setting
+Subject: [PATCH 162/225] ENGR00252064-3 camera: ov5640: fix missed setting
  for light_frequency
 
 Confirmed from OV, the missed setting for light_frequency need to be added.

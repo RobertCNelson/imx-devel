@@ -1,7 +1,7 @@
 From b16a2686e488a47d0a61b5bbea51e480a1a8666c Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Mon, 21 Jan 2013 13:44:54 +0800
-Subject: [PATCH 088/223] ENGR00240972-3 V4L2: VDI double frame rate for
+Subject: [PATCH 088/225] ENGR00240972-3 V4L2: VDI double frame rate for
  interlace stream
 
 Each VPU decoded frame is de-interlaced twice inside v4l2 output driver,

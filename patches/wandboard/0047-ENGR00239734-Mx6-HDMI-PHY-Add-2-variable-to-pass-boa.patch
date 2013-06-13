@@ -1,7 +1,7 @@
 From 9dbb887850fafe64eeae61b2e1e3f7fbb139d179 Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Fri, 11 Jan 2013 15:28:51 +0800
-Subject: [PATCH 047/223] ENGR00239734 Mx6 HDMI PHY: Add 2 variable to pass
+Subject: [PATCH 047/225] ENGR00239734 Mx6 HDMI PHY: Add 2 variable to pass
  board specific config
 
 The PHY register 0x9 and 0xe should setting

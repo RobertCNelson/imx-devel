@@ -1,7 +1,7 @@
 From 0c7823d48f6684d5f8f0c88a863d065612c20a3a Mon Sep 17 00:00:00 2001
 From: Gary Zhang <b13634@freescale.com>
 Date: Fri, 4 Jan 2013 10:09:00 +0800
-Subject: [PATCH 066/223] ENGR00238809-2 mx6sl: ssi: add IRAM support
+Subject: [PATCH 066/225] ENGR00238809-2 mx6sl: ssi: add IRAM support
 
 locate SSI playback buffer into IRAM in mx6sl.
 because left IRAM room is not enough to contain record

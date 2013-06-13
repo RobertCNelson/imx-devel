@@ -1,7 +1,7 @@
 From cb6ade87b64f922d6125fea16f5ff9e268d84f0c Mon Sep 17 00:00:00 2001
 From: Robin Gong <b38343@freescale.com>
 Date: Tue, 13 Nov 2012 15:06:16 +0800
-Subject: [PATCH 219/223] ENGR00233366-2 mx6q_sabresd mx6sl_arm2 mx6sl_evk:
+Subject: [PATCH 219/225] ENGR00233366-2 mx6q_sabresd mx6sl_arm2 mx6sl_evk:
  config in LDO bypass
 
 U-boot will not care about ldo bypass, move these code from u-boot to kernel.

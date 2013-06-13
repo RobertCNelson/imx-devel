@@ -1,7 +1,7 @@
 From d1b95d1676f199dc3bcdc12d94c6c2a7cfd3bb7c Mon Sep 17 00:00:00 2001
 From: Alejandro Sierra <b18039@freescale.com>
 Date: Mon, 3 Dec 2012 17:59:02 -0600
-Subject: [PATCH 003/223] ENGR00235624 Quad/DualLite ARD: MTD partition non
+Subject: [PATCH 003/225] ENGR00235624 Quad/DualLite ARD: MTD partition non
  aligned
 
 MTD partition for SPI-NOR was not aligned to 8K.

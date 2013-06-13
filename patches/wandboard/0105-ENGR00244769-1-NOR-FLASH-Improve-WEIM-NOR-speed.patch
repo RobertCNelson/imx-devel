@@ -1,7 +1,7 @@
 From ff04c9826b7ffe12fa7591a25fa68f8ee29056a6 Mon Sep 17 00:00:00 2001
 From: Oliver Brown <oliver.brown@freescale.com>
 Date: Wed, 13 Feb 2013 11:48:35 -0600
-Subject: [PATCH 105/223] ENGR00244769-1 [NOR FLASH]-Improve WEIM NOR speed
+Subject: [PATCH 105/225] ENGR00244769-1 [NOR FLASH]-Improve WEIM NOR speed
 
 Increase the NOR flash read speed.
 Added weimnor driver to use cached (and page mode) reads.

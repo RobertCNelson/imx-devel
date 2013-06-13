@@ -1,7 +1,7 @@
 From 2e64980d684ae42c1f44f53bc619cd43c4ee9e24 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Fri, 1 Mar 2013 16:43:29 +0800
-Subject: [PATCH 120/223] ENGR00252381: mxc_v4l2_capture: ov5640: incorrect
+Subject: [PATCH 120/225] ENGR00252381: mxc_v4l2_capture: ov5640: incorrect
  return value of ov5640_probe
 
 ov5640_probe always return -1 when error happens. Actually we should use the

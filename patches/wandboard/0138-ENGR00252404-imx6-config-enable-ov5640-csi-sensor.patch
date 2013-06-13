@@ -1,7 +1,7 @@
 From 9e59c527e8066514d30eb4744cbcff5019fe9148 Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Wed, 6 Mar 2013 15:25:42 +0800
-Subject: [PATCH 138/223] ENGR00252404 imx6: config: enable ov5640 csi sensor
+Subject: [PATCH 138/225] ENGR00252404 imx6: config: enable ov5640 csi sensor
 
 add ov5640 config for imx6 android config
 

@@ -1,7 +1,7 @@
 From 07a3fa7ceabf8378a7119e2b5aefab09e9abeac2 Mon Sep 17 00:00:00 2001
 From: Loren HUANG <b02279@freescle.com>
 Date: Mon, 21 Jan 2013 15:37:03 +0800
-Subject: [PATCH 091/223] ENGR00240988-12 Enable GPU hardware reset for 3.5
+Subject: [PATCH 091/225] ENGR00240988-12 Enable GPU hardware reset for 3.5
  kernel
 
 Cherry-pick from imx_3.5.7 branch.

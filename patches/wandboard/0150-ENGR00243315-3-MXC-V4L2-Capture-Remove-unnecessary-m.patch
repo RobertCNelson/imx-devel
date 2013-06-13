@@ -1,7 +1,7 @@
 From bd6a01609eaa3515537e1fb09947fecb7d00d5f1 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Fri, 8 Mar 2013 16:44:41 +0800
-Subject: [PATCH 150/223] ENGR00243315-3 MXC V4L2 Capture:Remove unnecessary
+Subject: [PATCH 150/225] ENGR00243315-3 MXC V4L2 Capture:Remove unnecessary
  mclk setting
 
 commit f8e1a3bb62eecf93a31a51c4dbe08a0214fa1d57 added a hard

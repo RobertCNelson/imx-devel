@@ -1,7 +1,7 @@
 From 622606f915d2bb2121ec322a6dc7ff0cc44834be Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Tue, 16 Apr 2013 19:05:54 +0800
-Subject: [PATCH 212/223] ENGR00259008: mlb: reduce iram usage amount in async
+Subject: [PATCH 212/225] ENGR00259008: mlb: reduce iram usage amount in async
  mode
 
 In testing async mode on mx6q ard and mx6dl ard, driver always said "can

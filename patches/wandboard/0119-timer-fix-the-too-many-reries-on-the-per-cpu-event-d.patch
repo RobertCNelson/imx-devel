@@ -1,7 +1,7 @@
 From e5b35e013a8e4064326d7e8b80d2af9d66a4bc68 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Mon, 25 Feb 2013 19:55:04 +0800
-Subject: [PATCH 119/223] timer: fix the too many reries on the per-cpu event
+Subject: [PATCH 119/225] timer: fix the too many reries on the per-cpu event
  device
 
 There are so many retries happen on the per-cpu event device

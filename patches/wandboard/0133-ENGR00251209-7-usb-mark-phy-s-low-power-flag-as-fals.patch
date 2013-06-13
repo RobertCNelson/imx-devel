@@ -1,7 +1,7 @@
 From de314ee8bfd1bde3b9aff2f9cfe4b22bdf1c8cac Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 4 Mar 2013 17:40:34 +0800
-Subject: [PATCH 133/223] ENGR00251209-7 usb: mark phy's low power flag as
+Subject: [PATCH 133/225] ENGR00251209-7 usb: mark phy's low power flag as
  false at probe
 
 PHY's low power flag was false at former logic, so this

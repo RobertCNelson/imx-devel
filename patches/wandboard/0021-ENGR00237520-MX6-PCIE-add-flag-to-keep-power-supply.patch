@@ -1,7 +1,7 @@
 From f4ec9060d9e6b32d188c0bb732fce4cd97a8a430 Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Tue, 18 Dec 2012 17:44:49 +0800
-Subject: [PATCH 021/223] ENGR00237520 MX6 PCIE: add flag to keep power supply
+Subject: [PATCH 021/225] ENGR00237520 MX6 PCIE: add flag to keep power supply
 
 Keep power supply based on pcie_power_always_on for 3g
 modem,which is not function as a pcie device.

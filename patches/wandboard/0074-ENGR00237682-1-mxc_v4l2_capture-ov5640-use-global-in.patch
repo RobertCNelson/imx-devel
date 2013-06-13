@@ -1,7 +1,7 @@
 From a19d15ab74c8c2829bb900b7864761e5c04338de Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Wed, 19 Dec 2012 15:58:58 +0800
-Subject: [PATCH 074/223] ENGR00237682-1: mxc_v4l2_capture: ov5640: use global
+Subject: [PATCH 074/225] ENGR00237682-1: mxc_v4l2_capture: ov5640: use global
  initialization
 
 The current code struct of parallel ov5640 set mode directly.

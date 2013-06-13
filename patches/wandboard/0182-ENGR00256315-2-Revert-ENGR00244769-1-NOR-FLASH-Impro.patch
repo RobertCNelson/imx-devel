@@ -1,7 +1,7 @@
 From 508fcb96564effc2e604668e4d1bfcde47a187ff Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Tue, 26 Mar 2013 13:50:03 +0800
-Subject: [PATCH 182/223] ENGR00256315-2 Revert "ENGR00244769-1 [NOR
+Subject: [PATCH 182/225] ENGR00256315-2 Revert "ENGR00244769-1 [NOR
  FLASH]-Improve WEIM NOR speed"
 
 This reverts commit 4020b38fe2f0283af7630dbed28ed32d64118a83.

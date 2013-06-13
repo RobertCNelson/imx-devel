@@ -1,7 +1,7 @@
 From 655f28e1537f12b29932e9bdba5746bdd6968492 Mon Sep 17 00:00:00 2001
 From: Gary Zhang <b13634@freescale.com>
 Date: Fri, 4 Jan 2013 09:38:23 +0800
-Subject: [PATCH 065/223] ENGR00238809-1 mx6sl: clock: add dependency of IRAM
+Subject: [PATCH 065/225] ENGR00238809-1 mx6sl: clock: add dependency of IRAM
  clk
 
 when IRAM is used by SSI, add IRAM clock dependency to

@@ -1,7 +1,7 @@
 From ec6b162347d3123025bb18d361ad69d655311faf Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Fri, 12 Apr 2013 12:08:07 +0800
-Subject: [PATCH 203/223] ENGR00258357-1: mlb: Remove MLB150_ from macro
+Subject: [PATCH 203/225] ENGR00258357-1: mlb: Remove MLB150_ from macro
  define names
 
 Remove MLB150_ from macro define names to make code clean.

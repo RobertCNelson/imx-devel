@@ -1,7 +1,7 @@
 From 56e65342f4b6663105a688e330381573582388c7 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Wed, 3 Apr 2013 13:45:39 +0800
-Subject: [PATCH 189/223] ENGR00255518 ipu/ipu3: using the kernel common help
+Subject: [PATCH 189/225] ENGR00255518 ipu/ipu3: using the kernel common help
  function div_u64
 
 We don't need invent the wheel to implement the wrap for the _do_div,

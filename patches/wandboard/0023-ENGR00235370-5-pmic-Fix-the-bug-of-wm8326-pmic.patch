@@ -1,7 +1,7 @@
 From 1fc2ad8e93028837644e2f289a71de5e09a2f6a0 Mon Sep 17 00:00:00 2001
 From: Zhang Xiaodong <B39117@freescale.com>
 Date: Wed, 19 Dec 2012 09:36:07 +0800
-Subject: [PATCH 023/223] ENGR00235370-5 pmic: Fix the bug of wm8326 pmic
+Subject: [PATCH 023/225] ENGR00235370-5 pmic: Fix the bug of wm8326 pmic
 
 Fix the bug of wm8326 pmic dc-dc
 

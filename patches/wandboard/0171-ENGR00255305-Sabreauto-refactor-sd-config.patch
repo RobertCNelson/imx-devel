@@ -1,7 +1,7 @@
 From 01b6aff4d3cf0eb691e61e411a1ce02150298bc8 Mon Sep 17 00:00:00 2001
 From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
 Date: Thu, 28 Mar 2013 16:18:19 +0800
-Subject: [PATCH 171/223] ENGR00255305 Sabreauto:refactor sd config
+Subject: [PATCH 171/225] ENGR00255305 Sabreauto:refactor sd config
 
 Add "MMC_CAP_REMOVABLE" and "runtime_pm" to support hot-plug and
 trigger bus scan after resuming from suspend.Otherwise, sdio wifi won't

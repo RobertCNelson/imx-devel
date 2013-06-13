@@ -1,7 +1,7 @@
 From fbad6c8c883b71c16e5e3a115435ee51c8412bbd Mon Sep 17 00:00:00 2001
 From: Anson Huang <b20788@freescale.com>
 Date: Wed, 13 Mar 2013 14:01:01 +0800
-Subject: [PATCH 169/223] ENGR00255481 mx6: Update equation for thermal sensor
+Subject: [PATCH 169/225] ENGR00255481 mx6: Update equation for thermal sensor
 
 Use universal equation and 25C's calibration data to
 get thermal sensor's ratio.

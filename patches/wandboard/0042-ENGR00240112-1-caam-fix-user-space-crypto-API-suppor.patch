@@ -1,7 +1,7 @@
 From 22d49f53097e7016a45f75a78aa24de8dc16ffea Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 12 Sep 2012 18:04:49 +0800
-Subject: [PATCH 042/223] ENGR00240112-1 caam: fix user space crypto API
+Subject: [PATCH 042/225] ENGR00240112-1 caam: fix user space crypto API
  support.
 
 This patch fix the CAAM support for Crypto User Space API support.

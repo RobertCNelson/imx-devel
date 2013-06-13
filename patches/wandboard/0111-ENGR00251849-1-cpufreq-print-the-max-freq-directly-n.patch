@@ -1,7 +1,7 @@
 From 6bab7a1015ed1d26e0329410641dbd9d32a86880 Mon Sep 17 00:00:00 2001
 From: Robin Gong <b38343@freescale.com>
 Date: Tue, 26 Feb 2013 16:04:09 +0800
-Subject: [PATCH 111/223] ENGR00251849-1 cpufreq:print the max freq directly,
+Subject: [PATCH 111/225] ENGR00251849-1 cpufreq:print the max freq directly,
  not obscure number
 
 You can see "arm_max_freq=1GHz" log directly from console during boot.

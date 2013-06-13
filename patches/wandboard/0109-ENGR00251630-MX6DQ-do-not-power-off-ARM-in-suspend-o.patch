@@ -1,7 +1,7 @@
 From cc69dd59c24736e993c4fa20af9e47c73f6018dd Mon Sep 17 00:00:00 2001
 From: Robin Gong <b38343@freescale.com>
 Date: Mon, 25 Feb 2013 10:56:21 +0800
-Subject: [PATCH 109/223] ENGR00251630 MX6DQ: do not power off ARM in suspend
+Subject: [PATCH 109/225] ENGR00251630 MX6DQ: do not power off ARM in suspend
  on TO1.1
 
 System will resume back failed which caused by IPG clock glich issue. The issue

@@ -1,7 +1,7 @@
 From c78c480504a8f348174a4f3587eb489efe763174 Mon Sep 17 00:00:00 2001
 From: David Woodhouse <David.Woodhouse@intel.com>
 Date: Sun, 13 May 2012 23:34:24 -0500
-Subject: [PATCH 199/223] mtd: cfi_cmdset_0002: Slight cleanup of fixup
+Subject: [PATCH 199/225] mtd: cfi_cmdset_0002: Slight cleanup of fixup
  messages
 
 These should be semicolons, not commas.

@@ -1,7 +1,7 @@
 From dc392ed093310de3f0da3dbf624d773d2814372d Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Fri, 22 Mar 2013 10:57:07 +0800
-Subject: [PATCH 164/223] ENGR00255482 ASoC: HDMI-audio: Add error message for
+Subject: [PATCH 164/225] ENGR00255482 ASoC: HDMI-audio: Add error message for
  HDMI-video detect failure
 
   HDMI-audio depends on HDMI-video. If users want to use HDMI-audio function,

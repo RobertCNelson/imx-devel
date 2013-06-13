@@ -1,7 +1,7 @@
 From 60c9bf78115dab021b0c1b9bff181b40f5f46440 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Wed, 16 Jan 2013 11:06:30 +0800
-Subject: [PATCH 085/223] ENGR00240228: IPUv3: CSI: Correct enum definition of
+Subject: [PATCH 085/225] ENGR00240228: IPUv3: CSI: Correct enum definition of
  IPU_CSI_DATA_WIDTH
 
 The current definition for with 10 and 16 is not correct.

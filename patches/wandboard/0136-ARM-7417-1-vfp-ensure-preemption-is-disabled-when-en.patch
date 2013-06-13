@@ -1,7 +1,7 @@
 From 809230f89508a0b0066378e888e6bff0ecc7d897 Mon Sep 17 00:00:00 2001
 From: Will Deacon <will.deacon@arm.com>
 Date: Fri, 11 May 2012 17:42:37 +0100
-Subject: [PATCH 136/223] ARM: 7417/1: vfp: ensure preemption is disabled when
+Subject: [PATCH 136/225] ARM: 7417/1: vfp: ensure preemption is disabled when
  enabling VFP access
 
 The vfp_enable function enables access to the VFP co-processor register

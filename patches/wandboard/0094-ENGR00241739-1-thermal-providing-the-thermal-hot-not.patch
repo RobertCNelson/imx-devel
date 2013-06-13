@@ -1,7 +1,7 @@
 From 13727091c53ea26007b3d568b32ea92d9e10b934 Mon Sep 17 00:00:00 2001
 From: Rong Dian <b38775@freescale.com>
 Date: Fri, 25 Jan 2013 13:45:01 +0800
-Subject: [PATCH 094/223] ENGR00241739-1 thermal: providing the thermal hot
+Subject: [PATCH 094/225] ENGR00241739-1 thermal: providing the thermal hot
  notification
 
 Create thermal hot's own hot notificaiton callback register and unregister

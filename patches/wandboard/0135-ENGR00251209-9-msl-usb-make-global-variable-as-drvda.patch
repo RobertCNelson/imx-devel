@@ -1,7 +1,7 @@
 From 0d1df4fd76e1733ea573028736c31e140b2822b7 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Tue, 5 Mar 2013 11:21:04 +0800
-Subject: [PATCH 135/223] ENGR00251209-9 msl: usb: make global variable as
+Subject: [PATCH 135/225] ENGR00251209-9 msl: usb: make global variable as
  drvdata
 
 There is a bug when we try to remove wakeup module twice as

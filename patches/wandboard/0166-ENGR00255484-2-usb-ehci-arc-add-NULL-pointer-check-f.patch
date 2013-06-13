@@ -1,7 +1,7 @@
 From 273d36433db0bbe42a593cff280962cd37e14da2 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 22 Mar 2013 13:16:22 +0800
-Subject: [PATCH 166/223] ENGR00255484-2 usb: ehci-arc: add NULL pointer check
+Subject: [PATCH 166/225] ENGR00255484-2 usb: ehci-arc: add NULL pointer check
  for pdata->pdev
 
 The pdata->pdev is initialized at platform code, if init

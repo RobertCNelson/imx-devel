@@ -1,7 +1,7 @@
 From fa4b8bbbf89f5bee8b5d5b68f1e0a6a496c02ee1 Mon Sep 17 00:00:00 2001
 From: Rong Dian <b38775@freescale.com>
 Date: Mon, 28 Jan 2013 13:40:20 +0800
-Subject: [PATCH 095/223] ENGR00241739-2 gpu: Enable thermal hot notification
+Subject: [PATCH 095/225] ENGR00241739-2 gpu: Enable thermal hot notification
  in gpu driver
 
 Using notify mechanism instead of global variable to

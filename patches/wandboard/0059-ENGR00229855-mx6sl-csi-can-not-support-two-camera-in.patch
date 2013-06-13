@@ -1,7 +1,7 @@
 From 35599631cb10982e48b363f3dde4c58b2cb9966b Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 29 Nov 2012 17:58:43 +0800
-Subject: [PATCH 059/223] ENGR00229855 mx6sl: csi: can not support two camera
+Subject: [PATCH 059/225] ENGR00229855 mx6sl: csi: can not support two camera
  instances
 
 run two unit test instances as follows fails (sometimes kernel dump).

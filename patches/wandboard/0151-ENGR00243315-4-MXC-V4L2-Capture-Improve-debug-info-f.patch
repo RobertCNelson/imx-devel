@@ -1,7 +1,7 @@
 From 072c301ccb5d8e29246601a320799382a0318840 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Fri, 8 Mar 2013 16:55:37 +0800
-Subject: [PATCH 151/223] ENGR00243315-4 MXC V4L2 Capture:Improve debug info
+Subject: [PATCH 151/225] ENGR00243315-4 MXC V4L2 Capture:Improve debug info
  for s_std
 
 commit f8e1a3bb62eecf93a31a51c4dbe08a0214fa1d57 introduced an

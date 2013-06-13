@@ -1,7 +1,7 @@
 From b45f94638ff731ad0f452a7fd35624e5aa894826 Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Fri, 12 Apr 2013 15:33:56 +0800
-Subject: [PATCH 206/223] ENGR00258357-4: mlb: Group static variables to
+Subject: [PATCH 206/225] ENGR00258357-4: mlb: Group static variables to
  structure mlb_data
 
 Group static variables to structure mlb_data.

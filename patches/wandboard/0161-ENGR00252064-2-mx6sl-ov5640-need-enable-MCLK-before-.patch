@@ -1,7 +1,7 @@
 From 804ee944e9693152665e8c7dcf00094e68174276 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Thu, 14 Mar 2013 16:51:00 +0800
-Subject: [PATCH 161/223] ENGR00252064-2 mx6sl: ov5640: need enable MCLK
+Subject: [PATCH 161/225] ENGR00252064-2 mx6sl: ov5640: need enable MCLK
  before read sensor ID
 
 After the patch of auto-detection for sensor pushed, there's a need to

@@ -1,7 +1,7 @@
 From e07fc9387a59a3a1952a9991fe1db91a1391ff20 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 4 Mar 2013 14:22:52 +0800
-Subject: [PATCH 129/223] ENGR00251209-3 usb: fix below build warning
+Subject: [PATCH 129/225] ENGR00251209-3 usb: fix below build warning
 
 /home/b29397/work/projects/linux-2.6-imx/arch/arm/mach-mx6/usb_dr.c:
 In function 'mx6_usb_dr_init':

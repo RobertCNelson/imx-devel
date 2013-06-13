@@ -1,0 +1,172 @@
+From cc865171a19a0e84dc26a4285faf7ca75ca8403d Mon Sep 17 00:00:00 2001
+From: Tapani <tapani@vmail.me>
+Date: Fri, 7 Jun 2013 13:45:20 +0800
+Subject: [PATCH 225/225] Wandboard : Add SATA support
+
+---
+ arch/arm/configs/wandboard_defconfig |   16 ++++++-
+ arch/arm/mach-mx6/Kconfig            |    1 +
+ arch/arm/mach-mx6/board-wand.c       |   87 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 103 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/wandboard_defconfig b/arch/arm/configs/wandboard_defconfig
+index 04abe4f..af485a6 100644
+--- a/arch/arm/configs/wandboard_defconfig
++++ b/arch/arm/configs/wandboard_defconfig
+@@ -263,6 +263,7 @@ CONFIG_IMX_HAVE_PLATFORM_SPI_IMX=y
+ CONFIG_IMX_HAVE_PLATFORM_IMX_IPUV3=y
+ CONFIG_IMX_HAVE_PLATFORM_IMX_VPU=y
+ CONFIG_IMX_HAVE_PLATFORM_IMX_DVFS=y
++CONFIG_IMX_HAVE_PLATFORM_AHCI=y
+ CONFIG_IMX_HAVE_PLATFORM_LDB=y
+ CONFIG_IMX_HAVE_PLATFORM_IMX_SPDIF=y
+ CONFIG_IMX_HAVE_PLATFORM_VIV_GPU=y
+@@ -720,7 +721,20 @@ CONFIG_BLK_DEV_SD=y
+ # CONFIG_SCSI_LOWLEVEL is not set
+ # CONFIG_SCSI_DH is not set
+ # CONFIG_SCSI_OSD_INITIATOR is not set
+-# CONFIG_ATA is not set
++CONFIG_ATA=y
++# CONFIG_ATA_NONSTANDARD is not set
++CONFIG_ATA_VERBOSE_ERROR=y
++CONFIG_SATA_PMP=y
++
++#
++# Controllers with non-SFF native interface
++#
++CONFIG_SATA_AHCI=y
++CONFIG_SATA_AHCI_PLATFORM=y
++# CONFIG_SATA_INIC162X is not set
++# CONFIG_SATA_ACARD_AHCI is not set
++# CONFIG_SATA_SIL24 is not set
++# CONFIG_ATA_SFF is not set
+ # CONFIG_MD is not set
+ # CONFIG_TARGET_CORE is not set
+ # CONFIG_FUSION is not set
+diff --git a/arch/arm/mach-mx6/Kconfig b/arch/arm/mach-mx6/Kconfig
+index 4a3c62c..4c4f32d 100644
+--- a/arch/arm/mach-mx6/Kconfig
++++ b/arch/arm/mach-mx6/Kconfig
+@@ -313,6 +313,7 @@ config MACH_WANDBOARD
+ 	select ZONE_DMA if ION=n
+ 	select IMX_HAVE_PLATFORM_LDB if FB_MXC_LDB
+ 	select IMX_HAVE_PLATFORM_IMX_VDOA if MXC_IPU_V3
++        select IMX_HAVE_PLATFORM_AHCI if SATA_AHCI_PLATFORM
+ 	help
+ 	  Include support for the WandBoard SoM.
+ 
+diff --git a/arch/arm/mach-mx6/board-wand.c b/arch/arm/mach-mx6/board-wand.c
+index 4ca4a33..adf5c13 100644
+--- a/arch/arm/mach-mx6/board-wand.c
++++ b/arch/arm/mach-mx6/board-wand.c
+@@ -29,6 +29,7 @@
+ #include <linux/memblock.h>
+ #include <linux/phy.h>
+ 
++#include <mach/ahci_sata.h>
+ #include <mach/common.h>
+ #include <mach/devices-common.h>
+ #include <mach/gpio.h>
+@@ -897,6 +898,90 @@ static void __init wand_init_pcie(void) {
+ }
+ 
+ 
++/****************************************************************************
++ *                                                                          
++ * AHCI - SATA
++ *                                                                          
++ ****************************************************************************/
++
++static struct clk *wand_sata_clk;
++
++/* HW Initialization, if return 0, initialization is successful. */
++static int wand_sata_init(struct device *dev, void __iomem *addr) {
++	u32 tmpdata;
++	int ret = 0;
++	struct clk *clk;
++
++        wand_sata_clk = clk_get(dev, "imx_sata_clk");
++	if (IS_ERR(wand_sata_clk)) {
++		dev_err(dev, "no sata clock.\n");
++		return PTR_ERR(wand_sata_clk);
++	}
++	ret = clk_enable(wand_sata_clk);
++	if (ret) {
++		dev_err(dev, "can't enable sata clock.\n");
++		goto put_sata_clk;
++	}
++
++	/* Set PHY Paremeters, two steps to configure the GPR13,
++	 * one write for rest of parameters, mask of first write is 0x07FFFFFD,
++	 * and the other one write for setting the mpll_clk_off_b
++	 *.rx_eq_val_0(iomuxc_gpr13[26:24]),
++	 *.los_lvl(iomuxc_gpr13[23:19]),
++	 *.rx_dpll_mode_0(iomuxc_gpr13[18:16]),
++	 *.sata_speed(iomuxc_gpr13[15]),
++	 *.mpll_ss_en(iomuxc_gpr13[14]),
++	 *.tx_atten_0(iomuxc_gpr13[13:11]),
++	 *.tx_boost_0(iomuxc_gpr13[10:7]),
++	 *.tx_lvl(iomuxc_gpr13[6:2]),
++	 *.mpll_ck_off(iomuxc_gpr13[1]),
++	 *.tx_edgerate_0(iomuxc_gpr13[0]),
++	 */
++	tmpdata = readl(IOMUXC_GPR13);
++	writel(((tmpdata & ~0x07FFFFFD) | 0x0593A044), IOMUXC_GPR13);
++
++	/* enable SATA_PHY PLL */
++	tmpdata = readl(IOMUXC_GPR13);
++	writel(((tmpdata & ~0x2) | 0x2), IOMUXC_GPR13);
++
++	/* Get the AHB clock rate, and configure the TIMER1MS reg later */
++	clk = clk_get(NULL, "ahb");
++	if (IS_ERR(clk)) {
++		dev_err(dev, "no ahb clock.\n");
++		ret = PTR_ERR(clk);
++		goto release_sata_clk;
++	}
++	tmpdata = clk_get_rate(clk) / 1000;
++	clk_put(clk);
++
++	ret = sata_init(addr, tmpdata);
++	if (ret == 0)
++		return ret;
++
++release_sata_clk:
++	clk_disable(wand_sata_clk);
++put_sata_clk:
++	clk_put(wand_sata_clk);
++
++	return ret;
++}
++
++static void wand_sata_exit(struct device *dev) {
++	clk_disable(wand_sata_clk);
++	clk_put(wand_sata_clk);
++}
++
++static struct ahci_platform_data wand_sata_data = {
++	.init = wand_sata_init,
++	.exit = wand_sata_exit,
++};
++
++
++static __init void wand_init_sata(void) {
++        imx6q_add_ahci(0, &wand_sata_data);
++}
++
++
+ /*****************************************************************************
+  *                                                                           
+  * Init clocks and early boot console                                      
+@@ -958,6 +1043,8 @@ static void __init wand_board_init(void) {
+ 	wand_init_spi();
+ 	wand_init_gpu();
+ 	wand_init_pcie();
++        if (cpu_is_mx6q())
++                wand_init_sata();
+ }
+ 
+ /* ------------------------------------------------------------------------ */
+-- 
+1.7.10.4
+

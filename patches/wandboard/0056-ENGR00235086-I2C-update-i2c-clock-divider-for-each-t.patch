@@ -1,7 +1,7 @@
 From 815e42b89bdf990bfc7def28f99a07e18291a54b Mon Sep 17 00:00:00 2001
 From: Fugang Duan <B38611@freescale.com>
 Date: Wed, 28 Nov 2012 10:40:52 +0800
-Subject: [PATCH 056/223] ENGR00235086 I2C: update i2c clock divider for each
+Subject: [PATCH 056/225] ENGR00235086 I2C: update i2c clock divider for each
  transaction
 
 Currently on Arik/Rigel, the I2C clk is from IPG_PERCLK which is

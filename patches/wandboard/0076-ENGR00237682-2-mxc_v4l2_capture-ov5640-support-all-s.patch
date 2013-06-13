@@ -1,7 +1,7 @@
 From e76679f2ab8ccd2bd9c13ce1bb0cff12033a21c3 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Wed, 19 Dec 2012 18:39:46 +0800
-Subject: [PATCH 076/223] ENGR00237682-2: mxc_v4l2_capture: ov5640: support
+Subject: [PATCH 076/225] ENGR00237682-2: mxc_v4l2_capture: ov5640: support
  all subsampling modes
 
 Supported the following modes, verified image quality and frame rate

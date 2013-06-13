@@ -1,7 +1,7 @@
 From 07a6349e5ed191a2e090f8626579fb44eb0c8175 Mon Sep 17 00:00:00 2001
 From: Dong Aisheng <b29396@freescale.com>
 Date: Fri, 12 Apr 2013 18:49:36 +0800
-Subject: [PATCH 211/223] ENGR00258885 flexcan: fix errata ERR005641 that MB
+Subject: [PATCH 211/225] ENGR00258885 flexcan: fix errata ERR005641 that MB
  may fail to be sent
 
 This is an issue from IC errata ERR005641 which is described as follows:

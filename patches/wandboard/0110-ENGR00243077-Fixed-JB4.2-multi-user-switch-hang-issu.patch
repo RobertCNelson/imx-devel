@@ -1,7 +1,7 @@
 From f6ad97a62083a0cfbf1b49e28f9aa716b4e8f805 Mon Sep 17 00:00:00 2001
 From: Xianzhong <b07117@freescale.com>
 Date: Tue, 26 Feb 2013 18:38:59 +0800
-Subject: [PATCH 110/223] ENGR00243077 Fixed JB4.2 multi-user switch hang
+Subject: [PATCH 110/225] ENGR00243077 Fixed JB4.2 multi-user switch hang
  issue
 
 Gpu virtual memory has potiential hang issue exposed,

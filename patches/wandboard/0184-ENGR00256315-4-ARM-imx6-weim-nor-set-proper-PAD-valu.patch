@@ -1,7 +1,7 @@
 From 923877ed7ff6f2e730cf3c834f99472e0b7477ab Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 1 Apr 2013 13:54:09 +0800
-Subject: [PATCH 184/223] ENGR00256315-4 ARM: imx6: weim-nor: set proper PAD
+Subject: [PATCH 184/225] ENGR00256315-4 ARM: imx6: weim-nor: set proper PAD
  value
 
 Set the proper pad values for the pins used for address.

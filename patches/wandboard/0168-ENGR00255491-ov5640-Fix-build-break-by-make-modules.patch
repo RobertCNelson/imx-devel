@@ -1,7 +1,7 @@
 From 84addc16cf0ebfb7c094c647b7b0c62eef452d46 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Fri, 22 Mar 2013 13:27:11 +0800
-Subject: [PATCH 168/223] ENGR00255491 ov5640: Fix build break by make modules
+Subject: [PATCH 168/225] ENGR00255491 ov5640: Fix build break by make modules
 
 Fix the kernel modules building error for mx6q/mx6dl as follows:
 

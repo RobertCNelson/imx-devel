@@ -1,7 +1,7 @@
 From a0b2354c2a5f7a30773ec05f9a41e1838c7d02a8 Mon Sep 17 00:00:00 2001
 From: Nitin Garg <nitin.garg@freescale.com>
 Date: Tue, 11 Dec 2012 07:58:59 -0600
-Subject: [PATCH 004/223] ENGR00236620: Add fastboot and recovery methods for
+Subject: [PATCH 004/225] ENGR00236620: Add fastboot and recovery methods for
  iMX5
 
 Add fastboot and recovery methods with Android reboot

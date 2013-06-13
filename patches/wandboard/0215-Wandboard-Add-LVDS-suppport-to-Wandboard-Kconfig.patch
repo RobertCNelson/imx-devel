@@ -1,7 +1,7 @@
 From c7ea81f51be658c15744eb856c2d02fa9f000eb3 Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Fri, 17 May 2013 15:10:53 +0800
-Subject: [PATCH 215/223] Wandboard : Add LVDS suppport to Wandboard Kconfig
+Subject: [PATCH 215/225] Wandboard : Add LVDS suppport to Wandboard Kconfig
 
 ---
  arch/arm/mach-mx6/Kconfig |    2 ++

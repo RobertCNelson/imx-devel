@@ -1,7 +1,7 @@
 From b8f5cad499a908e4dadf6515b71dc9ece2a0ed57 Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Mon, 7 Jan 2013 13:26:03 +0800
-Subject: [PATCH 081/223] ENGR00239905 PCIe Enable PCIe switch support
+Subject: [PATCH 081/225] ENGR00239905 PCIe Enable PCIe switch support
 
 PCIe switch access mechanism:
  - CfgRd0/CfgWr0 is used to access the CFG space of the EP device

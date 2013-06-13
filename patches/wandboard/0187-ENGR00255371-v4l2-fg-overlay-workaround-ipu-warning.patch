@@ -1,7 +1,7 @@
 From c4ffa9bb67a0fdb745012e930bcc94909861a594 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Wed, 27 Mar 2013 15:45:49 +0800
-Subject: [PATCH 187/223] ENGR00255371 v4l2 fg overlay:workaround ipu warning
+Subject: [PATCH 187/225] ENGR00255371 v4l2 fg overlay:workaround ipu warning
 
 There is annoying ipu warning when doing preview
 by using v4l2 fg overlay component:

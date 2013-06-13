@@ -1,7 +1,7 @@
 From 8e2767d8e6ba0013e6cf088fc05f9161968570d4 Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Tue, 18 Dec 2012 17:47:29 +0800
-Subject: [PATCH 022/223] ENGR00237520 mx6q_sabresd: Move power control to
+Subject: [PATCH 022/225] ENGR00237520 mx6q_sabresd: Move power control to
  pcie driver
 
 Keep power supply of pcie by setting the flag pcie_power_always_on

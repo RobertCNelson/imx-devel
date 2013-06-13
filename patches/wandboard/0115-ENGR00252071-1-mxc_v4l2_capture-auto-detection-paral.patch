@@ -1,7 +1,7 @@
 From 279a1ed63b5185b6b52bea83efc0691e50828fd1 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Fri, 1 Mar 2013 10:24:12 +0800
-Subject: [PATCH 115/223] ENGR00252071-1: mxc_v4l2_capture: auto detection
+Subject: [PATCH 115/225] ENGR00252071-1: mxc_v4l2_capture: auto detection
  parallel ov5642 and ov5640
 
 Both ov5642 and ov5640 need to be supported for parallel port of

@@ -1,7 +1,7 @@
 From fa91758bbd782d3584bca6e68d88e8ec58dc4775 Mon Sep 17 00:00:00 2001
 From: Anson Huang <b20788@freescale.com>
 Date: Mon, 21 Jan 2013 16:20:56 +0800
-Subject: [PATCH 220/223] ENGR00241003-1 mx6: need to add delay in LDO voltage
+Subject: [PATCH 220/225] ENGR00241003-1 mx6: need to add delay in LDO voltage
  setting
 
 1.LDO ramp up time may be modified by ROM code

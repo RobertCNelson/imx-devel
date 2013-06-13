@@ -1,7 +1,7 @@
 From c30fbbc0a51880e6604be80e135954eb92043454 Mon Sep 17 00:00:00 2001
 From: Paul Parsons <lost.distance@yahoo.com>
 Date: Wed, 7 Mar 2012 14:11:16 +0000
-Subject: [PATCH 197/223] mtd: chips: cfi_cmdset_0002: Match
+Subject: [PATCH 197/225] mtd: chips: cfi_cmdset_0002: Match
  ENABLE_VPP()/DISABLE_VPP() calls
 
 This patch is part of a set which fixes unnecessary flash erase and write errors

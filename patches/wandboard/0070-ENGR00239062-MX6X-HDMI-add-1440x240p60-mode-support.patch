@@ -1,7 +1,7 @@
 From 9e190a7e56a09bc85d682f65cd76d398057169c0 Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Mon, 7 Jan 2013 16:29:23 +0800
-Subject: [PATCH 070/223] ENGR00239062 MX6X HDMI add 1440x240p60 mode support
+Subject: [PATCH 070/225] ENGR00239062 MX6X HDMI add 1440x240p60 mode support
 
 Adjust 1440x240p60 timing to pass HDMI compliance test.
 

@@ -1,7 +1,7 @@
 From b19d6f8c4579e05eb80b6972dfb2b8c0308696ea Mon Sep 17 00:00:00 2001
 From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
 Date: Thu, 13 Dec 2012 16:34:37 +0800
-Subject: [PATCH 016/223] ENGR00236512 mmc: esdhc: make sd3 and sd2 have same
+Subject: [PATCH 016/225] ENGR00236512 mmc: esdhc: make sd3 and sd2 have same
  platform config
 
 Let sd2 and sd3 slot to have the same platform config. It will remove the

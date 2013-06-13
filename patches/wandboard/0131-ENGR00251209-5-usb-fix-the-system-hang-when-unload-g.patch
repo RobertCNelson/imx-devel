@@ -1,7 +1,7 @@
 From 3e7b07fac6074150776f178aac9bbcf7ef7803d1 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 4 Mar 2013 17:30:08 +0800
-Subject: [PATCH 131/223] ENGR00251209-5 usb: fix the system hang when unload
+Subject: [PATCH 131/225] ENGR00251209-5 usb: fix the system hang when unload
  gadget module
 
 - For gadget, the clock will be closed at platform code, so

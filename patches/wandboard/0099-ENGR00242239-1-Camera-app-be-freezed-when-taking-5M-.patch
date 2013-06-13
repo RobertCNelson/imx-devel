@@ -1,7 +1,7 @@
 From 13ed70ea497639ea0c55b7d980aaa7658f7442ae Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Wed, 30 Jan 2013 17:01:55 +0800
-Subject: [PATCH 099/223] ENGR00242239-1 Camera app be freezed when taking 5M
+Subject: [PATCH 099/225] ENGR00242239-1 Camera app be freezed when taking 5M
  pic in MX6DL
 
 Make CARVEOUT ION heap be configured to be cachable as platform data

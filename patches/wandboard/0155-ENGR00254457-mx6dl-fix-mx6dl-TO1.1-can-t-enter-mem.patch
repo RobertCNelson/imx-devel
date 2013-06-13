@@ -1,7 +1,7 @@
 From 29eac41ee213f89fa1e1a298898212b2748801a4 Mon Sep 17 00:00:00 2001
 From: Robin Gong <b38343@freescale.com>
 Date: Fri, 15 Mar 2013 12:37:04 +0800
-Subject: [PATCH 155/223] ENGR00254457 mx6dl: fix mx6dl TO1.1 can't enter
+Subject: [PATCH 155/225] ENGR00254457 mx6dl: fix mx6dl TO1.1 can't enter
  'mem'
 
 The previous patch ENGR00251630 didn't notice mx6q_revision() will

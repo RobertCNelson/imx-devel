@@ -1,7 +1,7 @@
 From 8142b9cf54db7a0f55aea25419098daa005ac49b Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Fri, 1 Mar 2013 10:26:58 +0800
-Subject: [PATCH 116/223] ENGR00252071-2: mxc_v4l2_capture: ov5640_mipi:
+Subject: [PATCH 116/225] ENGR00252071-2: mxc_v4l2_capture: ov5640_mipi:
  update probe print information
 
 Because ov5642 and ov5640 changes the probe information due to auto detect,

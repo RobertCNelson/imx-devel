@@ -1,7 +1,7 @@
 From 78b96bb220d12d98a5438e120fec707c926afb35 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 12 Apr 2013 15:33:11 +0800
-Subject: [PATCH 208/223] ENGR00258733 WEIM-NOR: mtd: cfi_cmdset_0002: Do not
+Subject: [PATCH 208/225] ENGR00258733 WEIM-NOR: mtd: cfi_cmdset_0002: Do not
  release the mutex lock
 
 The NOR may suffers a write-buffer timeout during the bonnie++/ubifs stress

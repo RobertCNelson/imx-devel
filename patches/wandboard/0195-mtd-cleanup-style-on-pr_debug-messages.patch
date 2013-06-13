@@ -1,7 +1,7 @@
 From 76dc6865a732d40519dff3e9864ce7dfef633ceb Mon Sep 17 00:00:00 2001
 From: Brian Norris <computersforpeace@gmail.com>
 Date: Tue, 19 Jul 2011 10:06:10 -0700
-Subject: [PATCH 195/223] mtd: cleanup style on pr_debug messages
+Subject: [PATCH 195/225] mtd: cleanup style on pr_debug messages
 
 Signed-off-by: Brian Norris <computersforpeace@gmail.com>
 Signed-off-by: Artem Bityutskiy <artem.bityutskiy@intel.com>

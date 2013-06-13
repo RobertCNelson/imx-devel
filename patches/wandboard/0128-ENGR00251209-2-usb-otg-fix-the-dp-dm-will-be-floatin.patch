@@ -1,7 +1,7 @@
 From e485c23ea8bbe26b39802e20e6aa9276328a7a21 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 1 Mar 2013 16:37:42 +0800
-Subject: [PATCH 128/223] ENGR00251209-2 usb: otg: fix the dp/dm will be
+Subject: [PATCH 128/225] ENGR00251209-2 usb: otg: fix the dp/dm will be
  floating when phy is no 3v3
 
 For the design which the phy is no power (no 5v for VBUS), the

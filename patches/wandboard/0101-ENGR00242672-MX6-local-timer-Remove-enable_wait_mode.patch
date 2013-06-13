@@ -1,7 +1,7 @@
 From 407c0d251f6927767451417d890136b4fedf435c Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Thu, 31 Jan 2013 17:05:13 +0800
-Subject: [PATCH 101/223] ENGR00242672 MX6 local timer:Remove enable_wait_mode
+Subject: [PATCH 101/225] ENGR00242672 MX6 local timer:Remove enable_wait_mode
  global variable
 
 This patch removes the unnecessary global variable declaration for

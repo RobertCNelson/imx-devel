@@ -1,7 +1,7 @@
 From b6c200c63f36d497bd508982939e05a144d5e7ae Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Thu, 10 Jan 2013 14:52:06 +0800
-Subject: [PATCH 080/223] ENGR00239569 Mx6x HDMI Add RGB/YCbCr output select
+Subject: [PATCH 080/225] ENGR00239569 Mx6x HDMI Add RGB/YCbCr output select
  via system file
 
 Add RGB/YCbCr output select via system file,

@@ -1,7 +1,7 @@
 From 22d95d4d9ced72bdfb191bf620241994feeeeb34 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Fri, 7 Dec 2012 17:08:07 +0800
-Subject: [PATCH 007/223] ENGR00236196: mxc_vout: add YV12 format support in
+Subject: [PATCH 007/225] ENGR00236196: mxc_vout: add YV12 format support in
  enum fmt field.
 
 Since YV12 format is supported in mxc_v4l2_capture, it should be also

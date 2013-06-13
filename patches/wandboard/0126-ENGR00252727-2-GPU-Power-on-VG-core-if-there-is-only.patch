@@ -1,7 +1,7 @@
 From 148f512737e1ad30816e2237ce0e28622d180168 Mon Sep 17 00:00:00 2001
 From: Loren Huang <b02279@freescale.com>
 Date: Tue, 5 Mar 2013 15:44:28 +0800
-Subject: [PATCH 126/223] ENGR00252727-2 [GPU]Power on VG core if there is
+Subject: [PATCH 126/225] ENGR00252727-2 [GPU]Power on VG core if there is
  only VG core in SoC
 
 -Power on VG core to makesure VG can be initalized if there is only

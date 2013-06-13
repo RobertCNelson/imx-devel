@@ -1,7 +1,7 @@
 From d2c1d0dab846cf128e2bff09663bb12adb29c9a7 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.liu@freescale.com>
 Date: Wed, 30 Jan 2013 12:31:55 +0800
-Subject: [PATCH 098/223] ENGR00242214 IMX PWM:Correct duty cycle calculation
+Subject: [PATCH 098/225] ENGR00242214 IMX PWM:Correct duty cycle calculation
 
 Since we've already reduced 2 cycles before writing PWMPR
 register, the real period cycle on PWMO is the value of

@@ -1,7 +1,7 @@
 From ceae299116ef009ff1317ba81111b312d17cfd57 Mon Sep 17 00:00:00 2001
 From: Chen Liangjun <b36089@freescale.com>
 Date: Fri, 4 Jan 2013 11:49:43 +0800
-Subject: [PATCH 069/223] ENGR00238813 ASRC: add check before release ASRC
+Subject: [PATCH 069/225] ENGR00238813 ASRC: add check before release ASRC
  pair
 
 Add check before relase ASRC pair to prevent ASRC register operation

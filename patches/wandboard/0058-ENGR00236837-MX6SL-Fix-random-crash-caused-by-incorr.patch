@@ -1,7 +1,7 @@
 From 91331698f8281b70343e1cf1e65943452a60faf6 Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Tue, 11 Dec 2012 17:50:33 -0600
-Subject: [PATCH 058/223] ENGR00236837 MX6SL-Fix random crash caused by
+Subject: [PATCH 058/225] ENGR00236837 MX6SL-Fix random crash caused by
  incorrect setting of IPG clk rate.
 
 Need to ensure that bus frequency setpoint is changed only if

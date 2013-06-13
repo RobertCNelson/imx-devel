@@ -1,7 +1,7 @@
 From 4608b538ab5c80d2902f5728c4879e298d36f1ac Mon Sep 17 00:00:00 2001
 From: Sandor Yu <R01008@freescale.com>
 Date: Tue, 8 Jan 2013 15:11:18 +0800
-Subject: [PATCH 079/223] ENGR00239207 MX6x HDMI add some support modes
+Subject: [PATCH 079/225] ENGR00239207 MX6x HDMI add some support modes
 
 Remove video mode 2880x480p60 that not supported by IPU.
 Add video mode 1080p25, 1080p30, 720p100, 720p120, 1440x480p60,

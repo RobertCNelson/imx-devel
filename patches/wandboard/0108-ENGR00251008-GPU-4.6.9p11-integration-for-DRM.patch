@@ -1,7 +1,7 @@
 From a14d493c273aeccbb51d7c61266967d00aa061af Mon Sep 17 00:00:00 2001
 From: Loren Huang <b02279@freescale.com>
 Date: Mon, 25 Feb 2013 18:58:22 +0800
-Subject: [PATCH 108/223] ENGR00251008 [GPU] 4.6.9p11 integration for DRM
+Subject: [PATCH 108/225] ENGR00251008 [GPU] 4.6.9p11 integration for DRM
 
 -DRM copyright update
 

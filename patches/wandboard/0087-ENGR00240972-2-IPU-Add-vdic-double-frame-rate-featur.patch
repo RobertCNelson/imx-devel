@@ -1,7 +1,7 @@
 From 9225cfa7ea09e7f990404f9d41db4010c606b3d3 Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Mon, 21 Jan 2013 13:36:10 +0800
-Subject: [PATCH 087/223] ENGR00240972-2 IPU: Add vdic double frame rate
+Subject: [PATCH 087/225] ENGR00240972-2 IPU: Add vdic double frame rate
  feature
 
 Add vdic double frame rate feature

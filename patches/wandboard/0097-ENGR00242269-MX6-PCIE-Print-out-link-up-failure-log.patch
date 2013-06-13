@@ -1,7 +1,7 @@
 From 2638e6242094925b6557de76c2eea4421ef70cd8 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 29 Jan 2013 18:13:31 +0800
-Subject: [PATCH 097/223] ENGR00242269 MX6 PCIE:Print out link up failure log
+Subject: [PATCH 097/225] ENGR00242269 MX6 PCIE:Print out link up failure log
 
 This patch contains code change only to print out
 link up failure log like below.

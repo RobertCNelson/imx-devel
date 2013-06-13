@@ -1,7 +1,7 @@
 From 11c8637f7c7cd4b01f56e59dc67cf3caec8465f4 Mon Sep 17 00:00:00 2001
 From: Fugang Duan <B38611@freescale.com>
 Date: Fri, 2 Nov 2012 18:21:08 +0800
-Subject: [PATCH 122/223] ENGR00237452 i.MX6:IEEE1588: disable phy Ar8031
+Subject: [PATCH 122/225] ENGR00237452 i.MX6:IEEE1588: disable phy Ar8031
  SmartEEE
 
 Connecting two boards directly more than 2 hours, Ar8031 phy link

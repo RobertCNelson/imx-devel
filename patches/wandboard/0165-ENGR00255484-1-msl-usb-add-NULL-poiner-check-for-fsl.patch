@@ -1,7 +1,7 @@
 From a445f02869a06cdaba80fe86059525dd30be0f7c Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Thu, 21 Mar 2013 10:12:07 +0800
-Subject: [PATCH 165/223] ENGR00255484-1 msl: usb: add NULL poiner check for
+Subject: [PATCH 165/225] ENGR00255484-1 msl: usb: add NULL poiner check for
  fsl_xcvr_ops
 
 Add NULL pointer check for global fsl_xcvr_ops

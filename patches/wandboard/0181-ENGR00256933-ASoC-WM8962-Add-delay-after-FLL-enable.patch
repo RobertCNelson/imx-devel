@@ -1,7 +1,7 @@
 From 7aebfaf6b55bf6fdbacde684219a073e2854eb09 Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Tue, 2 Apr 2013 15:27:01 +0800
-Subject: [PATCH 181/223] ENGR00256933 ASoC: WM8962: Add delay after
+Subject: [PATCH 181/225] ENGR00256933 ASoC: WM8962: Add delay after
  FLL-enable
 
   There's a start-up time after FLL_ENA bit is set. While the driver didn't

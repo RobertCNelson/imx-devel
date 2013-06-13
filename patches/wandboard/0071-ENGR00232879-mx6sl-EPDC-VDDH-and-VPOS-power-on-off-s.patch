@@ -1,7 +1,7 @@
 From 4fcbefd7f45ab4a91f0d084ec2e916783832f61c Mon Sep 17 00:00:00 2001
 From: Peter Chan <B18700@freescale.com>
 Date: Tue, 8 Jan 2013 16:04:41 +0800
-Subject: [PATCH 071/223] ENGR00232879 mx6sl: EPDC VDDH and VPOS power on/off
+Subject: [PATCH 071/225] ENGR00232879 mx6sl: EPDC VDDH and VPOS power on/off
  sequence is wrong
 
 VDDH should only be ON after VPOS when power up and should be off

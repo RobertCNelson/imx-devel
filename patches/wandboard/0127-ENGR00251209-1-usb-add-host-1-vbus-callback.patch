@@ -1,7 +1,7 @@
 From f4a79915393bb589ceea33823f5199f2c55279ff Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 1 Mar 2013 15:33:24 +0800
-Subject: [PATCH 127/223] ENGR00251209-1 usb: add host 1 vbus callback
+Subject: [PATCH 127/225] ENGR00251209-1 usb: add host 1 vbus callback
 
 The callback will be used at probe and remove
 

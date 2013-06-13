@@ -1,7 +1,7 @@
 From 89d7666ebd446b2339282c6bf1b57bde9fa56862 Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Tue, 19 Mar 2013 09:38:04 +0800
-Subject: [PATCH 159/223] ENGR00254931 IPUv3 Fb: Fix display twinkling issue
+Subject: [PATCH 159/225] ENGR00254931 IPUv3 Fb: Fix display twinkling issue
  during suspend/resume
 
 Fix display twinkling issue when video playback on LVDS during suspend/resume.

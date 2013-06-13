@@ -1,7 +1,7 @@
 From 3a87b00a817e6a68333ca8e1c28615d490e4b4b2 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Fri, 8 Mar 2013 16:33:35 +0800
-Subject: [PATCH 149/223] ENGR00243315-2 IPUv3 CSI:Remove test mode clock
+Subject: [PATCH 149/225] ENGR00243315-2 IPUv3 CSI:Remove test mode clock
  setting
 
 This patch removes test mode clock setting in function
