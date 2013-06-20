@@ -32,14 +32,14 @@ Signed-off-by: Peter Chen <peter.chen@freescale.com>
  drivers/usb/chipidea/bits.h        |   10 ++
  drivers/usb/chipidea/ci.h          |    7 +-
  drivers/usb/chipidea/ci13xxx_imx.c |    3 +-
- drivers/usb/chipidea/core.c        |  190 ++++++++++++++++++++++++++++++++----
+ drivers/usb/chipidea/core.c        |  189 ++++++++++++++++++++++++++++++++----
  drivers/usb/chipidea/host.c        |    6 ++
  drivers/usb/chipidea/host.h        |    6 +-
  drivers/usb/chipidea/otg.c         |   28 ++++--
  drivers/usb/chipidea/otg.h         |    3 +
  drivers/usb/chipidea/udc.c         |   39 ++++++--
  drivers/usb/chipidea/udc.h         |    4 +
- 10 files changed, 254 insertions(+), 42 deletions(-)
+ 10 files changed, 254 insertions(+), 41 deletions(-)
 
 diff --git a/drivers/usb/chipidea/bits.h b/drivers/usb/chipidea/bits.h
 index d8ffc2f..58ef56c 100644
@@ -121,7 +121,7 @@ index 136869b..ffcb56c 100644
  	pdata->phy_mode = of_usb_get_phy_mode(pdev->dev.of_node);
  	pdata->dr_mode = of_usb_get_dr_mode(pdev->dev.of_node);
 diff --git a/drivers/usb/chipidea/core.c b/drivers/usb/chipidea/core.c
-index c89f2aa..a3beafb 100644
+index eaa0557..0809db6 100644
 --- a/drivers/usb/chipidea/core.c
 +++ b/drivers/usb/chipidea/core.c
 @@ -75,6 +75,7 @@
@@ -147,7 +147,7 @@ index c89f2aa..a3beafb 100644
  	dev_dbg(ci->dev, "ChipIdea HDRC found, lpm: %d; cap: %p op: %p\n",
  		ci->hw_bank.lpm, ci->hw_bank.cap, ci->hw_bank.op);
  
-@@ -302,24 +311,131 @@ static enum ci_role ci_otg_role(struct ci13xxx *ci)
+@@ -302,25 +311,133 @@ static enum ci_role ci_otg_role(struct ci13xxx *ci)
  }
  
  /**
@@ -222,8 +222,9 @@ index c89f2aa..a3beafb 100644
 +
 +		/* 3. Begin the new role */
  		ci_role_start(ci, role);
--		enable_irq(ci->irq);
  	}
+ 
+ 	enable_irq(ci->irq);
  }
  
 +static void ci_handle_vbus_change(struct ci13xxx *ci)
@@ -284,7 +285,7 @@ index c89f2aa..a3beafb 100644
  static ssize_t show_role(struct device *dev, struct device_attribute *attr,
  			 char *buf)
  {
-@@ -352,25 +468,50 @@ static ssize_t store_role(struct device *dev, struct device_attribute *attr,
+@@ -353,25 +470,50 @@ static ssize_t store_role(struct device *dev, struct device_attribute *attr,
  
  static DEVICE_ATTR(role, S_IRUSR | S_IWUSR, show_role, store_role);
  
@@ -341,7 +342,7 @@ index c89f2aa..a3beafb 100644
  	return ret;
  }
  
-@@ -481,7 +622,8 @@ static int ci_hdrc_probe(struct platform_device *pdev)
+@@ -482,7 +624,8 @@ static int ci_hdrc_probe(struct platform_device *pdev)
  		return -ENODEV;
  	}
  
@@ -351,7 +352,7 @@ index c89f2aa..a3beafb 100644
  	ci->wq = create_singlethread_workqueue("ci_otg");
  	if (!ci->wq) {
  		dev_err(dev, "can't create workqueue\n");
-@@ -512,7 +654,10 @@ static int ci_hdrc_probe(struct platform_device *pdev)
+@@ -513,7 +656,10 @@ static int ci_hdrc_probe(struct platform_device *pdev)
  	}
  
  	if (ci->roles[CI_ROLE_HOST] && ci->roles[CI_ROLE_GADGET]) {
@@ -362,7 +363,7 @@ index c89f2aa..a3beafb 100644
  		/* ID pin needs 1ms debouce time, we delay 2ms for safe */
  		mdelay(2);
  		ci->role = ci_otg_role(ci);
-@@ -528,7 +673,7 @@ static int ci_hdrc_probe(struct platform_device *pdev)
+@@ -529,7 +675,7 @@ static int ci_hdrc_probe(struct platform_device *pdev)
  	if (ret) {
  		dev_err(dev, "can't start %s role\n", ci_role(ci)->name);
  		ret = -ENODEV;
@@ -371,7 +372,7 @@ index c89f2aa..a3beafb 100644
  	}
  
  	platform_set_drvdata(pdev, ci);
-@@ -539,17 +684,22 @@ static int ci_hdrc_probe(struct platform_device *pdev)
+@@ -540,17 +686,22 @@ static int ci_hdrc_probe(struct platform_device *pdev)
  
  	ret = device_create_file(dev, &dev_attr_role);
  	if (ret)
@@ -400,7 +401,7 @@ index c89f2aa..a3beafb 100644
  rm_wq:
  	flush_workqueue(ci->wq);
  	destroy_workqueue(ci->wq);
-@@ -565,7 +715,7 @@ static int ci_hdrc_remove(struct platform_device *pdev)
+@@ -566,7 +717,7 @@ static int ci_hdrc_remove(struct platform_device *pdev)
  	destroy_workqueue(ci->wq);
  	device_remove_file(ci->dev, &dev_attr_role);
  	free_irq(ci->irq, ci);
@@ -511,7 +512,7 @@ index b4c6b3e..fa30428 100644
  
  #endif /* __DRIVERS_USB_CHIPIDEA_OTG_H */
 diff --git a/drivers/usb/chipidea/udc.c b/drivers/usb/chipidea/udc.c
-index 2b4ff14..b58788a 100644
+index 49ee692..b9034c6 100644
 --- a/drivers/usb/chipidea/udc.c
 +++ b/drivers/usb/chipidea/udc.c
 @@ -31,6 +31,7 @@
@@ -522,7 +523,7 @@ index 2b4ff14..b58788a 100644
  #include "bits.h"
  #include "debug.h"
  
-@@ -1371,6 +1372,7 @@ static int ci13xxx_vbus_session(struct usb_gadget *_gadget, int is_active)
+@@ -1379,6 +1380,7 @@ static int ci13xxx_vbus_session(struct usb_gadget *_gadget, int is_active)
  			pm_runtime_get_sync(&_gadget->dev);
  			hw_device_reset(ci, USBMODE_CM_DC);
  			hw_device_state(ci, ci->ep0out->qh.dma);
@@ -530,7 +531,7 @@ index 2b4ff14..b58788a 100644
  		} else {
  			hw_device_state(ci, 0);
  			if (ci->platdata->notify_event)
-@@ -1378,6 +1380,7 @@ static int ci13xxx_vbus_session(struct usb_gadget *_gadget, int is_active)
+@@ -1386,6 +1388,7 @@ static int ci13xxx_vbus_session(struct usb_gadget *_gadget, int is_active)
  				CI13XXX_CONTROLLER_STOPPED_EVENT);
  			_gadget_stop_activity(&ci->gadget);
  			pm_runtime_put_sync(&_gadget->dev);
@@ -538,7 +539,7 @@ index 2b4ff14..b58788a 100644
  		}
  	}
  
-@@ -1741,7 +1744,12 @@ static int udc_start(struct ci13xxx *ci)
+@@ -1749,7 +1752,12 @@ static int udc_start(struct ci13xxx *ci)
  	if (!IS_ERR_OR_NULL(ci->transceiver)) {
  		retval = otg_set_peripheral(ci->transceiver->otg,
  						&ci->gadget);
@@ -552,7 +553,7 @@ index 2b4ff14..b58788a 100644
  			goto remove_dbg;
  	}
  
-@@ -1778,12 +1786,27 @@ free_qh_pool:
+@@ -1786,12 +1794,27 @@ free_qh_pool:
  	return retval;
  }
  
@@ -582,7 +583,7 @@ index 2b4ff14..b58788a 100644
  {
  	if (ci == NULL)
  		return;
-@@ -1802,15 +1825,13 @@ static void udc_stop(struct ci13xxx *ci)
+@@ -1810,15 +1833,13 @@ static void udc_stop(struct ci13xxx *ci)
  	}
  	dbg_remove_files(ci->dev);
  	device_unregister(&ci->gadget.dev);
@@ -599,7 +600,7 @@ index 2b4ff14..b58788a 100644
   */
  int ci_hdrc_gadget_init(struct ci13xxx *ci)
  {
-@@ -1823,11 +1844,11 @@ int ci_hdrc_gadget_init(struct ci13xxx *ci)
+@@ -1831,11 +1852,11 @@ int ci_hdrc_gadget_init(struct ci13xxx *ci)
  	if (!rdrv)
  		return -ENOMEM;
  
@@ -615,7 +616,7 @@ index 2b4ff14..b58788a 100644
 +	return udc_start(ci);
  }
 diff --git a/drivers/usb/chipidea/udc.h b/drivers/usb/chipidea/udc.h
-index 4ff2384d..6553e4d 100644
+index d12e8b5..90184a9 100644
 --- a/drivers/usb/chipidea/udc.h
 +++ b/drivers/usb/chipidea/udc.h
 @@ -80,6 +80,7 @@ struct ci13xxx_req {
