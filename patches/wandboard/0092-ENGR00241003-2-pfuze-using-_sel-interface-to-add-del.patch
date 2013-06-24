@@ -1,7 +1,7 @@
 From 16cbd010bde08ac411c6a1dcbc878d7f4e036646 Mon Sep 17 00:00:00 2001
 From: Anson Huang <b20788@freescale.com>
 Date: Wed, 23 Jan 2013 15:11:34 +0800
-Subject: [PATCH 092/225] ENGR00241003-2 pfuze: using _sel interface to add
+Subject: [PATCH 092/231] ENGR00241003-2 pfuze: using _sel interface to add
  delay support
 
 use regulator _sel interface set to support auto delay,

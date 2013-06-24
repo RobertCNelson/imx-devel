@@ -1,7 +1,7 @@
 From 9f82418d10ea3945bad08a0446281629428e1f30 Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Mon, 11 Mar 2013 17:09:14 +0800
-Subject: [PATCH 142/225] ENGR00234501 ASoC: spdif: fix Ubuntu reboot hang
+Subject: [PATCH 142/231] ENGR00234501 ASoC: spdif: fix Ubuntu reboot hang
  issue
 
   spdif driver registered kcontrol for ALSA subsystem controlling, while some

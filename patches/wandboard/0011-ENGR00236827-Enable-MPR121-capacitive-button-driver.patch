@@ -1,7 +1,7 @@
 From 382347093e1a435cf67067ef6446aca0579adaa8 Mon Sep 17 00:00:00 2001
 From: Nitin Garg <nitin.garg@freescale.com>
 Date: Wed, 12 Dec 2012 12:37:38 -0600
-Subject: [PATCH 011/225] ENGR00236827: Enable MPR121 capacitive button driver
+Subject: [PATCH 011/231] ENGR00236827: Enable MPR121 capacitive button driver
 
 Enable MPR121 capacitive button driver in Linux 3.0.35 kernel
 as its missing from Makefile/Kconfig. Also enable the

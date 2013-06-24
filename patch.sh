@@ -67,9 +67,9 @@ wandboard () {
 	#git pull --no-edit git://github.com/RobertCNelson/linux.git imx_3.0.35_jb4.1.2_1.0.0-beta_wandboard
 	#git pull --no-edit git://repo.or.cz/wandboard.git wandboard
 	#git rebase 699cd64427e41c9331e074fd51b651e548e87de0
-	#git format-patch -226 | grep 'Wandboard-Add-support-for-PCI-Express.patch' ; rm -rf *.patch
+	#git format-patch -232 | grep 'Wandboard-Add-support-for-PCI-Express.patch' ; rm -rf *.patch
 	#0001-Wandboard-Add-support-for-PCI-Express.patch
-	#git format-patch -225 -o /opt/github/imx-devel/patches/wandboard/
+	#git format-patch -231 -o /opt/github/imx-devel/patches/wandboard/
 	#git checkout master -f ; git branch -D tmp
 
 	${git} "${DIR}/patches/wandboard/0001-Wandboard-Add-author-s-names-to-the-board-file.patch"
@@ -297,6 +297,12 @@ wandboard () {
 	${git} "${DIR}/patches/wandboard/0223-Wandboard-Update-default-config.patch"
 	${git} "${DIR}/patches/wandboard/0224-Set-iMX6DQ-DL-max-speed-back-to-1GHz.patch"
 	${git} "${DIR}/patches/wandboard/0225-Wandboard-Add-SATA-support.patch"
+	${git} "${DIR}/patches/wandboard/0226-ENGR00224245-HDMI-AUDIO-stop-start-PCM-while-unplug-.patch"
+	${git} "${DIR}/patches/wandboard/0227-config-Enable-CGROUPS-by-default.patch"
+	${git} "${DIR}/patches/wandboard/0228-config-Enable-Root-over-NFS-support.patch"
+	${git} "${DIR}/patches/wandboard/0229-config-Enable-devtmpfs-as-it-is-required-for-new-ude.patch"
+	${git} "${DIR}/patches/wandboard/0230-config-Disable-Seiko-LCD-support.patch"
+	${git} "${DIR}/patches/wandboard/0231-gpu-viv-Avoid-possible-use-of-uninitialized-memory.patch"
 }
 
 deb_pkg () {

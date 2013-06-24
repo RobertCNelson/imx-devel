@@ -1,7 +1,7 @@
 From 0f845bb65ebadd95e99194cca42e5850b33ae073 Mon Sep 17 00:00:00 2001
 From: Jason Liu <r64343@freescale.com>
 Date: Tue, 8 Jan 2013 16:13:07 +0800
-Subject: [PATCH 072/225] fix echo 1 > compact_memory return error issue
+Subject: [PATCH 072/231] fix echo 1 > compact_memory return error issue
 
 when run the folloing command under shell, it will return error
 sh/$ echo 1 > /proc/sys/vm/compact_memory

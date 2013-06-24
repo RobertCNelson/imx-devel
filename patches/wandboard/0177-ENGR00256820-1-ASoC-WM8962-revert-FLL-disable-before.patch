@@ -1,7 +1,7 @@
 From 6009edd1ddb9dabe4bca1ec717e9e820fa6f365a Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Mon, 1 Apr 2013 17:51:30 +0800
-Subject: [PATCH 177/225] ENGR00256820-1 ASoC: WM8962: revert FLL-disable
+Subject: [PATCH 177/231] ENGR00256820-1 ASoC: WM8962: revert FLL-disable
  before FLL-setting
 
   The patch at the commit 30293bc6 dropped FLL-disabling code from wm8962

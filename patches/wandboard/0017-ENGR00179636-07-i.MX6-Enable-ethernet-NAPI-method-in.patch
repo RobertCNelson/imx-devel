@@ -1,7 +1,7 @@
 From df755ddf6eecb88f62afdb1d7449978a0312dfce Mon Sep 17 00:00:00 2001
 From: Nitin Garg <nitin.garg@freescale.com>
 Date: Thu, 13 Dec 2012 19:41:17 -0600
-Subject: [PATCH 017/225] ENGR00179636-07 - i.MX6 : Enable ethernet NAPI
+Subject: [PATCH 017/231] ENGR00179636-07 - i.MX6 : Enable ethernet NAPI
  method in default.
 
 - Enable ethernet NAPI method in default, which can reduce cpu

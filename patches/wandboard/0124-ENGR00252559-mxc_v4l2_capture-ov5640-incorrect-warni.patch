@@ -1,7 +1,7 @@
 From a103bef734d00a88dc99e4577dfd967e839e8efb Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Mon, 4 Mar 2013 14:47:48 +0800
-Subject: [PATCH 124/225] ENGR00252559: mxc_v4l2_capture: ov5640: incorrect
+Subject: [PATCH 124/231] ENGR00252559: mxc_v4l2_capture: ov5640: incorrect
  warning for XGA@15fps
 
 The following warning information should be displayed

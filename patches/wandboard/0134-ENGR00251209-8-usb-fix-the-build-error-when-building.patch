@@ -1,7 +1,7 @@
 From ab24029cdd2227d4c44267f89039d16e84a588f5 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 4 Mar 2013 17:42:52 +0800
-Subject: [PATCH 134/225] ENGR00251209-8 usb: fix the build error when
+Subject: [PATCH 134/231] ENGR00251209-8 usb: fix the build error when
  building usb as loadable module
 
 export usb_suspend, usb_resume, and pm_mutex

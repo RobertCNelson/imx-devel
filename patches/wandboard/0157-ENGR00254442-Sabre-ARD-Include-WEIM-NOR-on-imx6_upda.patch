@@ -1,7 +1,7 @@
 From 5c9ea4391ae369ff468bc186f3c4780c8ee99cb3 Mon Sep 17 00:00:00 2001
 From: Alejandro Sierra <b18039@freescale.com>
 Date: Thu, 14 Mar 2013 15:58:46 -0600
-Subject: [PATCH 157/225] ENGR00254442 Sabre ARD Include WEIM-NOR on
+Subject: [PATCH 157/231] ENGR00254442 Sabre ARD Include WEIM-NOR on
  imx6_updater_defconfig
 
 Sabre ARD include WEIM-NOR configuration update to

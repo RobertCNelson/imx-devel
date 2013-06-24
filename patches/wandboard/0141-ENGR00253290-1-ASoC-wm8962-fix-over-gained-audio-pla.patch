@@ -1,7 +1,7 @@
 From 7bacd178063e00962e45f3ad104702e7867b8847 Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Fri, 8 Mar 2013 11:01:57 +0800
-Subject: [PATCH 141/225] ENGR00253290-1 ASoC: wm8962: fix over-gained audio
+Subject: [PATCH 141/231] ENGR00253290-1 ASoC: wm8962: fix over-gained audio
  playback issue
 
   We put some code to set default volumes in codec driver, but later we found

@@ -1,7 +1,7 @@
 From 2bc71c68e99d08f41a91443aff65fd2dd31683a2 Mon Sep 17 00:00:00 2001
 From: Loren HUANG <b02279@freescle.com>
 Date: Mon, 14 Jan 2013 16:53:12 +0800
-Subject: [PATCH 090/225] ENGR00240988-10 Add runtime pm function call in gpu
+Subject: [PATCH 090/231] ENGR00240988-10 Add runtime pm function call in gpu
  driver
 
 Cherry-pick from imx_3.5.7 branch.

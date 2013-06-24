@@ -1,7 +1,7 @@
 From 675775ef56e91d8728af39b4a92437b093d8b203 Mon Sep 17 00:00:00 2001
 From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
 Date: Mon, 11 Mar 2013 17:41:26 +0800
-Subject: [PATCH 140/225] ENGR00169384 imx6q: uart: config and enble uart5
+Subject: [PATCH 140/231] ENGR00169384 imx6q: uart: config and enble uart5
 
 Config clock,irq,mux pad,data entry, etc to setup uart5.
 

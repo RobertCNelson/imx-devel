@@ -1,7 +1,7 @@
 From 9755e444d5ed2bb4083b2201369cff4cefa9bafb Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.liu@freescale.com>
 Date: Fri, 18 Jan 2013 16:30:40 +0800
-Subject: [PATCH 045/225] ENGR00240740-2 ARM:IPUv3:Add an interface to disable
+Subject: [PATCH 045/231] ENGR00240740-2 ARM:IPUv3:Add an interface to disable
  IPU hsp clk
 
 This patch adds an interface to disable IPU hsp clock so that it

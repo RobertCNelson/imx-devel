@@ -1,7 +1,7 @@
 From 56faa4cf0ba5352cb54875afea268ca81ffd2a7e Mon Sep 17 00:00:00 2001
 From: make shi <b15407@freescale.com>
 Date: Thu, 10 Jan 2013 13:16:24 +0800
-Subject: [PATCH 078/225] ENGR00232755 USB: disable clock and abnormal wakeup
+Subject: [PATCH 078/231] ENGR00232755 USB: disable clock and abnormal wakeup
  when remove gadget driver
 
 - In current bsp, the usb clock mismatch when rmmod gadget class driver. The

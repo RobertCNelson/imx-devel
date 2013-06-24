@@ -1,7 +1,7 @@
 From a3f30060e509df68b940a4e16154f6c003bf073b Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Fri, 8 Mar 2013 17:16:20 +0800
-Subject: [PATCH 153/225] ENGR00243315-6 ADV7180:Remove unnecessary header
+Subject: [PATCH 153/231] ENGR00243315-6 ADV7180:Remove unnecessary header
  files
 
 This patch removes unnesessary header files in the driver.

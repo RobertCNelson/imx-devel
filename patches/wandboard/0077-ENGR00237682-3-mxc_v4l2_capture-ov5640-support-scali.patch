@@ -1,7 +1,7 @@
 From 1e8c8c88f5a7d7ba34820cae46b9828bf6dd8c14 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Tue, 8 Jan 2013 17:32:25 +0800
-Subject: [PATCH 077/225] ENGR00237682-3: mxc_v4l2_capture: ov5640: support
+Subject: [PATCH 077/231] ENGR00237682-3: mxc_v4l2_capture: ov5640: support
  scaling modes
 
 The method for change between scaling and subsampling mode is different

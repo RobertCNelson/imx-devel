@@ -1,7 +1,7 @@
 From 5335c7e1d0710d2e2dd15203ac3901815df53509 Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.liu@freescale.com>
 Date: Tue, 19 Feb 2013 15:07:43 +0800
-Subject: [PATCH 106/225] ENGR00243314 MX6 Sabreauto:Setup ipu di parent clock
+Subject: [PATCH 106/231] ENGR00243314 MX6 Sabreauto:Setup ipu di parent clock
  for HDMI case
 
 We support smooth UI transition from Uboot splashscreen to Android

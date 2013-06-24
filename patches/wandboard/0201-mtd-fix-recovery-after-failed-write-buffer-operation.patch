@@ -1,7 +1,7 @@
 From 02d174af2128d9baa28b67f239e7159a7d6ebc93 Mon Sep 17 00:00:00 2001
 From: Harald Nordgard-Hansen <hhansen@pvv.org>
 Date: Fri, 23 Nov 2012 23:11:03 +0100
-Subject: [PATCH 201/225] mtd: fix recovery after failed write-buffer
+Subject: [PATCH 201/231] mtd: fix recovery after failed write-buffer
  operation in cfi_cmdset_0002.c
 
 When working on a problem with some flash chips that lock up during

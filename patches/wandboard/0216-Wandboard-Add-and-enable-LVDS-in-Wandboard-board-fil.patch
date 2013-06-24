@@ -1,7 +1,7 @@
 From dc26b9aa4f327546a10245f233a324d1209682e7 Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Fri, 17 May 2013 15:12:31 +0800
-Subject: [PATCH 216/225] Wandboard : Add and enable LVDS in Wandboard board
+Subject: [PATCH 216/231] Wandboard : Add and enable LVDS in Wandboard board
  file
 
 ---

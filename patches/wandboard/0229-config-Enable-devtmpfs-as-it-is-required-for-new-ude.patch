@@ -1,0 +1,28 @@
+From 11e147ecc116227d977b50ecf0e5234a07ccb60c Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Tue, 11 Jun 2013 23:33:59 -0300
+Subject: [PATCH 229/231] config: Enable 'devtmpfs' as it is required for new
+ udev to run
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ arch/arm/configs/wandboard_defconfig |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/wandboard_defconfig b/arch/arm/configs/wandboard_defconfig
+index e05f281..d8bf2a3 100644
+--- a/arch/arm/configs/wandboard_defconfig
++++ b/arch/arm/configs/wandboard_defconfig
+@@ -661,7 +661,8 @@ CONFIG_RFKILL_REGULATOR=y
+ # Generic Driver Options
+ #
+ CONFIG_UEVENT_HELPER_PATH="/sbin/hotplug"
+-# CONFIG_DEVTMPFS is not set
++CONFIG_DEVTMPFS=y
++CONFIG_DEVTMPFS_MOUNT=y
+ # CONFIG_STANDALONE is not set
+ CONFIG_PREVENT_FIRMWARE_BUILD=y
+ CONFIG_FW_LOADER=y
+-- 
+1.7.10.4
+

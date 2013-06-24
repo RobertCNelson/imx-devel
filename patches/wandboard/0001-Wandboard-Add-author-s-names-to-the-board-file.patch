@@ -1,7 +1,7 @@
 From b496730b7ce64a39c1c476f4bd7a5b024eb84012 Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Wed, 20 Mar 2013 10:55:45 +0800
-Subject: [PATCH 001/225] Wandboard : Add author's names to the board file
+Subject: [PATCH 001/231] Wandboard : Add author's names to the board file
 
 ---
  arch/arm/mach-mx6/board-wand.c |    4 ++--

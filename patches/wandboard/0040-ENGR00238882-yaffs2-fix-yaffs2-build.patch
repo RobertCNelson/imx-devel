@@ -1,7 +1,7 @@
 From 0c985f6858a4d65b9811a66462b85b3064e691c9 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Wed, 19 Dec 2012 16:05:10 +0800
-Subject: [PATCH 040/225] ENGR00238882 yaffs2: fix yaffs2 build.
+Subject: [PATCH 040/231] ENGR00238882 yaffs2: fix yaffs2 build.
 
 fix yaffs2 build failure.
 

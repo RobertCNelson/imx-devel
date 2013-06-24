@@ -1,7 +1,7 @@
 From 4ce3e8c2e175d4903ccc9636397eb87a6c61d5e0 Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Mon, 28 Jan 2013 12:39:59 +0800
-Subject: [PATCH 051/225] ENGR00241962 Add another hdmi switch for hdmi driver
+Subject: [PATCH 051/231] ENGR00241962 Add another hdmi switch for hdmi driver
 
 android framework need seperated hdmi display and hdmi audio switch
 

@@ -1,7 +1,7 @@
 From b435b9820407427aa86e65b2a227e6d5d8c72788 Mon Sep 17 00:00:00 2001
 From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
 Date: Thu, 27 Dec 2012 12:26:39 +0800
-Subject: [PATCH 031/225] ENGR00238276: rfkill:change rfkill node permission
+Subject: [PATCH 031/231] ENGR00238276: rfkill:change rfkill node permission
 
 Use CONFIG_ANDROID_PARANOID_NETWORK to change the rfkill's
 attr permission (state and type) to fix android upper has no

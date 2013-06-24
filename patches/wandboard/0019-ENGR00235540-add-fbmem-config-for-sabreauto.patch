@@ -1,7 +1,7 @@
 From 8fbc236195e44624738803bbfd032017ca5b66df Mon Sep 17 00:00:00 2001
 From: b02247 <b02247@freescale.com>
 Date: Mon, 3 Dec 2012 15:46:14 +0800
-Subject: [PATCH 019/225] ENGR00235540 add "fbmem" config for sabreauto
+Subject: [PATCH 019/231] ENGR00235540 add "fbmem" config for sabreauto
 
 add "fbmem" config for sabreauto_6q
 

@@ -1,7 +1,7 @@
 From 946f423973acbf081a65ba70fc792c63072c372d Mon Sep 17 00:00:00 2001
 From: Dong Aisheng <b29396@freescale.com>
 Date: Wed, 27 Feb 2013 16:50:30 +0800
-Subject: [PATCH 121/225] ENGR00252418 imx6: add fuse check for available
+Subject: [PATCH 121/231] ENGR00252418 imx6: add fuse check for available
  devices
 
 Since device availability may be different on the same SoC,

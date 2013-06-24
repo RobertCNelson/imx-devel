@@ -1,7 +1,7 @@
 From b1fd9e1d7cf5ec58433a4c73a2b7a9e219bcda34 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Mon, 4 Mar 2013 10:35:13 +0800
-Subject: [PATCH 123/225] ENGR00252411: mxc_v4l2_capture: ov5642/ov5640 cannot
+Subject: [PATCH 123/231] ENGR00252411: mxc_v4l2_capture: ov5642/ov5640 cannot
  both be set as build-in.
 
 ov5642 and ov5640 are inside choice "prompt "Select Camera/TV Decoder""

@@ -1,7 +1,7 @@
 From edbb5a80fa9d3d802cb46ea443201248554387a4 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Mon, 10 Dec 2012 17:13:45 +0800
-Subject: [PATCH 061/225] ENGR00236722 mx6sl: csi: Ensure dma reflash
+Subject: [PATCH 061/231] ENGR00236722 mx6sl: csi: Ensure dma reflash
  operation done when dma is disabled
 
 If do dma reflash operation when dma is enabled, the system will hang and we

@@ -1,7 +1,7 @@
 From 27d8285a839beb52045186abb0640e6fde5cec48 Mon Sep 17 00:00:00 2001
 From: Mark Brown <broonie@opensource.wolfsonmicro.com>
 Date: Fri, 27 Jan 2012 19:54:03 +0000
-Subject: [PATCH 180/225] ASoC: wm8962: Don't automatically enable and disable
+Subject: [PATCH 180/231] ASoC: wm8962: Don't automatically enable and disable
  FLL
 
 Only enable and disable the FLL when explicitly told to, supporting some

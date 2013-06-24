@@ -1,7 +1,7 @@
 From 2d98f9512c691c34c7e405df48b96e2ec9000117 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Wed, 26 Dec 2012 15:26:39 +0800
-Subject: [PATCH 067/225] ENGR00238237-1 mx6sl: csi/v4l: fix camera picture
+Subject: [PATCH 067/231] ENGR00238237-1 mx6sl: csi/v4l: fix camera picture
  flickering issue
 
 Flickering issue happens when there's no buffer to be processed(e.g., the

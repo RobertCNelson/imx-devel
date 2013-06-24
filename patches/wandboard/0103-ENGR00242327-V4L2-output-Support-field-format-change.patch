@@ -1,7 +1,7 @@
 From 85d81e5f355f198377974b3eefca11b9a4de45c7 Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Wed, 30 Jan 2013 14:05:08 +0800
-Subject: [PATCH 103/225] ENGR00242327 V4L2 output: Support field format
+Subject: [PATCH 103/231] ENGR00242327 V4L2 output: Support field format
  changes on frame by frame base
 
 Support interlace field format or progressive format changes

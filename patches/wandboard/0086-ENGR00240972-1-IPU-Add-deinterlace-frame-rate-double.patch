@@ -1,7 +1,7 @@
 From 03aa92749d96dd03b833eb1ccedcabe763a8322b Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Mon, 21 Jan 2013 13:30:25 +0800
-Subject: [PATCH 086/225] ENGR00240972-1 IPU: Add deinterlace frame rate
+Subject: [PATCH 086/231] ENGR00240972-1 IPU: Add deinterlace frame rate
  double flags
 
 Add deinterlace frame rate double flags for ipu header file

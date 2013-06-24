@@ -1,7 +1,7 @@
 From 566e2aae74d30c51bb9196f90155a5304367218e Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Fri, 12 Apr 2013 15:18:50 +0800
-Subject: [PATCH 205/225] ENGR00258357-3: mlb: Reset whole CDR in init
+Subject: [PATCH 205/231] ENGR00258357-3: mlb: Reset whole CDR in init
  function
 
 Reset whole CDR in init function. This will make mlb connection to MITB

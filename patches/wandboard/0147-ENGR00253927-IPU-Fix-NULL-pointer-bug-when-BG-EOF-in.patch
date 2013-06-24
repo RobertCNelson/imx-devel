@@ -1,7 +1,7 @@
 From b099ff47a1cb2f728b02c09d81180b5521d4d467 Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Tue, 12 Mar 2013 16:54:59 +0800
-Subject: [PATCH 147/225] ENGR00253927 IPU: Fix NULL pointer bug when BG EOF
+Subject: [PATCH 147/231] ENGR00253927 IPU: Fix NULL pointer bug when BG EOF
  interrupt occur early
 
 Fix NULL pointer bug when IPU BG EOF interrupt occur before register irq handler

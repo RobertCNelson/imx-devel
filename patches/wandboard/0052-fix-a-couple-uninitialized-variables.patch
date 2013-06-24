@@ -1,7 +1,7 @@
 From fe9697f476cfa5aa0362401a36d4ce0a7ee6b866 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <xx...@gmail.com>
 Date: Thu, 28 Feb 2013 13:23:26 -0600
-Subject: [PATCH 052/225] fix: a couple uninitialized variables
+Subject: [PATCH 052/231] fix: a couple uninitialized variables
 
 Signed-off-by: Robert Nelson <xx...@gmail.com>
 ---

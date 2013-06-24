@@ -1,7 +1,7 @@
 From 8d5d7282de02a8d3a0f07477f10ce16092ed7c8f Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Tue, 14 May 2013 18:47:36 +0800
-Subject: [PATCH 213/225] Wandboard : Enable zone DMA when not using ION (i.e.
+Subject: [PATCH 213/231] Wandboard : Enable zone DMA when not using ION (i.e.
  non-Android)
 
 ---

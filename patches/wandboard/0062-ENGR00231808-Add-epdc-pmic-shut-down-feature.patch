@@ -1,7 +1,7 @@
 From df9618ce6d278daba738bec31d8293d48054034b Mon Sep 17 00:00:00 2001
 From: LiGang <b41990@freescale.com>
 Date: Wed, 14 Nov 2012 10:12:53 +0800
-Subject: [PATCH 062/225] ENGR00231808: Add epdc pmic shut down feature
+Subject: [PATCH 062/231] ENGR00231808: Add epdc pmic shut down feature
 
 For some cases, system maybe restart with epdc pmic on.
 If epdc pmic on for sometime(2~3s), the current epdc pmic consume will increase

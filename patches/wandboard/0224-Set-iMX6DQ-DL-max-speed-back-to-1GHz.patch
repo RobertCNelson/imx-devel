@@ -1,7 +1,7 @@
 From 177c82740df1a817ccbe978ca687246e77a0718b Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Thu, 6 Jun 2013 19:53:42 +0800
-Subject: [PATCH 224/225] Set iMX6DQ/DL max speed back to 1GHz
+Subject: [PATCH 224/231] Set iMX6DQ/DL max speed back to 1GHz
 
 Commits 13c1310c and 7361e1f0 attempt to read undocumented memory
 bits (as of TRM released 2013-05-30) to determine CPU speed rating.

@@ -1,7 +1,7 @@
 From e8b03ff76235cf18240c32aea9b29a6a179d0d5f Mon Sep 17 00:00:00 2001
 From: Loren Huang <b02279@freescale.com>
 Date: Sat, 30 Mar 2013 13:53:10 +0800
-Subject: [PATCH 176/225] ENGR00254106 Avoid incorrect GPU frequency scaling
+Subject: [PATCH 176/231] ENGR00254106 Avoid incorrect GPU frequency scaling
  be overwritten
 
 Correct code to remove unnecessary GPU frequency scaling updte.

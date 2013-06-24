@@ -1,7 +1,7 @@
 From 49bc62469a6f2e0a32b6ca1dab1e3e90379642b8 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 22 Mar 2013 13:46:23 +0800
-Subject: [PATCH 167/225] ENGR00255484-3 msl: usb: add clock deinit at fail
+Subject: [PATCH 167/231] ENGR00255484-3 msl: usb: add clock deinit at fail
  path
 
 If not, the clocks usage will be mismatch

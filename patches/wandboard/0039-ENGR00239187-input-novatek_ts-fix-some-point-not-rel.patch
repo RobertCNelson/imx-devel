@@ -1,7 +1,7 @@
 From b678f1cf755b4e58daed2d21a65c3f1918cc96a6 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Tue, 8 Jan 2013 12:42:15 +0800
-Subject: [PATCH 039/225] ENGR00239187 input: novatek_ts: fix some point not
+Subject: [PATCH 039/231] ENGR00239187 input: novatek_ts: fix some point not
  release issue.
 
 This issue is caused by Touch Screen F/W, and it will report a

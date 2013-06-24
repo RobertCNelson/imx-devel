@@ -1,7 +1,7 @@
 From a084ecbf36250167dcf2541096a1f5ccf538ba7a Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Mon, 1 Apr 2013 17:52:17 +0800
-Subject: [PATCH 178/225] ENGR00256820-2 ASoC: imx-wm8962: Fix incorrect
+Subject: [PATCH 178/231] ENGR00256820-2 ASoC: imx-wm8962: Fix incorrect
  setting of wm8962's FLL source
 
   WM8962's internal FLL is sourced from MCLK on SabreSD, while the machine

@@ -1,7 +1,7 @@
 From 9b76f72ae0710e45a292f9b49a2fc4cde9aa9621 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 15 Mar 2013 17:26:35 +0800
-Subject: [PATCH 156/225] ENGR00253355 ARM: imx6q/imx6dl: Set proper PAD value
+Subject: [PATCH 156/231] ENGR00253355 ARM: imx6q/imx6dl: Set proper PAD value
  for WEIM NOR
 
 Set proper pad value for WEIM NOR. Without setting these pad value

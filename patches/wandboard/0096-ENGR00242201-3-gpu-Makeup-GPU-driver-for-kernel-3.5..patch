@@ -1,7 +1,7 @@
 From ad7477393e7935bfebf877d9365d5e5fcb7ca414 Mon Sep 17 00:00:00 2001
 From: Loren HUANG <b02279@freescale.com>
 Date: Tue, 29 Jan 2013 16:12:29 +0800
-Subject: [PATCH 096/225] ENGR00242201-3 gpu: Makeup GPU driver for kernel
+Subject: [PATCH 096/231] ENGR00242201-3 gpu: Makeup GPU driver for kernel
  3.5.7
 
 Signed-off-by: Loren HUANG <b02279@freescale.com>

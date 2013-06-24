@@ -1,7 +1,7 @@
 From d5c1483e8703aa776ffa56a014e7ea663f36793f Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Fri, 1 Feb 2013 11:05:30 +0800
-Subject: [PATCH 102/225] ENGR00242788: usb: host: disable stream mode due to
+Subject: [PATCH 102/231] ENGR00242788: usb: host: disable stream mode due to
  IC problem
 
 There is a bug at chipidea core, please see below synopsis problem title

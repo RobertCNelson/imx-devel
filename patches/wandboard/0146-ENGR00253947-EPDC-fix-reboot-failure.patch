@@ -1,7 +1,7 @@
 From 8463670644d1364cbca70c23a64f3398b944eca8 Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Tue, 12 Mar 2013 19:17:50 +0800
-Subject: [PATCH 146/225] ENGR00253947 EPDC: fix reboot failure
+Subject: [PATCH 146/231] ENGR00253947 EPDC: fix reboot failure
 
 This patch is to
 

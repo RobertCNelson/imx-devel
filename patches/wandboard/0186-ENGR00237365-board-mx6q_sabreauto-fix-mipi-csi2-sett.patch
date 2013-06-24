@@ -1,7 +1,7 @@
 From 1bb2367de6a0174e5fd1d3c1c5b6bdfa56fd0edd Mon Sep 17 00:00:00 2001
 From: Adrian Alonso <aalonso@freescale.com>
 Date: Tue, 19 Feb 2013 10:49:19 -0600
-Subject: [PATCH 186/225] ENGR00237365: board-mx6q_sabreauto fix mipi-csi2
+Subject: [PATCH 186/231] ENGR00237365: board-mx6q_sabreauto fix mipi-csi2
  settings
 
 * Correct mipi-csi2 settings only one data line is used

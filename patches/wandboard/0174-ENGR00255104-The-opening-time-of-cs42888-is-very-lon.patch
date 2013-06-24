@@ -1,7 +1,7 @@
 From 64f764f7f369a250b29506b0fde6ee6914fd11c6 Mon Sep 17 00:00:00 2001
 From: b02247 <b02247@freescale.com>
 Date: Fri, 29 Mar 2013 14:09:43 +0800
-Subject: [PATCH 174/225] ENGR00255104   The opening time of cs42888 is very
+Subject: [PATCH 174/231] ENGR00255104   The opening time of cs42888 is very
  long, about 400ms
 
 In this commit 957bc47ffbad8532f0e8f6463946e8c04bc3176f, add msleep(400)

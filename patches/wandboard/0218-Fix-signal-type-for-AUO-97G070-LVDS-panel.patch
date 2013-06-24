@@ -1,7 +1,7 @@
 From d31524ac67e07c2a6a0ec871f6081afd8aff1890 Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Tue, 21 May 2013 11:27:02 +0800
-Subject: [PATCH 218/225] Fix signal type for AUO 97G070 LVDS panel
+Subject: [PATCH 218/231] Fix signal type for AUO 97G070 LVDS panel
 
 ---
  drivers/video/mxc/ldb.c |    2 +-

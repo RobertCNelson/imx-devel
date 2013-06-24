@@ -1,7 +1,7 @@
 From c6d84d8eff8faf33964288fd9b8acf9f892ce8dc Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Tue, 25 Dec 2012 10:48:23 +0800
-Subject: [PATCH 028/225] ENGR00238201-1 V4L2:ADV7180:enable adv7180 in
+Subject: [PATCH 028/231] ENGR00238201-1 V4L2:ADV7180:enable adv7180 in
  Android
 
 Add ioctl_enum_framesizes function to align the requirement

@@ -1,7 +1,7 @@
 From 6968127dab7d84eb121dc3373bee6b0f2c782322 Mon Sep 17 00:00:00 2001
 From: make shi <b15407@freescale.com>
 Date: Wed, 23 Jan 2013 10:36:00 +0800
-Subject: [PATCH 093/225] ENGR00241582 MX6 USB host: USB host certification
+Subject: [PATCH 093/231] ENGR00241582 MX6 USB host: USB host certification
  patch
 
 The patch include:

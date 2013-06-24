@@ -1,7 +1,7 @@
 From c28930252ec774afd2fccb06b81c272afd78a7cd Mon Sep 17 00:00:00 2001
 From: Terry Lv <r65388@freescale.com>
 Date: Tue, 12 Mar 2013 13:45:28 +0800
-Subject: [PATCH 143/225] ENGR00253835: CAAM: Fix build warnings in caamhash.c
+Subject: [PATCH 143/231] ENGR00253835: CAAM: Fix build warnings in caamhash.c
 
 A warning was find in caamhash.c:
 linux-2.6-imx/drivers/crypto/caam/caamhash.c: In function

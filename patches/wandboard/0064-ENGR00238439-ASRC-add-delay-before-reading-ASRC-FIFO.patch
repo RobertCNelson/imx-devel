@@ -1,7 +1,7 @@
 From a861611fac226cffbbc1bec92a231c70daa8bd03 Mon Sep 17 00:00:00 2001
 From: Chen Liangjun <b36089@freescale.com>
 Date: Fri, 28 Dec 2012 16:42:42 +0800
-Subject: [PATCH 064/225] ENGR00238439 ASRC: add delay before reading ASRC
+Subject: [PATCH 064/231] ENGR00238439 ASRC: add delay before reading ASRC
  FIFO status
 
 ASRC driver would read the sample number of ASRC output FIFO to fetch

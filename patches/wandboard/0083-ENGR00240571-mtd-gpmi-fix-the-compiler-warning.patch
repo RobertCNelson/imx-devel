@@ -1,7 +1,7 @@
 From 7e70d620767595ded19057b113454c2fb89f0a64 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Thu, 17 Jan 2013 16:15:45 +0800
-Subject: [PATCH 083/225] ENGR00240571 mtd: gpmi: fix the compiler warning
+Subject: [PATCH 083/231] ENGR00240571 mtd: gpmi: fix the compiler warning
 
 The current code may print out the following warning:
 ....................................................................

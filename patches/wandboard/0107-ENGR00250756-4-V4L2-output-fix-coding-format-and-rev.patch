@@ -1,7 +1,7 @@
 From 0d8687344625b77fe537ee8d9c025387f369436d Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Tue, 19 Feb 2013 13:33:47 +0800
-Subject: [PATCH 107/225] ENGR00250756-4 V4L2 output: fix coding format and
+Subject: [PATCH 107/231] ENGR00250756-4 V4L2 output: fix coding format and
  review commit warning
 
 Fix the review commit warning such as "line over 80 characters",

@@ -1,7 +1,7 @@
 From e8e8956acb477b825af1a54b8689beb6a1365135 Mon Sep 17 00:00:00 2001
 From: "Ira W. Snyder" <iws@ovro.caltech.edu>
 Date: Fri, 6 Jan 2012 11:29:19 -0800
-Subject: [PATCH 196/225] mtd: cfi: AMD/Fujitsu compatibles: add panic write
+Subject: [PATCH 196/231] mtd: cfi: AMD/Fujitsu compatibles: add panic write
  support
 
 This allows the mtdoops driver to work on flash chips using the

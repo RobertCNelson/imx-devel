@@ -1,7 +1,7 @@
 From 33c756b7165bfc786be08083c8cc9ab1b1dff668 Mon Sep 17 00:00:00 2001
 From: Jack mao <b39360@freescale.com>
 Date: Tue, 19 Mar 2013 14:26:15 +0800
-Subject: [PATCH 158/225] ENGR00232913 Hdmidongle: add a seperate config for
+Subject: [PATCH 158/231] ENGR00232913 Hdmidongle: add a seperate config for
  hdmidongle
 
 Add a seperate config for hdmidongle for restricted config diff from common.

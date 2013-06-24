@@ -1,7 +1,7 @@
 From cc865171a19a0e84dc26a4285faf7ca75ca8403d Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Fri, 7 Jun 2013 13:45:20 +0800
-Subject: [PATCH 225/225] Wandboard : Add SATA support
+Subject: [PATCH 225/231] Wandboard : Add SATA support
 
 ---
  arch/arm/configs/wandboard_defconfig |   16 ++++++-

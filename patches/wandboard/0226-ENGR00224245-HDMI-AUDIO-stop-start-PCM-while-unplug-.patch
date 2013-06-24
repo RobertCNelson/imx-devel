@@ -1,0 +1,111 @@
+From affa0341e279f0b33e80c184701623d024c3df9b Mon Sep 17 00:00:00 2001
+From: Chen Liangjun <b36089@freescale.com>
+Date: Tue, 11 Jun 2013 23:33:14 -0300
+Subject: [PATCH 226/231] ENGR00224245 HDMI AUDIO: stop/start PCM while
+ unplug, blank/plug, unblank
+
+When unplug, blank happens, HDMI audio can't play properly. So in
+driver, audio pcm would be disconnected when event above happens.
+However, pulse audio can't process disconnect event properly and if an
+blank or unplug event happens, HDMI sink would lost and can't be back
+again.
+
+In this patch, instead of disconnecting audio PCM stream, triggering
+stop audio pcm while unplug and blank, triggering start again while plug
+and unblank if the audio pcm is triggerd stop in the unplug/blank event.
+Signed-off-by: Chen Liangjun <b36089@freescale.com>
+(cherry picked from commit f8dd4f6fea093e46a30d5e438baa33702f626372)
+---
+ drivers/mfd/mxc-hdmi-core.c       |   12 ++++++++++--
+ include/linux/mfd/mxc-hdmi-core.h |    1 +
+ sound/soc/imx/imx-hdmi-dma.c      |    2 ++
+ 3 files changed, 13 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/mfd/mxc-hdmi-core.c b/drivers/mfd/mxc-hdmi-core.c
+index 6cb36ee..9cad112 100644
+--- a/drivers/mfd/mxc-hdmi-core.c
++++ b/drivers/mfd/mxc-hdmi-core.c
+@@ -41,6 +41,7 @@
+ #include <linux/mfd/mxc-hdmi-core.h>
+ #include <linux/fsl_devices.h>
+ #include <mach/hardware.h>
++#include <linux/mfd/mxc-hdmi-core.h>
+ 
+ struct mxc_hdmi_data {
+ 	struct platform_device *pdev;
+@@ -72,11 +73,14 @@ static spinlock_t hdmi_audio_lock, hdmi_blank_state_lock, hdmi_cable_state_lock;
+ unsigned int hdmi_set_cable_state(unsigned int state)
+ {
+ 	unsigned long flags;
++	struct snd_pcm_substream *substream = hdmi_audio_stream_playback;
+ 
+ 	spin_lock_irqsave(&hdmi_cable_state_lock, flags);
+ 	hdmi_cable_state = state;
+ 	spin_unlock_irqrestore(&hdmi_cable_state_lock, flags);
+ 
++	if (check_hdmi_state() && substream)
++		substream->ops->trigger(substream, SNDRV_PCM_TRIGGER_START);
+ 	return 0;
+ }
+ EXPORT_SYMBOL(hdmi_set_cable_state);
+@@ -84,11 +88,15 @@ EXPORT_SYMBOL(hdmi_set_cable_state);
+ unsigned int hdmi_set_blank_state(unsigned int state)
+ {
+ 	unsigned long flags;
++	struct snd_pcm_substream *substream = hdmi_audio_stream_playback;
+ 
+ 	spin_lock_irqsave(&hdmi_blank_state_lock, flags);
+ 	hdmi_blank_state = state;
+ 	spin_unlock_irqrestore(&hdmi_blank_state_lock, flags);
+ 
++	if (check_hdmi_state() && substream)
++		substream->ops->trigger(substream, SNDRV_PCM_TRIGGER_START);
++
+ 	return 0;
+ }
+ EXPORT_SYMBOL(hdmi_set_blank_state);
+@@ -100,7 +108,7 @@ static void hdmi_audio_abort_stream(struct snd_pcm_substream *substream)
+ 	snd_pcm_stream_lock_irqsave(substream, flags);
+ 
+ 	if (snd_pcm_running(substream))
+-		snd_pcm_stop(substream, SNDRV_PCM_STATE_DISCONNECTED);
++		substream->ops->trigger(substream, SNDRV_PCM_TRIGGER_STOP);
+ 
+ 	snd_pcm_stream_unlock_irqrestore(substream, flags);
+ }
+@@ -117,7 +125,7 @@ int mxc_hdmi_abort_stream(void)
+ }
+ EXPORT_SYMBOL(mxc_hdmi_abort_stream);
+ 
+-static int check_hdmi_state(void)
++int check_hdmi_state(void)
+ {
+ 	unsigned long flags1, flags2;
+ 	unsigned int ret;
+diff --git a/include/linux/mfd/mxc-hdmi-core.h b/include/linux/mfd/mxc-hdmi-core.h
+index f16b11c..26fa47d 100644
+--- a/include/linux/mfd/mxc-hdmi-core.h
++++ b/include/linux/mfd/mxc-hdmi-core.h
+@@ -60,5 +60,6 @@ int mxc_hdmi_register_audio(struct snd_pcm_substream *substream);
+ void mxc_hdmi_unregister_audio(struct snd_pcm_substream *substream);
+ unsigned int hdmi_set_cable_state(unsigned int state);
+ unsigned int hdmi_set_blank_state(unsigned int state);
++int check_hdmi_state(void);
+ 
+ #endif
+diff --git a/sound/soc/imx/imx-hdmi-dma.c b/sound/soc/imx/imx-hdmi-dma.c
+index c845672..42d76ab 100644
+--- a/sound/soc/imx/imx-hdmi-dma.c
++++ b/sound/soc/imx/imx-hdmi-dma.c
+@@ -1072,6 +1072,8 @@ static int hdmi_dma_trigger(struct snd_pcm_substream *substream, int cmd)
+ 	case SNDRV_PCM_TRIGGER_START:
+ 	case SNDRV_PCM_TRIGGER_RESUME:
+ 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
++		if (!check_hdmi_state())
++			return 0;
+ 		rtd->frame_idx = 0;
+ 		if (runtime->access == SNDRV_PCM_ACCESS_MMAP_INTERLEAVED) {
+ 			appl_bytes = frames_to_bytes(runtime,
+-- 
+1.7.10.4
+

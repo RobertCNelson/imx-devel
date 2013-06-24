@@ -1,0 +1,37 @@
+From e11acec7839f99babfb362d7268005d070d7d015 Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Tue, 11 Jun 2013 23:33:57 -0300
+Subject: [PATCH 227/231] config: Enable CGROUPS by default
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ arch/arm/configs/wandboard_defconfig |   13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/configs/wandboard_defconfig b/arch/arm/configs/wandboard_defconfig
+index af485a6..92cd0cf 100644
+--- a/arch/arm/configs/wandboard_defconfig
++++ b/arch/arm/configs/wandboard_defconfig
+@@ -76,7 +76,18 @@ CONFIG_RCU_FANOUT=32
+ # CONFIG_RCU_BOOST is not set
+ # CONFIG_IKCONFIG is not set
+ CONFIG_LOG_BUF_SHIFT=14
+-# CONFIG_CGROUPS is not set
++CONFIG_CGROUPS=y
++# CONFIG_CGROUP_DEBUG is not set
++# CONFIG_CGROUP_FREEZER is not set
++# CONFIG_CGROUP_DEVICE is not set
++# CONFIG_CPUSETS is not set
++# CONFIG_CGROUP_CPUACCT is not set
++# CONFIG_RESOURCE_COUNTERS is not set
++# CONFIG_CGROUP_PERF is not set
++CONFIG_CGROUP_SCHED=y
++CONFIG_FAIR_GROUP_SCHED=y
++# CONFIG_RT_GROUP_SCHED is not set
++# CONFIG_BLK_CGROUP is not set
+ # CONFIG_NAMESPACES is not set
+ # CONFIG_SCHED_AUTOGROUP is not set
+ # CONFIG_SYSFS_DEPRECATED is not set
+-- 
+1.7.10.4
+

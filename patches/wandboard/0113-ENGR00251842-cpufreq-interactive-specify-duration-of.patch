@@ -1,7 +1,7 @@
 From 89d3ea90cb51003590743441d2f30e1abaecb9e2 Mon Sep 17 00:00:00 2001
 From: Lin Fuzhen <fuzhen.lin@freescale.com>
 Date: Thu, 28 Feb 2013 10:53:38 +0800
-Subject: [PATCH 113/225] ENGR00251842 cpufreq:interactive:specify duration of
+Subject: [PATCH 113/231] ENGR00251842 cpufreq:interactive:specify duration of
  CPU speed boost pulse
 
 Add sysfs attribute boostpulse_duration for the duration of boosting

@@ -1,7 +1,7 @@
 From dc6c0cd1b9196c782cb993c7e603ad1e0cbf440f Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Tue, 5 Mar 2013 14:54:51 +0800
-Subject: [PATCH 137/225] ENGR00252782 mxc v4l2 capture:Support csi number
+Subject: [PATCH 137/231] ENGR00252782 mxc v4l2 capture:Support csi number
  attribution
 
 This patch adds device attribution for video device to

@@ -1,7 +1,7 @@
 From 0eb9c4d7823d48bb2e31a86b0784d3ab8889b719 Mon Sep 17 00:00:00 2001
 From: Jianzheng Zhou <jianzheng.zhou@freescale.com>
 Date: Tue, 12 Mar 2013 16:51:41 +0800
-Subject: [PATCH 145/225] ENGR00163527 Sabresd: BT: add BT support
+Subject: [PATCH 145/231] ENGR00163527 Sabresd: BT: add BT support
 
 add BT support using uart5. user can add "bluetooth" in bootargs to
 enable BT.

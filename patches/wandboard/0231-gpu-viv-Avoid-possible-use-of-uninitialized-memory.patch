@@ -1,0 +1,29 @@
+From 86429847b5152f040f190015faedcac49b243328 Mon Sep 17 00:00:00 2001
+From: Otavio Salvador <otavio@ossystems.com.br>
+Date: Tue, 11 Jun 2013 23:34:01 -0300
+Subject: [PATCH 231/231] gpu-viv: Avoid possible use of uninitialized memory
+
+This ensure the kernel does not try to access an uninitialized memory
+which cause a Xorg segfault.
+
+Signed-off-by: Otavio Salvador <otavio@ossystems.com.br>
+---
+ drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c b/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c
+index 8b76091..0cb9244 100644
+--- a/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c
++++ b/drivers/mxc/gpu-viv/hal/kernel/gc_hal_kernel.c
+@@ -845,7 +845,7 @@ gckKERNEL_Dispatch(
+ {
+     gceSTATUS status = gcvSTATUS_OK;
+     gctSIZE_T bytes;
+-    gcuVIDMEM_NODE_PTR node;
++    gcuVIDMEM_NODE_PTR node = gcvNULL;
+     gctBOOL locked = gcvFALSE;
+     gctPHYS_ADDR physical = gcvNULL;
+     gctUINT32 address;
+-- 
+1.7.10.4
+

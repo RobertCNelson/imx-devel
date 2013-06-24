@@ -1,7 +1,7 @@
 From 83846b8003c10ad52fb2ce59fc8c1efad4e267b9 Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Mon, 8 Apr 2013 21:12:07 +0800
-Subject: [PATCH 193/225] ENGR00257755-4 ASoC: WM8962: Disable FLL when chip's
+Subject: [PATCH 193/231] ENGR00257755-4 ASoC: WM8962: Disable FLL when chip's
  not being used
 
 There might be a case that SYSCLK_SRC is not FLL, but FLL's still open.

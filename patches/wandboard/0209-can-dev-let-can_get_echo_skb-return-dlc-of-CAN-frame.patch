@@ -1,7 +1,7 @@
 From 431d3fe403100d360180918b6c70b97aa2e374a3 Mon Sep 17 00:00:00 2001
 From: Marc Kleine-Budde <mkl@pengutronix.de>
 Date: Mon, 10 Oct 2011 23:43:53 +0200
-Subject: [PATCH 209/225] can: dev: let can_get_echo_skb() return dlc of CAN
+Subject: [PATCH 209/231] can: dev: let can_get_echo_skb() return dlc of CAN
  frame
 
 can_get_echo_skb() is usually called in the TX complete handler.

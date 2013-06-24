@@ -1,7 +1,7 @@
 From 3b86f427212c6ef9e14a9178ec398fe2e8a2da2e Mon Sep 17 00:00:00 2001
 From: Robby Cai <R63905@freescale.com>
 Date: Sat, 5 Jan 2013 18:44:29 +0800
-Subject: [PATCH 068/225] ENGR00238237-2 mx6sl: csi/v4l: Initialize the
+Subject: [PATCH 068/231] ENGR00238237-2 mx6sl: csi/v4l: Initialize the
  variable cam_fmt
 
 This patch fixed the cam_fmt uninitialization issue.

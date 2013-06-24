@@ -1,7 +1,7 @@
 From e3b12e0d518228b48e4b642adc52498fbb4b61c2 Mon Sep 17 00:00:00 2001
 From: LiGang <b41990@freescale.com>
 Date: Sat, 5 Jan 2013 17:01:53 +0800
-Subject: [PATCH 033/225] ENGR00237588: Add PTP ctrl request func
+Subject: [PATCH 033/231] ENGR00237588: Add PTP ctrl request func
 
 PC maybe issue out MTP_REQ_GET_DEVICE_STATUS control request to query the
 device status when device in PTP mode. So it's necessary to add ctrl request

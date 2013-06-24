@@ -1,7 +1,7 @@
 From f47a15a36b191565719128912710f52f484bdb0a Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Mon, 1 Apr 2013 16:52:27 +0800
-Subject: [PATCH 188/225] ENGR00256918 IPUv3 common:Correct CSI_PRP_MEM
+Subject: [PATCH 188/231] ENGR00256918 IPUv3 common:Correct CSI_PRP_MEM
  disable routine
 
 For both CSI_MEMx and CSI_PRP_VF(ENC)_MEM capture channels,

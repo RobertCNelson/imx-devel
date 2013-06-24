@@ -1,7 +1,7 @@
 From ce530dc934305d271593530066b5349a9f2c3189 Mon Sep 17 00:00:00 2001
 From: "guoyin.chen" <guoyin.chen@freescale.com>
 Date: Wed, 30 Jan 2013 17:14:56 +0800
-Subject: [PATCH 100/225] ENGR00242239-2 Camera app be freezed when taking 5M
+Subject: [PATCH 100/231] ENGR00242239-2 Camera app be freezed when taking 5M
  pic in MX6DL
 
 ion heap in MX6DQ only been used for taking picture user case, which

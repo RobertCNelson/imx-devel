@@ -1,7 +1,7 @@
 From 52f442423e4f8ed292c0b691c3b9e512831108c5 Mon Sep 17 00:00:00 2001
 From: Reuben Dowle <Reuben.Dowle@navico.com>
 Date: Tue, 1 Nov 2011 11:18:03 +1300
-Subject: [PATCH 210/225] can: flexcan: Fix CAN_RAW_RECV_OWN_MSGS and
+Subject: [PATCH 210/231] can: flexcan: Fix CAN_RAW_RECV_OWN_MSGS and
  CAN_RAW_LOOPBACK
 
 Currently the flexcan driver uses hardware local echo. This blindly

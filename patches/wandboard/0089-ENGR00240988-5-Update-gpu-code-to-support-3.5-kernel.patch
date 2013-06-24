@@ -1,7 +1,7 @@
 From 76a3e881c4ae74f1a2fdb41575e2a37858f58916 Mon Sep 17 00:00:00 2001
 From: Loren HUANG <b02279@freescle.com>
 Date: Fri, 9 Nov 2012 12:51:41 +0800
-Subject: [PATCH 089/225] ENGR00240988-5 Update gpu code to support 3.5 kernel
+Subject: [PATCH 089/231] ENGR00240988-5 Update gpu code to support 3.5 kernel
 
 Cherry-pick from imx_3.5.7 branch.
 -Comment regulator setting code temperarily for 3.5 kernel.

@@ -1,7 +1,7 @@
 From b415d21ca19193b6b4329a3cb98d7b0e7a9a98cd Mon Sep 17 00:00:00 2001
 From: Liu Ying <Ying.Liu@freescale.com>
 Date: Fri, 8 Mar 2013 17:01:28 +0800
-Subject: [PATCH 152/225] ENGR00243315-5 ADV7180:Power management adjustment
+Subject: [PATCH 152/231] ENGR00243315-5 ADV7180:Power management adjustment
 
 ADV7180 power down/on can be controlled by a gpio
 pin or i2c register setting. The PDBP bit in 0x0f

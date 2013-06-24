@@ -1,7 +1,7 @@
 From ead7ff5d7dbb84bde1cd16d765cecc59be1c4989 Mon Sep 17 00:00:00 2001
 From: Nicolin Chen <b42378@freescale.com>
 Date: Mon, 8 Apr 2013 19:38:34 +0800
-Subject: [PATCH 191/225] ENGR00257755-1 Revert "ASoC: wm8962: Don't
+Subject: [PATCH 191/231] ENGR00257755-1 Revert "ASoC: wm8962: Don't
  automatically enable and disable"
 
 This reverts commit e2bd4d2117e1c78cfd487fb10848f3361b358057.

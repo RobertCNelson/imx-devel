@@ -1,7 +1,7 @@
 From 852e3e8b22ae9a43f31a2c5dd4779068d1042977 Mon Sep 17 00:00:00 2001
 From: b02247 <b02247@freescale.com>
 Date: Fri, 4 Jan 2013 16:21:59 +0800
-Subject: [PATCH 032/225] ENGR00235540 Change the menu key to power key for
+Subject: [PATCH 032/231] ENGR00235540 Change the menu key to power key for
  sabreauto
 
 Change MENU key to POWER key for sabreauto

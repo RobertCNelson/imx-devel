@@ -1,7 +1,7 @@
 From ad1c2b1b6e022060c5902a4d401c2f22308d36d7 Mon Sep 17 00:00:00 2001
 From: Peter Chen <peter.chen@freescale.com>
 Date: Mon, 4 Mar 2013 17:35:02 +0800
-Subject: [PATCH 132/225] ENGR00251209-6 msl-mx6: usb: keep the phy lower flag
+Subject: [PATCH 132/231] ENGR00251209-6 msl-mx6: usb: keep the phy lower flag
  as true defaultly
 
 Keep the phy lower flag as true defaultly, the driver should mark

@@ -1,7 +1,7 @@
 From 7ba89f2961042e036b064bf92d3a97945c1d3ba5 Mon Sep 17 00:00:00 2001
 From: Tapani <tapani@vmail.me>
 Date: Wed, 29 May 2013 14:54:44 +0800
-Subject: [PATCH 223/225] Wandboard : Update default config
+Subject: [PATCH 223/231] Wandboard : Update default config
 
 ---
  arch/arm/configs/wandboard_defconfig |  434 ++++++++++++++++++++++++++++++----

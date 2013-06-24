@@ -1,7 +1,7 @@
 From efcdf13f7bfadba8e012ec5ae1a2a91c08b53b47 Mon Sep 17 00:00:00 2001
 From: Loren Huang <b02279@freescale.com>
 Date: Thu, 3 Jan 2013 20:16:41 +0800
-Subject: [PATCH 041/225] ENGR00238947 [GPU]Integrate Vivante 4.6.9p10 gpu
+Subject: [PATCH 041/231] ENGR00238947 [GPU]Integrate Vivante 4.6.9p10 gpu
  driver kernel part code
 
 Integrate both 4.6.9p9.1 and 4.6.9p10.

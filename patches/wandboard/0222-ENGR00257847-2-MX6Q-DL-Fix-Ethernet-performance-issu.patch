@@ -1,7 +1,7 @@
 From 3f86e1862fdaca2f69ef10379f0ecf80fdb8e05c Mon Sep 17 00:00:00 2001
 From: Ranjani Vaidyanathan <ra5478@freescale.com>
 Date: Mon, 1 Apr 2013 16:03:31 -0500
-Subject: [PATCH 222/225] ENGR00257847-2 MX6Q/DL-Fix Ethernet performance
+Subject: [PATCH 222/231] ENGR00257847-2 MX6Q/DL-Fix Ethernet performance
  issue when WAIT mode is active
 
 All of the interrupts from the ENET block are not routed to

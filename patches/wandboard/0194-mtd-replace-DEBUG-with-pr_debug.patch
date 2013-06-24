@@ -1,7 +1,7 @@
 From 5e7eec5fb8a80355de335492fb6a1af63e4e046a Mon Sep 17 00:00:00 2001
 From: Brian Norris <computersforpeace@gmail.com>
 Date: Tue, 19 Jul 2011 10:06:09 -0700
-Subject: [PATCH 194/225] mtd: replace DEBUG() with pr_debug()
+Subject: [PATCH 194/231] mtd: replace DEBUG() with pr_debug()
 
 Start moving away from the MTD_DEBUG_LEVEL messages. The dynamic
 debugging feature is a generic kernel feature that provides more

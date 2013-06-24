@@ -1,7 +1,7 @@
 From 730c12b7f6fa1493aaf51b47ee4d6ada8ee3b500 Mon Sep 17 00:00:00 2001
 From: Zhang Jiejing <jiejing.zhang@freescale.com>
 Date: Thu, 13 Dec 2012 17:08:21 +0800
-Subject: [PATCH 015/225] ENGR00236052 add keychord driver in android config.
+Subject: [PATCH 015/231] ENGR00236052 add keychord driver in android config.
 
 android use keychord to archive start function in init.rc
 with some key combo press.

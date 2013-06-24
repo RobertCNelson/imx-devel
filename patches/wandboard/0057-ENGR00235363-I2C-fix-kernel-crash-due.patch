@@ -1,7 +1,7 @@
 From 0ced59b3ce05b7da651867e9bd890a54846513e2 Mon Sep 17 00:00:00 2001
 From: Fugang Duan <B38611@freescale.com>
 Date: Fri, 30 Nov 2012 08:58:17 +0800
-Subject: [PATCH 057/225] ENGR00235363 I2C: fix kernel crash due
+Subject: [PATCH 057/231] ENGR00235363 I2C: fix kernel crash due
 
 Kernel crash log:
 Unable to handle kernel NULL pointer dereference at

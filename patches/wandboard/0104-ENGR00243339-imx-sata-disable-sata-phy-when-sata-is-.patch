@@ -1,7 +1,7 @@
 From f0b466ecb7a0f8f8cca0632de32144b71ea5e12d Mon Sep 17 00:00:00 2001
 From: Richard Zhu <r65037@freescale.com>
 Date: Tue, 5 Feb 2013 14:11:08 +0800
-Subject: [PATCH 104/225] ENGR00243339 imx: sata: disable sata phy when sata
+Subject: [PATCH 104/231] ENGR00243339 imx: sata: disable sata phy when sata
  is not enabled
 
 In order to save power consumption, disable sata phy

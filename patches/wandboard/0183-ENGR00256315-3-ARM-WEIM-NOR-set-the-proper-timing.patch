@@ -1,7 +1,7 @@
 From 6b4884f3fc7ec1c11f5d70f45dc6cc5af0f846b2 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Fri, 22 Mar 2013 15:14:08 +0800
-Subject: [PATCH 183/225] ENGR00256315-3 ARM: WEIM-NOR: set the proper timing
+Subject: [PATCH 183/231] ENGR00256315-3 ARM: WEIM-NOR: set the proper timing
 
 These timings are calculated from the M29W256GL7AN6E.
 

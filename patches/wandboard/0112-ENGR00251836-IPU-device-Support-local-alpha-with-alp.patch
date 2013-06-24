@@ -1,7 +1,7 @@
 From 56b1def8cd5d9538df4530a2e642fed445cded88 Mon Sep 17 00:00:00 2001
 From: Wayne Zou <b36644@freescale.com>
 Date: Fri, 23 Nov 2012 16:18:58 +0800
-Subject: [PATCH 112/225] ENGR00251836 IPU device: Support local alpha with
+Subject: [PATCH 112/231] ENGR00251836 IPU device: Support local alpha with
  alpha value in each pixel
 
 Add local alpha support with alpha value in each pixel,

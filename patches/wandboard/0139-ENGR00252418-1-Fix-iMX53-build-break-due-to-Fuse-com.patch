@@ -1,7 +1,7 @@
 From 01a2da5ae3b16ba1700ebcc6090da41113e112a1 Mon Sep 17 00:00:00 2001
 From: Nitin Garg <nitin.garg@freescale.com>
 Date: Mon, 11 Mar 2013 07:16:13 -0500
-Subject: [PATCH 139/225] ENGR00252418-1: Fix iMX53 build break due to Fuse
+Subject: [PATCH 139/231] ENGR00252418-1: Fix iMX53 build break due to Fuse
  commit
 
 commit 2786868e5f56c95afd1642fe487203ac4fa523dc (ENGR00252418)

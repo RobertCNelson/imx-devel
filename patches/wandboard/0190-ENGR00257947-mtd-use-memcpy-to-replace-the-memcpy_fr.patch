@@ -1,7 +1,7 @@
 From deb677f5df612543d65b14f549705d508611c646 Mon Sep 17 00:00:00 2001
 From: Huang Shijie <b32955@freescale.com>
 Date: Mon, 8 Apr 2013 16:56:46 +0800
-Subject: [PATCH 190/225] ENGR00257947 mtd: use memcpy to replace the
+Subject: [PATCH 190/231] ENGR00257947 mtd: use memcpy to replace the
  memcpy_fromio
 
 During the read of NOR, the kernel actually calls the inline_map_copy_from()

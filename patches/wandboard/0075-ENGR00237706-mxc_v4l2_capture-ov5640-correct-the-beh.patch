@@ -1,7 +1,7 @@
 From 0f17722cc39eec0a828a4851424a9df31e030ee0 Mon Sep 17 00:00:00 2001
 From: Sheng Nan <b38800@freescale.com>
 Date: Wed, 19 Dec 2012 17:27:42 +0800
-Subject: [PATCH 075/225] ENGR00237706: mxc_v4l2_capture: ov5640: correct the
+Subject: [PATCH 075/231] ENGR00237706: mxc_v4l2_capture: ov5640: correct the
  behavior of ENUM_FMT
 
 ov5640 ioctl_enum_fmt_cap only returns value of index = 0;

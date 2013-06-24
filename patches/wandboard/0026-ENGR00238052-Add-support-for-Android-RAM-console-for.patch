@@ -1,7 +1,7 @@
 From 4c423440b9f2920b8cb0f453eed18deb7c39652b Mon Sep 17 00:00:00 2001
 From: Nitin Garg <nitin.garg@freescale.com>
 Date: Fri, 21 Dec 2012 12:55:09 -0600
-Subject: [PATCH 026/225] ENGR00238052: Add support for Android RAM console
+Subject: [PATCH 026/231] ENGR00238052: Add support for Android RAM console
  for iMX53
 
 Add Android RAM console cupport for iMX53 SMD and align the

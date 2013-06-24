@@ -1,7 +1,7 @@
 From 031408cc07c8ca9b0aef446dcaca6c03c9844392 Mon Sep 17 00:00:00 2001
 From: Javier Martin <javier.martin@vista-silicon.com>
 Date: Fri, 11 May 2012 12:15:41 +0200
-Subject: [PATCH 198/225] mtd: add fixup for S29NS512P NOR flash.
+Subject: [PATCH 198/231] mtd: add fixup for S29NS512P NOR flash.
 
 Spansion S29NS512P flash uses a 16bit transfer to report number
 of sectors instead of two 8bit accesses as CFI specifies.
