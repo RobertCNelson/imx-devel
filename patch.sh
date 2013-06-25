@@ -329,11 +329,17 @@ fixes () {
 	echo "dir: fixes"
 }
 
+saucy () {
+	echo "dir: saucy"
+	${git} "${DIR}/patches/saucy/0001-saucy-disable-Werror-pointer-sign.patch"
+}
+
 imx_git
 wandboard
 deb_pkg
 arm
 imx
 fixes
+saucy
 
 echo "patch.sh ran successful"
