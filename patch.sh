@@ -117,9 +117,15 @@ chipidea () {
 	${git} "${DIR}/patches/chipidea/0029-ARM-dts-imx-imx53-qsb.dts-enable-usbotg-and-usbh1.patch"
 }
 
+saucy () {
+	echo "dir: saucy"
+	${git} "${DIR}/patches/saucy/0001-saucy-disable-stack-protector.patch"
+}
+
 arm
 #gpu
 imx
 chipidea
+saucy
 
 echo "patch.sh ran successful"
