@@ -332,6 +332,7 @@ fixes () {
 saucy () {
 	echo "dir: saucy"
 	${git} "${DIR}/patches/saucy/0001-saucy-disable-Werror-pointer-sign.patch"
+	${git} "${DIR}/patches/saucy/0002-saucy-disable-stack-protector.patch"
 }
 
 imx_git
