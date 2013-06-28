@@ -1,0 +1,53 @@
+From 1826e971d04720b1c50e2c850cd3d3a0b83ea6ae Mon Sep 17 00:00:00 2001
+From: Robert Nelson <robertcnelson@gmail.com>
+Date: Fri, 28 Jun 2013 07:31:18 -0500
+Subject: [PATCH 8/8] imx6q restart fix
+
+From http://marc.info/?l=linux-arm-kernel&m=134442139225489&w=2
+looks like nothing went upstream yet.
+
+Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
+---
+ arch/arm/mach-imx/mach-imx6q.c |   12 +++++++-----
+ 1 file changed, 7 insertions(+), 5 deletions(-)
+
+diff --git a/arch/arm/mach-imx/mach-imx6q.c b/arch/arm/mach-imx/mach-imx6q.c
+index 9ffd103..aa09270 100644
+--- a/arch/arm/mach-imx/mach-imx6q.c
++++ b/arch/arm/mach-imx/mach-imx6q.c
+@@ -39,6 +39,8 @@
+ #include "cpuidle.h"
+ #include "hardware.h"
+ 
++static void __iomem *wdog_base;
++
+ #define IMX6Q_ANALOG_DIGPROG	0x260
+ 
+ static int imx6q_revision(void)
+@@ -75,11 +77,6 @@ static int imx6q_revision(void)
+ 
+ void imx6q_restart(char mode, const char *cmd)
+ {
+-	struct device_node *np;
+-	void __iomem *wdog_base;
+-
+-	np = of_find_compatible_node(NULL, NULL, "fsl,imx6q-wdt");
+-	wdog_base = of_iomap(np, 0);
+ 	if (!wdog_base)
+ 		goto soft;
+ 
+@@ -192,6 +189,11 @@ static void __init imx6q_usb_init(void)
+ 
+ static void __init imx6q_init_machine(void)
+ {
++	struct device_node *np;
++
++	np = of_find_compatible_node(NULL, NULL, "fsl,imx6q-wdt");
++	wdog_base = of_iomap(np, 0);
++
+ 	if (of_machine_is_compatible("fsl,imx6q-sabrelite"))
+ 		imx6q_sabrelite_init();
+ 
+-- 
+1.7.10.4
+
