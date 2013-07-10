@@ -1728,7 +1728,7 @@ CONFIG_SPI_IMX=y
 #
 # SPI Protocol Masters
 #
-CONFIG_SPI_SPIDEV=m
+CONFIG_SPI_SPIDEV=y
 # CONFIG_SPI_TLE62X0 is not set
 
 #
@@ -2536,8 +2536,8 @@ CONFIG_FONT_8x16=y
 # CONFIG_FONT_SUN12x22 is not set
 CONFIG_FONT_10x18=y
 CONFIG_LOGO=y
-# CONFIG_LOGO_LINUX_MONO is not set
-# CONFIG_LOGO_LINUX_VGA16 is not set
+CONFIG_LOGO_LINUX_MONO=y
+CONFIG_LOGO_LINUX_VGA16=y
 CONFIG_LOGO_LINUX_CLUT224=y
 CONFIG_SOUND=y
 CONFIG_SOUND_OSS_CORE=y
@@ -3227,7 +3227,7 @@ CONFIG_MXC_SSI=y
 #
 # MXC Digital Audio Multiplexer support
 #
-# CONFIG_MXC_DAM is not set
+CONFIG_MXC_DAM=y
 
 #
 # MXC PMIC support
@@ -3259,7 +3259,7 @@ CONFIG_MXC_SSI=y
 #
 CONFIG_MXC_VPU=y
 # CONFIG_MXC_VPU_DEBUG is not set
-# CONFIG_MX6_VPU_352M is not set
+CONFIG_MX6_VPU_352M=y
 
 #
 # MXC Asynchronous Sample Rate Converter support
@@ -3277,7 +3277,8 @@ CONFIG_MXC_ASRC=y
 #
 # MXC Media Local Bus Driver
 #
-# CONFIG_MXC_MLB150 is not set
+CONFIG_MXC_MLB=y
+CONFIG_MXC_MLB150=m
 
 #
 # i.MX ADC support
@@ -3302,7 +3303,7 @@ CONFIG_MXC_MIPI_CSI2=m
 #
 # MXC HDMI CEC (Consumer Electronics Control) support
 #
-# CONFIG_MXC_HDMI_CEC is not set
+CONFIG_MXC_HDMI_CEC=y
 
 #
 # File systems
