@@ -13,9 +13,6 @@ if [ "${GIT_NOEDIT}" ] ; then
 	GIT_OPTS="${GIT_OPTS} --no-edit"
 fi
 
-#TI's SGX, etc...
-#need_32bit_libs="enable"
-
 config="imx_v6_v7_defconfig"
 
 #linaro_toolchain="arm9_gcc_4_7"
@@ -25,7 +22,7 @@ linaro_toolchain="cortex_gcc_4_7"
 
 #Kernel/Build
 KERNEL_REL=3.9
-KERNEL_TAG=${KERNEL_REL}.9
+KERNEL_TAG=${KERNEL_REL}.10
 BUILD=imx5
 
 #v3.X-rcX + upto SHA
