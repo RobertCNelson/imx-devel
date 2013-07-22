@@ -1,10 +1,14 @@
 #!/bin/sh
 #
 ARCH=$(uname -m)
-DISABLE_MASTER_BRANCH=1
 
-#Dual/Quad Core arms are now more prevalent, so don't just limit to x86:
-CORES=$(cat /proc/cpuinfo | grep processor | wc -l)
+#Dual/Quad Core arms are now more prevalent, so just don't limit it x86:
+check_cpuinfo=$(cat /proc/cpuinfo | grep "^processor" | awk '{print $1}' | head -n 1)
+if [ "x${check_cpuinfo}" = "xprocessor" ] ; then
+	CORES=$(cat /proc/cpuinfo | grep "^processor" | wc -l)
+else
+	CORES=1
+fi
 
 unset GIT_OPTS
 unset GIT_NOEDIT
@@ -15,6 +19,11 @@ if [ "${GIT_NOEDIT}" ] ; then
 fi
 
 config="imx5_defconfig"
+
+#linaro_toolchain="arm9_gcc_4_7"
+linaro_toolchain="cortex_gcc_4_6"
+#linaro_toolchain="cortex_gcc_4_7"
+#linaro_toolchain="cortex_gcc_4_8"
 
 #Kernel/Build
 KERNEL_REL=2.6.35

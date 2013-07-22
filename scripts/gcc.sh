@@ -25,57 +25,9 @@ DIR=$PWD
 
 . ${DIR}/system.sh
 
-ubuntu_arm_gcc_installed () {
-	unset armel_pkg
-	unset armhf_pkg
-	if [ $(which lsb_release) ] ; then
-		distro_release=$(lsb_release -cs)
-
-		#Linux Mint:
-		#Ubuntu Quantal = nadia
-
-		case "${distro_release}" in
-		oneiric|precise|quantal|nadia|raring)
-			#http://packages.ubuntu.com/raring/gcc-arm-linux-gnueabi
-			armel_pkg="gcc-arm-linux-gnueabi"
-			;;
-		esac
-
-		case "${distro_release}" in
-		oneiric|precise|quantal|nadia|raring)
-			#http://packages.ubuntu.com/raring/gcc-arm-linux-gnueabihf
-			armhf_pkg="gcc-arm-linux-gnueabihf"
-			;;
-		esac
-
-		if [ "${armel_pkg}" ] || [ "${armhf_pkg}" ] ; then
-			echo "fyi: ${distro} ${distro_release} has these ARM gcc cross compilers available in their repo:"
-			if [ "${armel_pkg}" ] ; then
-				echo "sudo apt-get install ${armel_pkg}"
-			fi
-			if [ "${armhf_pkg}" ] ; then
-				echo "sudo apt-get install ${armhf_pkg}"
-			fi
-			echo "-----------------------------"
-		fi
-	fi
-
-	if [ "${armel_pkg}" ] || [ "${armhf_pkg}" ] ; then
-		if [ $(which arm-linux-gnueabi-gcc) ] ; then
-			armel_gcc_test=$(LC_ALL=C arm-linux-gnueabi-gcc -v 2>&1 | grep "Target:" | grep arm || true)
-		fi
-		if [ $(which arm-linux-gnueabihf-gcc) ] ; then
-			armhf_gcc_test=$(LC_ALL=C arm-linux-gnueabihf-gcc -v 2>&1 | grep "Target:" | grep arm || true)
-		fi
-
-		if [ "x${armel_gcc_test}" != "x" ] ; then
-			CC="arm-linux-gnueabi-"
-		fi
-		if [ "x${armhf_gcc_test}" != "x" ] ; then
-			CC="arm-linux-gnueabihf-"
-		fi
-	fi
-}
+#For:
+#linaro_toolchain
+. ${DIR}/version.sh
 
 dl_gcc_generic () {
 	WGET="wget -c --directory-prefix=${DIR}/dl/"
@@ -100,56 +52,84 @@ dl_gcc_generic () {
 	fi
 }
 
-armv7_toolchain () {
-	#https://launchpad.net/linaro-toolchain-binaries/+download
+gcc_linaro_toolchain () {
+	case "${linaro_toolchain}" in
+	arm9_gcc_4_7)
+		#https://launchpad.net/gcc-arm-embedded/+download
+		#https://launchpad.net/gcc-arm-embedded/4.7/4.7-2013-q2-update/+download/gcc-arm-none-eabi-4_7-2013q2-20130614-linux.tar.bz2
 
-	#Used for ARM9
-	#https://launchpad.net/linaro-toolchain-binaries/trunk/2012.04/+download/gcc-linaro-arm-linux-gnueabi-2012.04-20120426_linux.tar.bz2
+		toolchain_name="gcc-arm-none-eabi"
+		site="https://launchpad.net/gcc-arm-embedded"
+		version="4.7/4.7-2013-q2-update"
+		version_date="20130614"
+		directory="${toolchain_name}-4_7-2013q2"
+		filename="${directory}-${version_date}-linux.tar.bz2"
+		datestamp="${version_date}-${toolchain_name}"
+		untar="tar -xjf"
 
-	toolchain_name="gcc-linaro-arm-linux-gnueabi"
-	site="https://launchpad.net/linaro-toolchain-binaries"
-	version="trunk/2012.04"
-	filename="gcc-linaro-arm-linux-gnueabi-2012.04-20120426_linux.tar.bz2"
-	directory="gcc-linaro-arm-linux-gnueabi-2012.04-20120426_linux"
-	datestamp="20120426-gcc-linaro-arm-linux-gnueabi"
-	untar="tar -xjf"
+		binary="bin/arm-none-eabi-"
+		;;
+	cortex_gcc_4_6)
+		#https://launchpad.net/linaro-toolchain-binaries/+download
+		#https://launchpad.net/linaro-toolchain-binaries/trunk/2012.03/+download/gcc-linaro-arm-linux-gnueabi-2012.03-20120326_linux.tar.bz2
 
-	binary="bin/arm-linux-gnueabi-"
+		release="2012.03"
+		toolchain_name="gcc-linaro-arm-linux-gnueabi"
+		site="https://launchpad.net/linaro-toolchain-binaries"
+		version="trunk/${release}"
+		version_date="20120326"
+		directory="${toolchain_name}-${release}-${version_date}_linux"
+		filename="${directory}.tar.bz2"
+		datestamp="${version_date}-${toolchain_name}"
+		untar="tar -xjf"
 
-	#Used for Cortex-A
-	#https://launchpad.net/linaro-toolchain-binaries/trunk/2013.03/+download/gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux.tar.bz2
+		binary="bin/arm-linux-gnueabi-"
+		;;
+	cortex_gcc_4_7)
+		#https://launchpad.net/linaro-toolchain-binaries/+download
+		#https://launchpad.net/linaro-toolchain-binaries/trunk/2013.04/+download/gcc-linaro-arm-linux-gnueabihf-4.7-2013.04-20130415_linux.tar.xz
 
-#	toolchain_name="gcc-linaro-arm-linux-gnueabihf"
-#	site="https://launchpad.net/linaro-toolchain-binaries"
-#	version="trunk/2013.03"
-#	filename="gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux.tar.bz2"
-#	directory="gcc-linaro-arm-linux-gnueabihf-4.7-2013.03-20130313_linux"
-#	datestamp="20130313-gcc-linaro-arm-linux-gnueabihf"
-#	untar="tar -xjf"
+		gcc_version="4.7"
+		release="2013.04"
+		toolchain_name="gcc-linaro-arm-linux-gnueabihf"
+		site="https://launchpad.net/linaro-toolchain-binaries"
+		version="trunk/${release}"
+		version_date="20130415"
+		directory="${toolchain_name}-${gcc_version}-${release}-${version_date}_linux"
+		filename="${directory}.tar.xz"
+		datestamp="${version_date}-${toolchain_name}"
+		untar="tar -xJf"
 
-#	binary="bin/arm-linux-gnueabihf-"
+		binary="bin/arm-linux-gnueabihf-"
+		;;
+	cortex_gcc_4_8)
+		#https://launchpad.net/linaro-toolchain-binaries/+download
+		#https://launchpad.net/linaro-toolchain-binaries/trunk/2013.06/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.06_linux.tar.xz
 
-	#Used for Cortex-A: gcc-4.8 testing, as "every" branch is broken...
-	#https://launchpad.net/linaro-toolchain-binaries/trunk/2013.04/+download/gcc-linaro-arm-linux-gnueabihf-4.8-2013.04-20130417_linux.tar.bz2
+		gcc_version="4.8"
+		release="2013.06"
+		toolchain_name="gcc-linaro-arm-linux-gnueabihf"
+		site="https://launchpad.net/linaro-toolchain-binaries"
+		version="trunk/${release}"
+		directory="${toolchain_name}-${gcc_version}-${release}_linux"
+		filename="${directory}.tar.xz"
+		datestamp="${release}-${toolchain_name}"
+		untar="tar -xJf"
 
-#	toolchain_name="gcc-linaro-arm-linux-gnueabihf"
-#	site="https://launchpad.net/linaro-toolchain-binaries"
-#	version="trunk/2013.04"
-#	directory="${toolchain_name}-4.8-2013.04-20130417_linux"
-#	filename="${directory}.tar.bz2"
-#	datestamp="20130313-${toolchain_name}"
-#	untar="tar -xJf"
-
-#	binary="bin/arm-linux-gnueabihf-"
+		binary="bin/arm-linux-gnueabihf-"
+		;;
+	*)
+		echo "bug: maintainer forgot to set:"
+		echo "linaro_toolchain=\"xzy\" in version.sh"
+		exit 1
+		;;
+	esac
 
 	dl_gcc_generic
 }
 
 if [ "x${CC}" = "x" ] && [ "x${ARCH}" != "xarmv7l" ] ; then
-	ubuntu_arm_gcc_installed
-	if [ "x${CC}" = "x" ] ; then
-		armv7_toolchain
-	fi
+	gcc_linaro_toolchain
 fi
 
 GCC_TEST=$(LC_ALL=C ${CC}gcc -v 2>&1 | grep "Target:" | grep arm || true)
@@ -158,7 +138,7 @@ if [ "x${GCC_TEST}" = "x" ] ; then
 	echo "-----------------------------"
 	echo "scripts/gcc: Error: The GCC ARM Cross Compiler you setup in system.sh (CC variable) is invalid."
 	echo "-----------------------------"
-	armv7_toolchain
+	gcc_linaro_toolchain
 fi
 
 echo "-----------------------------"
