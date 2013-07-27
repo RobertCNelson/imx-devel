@@ -1,18 +1,21 @@
-#!/bin/bash
+#!/bin/sh
 #copy as "system.sh" and tweak for your system
 
 ARCH=$(uname -m)
 
 #ARM Native gcc compiler (running gcc on arm target)
-if [ "x${ARCH}" == "xarmv7l" ] ; then
+if [ "x${ARCH}" = "xarmv7l" ] ; then
 	#Native arm gcc compiler
 	CC=
 fi
 
 ###REQUIRED:
 
-#ARM GCC CROSS Compiler: (See hints in Readme, for different gcc cross compiler versions)
-#CC=arm-linux-gnueabi-
+#ARM GCC CROSS Compiler:
+#if CC is not set, a known working linaro compiler (ubuntu, or the one you installed via apt-get) will be used.
+#CC=<enter full path>/bin/arm-none-eabi-
+#CC=<enter full path>/bin/arm-linux-gnueabi-
+#CC=<enter full path>/bin/arm-linux-gnueabihf-
 
 ###OPTIONAL:
 
@@ -36,8 +39,11 @@ fi
 ##For Freescale: i.mx53:
 #ZRELADDR=0x70008000
 #
-##For Freescale: i.mx6:
+##For Freescale: i.mx6q/dl/solo:
 #ZRELADDR=0x10008000
+#
+##For Freescale: i.mx6sl:
+#ZRELADDR=0x80008000
 
 ###OPTIONAL: MMC: (REQUIRED FOR RUNNING: tools/install_kernel.sh)
 #Note: This operates on raw disks, NOT PARTITIONS..
