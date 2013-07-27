@@ -1,44 +1,39 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 #opensuse support added by: Antonio Cavallo
 #https://launchpad.net/~a.cavallo
 
-function warning { echo "! $@" >&2; }
-function error { echo "* $@" >&2; exit 1; }
-function info { echo "+ $@" >&2; }
-function ltrim { echo "$1" | awk '{ gsub(/^[ \t]+/,"", $0); print $0}'; }
-function rtrim { echo "$1" | awk '{ gsub(/[ \t]+$/,"", $0); print $0}'; }
-function trim { local x="$( ltrim "$1")"; x="$( rtrim "$x")"; echo "$x"; }
+warning () { echo "! $@" >&2; }
+error () { echo "* $@" >&2; exit 1; }
+info () { echo "+ $@" >&2; }
+ltrim () { echo "$1" | awk '{ gsub(/^[ \t]+/,"", $0); print $0}'; }
+rtrim () { echo "$1" | awk '{ gsub(/[ \t]+$/,"", $0); print $0}'; }
+trim () { local x="$( ltrim "$1")"; x="$( rtrim "$x")"; echo "$x"; }
 
+detect_host () {
+	local REV DIST PSEUDONAME
 
-
-function detect_host {
-local REV DIST PSEUDONAME
-
-if [ -f /etc/redhat-release ] ; then
-	DIST='RedHat'
-	PSEUDONAME=$(cat /etc/redhat-release | sed s/.*\(// | sed s/\)//)
-	REV=$(cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//)
-    echo "redhat-$REV"
-elif [ -f /etc/SuSE-release ] ; then
-	DIST=$(cat /etc/SuSE-release | tr "\n" ' '| sed s/VERSION.*//)
-	REV=$(cat /etc/SuSE-release | tr "\n" ' ' | sed s/.*=\ //)
-    trim "suse-$REV"
-elif [ -f /etc/debian_version ] ; then
-	DIST="Debian Based"
-	REV=""
-    echo "debian-$REV"
-fi
-
+	if [ -f /etc/redhat-release ] ; then
+		DIST='RedHat'
+		PSEUDONAME=$(cat /etc/redhat-release | sed s/.*\(// | sed s/\)//)
+		REV=$(cat /etc/redhat-release | sed s/.*release\ // | sed s/\ .*//)
+		echo "redhat-$REV"
+	elif [ -f /etc/SuSE-release ] ; then
+		DIST=$(cat /etc/SuSE-release | tr "\n" ' '| sed s/VERSION.*//)
+		REV=$(cat /etc/SuSE-release | tr "\n" ' ' | sed s/.*=\ //)
+		trim "suse-$REV"
+	elif [ -f /etc/debian_version ] ; then
+		DIST="Debian Based"
+		debian="debian"
+		echo "${debian}"
+	fi
 }
 
-function redhat_reqs
-{
+redhat_reqs () {
 	echo "RH Not implemented yet"
 }
 
-function suse_regs
-{
+suse_regs () {
     local BUILD_HOST="$1"   
 # --- SuSE-release ---
     if [ ! -f /etc/SuSE-release ]
@@ -87,80 +82,184 @@ Missing mkimage command.
         return 1
     fi
     
-
 }
 
-function debian_regs
-{
+debian_regs () {
 	unset deb_pkgs
-	dpkg -l | grep build-essential >/dev/null || deb_pkgs+="build-essential "
-	dpkg -l | grep ccache >/dev/null || deb_pkgs+="ccache "
-	dpkg -l | grep device-tree-compiler >/dev/null || deb_pkgs+="device-tree-compiler "
-	dpkg -l | grep lsb-release >/dev/null || deb_pkgs+="lsb-release "
-	dpkg -l | grep lzma >/dev/null || deb_pkgs+="lzma "
-	dpkg -l | grep fakeroot >/dev/null || deb_pkgs+="fakeroot "
+	pkg="bc"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="build-essential"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="device-tree-compiler"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="fakeroot"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="man-db"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="lsb-release"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="lzma"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	pkg="lzop"
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
 
-	#Lucid -> Oneiric
-	if [ ! -f "/usr/lib/libncurses.so" ] ; then
-		#Precise ->
-		if [ ! -f "/usr/lib/`dpkg-architecture -qDEB_HOST_MULTIARCH 2>/dev/null`/libncurses.so" ] ; then
-			deb_pkgs+="libncurses5-dev "
-		else
-		echo "-----------------------------"
-			echo "Debug: found libncurses.so: /usr/lib/`dpkg-architecture -qDEB_HOST_MULTIARCH 2>/dev/null`/libncurses.so"
-		echo "-----------------------------"
-		fi
-	else
-		echo "-----------------------------"
-		echo "Debug: found libncurses.so: /usr/lib/libncurses.so"
-		echo "-----------------------------"
-	fi
-
+	unset warn_dpkg_ia32
+	unset stop_pkg_search
 	#lsb_release might not be installed...
 	if [ $(which lsb_release) ] ; then
 		deb_distro=$(lsb_release -cs)
 
-		#mkimage
+		#Linux Mint: Compatibility Matrix
+		#http://www.linuxmint.com/oldreleases.php
 		case "${deb_distro}" in
-		squeeze|lucid|maverick)
-			dpkg -l | grep uboot-mkimage >/dev/null || deb_pkgs+="uboot-mkimage "
+		debian)
+			deb_distro="jessie"
 			;;
-		wheezy|natty|oneiric|precise|quantal|raring)
-			dpkg -l | grep u-boot-tools >/dev/null || deb_pkgs+="u-boot-tools "
+		isadora)
+			deb_distro="lucid"
+			;;
+		julia)
+			deb_distro="maverick"
+			;;
+		katya)
+			deb_distro="natty"
+			;;
+		lisa)
+			deb_distro="oneiric"
+			;;
+		maya)
+			deb_distro="precise"
+			;;
+		nadia)
+			deb_distro="quantal"
+			;;
+		olivia)
+			deb_distro="raring"
 			;;
 		esac
 
-		cpu_arch=$(uname -m)
-		if [ "x${cpu_arch}" == "xx86_64" ] ; then
+		case "${deb_distro}" in
+		squeeze|wheezy|jessie|sid)
+			unset error_unknown_deb_distro
+			unset warn_eol_distro
+			;;
+		lucid|precise|quantal|raring|saucy)
+			unset error_unknown_deb_distro
+			unset warn_eol_distro
+			;;
+		maverick|natty|oneiric)
+			#lucid -> precise
+			#http://us.archive.ubuntu.com/ubuntu/dists/
+			#list: dists between LTS's...
+			unset error_unknown_deb_distro
+			warn_eol_distro=1
+			stop_pkg_search=1
+			;;
+		hardy)
+			#Just old, but still on:
+			#http://us.archive.ubuntu.com/ubuntu/dists/
+			unset error_unknown_deb_distro
+			warn_eol_distro=1
+			stop_pkg_search=1
+			;;
+		*)
+			error_unknown_deb_distro=1
+			unset warn_eol_distro
+			stop_pkg_search=1
+			;;
+		esac
+	fi
+
+	if [ $(which lsb_release) ] && [ ! "${stop_pkg_search}" ] ; then
+		deb_distro=$(lsb_release -cs)
+
+		#pkg: mkimage
+		case "${deb_distro}" in
+		squeeze|lucid)
+			pkg="uboot-mkimage"
+			LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+			;;
+		*)
+			pkg="u-boot-tools"
+			LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+			;;
+		esac
+
+		#lsb_release -cs ; dpkg --list | grep libncurses5-dev
+		#squeeze : [ii  libncurses5-dev                 5.7+20100313-5               developer's libraries and docs for ncurses]
+		#wheezy :  [ii  libncurses5-dev                  5.9-10                    armhf        developer's libraries for ncurses]
+		#jessie :  [ii  libncurses5-dev:armhf            5.9+20130608-1            armhf        developer's libraries for ncurses]
+		#sid :     [ii  libncurses5-dev:armhf            5.9+20130608-1        armhf        developer's libraries for ncurses]
+		#lucid :   [ii  libncurses5-dev                 5.7+20090803-2ubuntu3        developer's libraries and docs for ncurses]
+		#oneiric : [ii  libncurses5-dev                  5.9-1ubuntu5.1               developer's libraries for ncurses]
+		#precise : [ii  libncurses5-dev                  5.9-4                        developer's libraries for ncurses]
+		#quantal : [ii  libncurses5-dev                  5.9-10ubuntu1                armhf        developer's libraries for ncurses]
+		#raring :  [ii  libncurses5-dev                  5.9-10ubuntu4                armhf        developer's libraries for ncurses]
+		#saucy :   [ii  libncurses5-dev                  5.9-10ubuntu4                armhf        developer's libraries for ncurses]
+
+		#pkg: libncurses5-dev
+		echo "host debug: dpkg --list libncurses5-dev: [`LC_ALL=C dpkg --list | awk '{print $2}' | grep "^libncurses5-dev"`]"
+		case "${deb_distro}" in
+		*)
+			pkg="libncurses5-dev"
+			LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+			;;
+		esac
+
+		#pkg: ia32-libs
+		deb_arch=$(LC_ALL=C dpkg --print-architecture)
+		if [ "x${deb_arch}" = "xamd64" ] ; then
+			unset dpkg_multiarch
 			case "${deb_distro}" in
-			squeeze|wheezy|lucid|maverick|natty|oneiric|precise|quantal|raring)
-				dpkg -l | grep ia32-libs >/dev/null || deb_pkgs+="ia32-libs "
+			squeeze|lucid|precise)
+				pkg="ia32-libs"
+				LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+				;;
+			*)
+				pkg="ia32-libs"
+				LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+				LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || dpkg_multiarch=1
 				;;
 			esac
 
-#			case "${deb_distro}" in
-#			wheezy)
-#				unset wheezy_multiarch
-#				dpkg -l | grep ia32-libs-i386 >/dev/null || wheezy_multiarch=1
-#				;;
-#			esac
-
-			if [ "${wheezy_multiarch}" ] ; then
-				deb_pkgs+="ia32-libs-i386 "
-				echo "-----------------------------"
-				echo "Debian Wheezy:"
-				echo "sudo dpkg --add-architecture i386"
-				echo "sudo apt-get update"
-				echo "-----------------------------"
+			if [ "${dpkg_multiarch}" ] ; then
+				unset check_foreign
+				check_foreign=$(LC_ALL=C dpkg --print-foreign-architectures)
+				if [ "x${check_foreign}" = "x" ] ; then
+					warn_dpkg_ia32=1
+				fi
 			fi
 		fi
+	fi
 
+	if [ "${warn_eol_distro}" ] ; then
+		echo "End Of Life (EOL) deb based distro detected."
+		echo "Dependency check skipped, you are on your own."
+		echo "-----------------------------"
+		unset deb_pkgs
+	fi
+
+	if [ "${error_unknown_deb_distro}" ] ; then
+		echo "Unrecognized deb based system:"
+		echo "-----------------------------"
+		echo "Please cut, paste and email to: bugs@rcn-ee.com"
+		echo "-----------------------------"
+		echo "git: `git rev-parse HEAD`"
+		echo "uname -m"
+		uname -m
+		echo "lsb_release -a"
+		lsb_release -a
+		echo "-----------------------------"
+		return 1
 	fi
 
 	if [ "${deb_pkgs}" ] ; then
-		echo "Missing Dependicies: Please Install"
+		echo "Debian/Ubuntu/Mint: missing dependicies, please install:"
 		echo "-----------------------------"
-		echo "Ubuntu/Debian"
+		if [ "${warn_dpkg_ia32}" ] ; then
+			echo "sudo dpkg --add-architecture i386"
+		fi
+		echo "sudo apt-get update"
 		echo "sudo apt-get install ${deb_pkgs}"
 		echo "-----------------------------"
 		return 1
@@ -168,7 +267,13 @@ function debian_regs
 }
 
 BUILD_HOST=${BUILD_HOST:="$( detect_host )"}
-info "Detected build host [$BUILD_HOST]"
+if [ $(which lsb_release) ] ; then
+	info "Detected build host [`lsb_release -sd`]"
+	info "[debug: `git rev-parse HEAD`]"
+else
+	info "Detected build host [$BUILD_HOST]"
+	info "[debug: `git rev-parse HEAD`]"
+fi
 case "$BUILD_HOST" in
     redhat*)
 	    redhat_reqs

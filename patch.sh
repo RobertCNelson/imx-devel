@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 #
-# Copyright (c) 2009-2012 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2009-2013 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,9 @@
 # Split out, so build_kernel.sh and build_deb.sh can share..
 
 git="git am"
-#git="git am --whitespace=fix"
 
 if [ -f ${DIR}/system.sh ] ; then
-	source ${DIR}/system.sh
+	. ${DIR}/system.sh
 fi
 
 if [ "${RUN_BISECT}" ] ; then
@@ -40,12 +39,18 @@ git_add () {
 	git commit -a -m 'testing patchset'
 }
 
+start_cleanup () {
+	git="git am --whitespace=fix"
+}
+
 cleanup () {
-	git format-patch -${number} -o ${DIR}/patches/
+	if [ "${number}" ] ; then
+		git format-patch -${number} -o ${DIR}/patches/
+	fi
 	exit
 }
 
-function bugs_trivial {
+bugs_trivial () {
 	echo "bugs and trivial stuff"
 	${git} "${DIR}/patches/trivial/0001-kbuild-deb-pkg-set-host-machine-after-dpkg-gencontro.patch"
 	#in 3.4.9
@@ -55,4 +60,3 @@ function bugs_trivial {
 bugs_trivial
 
 echo "patch.sh ran successful"
-

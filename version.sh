@@ -1,28 +1,29 @@
-#!/bin/bash
+#!/bin/sh
 #
 ARCH=$(uname -m)
-DISABLE_MASTER_BRANCH=1
 
-CORES=1
-if [ "x${ARCH}" == "xx86_64" ] || [ "x${ARCH}" == "xi686" ] ; then
-	CORES=$(cat /proc/cpuinfo | grep processor | wc -l)
-	let CORES=$CORES+1
+#Dual/Quad Core arms are now more prevalent, so just don't limit it x86:
+check_cpuinfo=$(cat /proc/cpuinfo | grep "^processor" | awk '{print $1}' | head -n 1)
+if [ "x${check_cpuinfo}" = "xprocessor" ] ; then
+	CORES=$(cat /proc/cpuinfo | grep "^processor" | wc -l)
+else
+	CORES=1
 fi
 
 unset GIT_OPTS
 unset GIT_NOEDIT
-LC_ALL=C git help pull | grep -m 1 -e "--no-edit" &>/dev/null && GIT_NOEDIT=1
+LC_ALL=C git help pull | grep -m 1 -e "--no-edit" >/dev/null 2>&1 && GIT_NOEDIT=1
 
 if [ "${GIT_NOEDIT}" ] ; then
-	GIT_OPTS+="--no-edit"
+	GIT_OPTS="${GIT_OPTS} --no-edit"
 fi
 
-CCACHE=ccache
-
 config="imx_v6_v7_defconfig"
-#FIXME: need to find a better way to support more then one...
-#imx_bootlets_tag="imx233-olinuxino-10.05.02"
-#imx_bootlets_target="imx23-olinuxino"
+
+#linaro_toolchain="arm9_gcc_4_7"
+#linaro_toolchain="cortex_gcc_4_6"
+linaro_toolchain="cortex_gcc_4_7"
+#linaro_toolchain="cortex_gcc_4_8"
 
 #Kernel/Build
 KERNEL_REL=3.4
@@ -37,4 +38,4 @@ BRANCH="v3.4.x-imx"
 
 BUILDREV=1.0
 DISTRO=cross
-DEBARCH=armel
+DEBARCH=armhf
