@@ -84,17 +84,33 @@ Missing mkimage command.
     
 }
 
+check_dpkg () {
+	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+}
+
 debian_regs () {
 	unset deb_pkgs
-	dpkg -l | grep bc >/dev/null || deb_pkgs"${deb_pkgs}bc "
-	dpkg -l | grep build-essential >/dev/null || deb_pkgs="${deb_pkgs}build-essential "
-	dpkg -l | grep device-tree-compiler >/dev/null || deb_pkgs="${deb_pkgs}device-tree-compiler "
-	dpkg -l | grep lsb-release >/dev/null || deb_pkgs="${deb_pkgs}lsb-release "
-	dpkg -l | grep lzma >/dev/null || deb_pkgs="${deb_pkgs}lzma "
-	dpkg -l | grep lzop >/dev/null || deb_pkgs="${deb_pkgs}lzop "
-	dpkg -l | grep fakeroot >/dev/null || deb_pkgs="${deb_pkgs}fakeroot "
+	pkg="bc"
+	check_dpkg
+	pkg="build-essential"
+	check_dpkg
+	pkg="device-tree-compiler"
+	check_dpkg
+	pkg="fakeroot"
+	check_dpkg
+	pkg="man-db"
+	check_dpkg
+	pkg="libncurses5-dev"
+	check_dpkg
+	pkg="lsb-release"
+	check_dpkg
+	pkg="lzma"
+	check_dpkg
+	pkg="lzop"
+	check_dpkg
 
 	unset warn_dpkg_ia32
+	unset stop_pkg_search
 	#lsb_release might not be installed...
 	if [ $(which lsb_release) ] ; then
 		deb_distro=$(lsb_release -cs)
@@ -104,6 +120,18 @@ debian_regs () {
 		case "${deb_distro}" in
 		debian)
 			deb_distro="jessie"
+			;;
+		isadora)
+			deb_distro="lucid"
+			;;
+		julia)
+			deb_distro="maverick"
+			;;
+		katya)
+			deb_distro="natty"
+			;;
+		lisa)
+			deb_distro="oneiric"
 			;;
 		maya)
 			deb_distro="precise"
@@ -125,59 +153,67 @@ debian_regs () {
 			unset error_unknown_deb_distro
 			unset warn_eol_distro
 			;;
-		natty|oneiric)
+		maverick|natty|oneiric)
+			#lucid -> precise
 			#http://us.archive.ubuntu.com/ubuntu/dists/
-			#Still list the "prior" one as some people dont upgrade very fast...
+			#list: dists between LTS's...
 			unset error_unknown_deb_distro
 			warn_eol_distro=1
+			stop_pkg_search=1
+			;;
+		hardy)
+			#Just old, but still on:
+			#http://us.archive.ubuntu.com/ubuntu/dists/
+			unset error_unknown_deb_distro
+			warn_eol_distro=1
+			stop_pkg_search=1
 			;;
 		*)
 			error_unknown_deb_distro=1
 			unset warn_eol_distro
+			stop_pkg_search=1
 			;;
 		esac
+	fi
+
+	if [ $(which lsb_release) ] && [ ! "${stop_pkg_search}" ] ; then
+		deb_distro=$(lsb_release -cs)
 
 		#pkg: mkimage
 		case "${deb_distro}" in
 		squeeze|lucid)
-			dpkg -l | grep uboot-mkimage >/dev/null || deb_pkgs="${deb_pkgs}uboot-mkimage"
-			;;
-		wheezy|jessie|sid|precise|quantal|raring|saucy)
-			dpkg -l | grep u-boot-tools >/dev/null || deb_pkgs="${deb_pkgs}u-boot-tools"
-			;;
-		esac
-
-		#pkg: libncurses5-dev
-		case "${deb_distro}" in
-		precise)
-			#ii  libncurses5-dev  5.9-4  developer's libraries for ncurses
-			dpkg -l | grep libncurses5-dev >/dev/null || deb_pkgs="${deb_pkgs}libncurses5-dev "
+			pkg="uboot-mkimage"
+			check_dpkg
 			;;
 		*)
-			#ii  libncurses5-dev:amd64  5.9+20130504-1  amd64  developer's libraries for ncurses
-			deb_arch=$(dpkg --print-architecture)
-			dpkg -l | grep libncurses5-dev | grep ${deb_arch} >/dev/null || deb_pkgs="${deb_pkgs}libncurses5-dev "
+			pkg="u-boot-tools"
+			check_dpkg
 			;;
 		esac
 
 		#pkg: ia32-libs
-		cpu_arch=$(uname -m)
-		if [ "x${cpu_arch}" = "xx86_64" ] ; then
+		deb_arch=$(LC_ALL=C dpkg --print-architecture)
+		if [ "x${deb_arch}" = "xamd64" ] ; then
 			unset dpkg_multiarch
 			case "${deb_distro}" in
-			squeeze|lucid|natty|oneiric|precise)
-				dpkg -l | grep ia32-libs >/dev/null || deb_pkgs="${deb_pkgs}ia32-libs "
+			squeeze|lucid|precise)
+				pkg="ia32-libs"
+				check_dpkg
 				;;
-			wheezy|jessie|sid|quantal|raring|saucy)
-				dpkg -l | grep ia32-libs >/dev/null || deb_pkgs="${deb_pkgs}ia32-libs "
-				dpkg -l | grep ia32-libs >/dev/null || dpkg_multiarch=1
+			wheezy|jessie|sid|quantal|raring)
+				pkg="ia32-libs"
+				check_dpkg
+				LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}" >/dev/null || dpkg_multiarch=1
+				;;
+			saucy)
+				echo "todo.. ia32-libs is gone.."
 				;;
 			esac
 
 			if [ "${dpkg_multiarch}" ] ; then
 				unset check_foreign
 				check_foreign=$(LC_ALL=C dpkg --print-foreign-architectures)
-				if [ "x" = "x${check_foreign}" ] ; then
+				if [ "x${check_foreign}" = "x" ] ; then
 					warn_dpkg_ia32=1
 				fi
 			fi
@@ -196,6 +232,7 @@ debian_regs () {
 		echo "-----------------------------"
 		echo "Please cut, paste and email to: bugs@rcn-ee.com"
 		echo "-----------------------------"
+		echo "git: `git rev-parse HEAD`"
 		echo "uname -m"
 		uname -m
 		echo "lsb_release -a"
@@ -220,8 +257,12 @@ debian_regs () {
 BUILD_HOST=${BUILD_HOST:="$( detect_host )"}
 if [ $(which lsb_release) ] ; then
 	info "Detected build host [`lsb_release -sd`]"
+	info "host: [`dpkg --print-architecture`]"
+	info "git HEAD commit: [`git rev-parse HEAD`]"
 else
 	info "Detected build host [$BUILD_HOST]"
+	info "host: [`dpkg --print-architecture`]"
+	info "git HEAD commit: [`git rev-parse HEAD`]"
 fi
 case "$BUILD_HOST" in
     redhat*)
