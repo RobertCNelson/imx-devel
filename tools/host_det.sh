@@ -141,7 +141,7 @@ Missing mkimage command.
 }
 
 check_dpkg () {
-	LC_ALL=C dpkg --list | awk '{print $2}' | grep "^${pkg}$" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
+	LC_ALL=C dpkg -l ${pkg} | awk '{print $2}' | grep "^${pkg}$" >/dev/null || deb_pkgs="${deb_pkgs}${pkg} "
 }
 
 debian_regs () {
@@ -301,13 +301,13 @@ debian_regs () {
 				check_dpkg
 				;;
 			wheezy|jessie|sid|quantal|raring|saucy)
-				pkg="libc6:i386"
+				pkg="libc6:${deb_arch}"
 				check_dpkg
-				pkg="libncurses5:i386"
+				pkg="libncurses5:${deb_arch}"
 				check_dpkg
-				pkg="libstdc++6:i386"
+				pkg="libstdc++6:${deb_arch}"
 				check_dpkg
-				pkg="zlib1g:i386"
+				pkg="zlib1g:${deb_arch}"
 				check_dpkg
 				dpkg_multiarch=1
 				;;
