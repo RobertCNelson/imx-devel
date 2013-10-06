@@ -57,6 +57,29 @@ redhat_reqs () {
 		check_rpm
 	fi
 
+	if [ $(which lsb_release) ] ; then
+		rpm_distro=$(lsb_release -rs)
+		echo "RPM distro version: [${rpm_distro}]"
+
+		case "${rpm_distro}" in
+		6.4)
+			echo "Warning: RHEL/CentOS [${rpm_distro}] has no [uboot-tools] pkg"
+			;;
+		17|18|19|20)
+			pkg="uboot-tools"
+			check_rpm
+			;;
+		*)
+			echo "Warning: [uboot-tools] package check still in development"
+			echo "Please email to: bugs@rcn-ee.com"
+			echo "Success/Failure of [yum install uboot-tools]"
+			echo "RPM distro version: [${rpm_distro}]"
+			pkg="uboot-tools"
+			check_rpm
+			;;
+		esac
+	fi
+
 	if [ "${rpm_pkgs}" ] ; then
 		echo "Red Hat, or derivatives: missing dependencies, please install:"
 		echo "-----------------------------"
@@ -169,6 +192,22 @@ debian_regs () {
 			#Release:        testing/unstable
 			#Codename:       n/a
 			if [ "x${deb_lsb_rs}" = "xtesting_unstable" ] ; then
+				deb_distro="jessie"
+			fi
+		fi
+
+		if [ "x${deb_distro}" = "testing" ] ; then
+			echo "+ Warning: [lsb_release -cs] just returned [testing], so now testing [lsb_release -ds] instead..."
+			deb_lsb_ds=$(lsb_release -ds | awk '{print $1}')
+
+			#http://solydxk.com/about/solydxk/
+			#lsb_release -a
+			#No LSB modules are available.
+			#Distributor ID: SolydXK
+			#Description:    SolydXK
+			#Release:        1
+			#Codename:       testing
+			if [ "x${deb_lsb_ds}" = "xSolydXK" ] ; then
 				deb_distro="jessie"
 			fi
 		fi
