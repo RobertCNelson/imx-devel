@@ -90,6 +90,8 @@ make_kernel () {
 			mkdir -p "${DIR}/deploy/beagleboard.org/${KERNEL_UTS}/" || true
 			cp -uv arch/arm/boot/${image} "${DIR}/deploy/beagleboard.org/${KERNEL_UTS}/${KERNEL_UTS}.${image}"
 			xz -z "${DIR}/deploy/beagleboard.org/${KERNEL_UTS}/${KERNEL_UTS}.${image}"
+			mkimage -A arm -O linux -T kernel -C none -a 0x80008000 -e 0x80008000 -n ${KERNEL_UTS} -d arch/arm/boot/zImage "${DIR}/deploy/beagleboard.org/${KERNEL_UTS}/${KERNEL_UTS}.uImage"
+			xz -z "${DIR}/deploy/beagleboard.org/${KERNEL_UTS}/${KERNEL_UTS}.uImage"
 			cp -uv .config "${DIR}/deploy/beagleboard.org/${KERNEL_UTS}/${KERNEL_UTS}.config"
 		fi
 		cp -v arch/arm/boot/${image} "${DIR}/deploy/${KERNEL_UTS}.${image}"
@@ -109,15 +111,10 @@ make_kernel () {
 make_pkg () {
 	cd ${DIR}/KERNEL/
 
-	deployfile="-${pkg}.tar.gz"
-	tar_options="--create --gzip --file"
-
-	if [ "${AUTO_BUILD}" ] ; then
-		#FIXME: xz might not be available everywhere...
-		#FIXME: ./tools/install_kernel.sh needs update...
-		deployfile="-${pkg}.tar.xz"
-		tar_options="--create --xz --file"
-	fi
+	#FIXME: xz might not be available everywhere...
+	#FIXME: ./tools/install_kernel.sh needs update...
+	deployfile="-${pkg}.tar.xz"
+	tar_options="--create --xz --file"
 
 	if [ -f "${DIR}/deploy/${KERNEL_UTS}${deployfile}" ] ; then
 		rm -rf "${DIR}/deploy/${KERNEL_UTS}${deployfile}" || true
@@ -181,6 +178,7 @@ update_latest () {
 	echo "#!/bin/sh -e" > "${DIR}/deploy/beagleboard.org/latest"
 	echo "abi=aaa" >> "${DIR}/deploy/beagleboard.org/latest"
 	echo "kernel=${KERNEL_UTS}" >> "${DIR}/deploy/beagleboard.org/latest"
+	cp -uv ./tools/test-me.sh "${DIR}/deploy/beagleboard.org/"
 }
 
 /bin/sh -e ${DIR}/tools/host_det.sh || { exit 1 ; }
