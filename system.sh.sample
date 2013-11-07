@@ -12,7 +12,7 @@ fi
 ###REQUIRED:
 
 #ARM GCC CROSS Compiler:
-#if CC is not set, a known working linaro compiler (ubuntu, or the one you installed via apt-get) will be used.
+#if CC is not set, a known working linaro based gcc compiler will be downloaded and utilized.
 #CC=<enter full path>/bin/arm-none-eabi-
 #CC=<enter full path>/bin/arm-linux-gnueabi-
 #CC=<enter full path>/bin/arm-linux-gnueabihf-
@@ -44,6 +44,12 @@ fi
 #
 ##For Freescale: i.mx6sl:
 #ZRELADDR=0x80008000
+#
+##For Atmel: AT91 & SAMA5
+#ZRELADDR=0x20008000
+#
+##For Atmel: AT91SAM9G45
+#ZRELADDR=0x70008000
 
 ###OPTIONAL: MMC: (REQUIRED FOR RUNNING: tools/install_kernel.sh)
 #Note: This operates on raw disks, NOT PARTITIONS..
@@ -58,22 +64,9 @@ fi
 
 ###ADVANCED:
 
-###ADVANCED: DEBUG_SECTION: enable DEBUG_SECTION_MISMATCH
-#http://cateee.net/lkddb/web-lkddb/DEBUG_SECTION_MISMATCH.html
-#
-#DEBUG_SECTION=1
-
 ###ADVANCED: RUN_BISECT: used with ./scripts/bisect.sh
 #
 #RUN_BISECT=1
-
-###ADVANCED: LOCAL_PATCH_DIR: Secret Sauce Patches:
-#Have some secret sauce, you dont want to share with the community??
-#
-#It'll look specifically for *.patch files... Doesn't care about order/etc..
-#And I don't care about enhancing it.. ;)
-#
-#LOCAL_PATCH_DIR=/full/path/to/dir/
 
 ###ADVANCED: AUTO_BUILD: Easier integration with Jenkins/Buildbot/etc..
 #

@@ -67,4 +67,3 @@ bugs_trivial
 freescale
 
 echo "patch.sh ran successful"
-
