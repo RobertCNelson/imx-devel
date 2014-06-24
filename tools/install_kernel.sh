@@ -37,46 +37,22 @@ mmc_write_rootfs () {
 		sudo rm -rf "${location}/lib/modules/${KERNEL_UTS}" || true
 	fi
 
-	sudo tar ${UNTAR} "${DIR}/deploy/${KERNEL_UTS}-modules.tar.gz" -C "${location}"
+	sudo tar ${UNTAR} "${DIR}/deploy/${KERNEL_UTS}-modules.tar.gz" -C "${location}/"
 	sync
 
-	echo "Installing ${KERNEL_UTS}-firmware.tar.gz to ${partition}"
-
-	if [ -d "${DIR}/deploy/tmp" ] ; then
-		rm -rf "${DIR}/deploy/tmp" || true
-	fi
-	mkdir -p "${DIR}/deploy/tmp/"
-
-	tar -xf "${DIR}/deploy/${KERNEL_UTS}-firmware.tar.gz" -C "${DIR}/deploy/tmp/"
-	sync
-
-	sudo cp -v "${DIR}/deploy/tmp"/*.dtbo "${location}/lib/firmware/" 2>/dev/null || true
-	sync
-
-	rm -rf "${DIR}/deploy/tmp/" || true
-
-	if [ "${ZRELADDR}" ] ; then
-		if [ ! -f "${location}/boot/SOC.sh" ] ; then
-			if [ -f "${location}/boot/uImage" ] ; then
-			#Possibly Angstrom: dump a newer uImage if one exists..
-				if [ -f "${location}/boot/uImage_bak" ] ; then
-					sudo rm -f "${location}/boot/uImage_bak" || true
-				fi
-
-				sudo mv "${location}/boot/uImage" "${location}/boot/uImage_bak"
-				sudo mkimage -A arm -O linux -T kernel -C none -a ${ZRELADDR} -e ${ZRELADDR} -n ${KERNEL_UTS} -d "${DIR}/deploy/${KERNEL_UTS}.zImage" "${location}/boot/uImage"
-			fi
+	if [ -f "${DIR}/deploy/config-${KERNEL_UTS}" ] ; then
+		if [ -f "${location}/boot/config-${KERNEL_UTS}" ] ; then
+			sudo rm -f "${location}/boot/config-${KERNEL_UTS}" || true
 		fi
+		sudo cp -v "${DIR}/deploy/config-${KERNEL_UTS}" "${location}/boot/config-${KERNEL_UTS}"
+		sync
 	fi
 }
 
 mmc_write_boot () {
 	echo "Installing ${KERNEL_UTS} to ${partition}"
 
-	if [ -f "${location}/SOC.sh" ] ; then
-		. "${location}/SOC.sh"
-		ZRELADDR=${load_addr}
-	fi
+	ZRELADDR="0x10008000"
 
 	if [ -f "${location}/uImage_bak" ] ; then
 		sudo rm -f "${location}/uImage_bak" || true
@@ -243,6 +219,7 @@ if [ -f "${DIR}/system.sh" ] ; then
 			unset PARTITION_PREFIX
 			echo ${MMC} | grep mmcblk >/dev/null && PARTITION_PREFIX="p"
 			check_mmc
+			sync
 		fi
 	else
 		echo "ERROR: arch/arm/boot/zImage not found, Please run build_kernel.sh before running this script..."
