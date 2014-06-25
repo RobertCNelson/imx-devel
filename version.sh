@@ -29,13 +29,13 @@ toolchain="gcc_linaro_gnueabihf_4_7"
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
-BUILD=wand6.3
+BUILD=rex0
 
 #v3.X-rcX + upto SHA
 #KERNEL_SHA=""
 
 #git branch
-BRANCH="v3.0.x-wand"
+BRANCH="v3.0.x-rex"
 
 BUILDREV=1.0
 DISTRO=cross

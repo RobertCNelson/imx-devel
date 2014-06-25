@@ -41,8 +41,8 @@ patch_kernel () {
 copy_defconfig () {
 	cd ${DIR}/KERNEL/
 	make ARCH=arm CROSS_COMPILE=${CC} distclean
-	make ARCH=arm CROSS_COMPILE=${CC} ${config}
-	cp -v .config ${DIR}/patches/ref_${config}
+#	make ARCH=arm CROSS_COMPILE=${CC} ${config}
+#	cp -v .config ${DIR}/patches/ref_${config}
 	cp -v ${DIR}/patches/defconfig .config
 	cd ${DIR}/
 }
