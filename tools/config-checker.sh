@@ -151,9 +151,9 @@ check_config_builtin
 config="CONFIG_FAIR_GROUP_SCHED"
 check_config_builtin
 
-#config="CONFIG_SCHEDSTATS"
-#check_config_builtin
-#config="CONFIG_SCHED_DEBUG"
-#check_config_builtin
+config="CONFIG_SCHEDSTATS"
+check_config_builtin
+config="CONFIG_SCHED_DEBUG"
+check_config_builtin
 
 #

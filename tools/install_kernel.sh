@@ -63,7 +63,8 @@ mmc_write_boot () {
 	fi
 
 	if [ "${ZRELADDR}" ] ; then
-		sudo mkimage -A arm -O linux -T kernel -C none -a ${ZRELADDR} -e ${ZRELADDR} -n ${KERNEL_UTS} -d "${DIR}/deploy/${KERNEL_UTS}.zImage" "${location}/uImage"
+		cat "${DIR}/deploy/${KERNEL_UTS}.zImage" "${DIR}/KERNEL/arch/arm/boot/dts/imx6q-rex.dtb" > "${DIR}/deploy/${KERNEL_UTS}.zImage.dtb"
+		sudo mkimage -A arm -O linux -T kernel -C none -a ${ZRELADDR} -e ${ZRELADDR} -n ${KERNEL_UTS} -d "${DIR}/deploy/${KERNEL_UTS}.zImage.dtb" "${location}/uImage"
 	fi
 
 	if [ -f "${location}/zImage_bak" ] ; then

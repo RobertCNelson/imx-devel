@@ -61,7 +61,7 @@ imx_git () {
 
 rex () {
 	echo "dir: rex"
-	${git} "${DIR}/patches/rex/0001-3.0.35-mega-rex.patch"
+	${git} "${DIR}/patches/rex/0001-arm-dts-imx6q-rex-first-pass.patch"
 }
 
 arm () {
@@ -83,7 +83,7 @@ saucy () {
 }
 
 #imx_git
-#rex
+rex
 arm
 imx
 fixes
