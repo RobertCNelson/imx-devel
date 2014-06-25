@@ -60,6 +60,11 @@ imx_git () {
 	git pull ${GIT_OPTS} ${git_patchset} ${tag}
 }
 
+rex () {
+	echo "dir: rex"
+	${git} "${DIR}/patches/rex/0001-3.0.35-mega-rex.patch"
+}
+
 arm () {
 	echo "dir: arm"
 }
@@ -79,8 +84,7 @@ saucy () {
 }
 
 imx_git
-wandboard
-deb_pkg
+rex
 arm
 imx
 fixes
