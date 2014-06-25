@@ -27,10 +27,10 @@ toolchain="gcc_linaro_gnueabihf_4_9"
 #Kernel/Build
 KERNEL_REL=3.16
 KERNEL_TAG=${KERNEL_REL}-rc2
-BUILD=rex0
+BUILD=rex0.1
 
 #v3.X-rcX + upto SHA
-#KERNEL_SHA=""
+KERNEL_SHA="456febd299999d268342edf3ad4130075f0fe680"
 
 #git branch
 BRANCH="v3.16.x-rex"
