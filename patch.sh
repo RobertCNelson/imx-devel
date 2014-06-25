@@ -22,15 +22,18 @@
 
 # Split out, so build_kernel.sh and build_deb.sh can share..
 
-git="git am"
-
-git_patchset="git://git.freescale.com/imx/linux-2.6-imx.git"
-
+. ${DIR}/version.sh
 if [ -f ${DIR}/system.sh ] ; then
 	. ${DIR}/system.sh
 fi
 
-. ${DIR}/version.sh
+git="git am"
+git_patchset="git://git.freescale.com/imx/linux-2.6-imx.git"
+#git_opts
+
+if [ -f ${DIR}/system.sh ] ; then
+	. ${DIR}/system.sh
+fi
 
 if [ "${RUN_BISECT}" ] ; then
 	git="git apply"
@@ -55,9 +58,9 @@ cleanup () {
 }
 
 imx_git () {
-	tag="imx_3.0.35_4.0.0"
-	echo "pulling: ${tag}"
-	git pull ${GIT_OPTS} ${git_patchset} ${tag}
+	git_tag="imx_3.0.35_4.0.0"
+	echo "pulling: ${git_tag}"
+	git pull ${git_opts} ${git_patchset} ${git_tag}
 }
 
 rex () {
