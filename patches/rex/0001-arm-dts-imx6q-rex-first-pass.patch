@@ -1,14 +1,14 @@
-From fbb5e72906fd8e50951935473cc4c6549f2ada22 Mon Sep 17 00:00:00 2001
+From 1bf7625daf20dcea1c06e8e149e839368b18e772 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Wed, 25 Jun 2014 14:39:40 -0500
+Date: Wed, 25 Jun 2014 16:10:08 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
  arch/arm/boot/dts/Makefile         |   1 +
- arch/arm/boot/dts/imx6q-rex.dts    |  25 +++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 405 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 431 insertions(+)
+ arch/arm/boot/dts/imx6q-rex.dts    |  29 +++++
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 244 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 274 insertions(+)
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
@@ -26,10 +26,10 @@ index 5986ff6..e30b66c 100644
  	imx6q-sabresd.dtb \
 diff --git a/arch/arm/boot/dts/imx6q-rex.dts b/arch/arm/boot/dts/imx6q-rex.dts
 new file mode 100644
-index 0000000..ac71bc7
+index 0000000..ee09e7d
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6q-rex.dts
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,29 @@
 +/*
 + * Copyright 2012 Freescale Semiconductor, Inc.
 + * Copyright 2011 Linaro Ltd.
@@ -48,8 +48,12 @@ index 0000000..ac71bc7
 +#include "imx6qdl-rex.dtsi"
 +
 +/ {
-+	model = "Freescale i.MX6 Quad Rex Board";
-+	compatible = "fsl,imx6q-rex", "fsl,imx6q";
++	model = "Rex i.MX6 Quad Board";
++	compatible = "rex,imx6q-rex", "fsl,imx6q";
++
++	memory {
++		reg = <0x10000000 0x80000000>;
++	};
 +};
 +
 +&sata {
@@ -57,10 +61,10 @@ index 0000000..ac71bc7
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..4c5c8e7
+index 0000000..8453866
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,405 @@
+@@ -0,0 +1,244 @@
 +/*
 + * Copyright 2012 Freescale Semiconductor, Inc.
 + * Copyright 2011 Linaro Ltd.
@@ -80,42 +84,6 @@ index 0000000..4c5c8e7
 +	chosen {
 +		stdout-path = &uart1;
 +	};
-+
-+	memory {
-+		reg = <0x10000000 0x40000000>;
-+	};
-+
-+	regulators {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		reg_usb_otg_vbus: regulator@0 {
-+			compatible = "regulator-fixed";
-+			reg = <0>;
-+			regulator-name = "usb_otg_vbus";
-+			regulator-min-microvolt = <5000000>;
-+			regulator-max-microvolt = <5000000>;
-+			gpio = <&gpio3 22 0>;
-+			enable-active-high;
-+		};
-+
-+		reg_usb_h1_vbus: regulator@1 {
-+			compatible = "regulator-fixed";
-+			reg = <1>;
-+			regulator-name = "usb_h1_vbus";
-+			regulator-min-microvolt = <5000000>;
-+			regulator-max-microvolt = <5000000>;
-+			gpio = <&gpio1 29 0>;
-+			enable-active-high;
-+		};
-+	};
-+};
-+
-+&audmux {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_audmux>;
-+	status = "okay";
 +};
 +
 +&ecspi1 {
@@ -142,11 +110,6 @@ index 0000000..4c5c8e7
 +	status = "okay";
 +};
 +
-+&hdmi {
-+	ddc-i2c-bus = <&i2c2>;
-+	status = "okay";
-+};
-+
 +&i2c1 {
 +	clock-frequency = <100000>;
 +	pinctrl-names = "default";
@@ -159,105 +122,6 @@ index 0000000..4c5c8e7
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_i2c2>;
 +	status = "okay";
-+
-+	pmic: pfuze100@08 {
-+		compatible = "fsl,pfuze100";
-+		reg = <0x08>;
-+
-+		regulators {
-+			sw1a_reg: sw1ab {
-+				regulator-min-microvolt = <300000>;
-+				regulator-max-microvolt = <1875000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <6250>;
-+			};
-+
-+			sw1c_reg: sw1c {
-+				regulator-min-microvolt = <300000>;
-+				regulator-max-microvolt = <1875000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+				regulator-ramp-delay = <6250>;
-+			};
-+
-+			sw2_reg: sw2 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			sw3a_reg: sw3a {
-+				regulator-min-microvolt = <400000>;
-+				regulator-max-microvolt = <1975000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			sw3b_reg: sw3b {
-+				regulator-min-microvolt = <400000>;
-+				regulator-max-microvolt = <1975000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			sw4_reg: sw4 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			swbst_reg: swbst {
-+				regulator-min-microvolt = <5000000>;
-+				regulator-max-microvolt = <5150000>;
-+			};
-+
-+			snvs_reg: vsnvs {
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <3000000>;
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vref_reg: vrefddr {
-+				regulator-boot-on;
-+				regulator-always-on;
-+			};
-+
-+			vgen1_reg: vgen1 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1550000>;
-+			};
-+
-+			vgen2_reg: vgen2 {
-+				regulator-min-microvolt = <800000>;
-+				regulator-max-microvolt = <1550000>;
-+			};
-+
-+			vgen3_reg: vgen3 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+			};
-+
-+			vgen4_reg: vgen4 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+			};
-+
-+			vgen5_reg: vgen5 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+			};
-+
-+			vgen6_reg: vgen6 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-always-on;
-+			};
-+		};
-+	};
 +};
 +
 +&i2c3 {
@@ -411,32 +275,11 @@ index 0000000..4c5c8e7
 +			>;
 +		};
 +	};
-+
-+	gpio_leds {
-+		pinctrl_gpio_leds: gpioledsgrp {
-+			fsl,pins = <
-+				MX6QDL_PAD_GPIO_2__GPIO1_IO02 0x80000000
-+			>;
-+		};
-+	};
 +};
 +
 +&uart1 {
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_uart1>;
-+	status = "okay";
-+};
-+
-+&usbh1 {
-+	vbus-supply = <&reg_usb_h1_vbus>;
-+	status = "okay";
-+};
-+
-+&usbotg {
-+	vbus-supply = <&reg_usb_otg_vbus>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_usbotg>;
-+	disable-over-current;
 +	status = "okay";
 +};
 +
