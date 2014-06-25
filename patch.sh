@@ -82,8 +82,8 @@ saucy () {
 #	${git} "${DIR}/patches/saucy/0002-saucy-disable-stack-protector.patch"
 }
 
-imx_git
-rex
+#imx_git
+#rex
 arm
 imx
 fixes
