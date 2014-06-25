@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Copyright (c) 2009-2013 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2009-2014 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -30,10 +30,6 @@ fi
 git="git am"
 git_patchset="git://git.freescale.com/imx/linux-2.6-imx.git"
 #git_opts
-
-if [ -f ${DIR}/system.sh ] ; then
-	. ${DIR}/system.sh
-fi
 
 if [ "${RUN_BISECT}" ] ; then
 	git="git apply"
