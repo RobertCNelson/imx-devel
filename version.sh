@@ -29,7 +29,7 @@ toolchain="gcc_linaro_gnueabihf_4_7"
 #Kernel/Build
 KERNEL_REL=3.0
 KERNEL_TAG=${KERNEL_REL}.35
-BUILD=rex0
+BUILD=rex0.1
 
 #v3.X-rcX + upto SHA
 #KERNEL_SHA=""

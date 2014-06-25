@@ -55,7 +55,7 @@ cleanup () {
 }
 
 imx_git () {
-	tag="imx_3.0.35_3.0.0"
+	tag="imx_3.0.35_4.0.0"
 	echo "pulling: ${tag}"
 	git pull ${GIT_OPTS} ${git_patchset} ${tag}
 }
