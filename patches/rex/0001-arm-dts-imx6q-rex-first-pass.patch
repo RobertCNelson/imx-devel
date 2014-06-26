@@ -1,14 +1,14 @@
-From 797032c1d5bf0ad2d4b2eaa03fd09524fb3faa7e Mon Sep 17 00:00:00 2001
+From 4aefb774832bb0d6f31437ea9e2147d5aa8603f0 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Thu, 26 Jun 2014 10:54:02 -0500
+Date: Thu, 26 Jun 2014 12:34:57 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
  arch/arm/boot/dts/Makefile         |   1 +
  arch/arm/boot/dts/imx6q-rex.dts    |  29 +++++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 243 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 273 insertions(+)
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 248 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 278 insertions(+)
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
@@ -61,10 +61,10 @@ index 0000000..ee09e7d
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..352f93f
+index 0000000..c5c1284
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,243 @@
+@@ -0,0 +1,248 @@
 +/*
 + * Copyright 2012 Freescale Semiconductor, Inc.
 + * Copyright 2011 Linaro Ltd.
@@ -86,17 +86,25 @@ index 0000000..352f93f
 +	};
 +};
 +
-+&ecspi1 {
++&ecspi2 {
 +	fsl,spi-num-chipselects = <1>;
-+	cs-gpios = <&gpio4 9 0>;
++	cs-gpios = <&gpio5 12 0>;
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_ecspi1>;
++	pinctrl-0 = <&pinctrl_ecspi2>;
++	status = "okay";
++};
++
++&ecspi3 {
++	fsl,spi-num-chipselects = <1>;
++	cs-gpios = <&gpio4 26 0>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_ecspi3>;
 +	status = "okay";
 +
 +	flash: m25p80@0 {
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		compatible = "st,m25p32";
++		/* rcn-ee: Verified */
++		/* Datasheet says: sst25vf016, kernel says: mr25h256 */
++		compatible = "sst,sst25vf016b";
 +		spi-max-frequency = <20000000>;
 +		reg = <0>;
 +	};
@@ -142,7 +150,7 @@ index 0000000..352f93f
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_hog>;
 +
-+	imx6qdl-sabresd {
++	imx6qdl-rex {
 +		pinctrl_hog: hoggrp {
 +			fsl,pins = <
 +				MX6QDL_PAD_NANDF_D0__GPIO2_IO00 0x80000000
@@ -166,15 +174,26 @@ index 0000000..352f93f
 +			>;
 +		};
 +
-+		pinctrl_ecspi1: ecspi1grp {
++		pinctrl_ecspi2: ecspi2grp {
++			/* rcn-ee: Verified */
 +			fsl,pins = <
-+				MX6QDL_PAD_KEY_COL1__ECSPI1_MISO	0x100b1
-+				MX6QDL_PAD_KEY_ROW0__ECSPI1_MOSI	0x100b1
-+				MX6QDL_PAD_KEY_COL0__ECSPI1_SCLK	0x100b1
++				MX6QDL_PAD_DISP0_DAT2__ECSPI3_MISO	0x100b1
++				MX6QDL_PAD_DISP0_DAT1__ECSPI3_MOSI	0x100b1
++				MX6QDL_PAD_DISP0_DAT0__ECSPI3_SCLK	0x100b1
++			>;
++		};
++
++		pinctrl_ecspi3: ecspi3grp {
++			/* rcn-ee: Verified */
++			fsl,pins = <
++				MX6QDL_PAD_DISP0_DAT17__ECSPI2_MISO	0x100b1
++				MX6QDL_PAD_DISP0_DAT16__ECSPI2_MOSI	0x100b1
++				MX6QDL_PAD_DISP0_DAT19__ECSPI2_SCLK	0x100b1
 +			>;
 +		};
 +
 +		pinctrl_enet: enetgrp {
++			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_ENET_MDIO__ENET_MDIO		0x1b0b0
 +				MX6QDL_PAD_ENET_MDC__ENET_MDC		0x1b0b0
@@ -192,14 +211,6 @@ index 0000000..352f93f
 +				MX6QDL_PAD_RGMII_RD3__RGMII_RD3		0x1b0b0
 +				MX6QDL_PAD_RGMII_RX_CTL__RGMII_RX_CTL	0x1b0b0
 +				MX6QDL_PAD_GPIO_16__ENET_REF_CLK	0x4001b0a8
-+			>;
-+		};
-+
-+		pinctrl_gpio_keys: gpio_keysgrp {
-+			fsl,pins = <
-+				MX6QDL_PAD_EIM_D29__GPIO3_IO29 0x80000000
-+				MX6QDL_PAD_GPIO_4__GPIO1_IO04  0x80000000
-+				MX6QDL_PAD_GPIO_5__GPIO1_IO05  0x80000000
 +			>;
 +		};
 +
@@ -240,12 +251,6 @@ index 0000000..352f93f
 +			fsl,pins = <
 +				MX6QDL_PAD_SD4_DAT7__UART2_TX_DATA	0x1b0b1
 +				MX6QDL_PAD_SD4_DAT4__UART2_RX_DATA	0x1b0b1
-+			>;
-+		};
-+
-+		pinctrl_usbotg: usbotggrp {
-+			fsl,pins = <
-+				MX6QDL_PAD_ENET_RX_ER__USB_OTG_ID	0x17059
 +			>;
 +		};
 +
