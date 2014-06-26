@@ -1,14 +1,14 @@
-From e9729add7408c141d3cbc8b35c62f42677ee8daa Mon Sep 17 00:00:00 2001
+From 82ec79f28893e9bfea7a2b70c3626dd7c2275a93 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Thu, 26 Jun 2014 13:40:13 -0500
+Date: Thu, 26 Jun 2014 14:07:39 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
  arch/arm/boot/dts/Makefile         |   1 +
  arch/arm/boot/dts/imx6q-rex.dts    |  29 ++++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 301 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 331 insertions(+)
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 304 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 334 insertions(+)
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
@@ -61,10 +61,10 @@ index 0000000..ee09e7d
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..200d8df
+index 0000000..9aa2ff8
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,301 @@
+@@ -0,0 +1,304 @@
 +/*
 + * Copyright 2012 Freescale Semiconductor, Inc.
 + * Copyright 2011 Linaro Ltd.
@@ -139,7 +139,6 @@ index 0000000..200d8df
 +
 +	flash: m25p80@0 {
 +		/* rcn-ee: Verified */
-+		/* Datasheet says: sst25vf016, kernel says: mr25h256, board has: sst25vf032b */
 +		compatible = "sst,sst25vf032b";
 +		spi-max-frequency = <20000000>;
 +		reg = <0>;
@@ -227,6 +226,8 @@ index 0000000..200d8df
 +				MX6QDL_PAD_DISP0_DAT2__ECSPI3_MISO	0x100b1
 +				MX6QDL_PAD_DISP0_DAT1__ECSPI3_MOSI	0x100b1
 +				MX6QDL_PAD_DISP0_DAT0__ECSPI3_SCLK	0x100b1
++				/* CS */
++				MX6QDL_PAD_DISP0_DAT5__GPIO4_IO26	0x000b1
 +			>;
 +		};
 +
@@ -236,6 +237,8 @@ index 0000000..200d8df
 +				MX6QDL_PAD_DISP0_DAT17__ECSPI2_MISO	0x100b1
 +				MX6QDL_PAD_DISP0_DAT16__ECSPI2_MOSI	0x100b1
 +				MX6QDL_PAD_DISP0_DAT19__ECSPI2_SCLK	0x100b1
++				/* CS */
++				MX6QDL_PAD_DISP0_DAT18__GPIO5_IO12	0x000b1
 +			>;
 +		};
 +
