@@ -1,22 +1,32 @@
-From 6365b61a4facec12cf697a559fa84c906a51d826 Mon Sep 17 00:00:00 2001
+From 5756d40ebed7d31c8ce5b4daafe5addfbe6bdb45 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Thu, 26 Jun 2014 16:52:24 -0500
+Date: Thu, 26 Jun 2014 18:49:39 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
- arch/arm/boot/dts/Makefile         |   1 +
- arch/arm/boot/dts/imx6q-rex.dts    |  29 +++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 390 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 420 insertions(+)
+ arch/arm/boot/dts/Makefile         |   2 +
+ arch/arm/boot/dts/imx6dl-rex.dts   |  22 +++
+ arch/arm/boot/dts/imx6q-rex.dts    |  26 +++
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 389 +++++++++++++++++++++++++++++++++++++
+ 4 files changed, 439 insertions(+)
+ create mode 100644 arch/arm/boot/dts/imx6dl-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
-index adb5ed9..c6b540d 100644
+index adb5ed9..56198e6 100644
 --- a/arch/arm/boot/dts/Makefile
 +++ b/arch/arm/boot/dts/Makefile
-@@ -209,6 +209,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+@@ -191,6 +191,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+ 	imx6dl-hummingboard.dtb \
+ 	imx6dl-nitrogen6x.dtb \
+ 	imx6dl-phytec-pbab01.dtb \
++	imx6dl-rex.dtb \
+ 	imx6dl-riotboard.dtb \
+ 	imx6dl-sabreauto.dtb \
+ 	imx6dl-sabrelite.dtb \
+@@ -209,6 +210,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
  	imx6q-gw54xx.dtb \
  	imx6q-nitrogen6x.dtb \
  	imx6q-phytec-pbab01.dtb \
@@ -24,26 +34,51 @@ index adb5ed9..c6b540d 100644
  	imx6q-sabreauto.dtb \
  	imx6q-sabrelite.dtb \
  	imx6q-sabresd.dtb \
+diff --git a/arch/arm/boot/dts/imx6dl-rex.dts b/arch/arm/boot/dts/imx6dl-rex.dts
+new file mode 100644
+index 0000000..e10cf81
+--- /dev/null
++++ b/arch/arm/boot/dts/imx6dl-rex.dts
+@@ -0,0 +1,22 @@
++/*
++ * Copyright 2014 FEDEVEL, Inc.
++ *
++ * Author: Robert Nelson <robertcnelson@gmail.com>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ */
++/dts-v1/;
++#include "imx6dl.dtsi"
++#include "imx6qdl-rex.dtsi"
++
++/ {
++	model = "Rex i.MX6 Dual Lite Board";
++	compatible = "rex,imx6dl-rex", "fsl,imx6dl";
++
++	memory {
++		reg = <0x10000000 0x20000000>;
++	};
++};
 diff --git a/arch/arm/boot/dts/imx6q-rex.dts b/arch/arm/boot/dts/imx6q-rex.dts
 new file mode 100644
-index 0000000..ee09e7d
+index 0000000..3c1443c
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6q-rex.dts
-@@ -0,0 +1,29 @@
+@@ -0,0 +1,26 @@
 +/*
-+ * Copyright 2012 Freescale Semiconductor, Inc.
-+ * Copyright 2011 Linaro Ltd.
++ * Copyright 2014 FEDEVEL, Inc.
 + *
-+ * The code contained herein is licensed under the GNU General Public
-+ * License. You may obtain a copy of the GNU General Public License
-+ * Version 2 or later at the following locations:
++ * Author: Robert Nelson <robertcnelson@gmail.com>
 + *
-+ * http://www.opensource.org/licenses/gpl-license.html
-+ * http://www.gnu.org/copyleft/gpl.html
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
 + */
-+
 +/dts-v1/;
-+
 +#include "imx6q.dtsi"
 +#include "imx6qdl-rex.dtsi"
 +
@@ -61,20 +96,19 @@ index 0000000..ee09e7d
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..4b70b0f
+index 0000000..3ecda8b
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,390 @@
+@@ -0,0 +1,389 @@
 +/*
-+ * Copyright 2012 Freescale Semiconductor, Inc.
-+ * Copyright 2011 Linaro Ltd.
++ * Copyright 2014 FEDEVEL, Inc.
 + *
-+ * The code contained herein is licensed under the GNU General Public
-+ * License. You may obtain a copy of the GNU General Public License
-+ * Version 2 or later at the following locations:
++ * Author: Robert Nelson <robertcnelson@gmail.com>
 + *
-+ * http://www.opensource.org/licenses/gpl-license.html
-+ * http://www.gnu.org/copyleft/gpl.html
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
 + */
 +
 +#include <dt-bindings/gpio/gpio.h>
