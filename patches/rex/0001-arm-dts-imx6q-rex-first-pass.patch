@@ -1,14 +1,14 @@
-From 37c3388183e5cbbd852d2aa1d9eb9c6a99cf2e8f Mon Sep 17 00:00:00 2001
+From d43b18ae62769eadfe83ceb93119dd7ec88b9620 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Thu, 26 Jun 2014 14:46:16 -0500
+Date: Thu, 26 Jun 2014 15:17:37 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
  arch/arm/boot/dts/Makefile         |   1 +
- arch/arm/boot/dts/imx6q-rex.dts    |  29 ++++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 330 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 360 insertions(+)
+ arch/arm/boot/dts/imx6q-rex.dts    |  29 +++
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 358 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 388 insertions(+)
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
@@ -61,10 +61,10 @@ index 0000000..ee09e7d
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..91e5775
+index 0000000..3e1f95e
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,330 @@
+@@ -0,0 +1,358 @@
 +/*
 + * Copyright 2012 Freescale Semiconductor, Inc.
 + * Copyright 2011 Linaro Ltd.
@@ -97,6 +97,16 @@ index 0000000..91e5775
 +			regulator-min-microvolt = <3300000>;
 +			regulator-max-microvolt = <3300000>;
 +			regulator-always-on;
++		};
++
++		reg_usb_otg_vbus: regulator@1 {
++			compatible = "regulator-fixed";
++			reg = <1>;
++			regulator-name = "usb_otg_vbus";
++			regulator-min-microvolt = <5000000>;
++			regulator-max-microvolt = <5000000>;
++			gpio = <&gpio3 22 GPIO_ACTIVE_LOW>;
++			enable-active-high;
 +		};
 +	};
 +
@@ -215,7 +225,6 @@ index 0000000..91e5775
 +
 +				MX6QDL_PAD_NANDF_CLE__GPIO6_IO07 0x80000000
 +				MX6QDL_PAD_ENET_TXD1__GPIO1_IO29 0x80000000
-+				MX6QDL_PAD_EIM_D22__GPIO3_IO22  0x80000000
 +				MX6QDL_PAD_ENET_CRS_DV__GPIO1_IO25 0x80000000
 +			>;
 +		};
@@ -322,6 +331,16 @@ index 0000000..91e5775
 +			>;
 +		};
 +
++		pinctrl_usbotg: usbotggrp {
++			/* rcn-ee: Verified */
++			fsl,pins = <
++				MX6QDL_PAD_GPIO_1__USB_OTG_ID		0x17059
++				MX6QDL_PAD_EIM_D21__USB_OTG_OC		0x1b0b0
++				/* power enable, high active */
++				MX6QDL_PAD_EIM_D22__GPIO3_IO22		0x000b0
++			>;
++		};
++
 +		pinctrl_usdhc2: usdhc2grp {
 +			/* rcn-ee: Verified */
 +			fsl,pins = <
@@ -373,6 +392,15 @@ index 0000000..91e5775
 +	/* rcn-ee: Verified */
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_uart2>;
++	status = "okay";
++};
++
++&usbotg {
++	/* rcn-ee: Verified */
++	vbus-supply = <&reg_usb_otg_vbus>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usbotg>;
++	disable-over-current;
 +	status = "okay";
 +};
 +
