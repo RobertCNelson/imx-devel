@@ -1,14 +1,14 @@
-From d43b18ae62769eadfe83ceb93119dd7ec88b9620 Mon Sep 17 00:00:00 2001
+From 39f58b28fd02f650eedaea378da0c66a338735fb Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Thu, 26 Jun 2014 15:17:37 -0500
+Date: Thu, 26 Jun 2014 15:35:16 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
  arch/arm/boot/dts/Makefile         |   1 +
  arch/arm/boot/dts/imx6q-rex.dts    |  29 +++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 358 +++++++++++++++++++++++++++++++++++++
- 3 files changed, 388 insertions(+)
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 389 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 419 insertions(+)
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
@@ -61,10 +61,10 @@ index 0000000..ee09e7d
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..3e1f95e
+index 0000000..2734161
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,358 @@
+@@ -0,0 +1,389 @@
 +/*
 + * Copyright 2012 Freescale Semiconductor, Inc.
 + * Copyright 2011 Linaro Ltd.
@@ -99,9 +99,19 @@ index 0000000..3e1f95e
 +			regulator-always-on;
 +		};
 +
-+		reg_usb_otg_vbus: regulator@1 {
++		reg_usbh1_vbus: regulator@1 {
 +			compatible = "regulator-fixed";
 +			reg = <1>;
++			regulator-name = "usbh1_vbus";
++			regulator-min-microvolt = <5000000>;
++			regulator-max-microvolt = <5000000>;
++			gpio = <&gpio3 31 GPIO_ACTIVE_LOW>;
++			enable-active-high;
++		};
++
++		reg_usb_otg_vbus: regulator@2 {
++			compatible = "regulator-fixed";
++			reg = <2>;
 +			regulator-name = "usb_otg_vbus";
 +			regulator-min-microvolt = <5000000>;
 +			regulator-max-microvolt = <5000000>;
@@ -174,6 +184,11 @@ index 0000000..3e1f95e
 +	pinctrl-0 = <&pinctrl_enet>;
 +	phy-mode = "rgmii";
 +	phy-reset-gpios = <&gpio1 25 GPIO_ACTIVE_LOW>;
++	status = "okay";
++};
++
++&hdmi {
++	ddc-i2c-bus = <&i2c2>;
 +	status = "okay";
 +};
 +
@@ -331,6 +346,14 @@ index 0000000..3e1f95e
 +			>;
 +		};
 +
++		pinctrl_usbh1: usbh1grp {
++			/* rcn-ee: Verified */
++			fsl,pins = <
++				/* power enable, high active */
++				MX6QDL_PAD_EIM_D31__GPIO3_IO31		0x000b0
++			>;
++		};
++
 +		pinctrl_usbotg: usbotggrp {
 +			/* rcn-ee: Verified */
 +			fsl,pins = <
@@ -392,6 +415,14 @@ index 0000000..3e1f95e
 +	/* rcn-ee: Verified */
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_uart2>;
++	status = "okay";
++};
++
++&usbh1 {
++	/* rcn-ee: Verified */
++	vbus-supply = <&reg_usbh1_vbus>;
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_usbh1>;
 +	status = "okay";
 +};
 +
