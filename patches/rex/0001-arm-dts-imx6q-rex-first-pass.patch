@@ -15,18 +15,18 @@ Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
-index adb5ed9..56198e6 100644
+index 377b7c3..2e54ffe 100644
 --- a/arch/arm/boot/dts/Makefile
 +++ b/arch/arm/boot/dts/Makefile
-@@ -191,6 +191,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+@@ -179,6 +179,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+ 	imx6dl-gw54xx.dtb \
  	imx6dl-hummingboard.dtb \
  	imx6dl-nitrogen6x.dtb \
- 	imx6dl-phytec-pbab01.dtb \
 +	imx6dl-rex.dtb \
- 	imx6dl-riotboard.dtb \
  	imx6dl-sabreauto.dtb \
  	imx6dl-sabrelite.dtb \
-@@ -209,6 +210,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+ 	imx6dl-sabresd.dtb \
+@@ -196,6 +197,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
  	imx6q-gw54xx.dtb \
  	imx6q-nitrogen6x.dtb \
  	imx6q-phytec-pbab01.dtb \
