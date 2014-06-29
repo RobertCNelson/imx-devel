@@ -1,6 +1,6 @@
-From 5756d40ebed7d31c8ce5b4daafe5addfbe6bdb45 Mon Sep 17 00:00:00 2001
+From b3dd9f39fb1fddc0d62e1ee027af5e79205b638f Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Thu, 26 Jun 2014 18:49:39 -0500
+Date: Sun, 29 Jun 2014 16:40:51 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
@@ -8,8 +8,8 @@ Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
  arch/arm/boot/dts/Makefile         |   2 +
  arch/arm/boot/dts/imx6dl-rex.dts   |  22 +++
  arch/arm/boot/dts/imx6q-rex.dts    |  26 +++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 389 +++++++++++++++++++++++++++++++++++++
- 4 files changed, 439 insertions(+)
+ arch/arm/boot/dts/imx6qdl-rex.dtsi | 363 +++++++++++++++++++++++++++++++++++++
+ 4 files changed, 413 insertions(+)
  create mode 100644 arch/arm/boot/dts/imx6dl-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
@@ -96,10 +96,10 @@ index 0000000..3c1443c
 +};
 diff --git a/arch/arm/boot/dts/imx6qdl-rex.dtsi b/arch/arm/boot/dts/imx6qdl-rex.dtsi
 new file mode 100644
-index 0000000..3ecda8b
+index 0000000..974fde4
 --- /dev/null
 +++ b/arch/arm/boot/dts/imx6qdl-rex.dtsi
-@@ -0,0 +1,389 @@
+@@ -0,0 +1,363 @@
 +/*
 + * Copyright 2014 FEDEVEL, Inc.
 + *
@@ -159,7 +159,6 @@ index 0000000..3ecda8b
 +	};
 +
 +	leds {
-+		/* rcn-ee: Verified */
 +		compatible = "gpio-leds";
 +		pinctrl-names = "default";
 +		pinctrl-0 = <&pinctrl_led>;
@@ -173,7 +172,6 @@ index 0000000..3ecda8b
 +	};
 +
 +	sound {
-+		/* rcn-ee: Verified: Heaphone left/right */
 +		compatible = "fsl,imx6-rex-sgtl5000",
 +			     "fsl,imx-audio-sgtl5000";
 +		model = "imx6-rex-sgtl5000";
@@ -210,7 +208,6 @@ index 0000000..3ecda8b
 +	status = "okay";
 +
 +	flash: m25p80@0 {
-+		/* rcn-ee: Verified */
 +		compatible = "sst,sst25vf032b";
 +		spi-max-frequency = <20000000>;
 +		reg = <0>;
@@ -236,7 +233,6 @@ index 0000000..3ecda8b
 +	pinctrl-0 = <&pinctrl_i2c1>;
 +	status = "okay";
 +
-+	/* rcn-ee: Verified */
 +	codec: sgtl5000@0a {
 +		compatible = "fsl,sgtl5000";
 +		reg = <0x0a>;
@@ -253,7 +249,6 @@ index 0000000..3ecda8b
 +	status = "okay";
 +
 +	eeprom@57 {
-+		/* rcn-ee: Verified */
 +		compatible = "at,24c02";
 +		reg = <0x57>;
 +	};
@@ -279,7 +274,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_audmux: audmuxgrp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_CSI0_DAT7__AUD3_RXD		0x130b0
 +				MX6QDL_PAD_CSI0_DAT4__AUD3_TXC		0x130b0
@@ -289,7 +283,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_ecspi2: ecspi2grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_DISP0_DAT2__ECSPI3_MISO	0x100b1
 +				MX6QDL_PAD_DISP0_DAT1__ECSPI3_MOSI	0x100b1
@@ -300,7 +293,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_ecspi3: ecspi3grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_DISP0_DAT17__ECSPI2_MISO	0x100b1
 +				MX6QDL_PAD_DISP0_DAT16__ECSPI2_MOSI	0x100b1
@@ -311,7 +303,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_enet: enetgrp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_ENET_MDIO__ENET_MDIO		0x1b0b0
 +				MX6QDL_PAD_ENET_MDC__ENET_MDC		0x1b0b0
@@ -335,7 +326,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_i2c1: i2c1grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_CSI0_DAT8__I2C1_SDA		0x4001b8b1
 +				MX6QDL_PAD_CSI0_DAT9__I2C1_SCL		0x4001b8b1
@@ -343,7 +333,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_i2c2: i2c2grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_KEY_COL3__I2C2_SCL		0x4001b8b1
 +				MX6QDL_PAD_KEY_ROW3__I2C2_SDA		0x4001b8b1
@@ -351,7 +340,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_i2c3: i2c3grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_EIM_D17__I2C3_SCL		0x4001b8b1
 +				MX6QDL_PAD_EIM_D18__I2C3_SDA		0x4001b8b1
@@ -359,7 +347,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_led: ledgrp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				/* user led */
 +				MX6QDL_PAD_GPIO_2__GPIO1_IO02		0x80000000
@@ -367,7 +354,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_uart1: uart1grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_CSI0_DAT10__UART1_TX_DATA	0x1b0b1
 +				MX6QDL_PAD_CSI0_DAT11__UART1_RX_DATA	0x1b0b1
@@ -375,7 +361,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_uart2: uart2grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_SD4_DAT7__UART2_TX_DATA	0x1b0b1
 +				MX6QDL_PAD_SD4_DAT4__UART2_RX_DATA	0x1b0b1
@@ -383,7 +368,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_usbh1: usbh1grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				/* power enable, high active */
 +				MX6QDL_PAD_EIM_D31__GPIO3_IO31		0x10b0
@@ -391,7 +375,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_usbotg: usbotggrp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_GPIO_1__USB_OTG_ID		0x17059
 +				MX6QDL_PAD_EIM_D21__USB_OTG_OC		0x1b0b0
@@ -401,7 +384,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_usdhc2: usdhc2grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_SD2_CMD__SD2_CMD		0x17059
 +				MX6QDL_PAD_SD2_CLK__SD2_CLK		0x10059
@@ -417,7 +399,6 @@ index 0000000..3ecda8b
 +		};
 +
 +		pinctrl_usdhc3: usdhc3grp {
-+			/* rcn-ee: Verified */
 +			fsl,pins = <
 +				MX6QDL_PAD_SD3_CMD__SD3_CMD		0x17059
 +				MX6QDL_PAD_SD3_CLK__SD3_CLK		0x10059
@@ -435,27 +416,23 @@ index 0000000..3ecda8b
 +};
 +
 +&ssi1 {
-+	/* rcn-ee: Verified */
 +	fsl,mode = "i2s-slave";
 +	status = "okay";
 +};
 +
 +&uart1 {
-+	/* rcn-ee: Verified */
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_uart1>;
 +	status = "okay";
 +};
 +
 +&uart2 {
-+	/* rcn-ee: Verified */
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_uart2>;
 +	status = "okay";
 +};
 +
 +&usbh1 {
-+	/* rcn-ee: Verified */
 +	vbus-supply = <&reg_usbh1_vbus>;
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_usbh1>;
@@ -463,7 +440,6 @@ index 0000000..3ecda8b
 +};
 +
 +&usbotg {
-+	/* rcn-ee: Verified */
 +	vbus-supply = <&reg_usb_otg_vbus>;
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_usbotg>;
@@ -471,7 +447,6 @@ index 0000000..3ecda8b
 +};
 +
 +&usdhc2 {
-+	/* rcn-ee: Verified */
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_usdhc2>;
 +	bus-width = <4>;
@@ -481,7 +456,6 @@ index 0000000..3ecda8b
 +};
 +
 +&usdhc3 {
-+	/* rcn-ee: Verified */
 +	pinctrl-names = "default";
 +	pinctrl-0 = <&pinctrl_usdhc3>;
 +	bus-width = <4>;
