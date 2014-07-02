@@ -1,44 +1,112 @@
-From b3dd9f39fb1fddc0d62e1ee027af5e79205b638f Mon Sep 17 00:00:00 2001
+From bee781eae2b3b81ee063799dbe06c7214acbad86 Mon Sep 17 00:00:00 2001
 From: Robert Nelson <robertcnelson@gmail.com>
-Date: Sun, 29 Jun 2014 16:40:51 -0500
+Date: Wed, 2 Jul 2014 10:57:02 -0500
 Subject: [PATCH] arm: dts: imx6q-rex: first pass
 
 Signed-off-by: Robert Nelson <robertcnelson@gmail.com>
 ---
- arch/arm/boot/dts/Makefile         |   2 +
- arch/arm/boot/dts/imx6dl-rex.dts   |  22 +++
- arch/arm/boot/dts/imx6q-rex.dts    |  26 +++
- arch/arm/boot/dts/imx6qdl-rex.dtsi | 363 +++++++++++++++++++++++++++++++++++++
- 4 files changed, 413 insertions(+)
- create mode 100644 arch/arm/boot/dts/imx6dl-rex.dts
- create mode 100644 arch/arm/boot/dts/imx6q-rex.dts
+ arch/arm/boot/dts/Makefile             |   6 +
+ arch/arm/boot/dts/imx6dl-rex-1gb.dts   |  22 ++
+ arch/arm/boot/dts/imx6dl-rex-2gb.dts   |  22 ++
+ arch/arm/boot/dts/imx6dl-rex-512mb.dts |  22 ++
+ arch/arm/boot/dts/imx6q-rex-1gb.dts    |  26 +++
+ arch/arm/boot/dts/imx6q-rex-2gb.dts    |  26 +++
+ arch/arm/boot/dts/imx6q-rex-512mb.dts  |  26 +++
+ arch/arm/boot/dts/imx6qdl-rex.dtsi     | 363 +++++++++++++++++++++++++++++++++
+ 8 files changed, 513 insertions(+)
+ create mode 100644 arch/arm/boot/dts/imx6dl-rex-1gb.dts
+ create mode 100644 arch/arm/boot/dts/imx6dl-rex-2gb.dts
+ create mode 100644 arch/arm/boot/dts/imx6dl-rex-512mb.dts
+ create mode 100644 arch/arm/boot/dts/imx6q-rex-1gb.dts
+ create mode 100644 arch/arm/boot/dts/imx6q-rex-2gb.dts
+ create mode 100644 arch/arm/boot/dts/imx6q-rex-512mb.dts
  create mode 100644 arch/arm/boot/dts/imx6qdl-rex.dtsi
 
 diff --git a/arch/arm/boot/dts/Makefile b/arch/arm/boot/dts/Makefile
-index 377b7c3..2e54ffe 100644
+index 377b7c3..e842888 100644
 --- a/arch/arm/boot/dts/Makefile
 +++ b/arch/arm/boot/dts/Makefile
-@@ -179,6 +179,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+@@ -179,6 +179,9 @@ dtb-$(CONFIG_ARCH_MXC) += \
  	imx6dl-gw54xx.dtb \
  	imx6dl-hummingboard.dtb \
  	imx6dl-nitrogen6x.dtb \
-+	imx6dl-rex.dtb \
++	imx6dl-rex-2gb.dtb \
++	imx6dl-rex-1gb.dtb \
++	imx6dl-rex-512mb.dtb \
  	imx6dl-sabreauto.dtb \
  	imx6dl-sabrelite.dtb \
  	imx6dl-sabresd.dtb \
-@@ -196,6 +197,7 @@ dtb-$(CONFIG_ARCH_MXC) += \
+@@ -196,6 +199,9 @@ dtb-$(CONFIG_ARCH_MXC) += \
  	imx6q-gw54xx.dtb \
  	imx6q-nitrogen6x.dtb \
  	imx6q-phytec-pbab01.dtb \
-+	imx6q-rex.dtb \
++	imx6q-rex-2gb.dtb \
++	imx6q-rex-1gb.dtb \
++	imx6q-rex-512mb.dtb \
  	imx6q-sabreauto.dtb \
  	imx6q-sabrelite.dtb \
  	imx6q-sabresd.dtb \
-diff --git a/arch/arm/boot/dts/imx6dl-rex.dts b/arch/arm/boot/dts/imx6dl-rex.dts
+diff --git a/arch/arm/boot/dts/imx6dl-rex-1gb.dts b/arch/arm/boot/dts/imx6dl-rex-1gb.dts
+new file mode 100644
+index 0000000..eb2dae2
+--- /dev/null
++++ b/arch/arm/boot/dts/imx6dl-rex-1gb.dts
+@@ -0,0 +1,22 @@
++/*
++ * Copyright 2014 FEDEVEL, Inc.
++ *
++ * Author: Robert Nelson <robertcnelson@gmail.com>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ */
++/dts-v1/;
++#include "imx6dl.dtsi"
++#include "imx6qdl-rex.dtsi"
++
++/ {
++	model = "Rex i.MX6 Dual Lite Board";
++	compatible = "rex,imx6dl-rex", "fsl,imx6dl";
++
++	memory {
++		reg = <0x10000000 0x40000000>;
++	};
++};
+diff --git a/arch/arm/boot/dts/imx6dl-rex-2gb.dts b/arch/arm/boot/dts/imx6dl-rex-2gb.dts
+new file mode 100644
+index 0000000..a93d2ca
+--- /dev/null
++++ b/arch/arm/boot/dts/imx6dl-rex-2gb.dts
+@@ -0,0 +1,22 @@
++/*
++ * Copyright 2014 FEDEVEL, Inc.
++ *
++ * Author: Robert Nelson <robertcnelson@gmail.com>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ */
++/dts-v1/;
++#include "imx6dl.dtsi"
++#include "imx6qdl-rex.dtsi"
++
++/ {
++	model = "Rex i.MX6 Dual Lite Board";
++	compatible = "rex,imx6dl-rex", "fsl,imx6dl";
++
++	memory {
++		reg = <0x10000000 0x80000000>;
++	};
++};
+diff --git a/arch/arm/boot/dts/imx6dl-rex-512mb.dts b/arch/arm/boot/dts/imx6dl-rex-512mb.dts
 new file mode 100644
 index 0000000..e10cf81
 --- /dev/null
-+++ b/arch/arm/boot/dts/imx6dl-rex.dts
++++ b/arch/arm/boot/dts/imx6dl-rex-512mb.dts
 @@ -0,0 +1,22 @@
 +/*
 + * Copyright 2014 FEDEVEL, Inc.
@@ -62,11 +130,43 @@ index 0000000..e10cf81
 +		reg = <0x10000000 0x20000000>;
 +	};
 +};
-diff --git a/arch/arm/boot/dts/imx6q-rex.dts b/arch/arm/boot/dts/imx6q-rex.dts
+diff --git a/arch/arm/boot/dts/imx6q-rex-1gb.dts b/arch/arm/boot/dts/imx6q-rex-1gb.dts
+new file mode 100644
+index 0000000..3ad044a
+--- /dev/null
++++ b/arch/arm/boot/dts/imx6q-rex-1gb.dts
+@@ -0,0 +1,26 @@
++/*
++ * Copyright 2014 FEDEVEL, Inc.
++ *
++ * Author: Robert Nelson <robertcnelson@gmail.com>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ */
++/dts-v1/;
++#include "imx6q.dtsi"
++#include "imx6qdl-rex.dtsi"
++
++/ {
++	model = "Rex i.MX6 Quad Board";
++	compatible = "rex,imx6q-rex", "fsl,imx6q";
++
++	memory {
++		reg = <0x10000000 0x40000000>;
++	};
++};
++
++&sata {
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/imx6q-rex-2gb.dts b/arch/arm/boot/dts/imx6q-rex-2gb.dts
 new file mode 100644
 index 0000000..3c1443c
 --- /dev/null
-+++ b/arch/arm/boot/dts/imx6q-rex.dts
++++ b/arch/arm/boot/dts/imx6q-rex-2gb.dts
 @@ -0,0 +1,26 @@
 +/*
 + * Copyright 2014 FEDEVEL, Inc.
@@ -88,6 +188,38 @@ index 0000000..3c1443c
 +
 +	memory {
 +		reg = <0x10000000 0x80000000>;
++	};
++};
++
++&sata {
++	status = "okay";
++};
+diff --git a/arch/arm/boot/dts/imx6q-rex-512mb.dts b/arch/arm/boot/dts/imx6q-rex-512mb.dts
+new file mode 100644
+index 0000000..fc6706a
+--- /dev/null
++++ b/arch/arm/boot/dts/imx6q-rex-512mb.dts
+@@ -0,0 +1,26 @@
++/*
++ * Copyright 2014 FEDEVEL, Inc.
++ *
++ * Author: Robert Nelson <robertcnelson@gmail.com>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License version 2 as
++ * published by the Free Software Foundation.
++ *
++ */
++/dts-v1/;
++#include "imx6q.dtsi"
++#include "imx6qdl-rex.dtsi"
++
++/ {
++	model = "Rex i.MX6 Quad Board";
++	compatible = "rex,imx6q-rex", "fsl,imx6q";
++
++	memory {
++		reg = <0x10000000 0x20000000>;
 +	};
 +};
 +
