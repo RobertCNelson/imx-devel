@@ -35,6 +35,6 @@ BUILD=rex0
 #git branch
 BRANCH="v3.15.x-rex"
 
-BUILDREV=1.0
 DISTRO=cross
 DEBARCH=armhf
+#
