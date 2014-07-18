@@ -30,7 +30,7 @@ KERNEL_TAG=${KERNEL_REL}.5
 BUILD=rex3
 
 #v3.X-rcX + upto SHA
-#KERNEL_SHA="24b414d5a7d3e6a716350464dfdb44da610ed142"
+#KERNEL_SHA=""
 
 #git branch
 BRANCH="v3.15.x-rex"
