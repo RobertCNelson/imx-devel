@@ -53,11 +53,19 @@ cleanup () {
 	exit
 }
 
-imx_git () {
+external_git () {
 	git_tag="imx_3.0.35_4.0.0"
 	echo "pulling: ${git_tag}"
 	git pull ${git_opts} ${git_patchset} ${git_tag}
 }
+
+local_patch () {
+	echo "dir: dir"
+	${git} "${DIR}/patches/dir/0001-patch.patch"
+}
+
+#external_git
+#local_patch
 
 rex () {
 	echo "dir: rex"
