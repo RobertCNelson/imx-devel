@@ -23,7 +23,7 @@
 unset KERNEL_UTS
 unset MMC
 
-dtb="imx6dl-rex-1gb.dtb"
+dtb="imx6dl-rex-basic.dtb"
 
 DIR=$PWD
 

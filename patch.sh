@@ -28,7 +28,7 @@ if [ -f ${DIR}/system.sh ] ; then
 fi
 
 git="git am"
-git_patchset="git://git.freescale.com/imx/linux-2.6-imx.git"
+git_patchset=""
 #git_opts
 
 if [ "${RUN_BISECT}" ] ; then
@@ -54,7 +54,7 @@ cleanup () {
 }
 
 external_git () {
-	git_tag="imx_3.0.35_4.0.0"
+	git_tag=""
 	echo "pulling: ${git_tag}"
 	git pull ${git_opts} ${git_patchset} ${git_tag}
 }
@@ -66,29 +66,6 @@ local_patch () {
 
 #external_git
 #local_patch
-
-rex () {
-	echo "dir: rex"
-	${git} "${DIR}/patches/rex/0001-arm-dts-imx6q-rex-first-pass.patch"
-}
-
-arm () {
-	echo "dir: arm"
-}
-
-imx () {
-	echo "dir: imx"
-}
-
-fixes () {
-	echo "dir: fixes"
-}
-
-saucy () {
-	echo "dir: saucy"
-#	${git} "${DIR}/patches/saucy/0001-saucy-disable-Werror-pointer-sign.patch"
-#	${git} "${DIR}/patches/saucy/0002-saucy-disable-stack-protector.patch"
-}
 
 vivante () {
 	echo "dir: vivante"
@@ -109,12 +86,6 @@ vivante () {
 	${git} "${DIR}/patches/vivante/0004-Fixed-vivante-driver-for-kernel-3.14.x.patch"
 }
 
-#imx_git
-rex
-arm
-imx
-fixes
-saucy
 vivante
 
 packaging_setup () {
@@ -126,7 +97,7 @@ packaging_setup () {
 
 packaging () {
 	echo "dir: packaging"
-	${git} "${DIR}/patches/packaging/0001-packaging-sync-with-mainline.patch"
+	#${git} "${DIR}/patches/packaging/0001-packaging-sync-with-mainline.patch"
 	${git} "${DIR}/patches/packaging/0002-deb-pkg-install-dtbs-in-linux-image-package.patch"
 	#${git} "${DIR}/patches/packaging/0003-deb-pkg-no-dtbs_install.patch"
 }

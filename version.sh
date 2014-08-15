@@ -21,19 +21,19 @@ config="imx_v6_v7_defconfig"
 #toolchain="gcc_linaro_eabi_4_9"
 #toolchain="gcc_linaro_gnueabi_4_6"
 #toolchain="gcc_linaro_gnueabihf_4_7"
-toolchain="gcc_linaro_gnueabihf_4_8"
-#toolchain="gcc_linaro_gnueabihf_4_9"
+#toolchain="gcc_linaro_gnueabihf_4_8"
+toolchain="gcc_linaro_gnueabihf_4_9"
 
 #Kernel/Build
-KERNEL_REL=3.15
-KERNEL_TAG=${KERNEL_REL}.9
-BUILD=rex5
+KERNEL_REL=3.16
+KERNEL_TAG=${KERNEL_REL}
+BUILD=rex0
 
 #v3.X-rcX + upto SHA
-#KERNEL_SHA=""
+KERNEL_SHA="c9d26423e56ce1ab4d786f92aebecf859d419293"
 
 #git branch
-BRANCH="v3.15.x-rex"
+BRANCH="v3.17.x-rex"
 
 DISTRO=cross
 DEBARCH=armhf
