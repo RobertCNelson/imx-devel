@@ -1,6 +1,6 @@
 #!/bin/sh -e
 #
-# Copyright (c) 2009-2013 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2009-2014 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ git_kernel_stable () {
 git_kernel_torvalds () {
 	echo "-----------------------------"
 	echo "scripts/git: pulling from: ${torvalds_linux}"
-	git pull ${GIT_OPTS} ${torvalds_linux} master --tags || true
+	git pull ${git_opts} ${torvalds_linux} master --tags || true
 	git tag | grep v${KERNEL_TAG} >/dev/null 2>&1 || git_kernel_stable
 }
 
@@ -110,6 +110,18 @@ git_kernel () {
 
 	cd ${DIR}/KERNEL/
 
+	#Debian Jessie: git version 2.0.0.rc0
+	#Disable git's default setting of running `git gc --auto` in the background as the patch.sh script can fail.
+	git config --local --list | grep gc.autodetach >/dev/null 2>&1 || git config --local gc.autodetach 0
+
+	if [ ! "${git_config_user_email}" ] ; then
+		git config --local user.email you@example.com
+	fi
+
+	if [ ! "${git_config_user_name}" ] ; then
+		git config --local user.name "Your Name"
+	fi
+
 	if [ "${RUN_BISECT}" ] ; then
 		git bisect reset || true
 	fi
@@ -121,7 +133,7 @@ git_kernel () {
 	git reset --hard HEAD
 	git checkout master -f
 
-	git pull ${GIT_OPTS} || true
+	git pull ${git_opts} || true
 
 	git tag | grep v${KERNEL_TAG} | grep -v rc >/dev/null 2>&1 || git_kernel_torvalds
 
@@ -149,8 +161,8 @@ git_kernel () {
 	fi
 
 	if [ "${TOPOFTREE}" ] ; then
-		git pull ${GIT_OPTS} ${torvalds_linux} master || true
-		git pull ${GIT_OPTS} ${torvalds_linux} master --tags || true
+		git pull ${git_opts} ${torvalds_linux} master || true
+		git pull ${git_opts} ${torvalds_linux} master --tags || true
 	fi
 
 	git describe
@@ -162,34 +174,18 @@ git_kernel () {
 . ${DIR}/system.sh
 
 unset git_config_user_email
-git_config_user_email=$(git config --get user.email || true)
+git_config_user_email=$(git config --global --get user.email || true)
+if [ ! "${git_config_user_email}" ] ; then
+	git config --local user.email you@example.com
+fi
 
 unset git_config_user_name
-git_config_user_name=$(git config --get user.name || true)
-
-if [ ! "${git_config_user_email}" ] || [ ! "${git_config_user_name}" ] ; then
-	echo "-----------------------------"
-	echo "Error: git user.name/user.email not set:"
-	echo ""
-	echo "For help please read:"
-	echo "https://help.github.com/articles/setting-your-username-in-git"
-	echo "https://help.github.com/articles/setting-your-email-in-git"
-	echo ""
-	echo "For example, if your real name and email was: Billy Everteen & me@here.com"
-	echo "you would type the following into the terminal window to set it up:"
-	echo "-----------------------------"
-	echo "git config --global user.name \"Billy Everyteen\""
-	echo "git config --global user.email \"me@here.com\""
-	echo "-----------------------------"
-	exit 1
+git_config_user_name=$(git config --global --get user.name || true)
+if [ ! "${git_config_user_name}" ] ; then
+	git config --local user.name "Your Name"
 fi
 
-if [ "${GIT_OVER_HTTP}" ] ; then
-	torvalds_linux="http://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
-	linux_stable="http://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-else
-	torvalds_linux="git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
-	linux_stable="git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
-fi
+torvalds_linux="https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git"
+linux_stable="https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git"
 
 git_kernel

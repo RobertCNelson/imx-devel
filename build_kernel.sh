@@ -1,6 +1,6 @@
 #!/bin/sh -e
 #
-# Copyright (c) 2009-2013 Robert Nelson <robertcnelson@gmail.com>
+# Copyright (c) 2009-2014 Robert Nelson <robertcnelson@gmail.com>
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ mkdir -p ${DIR}/deploy/
 patch_kernel () {
 	cd ${DIR}/KERNEL
 
-	export DIR GIT_OPTS
+	export DIR
 	/bin/sh -e ${DIR}/patch.sh || { git add . ; exit 1 ; }
 
 	if [ ! "${RUN_BISECT}" ] ; then
@@ -69,8 +69,18 @@ make_kernel () {
 	make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=${CC} ${address} ${image} modules
 
 	unset DTBS
-	cat ${DIR}/KERNEL/arch/arm/Makefile | grep "dtbs:" >/dev/null 2>&1 && DTBS=1
-	if [ "x${DTBS}" != "x" ] ; then
+	cat ${DIR}/KERNEL/arch/arm/Makefile | grep "dtbs:" >/dev/null 2>&1 && DTBS=enable
+
+	#FIXME: Starting with v3.15-rc0
+	unset has_dtbs_install
+	if [ "x${DTBS}" = "x" ] ; then
+		cat ${DIR}/KERNEL/arch/arm/Makefile | grep "dtbs dtbs_install:" >/dev/null 2>&1 && DTBS=enable
+		if [ "x${DTBS}" = "xenable" ] ; then
+			has_dtbs_install=enable
+		fi
+	fi
+
+	if [ "x${DTBS}" = "xenable" ] ; then
 		echo "-----------------------------"
 		echo "make -j${CORES} ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=${CC} dtbs"
 		echo "-----------------------------"
@@ -111,10 +121,15 @@ make_kernel () {
 make_pkg () {
 	cd ${DIR}/KERNEL/
 
-	#FIXME: xz might not be available everywhere...
-	#FIXME: ./tools/install_kernel.sh needs update...
-	deployfile="-${pkg}.tar.xz"
-	tar_options="--create --xz --file"
+	deployfile="-${pkg}.tar.gz"
+	tar_options="--create --gzip --file"
+
+	if [ "${AUTO_TESTER}" ] ; then
+		#FIXME: xz might not be available everywhere...
+		#FIXME: ./tools/install_kernel.sh needs update...
+		deployfile="-${pkg}.tar.xz"
+		tar_options="--create --xz --file"
+	fi
 
 	if [ -f "${DIR}/deploy/${KERNEL_UTS}${deployfile}" ] ; then
 		rm -rf "${DIR}/deploy/${KERNEL_UTS}${deployfile}" || true
@@ -136,7 +151,11 @@ make_pkg () {
 		make -s ARCH=arm CROSS_COMPILE=${CC} firmware_install INSTALL_FW_PATH=${DIR}/deploy/tmp
 		;;
 	dtbs)
-		find ./arch/arm/boot/ -iname "*.dtb" -exec cp -v '{}' ${DIR}/deploy/tmp/ \;
+		if [ "x${has_dtbs_install}" = "xenable" ] ; then
+			make -s ARCH=arm LOCALVERSION=-${BUILD} CROSS_COMPILE=${CC} dtbs_install INSTALL_DTBS_PATH=${DIR}/deploy/tmp
+		else
+			find ./arch/arm/boot/ -iname "*.dtb" -exec cp -v '{}' ${DIR}/deploy/tmp/ \;
+		fi
 		;;
 	esac
 
@@ -184,11 +203,7 @@ update_latest () {
 /bin/sh -e ${DIR}/tools/host_det.sh || { exit 1 ; }
 
 if [ ! -f ${DIR}/system.sh ] ; then
-	cp ${DIR}/system.sh.sample ${DIR}/system.sh
-else
-	#fixes for bash -> sh conversion...
-	sed -i 's/bash/sh/g' ${DIR}/system.sh
-	sed -i 's/==/=/g' ${DIR}/system.sh
+	cp -v ${DIR}/system.sh.sample ${DIR}/system.sh
 fi
 
 if [ -f "${DIR}/branches.list" ] ; then
@@ -240,7 +255,7 @@ fi
 make_kernel
 make_modules_pkg
 make_firmware_pkg
-if [ "x${DTBS}" != "x" ] ; then
+if [ "x${DTBS}" = "xenable" ] ; then
 	make_dtbs_pkg
 fi
 if [ "${AUTO_TESTER}" ] ; then
