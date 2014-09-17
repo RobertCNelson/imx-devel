@@ -67,26 +67,45 @@ local_patch () {
 #external_git
 #local_patch
 
-vivante () {
-	echo "dir: vivante"
-	#http://git.freescale.com/git/cgit.cgi/imx/linux-2.6-imx.git/
-	#git checkout v3.10.17 -b freescale
-	#git pull --no-edit git://git.freescale.com/imx/linux-2.6-imx.git imx_3.10.17_1.0.0_beta
-	#git format-patch -1 -o /opt/github/linux-dev/patches/vivante/ 3b934d57da5637f4edabb5504bd668debdbb03b3
-	#git format-patch -1 -o /opt/github/linux-dev/patches/vivante/ 2d570481f146218b5148930b573401070526cc1a
-	#git checkout master -f ; git branch -D freescale
-
-	${git} "${DIR}/patches/vivante/0001-ENGR00240988-drm-copy-vivante-driver-from-3.5.7-kern.patch"
-	${git} "${DIR}/patches/vivante/0002-ENGR00240988-drm-vivante-remove-reclaim_buffers-call.patch"
-
-	#fixes:
-	${git} "${DIR}/patches/vivante/0003-drm-vivante-build-fixes.patch"
-
-	#v3.14.x+
-	${git} "${DIR}/patches/vivante/0004-Fixed-vivante-driver-for-kernel-3.14.x.patch"
+wand () {
+	echo "dir: wand"
+	#${git} "${DIR}/patches/wand/0001-ARM-i.MX6-Wandboard-add-wifi-bt-rfkill-driver.patch"
+	#${git} "${DIR}/patches/wand/0002-ARM-dts-wandboard-add-binding-for-wand-rfkill-driver.patch"
+	${git} "${DIR}/patches/wand/0003-Vivante-v4-driver.patch"
 }
 
-vivante
+freescale () {
+	echo "dir: freescale/ipu-v3"
+	${git} "${DIR}/patches/freescale/ipu-v3/0001-gpu-ipu-v3-Add-ipu-cpmem-unit.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0002-staging-imx-drm-Convert-to-new-ipu_cpmem-API.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0003-gpu-ipu-v3-Add-functions-to-set-CSI-IC-source-muxes.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0004-gpu-ipu-v3-Rename-and-add-IDMAC-channels.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0005-gpu-ipu-v3-Add-Camera-Sensor-Interface-unit.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0006-gpu-ipu-v3-Add-Image-Converter-unit.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0007-gpu-ipu-v3-smfc-Move-enable-disable-to-ipu-smfc.c.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0008-gpu-ipu-v3-smfc-Convert-to-per-channel.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0009-gpu-ipu-v3-smfc-Add-ipu_smfc_set_watermark.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0010-gpu-ipu-v3-Add-ipu_mbus_code_to_colorspace.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0011-gpu-ipu-v3-Add-rotation-mode-conversion-utilities.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0012-gpu-ipu-v3-Add-helper-function-checking-if-pixfmt-is.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0013-gpu-ipu-v3-Move-IDMAC-channel-names-to-imx-ipu-v3.h.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0014-gpu-ipu-v3-Add-ipu_idmac_buffer_is_ready.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0015-gpu-ipu-v3-Add-ipu_idmac_clear_buffer.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0016-gpu-ipu-v3-Add-__ipu_idmac_reset_current_buffer.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0017-gpu-ipu-v3-Add-ipu_stride_to_bytes.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0018-gpu-ipu-v3-Add-ipu_idmac_enable_watermark.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0019-gpu-ipu-v3-Add-ipu_idmac_lock_enable.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0020-gpu-ipu-cpmem-Add-ipu_cpmem_set_block_mode.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0021-gpu-ipu-cpmem-Add-ipu_cpmem_set_axi_id.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0022-gpu-ipu-cpmem-Add-ipu_cpmem_set_rotation.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0023-gpu-ipu-cpmem-Add-second-buffer-support-to-ipu_cpmem.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0024-gpu-ipu-v3-Add-more-planar-formats-support.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0025-gpu-ipu-cpmem-Add-ipu_cpmem_dump.patch"
+	${git} "${DIR}/patches/freescale/ipu-v3/0026-gpu-ipu-v3-Add-ipu_dump.patch"
+}
+
+wand
+freescale
 
 packaging_setup () {
 	cp -v "${DIR}/3rdparty/packaging/builddeb" "${DIR}/KERNEL/scripts/package"
